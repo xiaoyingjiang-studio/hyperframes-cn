@@ -1,6 +1,6 @@
 {
-  "lastAttempt": "2026-11-25T10:06:44.795Z",
-  "lastSuccess": "2026-11-25T10:06:44.795Z",
+  "lastAttempt": "2026-11-25T10:13:17.991Z",
+  "lastSuccess": "2026-11-25T10:13:17.991Z",
   "result": "success",
   "upstreamCommit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
   "pendingPageIds": [
@@ -8,8 +8,8 @@
     "start-cli",
     "updates",
     "mechanisms-brief",
-    "mechanisms-checks",
     "mechanisms-history",
+    "mechanisms-checks",
     "mechanisms-references",
     "skills-hyperframes",
     "skills-hyperframes-cli",
