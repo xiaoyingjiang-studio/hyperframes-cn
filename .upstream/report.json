@@ -1,12 +1,26 @@
 {
-  "checkedAt": "2026-11-25T02:47:32.836Z",
-  "commit": "c7e19fdd24cc55ea316495c0429cf142be72c716",
-  "changes": [],
-  "affected": [],
+  "checkedAt": "2026-11-25T04:07:55.045Z",
+  "commit": "2a03de9f1fe25ba0489401ff959eb23e0c9ab083",
+  "changes": [
+    {
+      "type": "modified",
+      "path": "docs/packages/cli.mdx"
+    }
+  ],
+  "affected": [
+    "start-cli"
+  ],
   "generated": [],
-  "skipped": [],
-  "queue": [],
+  "skipped": [
+    {
+      "id": "start-cli",
+      "reason": "达到本批调用或保守 Token 预算上限"
+    }
+  ],
+  "queue": [
+    "start-cli"
+  ],
   "calls": 0,
   "reservedTokens": 0,
-  "aiConfigured": false
+  "aiConfigured": true
 }
