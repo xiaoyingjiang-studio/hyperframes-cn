@@ -6,8 +6,9 @@ import {
   mkdir,
   rm,
 } from "node:fs/promises";
-import { join } from "node:path";
+import { join, sep } from "node:path";
 import matter from "gray-matter";
+import { load } from "cheerio";
 import { file, json, save, hash } from "./lib/io.mjs";
 import {
   resolveSite,
@@ -70,7 +71,19 @@ for (const page of records) {
   const header = `# ${entry.title}\n\n规范地址：${site.url}${entry.route}\n\n维护者：${discovery.publisher}（独立社区项目）\n${entry.modified ? `\n正文修订：${entry.modified}（Git 记录）\n` : ""}${entry.reviewedAt ? `\n官方资料核对：${entry.reviewedAt}\n\n适用条件：${entry.appliesTo}\n\n验证边界：${entry.verification || "按所列来源整理；不代表所有入口均已实测。"}\n` : ""}\n许可：原创文字 CC BY 4.0；派生内容与素材分别保留原许可，详见 ${site.url}/community/licenses/\n\n## 官方来源\n\n${entry.sources.map((s) => `- [${s.label}](${s.url})`).join("\n") || "本站原创说明；产品事实见站内关联指南与官方来源。"}\n\n---\n\n`;
   const markdown = header + body.replace(/^# [^\n]+\n*/, "") + "\n";
   await writeFile(file("dist" + entry.markdown), markdown);
-  entries.push({ ...entry, contentHash: hash(markdown) });
+  const document = load(html);
+  const sections = document("h2[id],h3[id]")
+    .map((_, el) => ({
+      title: document(el).text().trim(),
+      id: document(el).attr("id"),
+      url:
+        site.url +
+        entry.route +
+        "#" +
+        encodeURIComponent(document(el).attr("id")),
+    }))
+    .get();
+  entries.push({ ...entry, sections, contentHash: hash(markdown) });
 }
 await save("dist/content-manifest.json", {
   schemaVersion: 1,
@@ -140,10 +153,16 @@ async function walk(path) {
   }
   return out;
 }
+const knownHTML = new Set(
+  entries.map((page) => file(`dist${page.route}index.html`)),
+);
 for (const path of await walk(file("dist"))) {
   if ((await stat(path)).size > 24 * 1024 * 1024)
     throw new Error(`静态资源超过 24MiB：${path}`);
   if (!path.endsWith(".html")) continue;
+  const isExample = path.startsWith(file("dist/examples") + sep);
+  if (!knownHTML.has(path) && path !== file("dist/404.html") && !isExample)
+    throw new Error(`发现未登记的公开页面：${path}`);
   let html = await readFile(path, "utf8");
   if (
     !site.indexable ||

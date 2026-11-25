@@ -1,9 +1,16 @@
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, stat, readdir } from 'node:fs/promises';
+import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { json, file } from './lib/io.mjs';
 const pages = await json('content/pages.json'); const registry = await json('content/sources.json');
 const sources = new Map(registry.sources.map(s => [s.id, s]));
 const errors = []; const ids = new Set(); const routes = new Set();
+const registeredFiles = new Set(pages.map(p => p.file));
+for (const item of await readdir(file('src/content/docs'), { recursive: true, withFileTypes: true })) {
+  if (!item.isFile() || !/\.mdx?$/.test(item.name)) continue;
+  const path = relative(file(''), join(item.parentPath, item.name)).replaceAll('\\', '/');
+  if (!registeredFiles.has(path)) errors.push(`正文未登记稳定 ID、路由与来源：${path}`);
+}
 if (pages.length < 31) errors.push(`已发布内容不能无迁移说明减少：当前 ${pages.length}`);
 const discovery = await json('content/discovery.json');
 const intents = new Map();
