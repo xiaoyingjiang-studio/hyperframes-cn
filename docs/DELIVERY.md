@@ -2,6 +2,8 @@
 
 日期：2026-11-25（北京时间）。
 
+本文保留首版交付时的验证结果，不作为实时运行状态。后续产品决策与规划见 [项目记忆](PROJECT-MEMORY.md)，增量验证与交接见 [工作记录](WORKLOG.md)；当前测试数量、PR、部署和外部服务状态需重新核实。
+
 ## 已交付
 
 - 32 个中文页面，包含定制首页与 Starlight 文档。
@@ -22,9 +24,9 @@
 
 Cloudflare Wrangler 已完成 OAuth 登录，凭据加密保存，并由 Windows Credential Manager 保护。本地可部署；凭据未复制进仓库或 GitHub。
 
-GitHub 专用 Cloudflare API Token 与 Account ID 已配置。纠正只读 Token 策略后，[自动发布与线上冒烟检查通过](https://github.com/zhkuang/hyperframes-cn/actions/runs/45546321490)。密钥只在 Secrets 与发布步骤内使用；站点构建和浏览器不读取它们。
+GitHub 专用 Cloudflare API Token 与 Account ID 已配置。纠正只读 Token 策略后，[自动发布与线上冒烟检查通过](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/45546321490)。密钥只在 Secrets 与发布步骤内使用；站点构建和浏览器不读取它们。
 
-外部 AI 已配置为阿里云兼容接口与 deepseek-v4.1-flash。[真实鉴权和候选格式检查通过](https://github.com/zhkuang/hyperframes-cn/actions/runs/45544489091)，一次请求使用 3385 Token。真实来源同步还暴露并修复了超长来源预算和 Markdown 转义审计问题；最新同步结果以 [Sync official content 工作流](https://github.com/zhkuang/hyperframes-cn/actions/workflows/upstream.yml) 和待审核 PR 为准。通过接口检查不代表中文稿事实已审核，也不代表网站已经被 AI 搜索引用。没有 AI 仍可执行来源检测、内容编辑、构建和发布。
+外部 AI 已配置为阿里云兼容接口与 deepseek-v4.1-flash。[真实鉴权和候选格式检查通过](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/45544489091)，一次请求使用 3385 Token。真实来源同步还暴露并修复了超长来源预算和 Markdown 转义审计问题；最新同步结果以 [Sync official content 工作流](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/workflows/upstream.yml) 和待审核 PR 为准。通过接口检查不代表中文稿事实已审核，也不代表网站已经被 AI 搜索引用。没有 AI 仍可执行来源检测、内容编辑、构建和发布。
 
 Studio、Codex、Claude Code、Cursor 的账号内创作步骤已核对官方文档，但未逐一登录实操；页面保留了相应验证限制。CLI 原创案例已经实际执行。
 

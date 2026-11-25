@@ -4,6 +4,8 @@
 
 仓库建议命名 hyperframes-cn，公开代码和内容。默认分支 main，启用 Issues 与 Discussions。更新 PUBLIC_REPOSITORY、CODEOWNERS 和 README 中的仓库归属。先检查 git status，避免把 .env、缓存和私人素材纳入提交。
 
+本站现归小影匠工作室组织 `xiaoyingjiang-studio`，源码地址为 `https://github.com/xiaoyingjiang-studio/hyperframes-cn`。本地 origin 应指向该地址；原个人仓库链接由 GitHub 重定向。CODEOWNERS 中的 `@zhkuang` 保留为实际维护者，不替换为不存在的组织团队。案例与资源精选仓库为 `xiaoyingjiang-studio/awesome-hyperframes`，独立维护，不部署为本站。
+
 在 GitHub Settings → Actions → General 中允许 Actions 创建 PR。仅同步任务需要 contents/pull-requests/issues 写权限，普通 PR 检查只读。main 要求 PR 与 Checks / check 通过，禁用自动合并；单维护者阶段不要求无法自我满足的另一位审核者批准。新增维护者后再启用 CODEOWNERS review。
 
 ## 2. Cloudflare 首次配置

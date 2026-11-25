@@ -1,14 +1,16 @@
 # HyperFrames 中文指南
 
-SEO 与 AI 工具搜索引用优化的内容规范、自动审计、真实观测、AI 候选 PR 和域名切换步骤见 [SEO/GEO 维护手册](docs/SEO-GEO.md)。
+后续维护先读 [项目记忆与工作入口](docs/PROJECT-MEMORY.md)，了解产品定位、已确认约束、实现位置与后续规划；阶段进度和验证边界记录在 [工作记录](docs/WORKLOG.md)。SEO、内容审核与部署的详细规则仍由各自手册维护。
 
-面向中国用户的独立开源学习网站：产品能力、快速开始、中文实践、四个真实视频案例，以及随官方更新的内容维护工具。
+面向中国创作者的独立社区网站：首页展示 HyperFrames Studio、真实作品与官方下载入口，中文指南承接安装、上手和进阶实践，并提供四个原创框架视频案例与随官方更新的内容维护工具。
 
 HyperFrames 由 HeyGen 开发。本站为独立社区项目，官方来源为 https://github.com/heygen-com/hyperframes 。
 
-测试站点：https://hyperframes-cn.raijin-kzh.workers.dev
+正式域名：https://xiaoyingjiang.com/ 。本地与 PR 预览默认 noindex；配置与发布状态以站点配置、GitHub Variables 和实际工作流为准。
 
-公开源码：https://github.com/zhkuang/hyperframes-cn
+公开源码：https://github.com/xiaoyingjiang-studio/hyperframes-cn
+
+由[小影匠工作室](https://github.com/xiaoyingjiang-studio)维护。优质案例与资源目录独立收录在 [awesome-hyperframes](https://github.com/xiaoyingjiang-studio/awesome-hyperframes)。
 
 ## 本地运行
 
@@ -62,9 +64,9 @@ pnpm preview
 2. 在 Cloudflare 创建 Worker 或首次使用 Wrangler 部署，采用仓库内 wrangler.jsonc；不同时启用 Workers Builds。
 3. 根据[部署与维护手册](docs/MAINTAINER.md)设置 GitHub Environments、Secrets、Variables 与分支规则。
 4. 手动运行 Deploy production，确认工作流成功与线上冒烟检查结果。
-5. 暂用真实 workers.dev 地址，保持 SITE_INDEXABLE=false；域名后续接入。
+5. 新部署先用真实 workers.dev 地址验证，保持 SITE_INDEXABLE=false；本站正式域名与旧入口迁移规则见 [SEO/GEO 维护手册](docs/SEO-GEO.md)，不要用新部署示例覆盖现有配置。
 
-当前网站通过 Wrangler 登录账号进行首次发布，默认不开放搜索引擎收录。后续 GitHub 自动发布需要在 Environments 中配置专用 Cloudflare 部署 Token；未配置时工作流明确跳过发布，检查与来源检测仍可运行。AI 接口配置独立于网站发布。具体状态见 docs/DELIVERY.md。
+本站已有正式域名与 GitHub 自动发布的历史验证记录，见 [首版交付记录](docs/DELIVERY.md)。当前配置与运行结果需从实际工作流核实；本地默认仍保持 SITE_INDEXABLE=false。AI 接口配置独立于网站发布。
 
 ## 内容规范
 
