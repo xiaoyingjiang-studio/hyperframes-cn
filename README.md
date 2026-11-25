@@ -1,5 +1,7 @@
 # HyperFrames 中文指南
 
+SEO 与 AI 工具搜索引用优化的内容规范、自动审计、真实观测、AI 候选 PR 和域名切换步骤见 [SEO/GEO 维护手册](docs/SEO-GEO.md)。
+
 面向中国用户的独立开源学习网站：产品能力、快速开始、中文实践、四个真实视频案例，以及随官方更新的内容维护工具。
 
 HyperFrames 由 HeyGen 开发。本站为独立社区项目，官方来源为 https://github.com/heygen-com/hyperframes 。

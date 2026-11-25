@@ -37,10 +37,15 @@ jobs:
       SITE_INDEXABLE: ${{ vars.SITE_INDEXABLE || 'false' }}
       PUBLIC_REPOSITORY: https://github.com/${{ github.repository }}
       OLD_DEFAULT_HOST: ${{ vars.OLD_DEFAULT_HOST }}
+      GOOGLE_SITE_VERIFICATION: ${{ vars.GOOGLE_SITE_VERIFICATION }}
+      BING_SITE_VERIFICATION: ${{ vars.BING_SITE_VERIFICATION }}
+      BAIDU_SITE_VERIFICATION: ${{ vars.BAIDU_SITE_VERIFICATION }}
+      INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
         with:
           version: 10.32.1
@@ -54,6 +59,8 @@ jobs:
       - run: pnpm build
       - name: Require a real deployment URL
         run: node -e "if(!process.env.SITE_URL?.startsWith('https://')) throw Error('Configure the actual workers.dev or custom SITE_URL before deploying')"
+      - name: Capture previous published content hashes
+        run: node scripts/previous-manifest.mjs
       - name: Deploy static assets
         run: pnpm exec wrangler deploy
         env:
@@ -62,5 +69,16 @@ jobs:
       - run: node scripts/smoke.mjs
         env:
           SMOKE_URL: ${{ vars.SITE_URL }}
+      - name: Notify IndexNow only after successful deployment and smoke check
+        run: pnpm indexnow --submit
+        continue-on-error: true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: deployment-discovery-reports
+          path: |
+            artifacts/discovery-audit.json
+            artifacts/indexnow-result.json
+          if-no-files-found: ignore
       - name: Record release
         run: echo "Published commit $GITHUB_SHA to $SITE_URL" >> "$GITHUB_STEP_SUMMARY"

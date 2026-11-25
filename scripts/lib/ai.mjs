@@ -31,7 +31,8 @@ export async function generateDraft(input, { env = process.env, fetcher = fetch,
       const parsed = JSON.parse(value?.replace(/^```(?:json)?\s*|\s*```$/g, ''));
       validateDraft(parsed.body);
       if (typeof parsed.summary !== 'string' || !Array.isArray(parsed.checks) || parsed.checks.some(x => typeof x !== 'string')) throw new DraftError('候选输出不符合约定');
-      return { body: parsed.body, summary: parsed.summary, checks: parsed.checks, usage: payload.usage || null };
+      if (input.currentAnswer && (typeof parsed.answer !== 'string' || parsed.answer.length < 45 || parsed.answer.length > 180 || /[<>]|\n/.test(parsed.answer))) throw new DraftError('来源变化需要同时返回 45–180 字的纯文本 answer 摘要');
+      return { body: parsed.body, summary: parsed.summary, checks: parsed.checks, ...(parsed.answer ? { answer: parsed.answer } : {}), usage: payload.usage || null };
     } catch (error) {
       if (error.fatal || attempt === 2) throw error instanceof DraftError ? error : new DraftError('AI 响应无法解析或请求超时');
       await sleep(500 * 2 ** attempt);

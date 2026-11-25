@@ -16,7 +16,7 @@ export default defineConfig({
     locales: { root: { label: '简体中文', lang: 'zh-CN' } },
     social: [{ icon: 'github', label: 'GitHub', href: repository }],
     editLink: { baseUrl: `${repository}/edit/main/` },
-    customCss: ['./src/styles/global.css'],
+    customCss: ['./src/styles/global.css', './src/styles/discovery.css'],
     components: {
       Header: './src/components/Header.astro',
       PageTitle: './src/components/PageTitle.astro',

@@ -8,6 +8,8 @@
 
 ## 元信息
 
+每个内容 ID 还需在 `content/discovery.json` 登记主问题、45–180 字的简明回答和检索用语。回答是读者可见正文，也用于 SEO 描述；上游变化必须同时核对摘要和全文。规则及优化流程见 [SEO/GEO 手册](SEO-GEO.md)。
+
 每篇内容必须包含 title、description、contentId、kind、sources、reviewedAt、appliesTo、status。原创实践与未执行的账号步骤填写 verification。contentId 与 content/pages.json 一致，sources 使用 content/sources.json 中的稳定 ID。
 
 kind 为 adaptation、original、tutorial、case、update、index。status 为 reviewed、practice、needs-review。needs-review 允许生成预览，但禁止进入正式部署。

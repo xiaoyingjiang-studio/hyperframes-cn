@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "publisher": "HyperFrames 中文指南维护者",
+  "pages": [
+    {
+      "id": "home",
+      "question": "HyperFrames 是什么，如何开始使用？",
+      "answer": "HyperFrames 是 HeyGen 开源的 HTML 视频创作框架。你可以通过 Studio、AI Agent 或 CLI 制作可编辑的视频项目。本指南由社区独立维护，提供中文教程、官方资料来源与可下载复现的原创案例。",
+      "terms": ["HyperFrames", "中文教程", "HTML 视频"]
+    },
+    {
+      "id": "overview-what-is-hyperframes",
+      "question": "HyperFrames 是什么？",
+      "answer": "HyperFrames 用 HTML、CSS、JavaScript 和时间轴描述视频，将网页技术组织成可预览、可渲染的项目。它提供 Studio、Agent 与 CLI 等使用方式；具体能力和服务条件应按对应入口核对。",
+      "terms": ["HyperFrames 是什么", "HTML 视频", "开源"]
+    },
+    {
+      "id": "overview-choose-your-path",
+      "question": "应该选择 Studio、Agent 还是 CLI？",
+      "answer": "希望直接描述需求并预览作品，可以先了解 Studio；已有 Codex、Claude Code 或 Cursor 工作流，可以从 Agent 开始；需要掌握检查、渲染与自动化，可以选择 CLI。三种路径都需要核对各自环境与服务条件。",
+      "terms": ["Studio", "Agent", "CLI"]
+    },
+    {
+      "id": "overview-free-and-paid",
+      "question": "HyperFrames 免费吗，哪些功能可能收费？",
+      "answer": "开源框架的许可与在线服务的计费是不同事项。使用本地框架时仍需考虑素材许可与计算资源；涉及生成模型、账号或托管服务时，应查看官方当前条款，不能将开源等同于所有服务免费。",
+      "terms": ["免费", "费用", "许可"]
+    },
+    {
+      "id": "start-studio",
+      "question": "如何用 HyperFrames Studio 开始制作视频？",
+      "answer": "先按官方入口安装适合系统的 Studio，再描述目标、检查预览并逐步修改。开始前核对平台、登录及服务条件。本页按官方流程整理，未将本站没有完成的账号操作标为实测。",
+      "terms": ["Studio", "安装", "入门"]
+    },
+    {
+      "id": "start-codex",
+      "question": "如何在 Codex 中使用 HyperFrames？",
+      "answer": "让 Codex 读取 HyperFrames 的官方 Skills，并在明确的项目目录中创建和修改视频。先给出时长、画幅、文案与素材，再检查项目、预览关键帧并渲染；具体权限和命令以工具环境与官方说明为准。",
+      "terms": ["Codex", "Skills", "视频"]
+    },
+    {
+      "id": "start-claude-code",
+      "question": "如何在 Claude Code 中使用 HyperFrames？",
+      "answer": "在 Claude Code 的工作目录中准备 HyperFrames Skills 与项目材料，让 Agent 按时间轴生成和迭代作品。生成后仍需运行项目检查与渲染，并核对字幕、字体及素材加载情况。",
+      "terms": ["Claude Code", "Skills", "入门"]
+    },
+    {
+      "id": "start-cursor",
+      "question": "如何在 Cursor 中使用 HyperFrames？",
+      "answer": "在 Cursor 中打开独立视频项目，准备官方 Skills 和清楚的制作要求，再用 Agent 逐步生成、预览与修改。每次迭代应检查实际画面，导出前确认资源齐全及动画可以按时间定位。",
+      "terms": ["Cursor", "Agent", "入门"]
+    },
+    {
+      "id": "start-cli",
+      "question": "如何通过命令行创建、检查和渲染视频？",
+      "answer": "HyperFrames CLI 的基本循环是初始化项目、预览、检查，再渲染输出。准备兼容的 Node.js、FFmpeg 与 Chromium 环境；命令参数以实际安装版本的帮助为准，完成后还需用播放器检查成片。",
+      "terms": ["CLI", "render", "命令行"]
+    },
+    {
+      "id": "features-editing",
+      "question": "HyperFrames 如何创作和编辑视频？",
+      "answer": "HyperFrames 将视频保留为可编辑的 HTML 项目。你可以修改文字、布局、媒体与动画，再通过预览和渲染确认结果。Agent 能协助修改代码，但自然语言要求仍需转换为实际项目变化并检查。",
+      "terms": ["编辑", "HTML", "创作"]
+    },
+    {
+      "id": "features-captions",
+      "question": "如何制作字幕和动态文字？",
+      "answer": "字幕与动态文字可以作为视频项目中的文本元素，按时间轴控制出现、强调与离场。中文内容需同时检查字体覆盖、换行、安全区和停留时长；语音识别或配音服务另有使用条件。",
+      "terms": ["字幕", "动态文字", "中文"]
+    },
+    {
+      "id": "features-motion",
+      "question": "HyperFrames 支持哪些动画与效果？",
+      "answer": "HTML 布局、CSS 样式与 GSAP 时间轴可以组织文字动效、视觉强调和场景转场。导出要求动画能够按给定时间还原画面，应避免依赖不可控的实时计时或外部状态。",
+      "terms": ["动画", "GSAP", "转场"]
+    },
+    {
+      "id": "features-media",
+      "question": "如何使用图片、视频、声音和配音？",
+      "answer": "视频项目可以组织图片、视频与声音等素材。使用前应确认文件可加载、时间范围和素材许可；调用生成或配音服务时还要核对账号、模型和费用条件，不能假设本地项目已包含这些服务。",
+      "terms": ["配音", "声音", "媒体"]
+    },
+    {
+      "id": "features-skills-catalog",
+      "question": "Skills、组件和 Catalog 各有什么用？",
+      "answer": "Skills 提供 Agent 制作视频时可参考的工作规范，Catalog 提供可复用的组件或区块入口。安装后仍需将资源接入项目，并核对依赖、时间轴和许可；组件不是无需配置即可使用的成片。",
+      "terms": ["Skills", "Catalog", "组件"]
+    },
+    {
+      "id": "features-render-share",
+      "question": "如何预览、导出和分享 HyperFrames 视频？",
+      "answer": "先预览关键时刻并运行检查，再渲染为视频文件；分享前确认画幅、时长、字幕和音画。可编辑项目与导出视频是不同交付物，分享项目时还需保留依赖、素材与许可记录。",
+      "terms": ["render", "导出", "预览"]
+    },
+    {
+      "id": "guides-prompting",
+      "question": "怎样写提示词并有效迭代视频？",
+      "answer": "先说明受众、目标、时长、画幅、文案和素材，再按场景描述节奏与重点。每轮选择可检查的修改目标，例如标题大小或停留时长，并对照实际预览确认，避免同时更改太多因素。",
+      "terms": ["提示词", "迭代", "Agent"]
+    },
+    {
+      "id": "guides-chinese-typography",
+      "question": "中文字体和字幕如何避免缺字或换行问题？",
+      "answer": "选择许可清楚、字形覆盖完整的中文字体，并让渲染环境能够实际加载。检查长句换行、行高、字号和安全区；本站案例包含所需字体与许可，其他项目仍需按自己的文案核对字符覆盖。",
+      "terms": ["中文字体", "字幕", "缺字"]
+    },
+    {
+      "id": "guides-windows",
+      "question": "Windows 上运行 HyperFrames 要准备什么？",
+      "answer": "Windows 用户需要兼容的 Node.js、可调用的 FFmpeg 和 Chromium 环境，并留意终端路径、文件权限与字体加载。本站记录了原创案例的本地执行结果，其他交互式安装流程仍应按官方说明核对。",
+      "terms": ["Windows", "FFmpeg", "安装"]
+    },
+    {
+      "id": "guides-project-structure",
+      "question": "HyperFrames 项目由哪些文件组成？",
+      "answer": "项目以 HTML 组织画面，结合样式、脚本、媒体和动画时间轴描述作品。理解根合成、资源路径与可寻址时间轴，有助于定位预览和渲染差异，也方便复用或自动化修改。",
+      "terms": ["项目结构", "合成", "时间轴"]
+    },
+    {
+      "id": "guides-troubleshooting",
+      "question": "预览或渲染失败应该怎样排查？",
+      "answer": "先保留完整错误与工具版本，再分别检查环境、项目结构、资源加载和时间轴。预览成功不代表导出必然一致；用项目检查、关键帧截图和实际视频播放逐步缩小问题范围。",
+      "terms": ["报错", "排错", "render"]
+    },
+    {
+      "id": "showcase",
+      "question": "在哪里查看并下载真实 HyperFrames 案例？",
+      "answer": "本站提供产品介绍、中文讲解、数据动画和素材剪辑四个原创短案例，包含实际 MP4、海报、完整项目与验证记录。概念界面和演示数据均注明用途，可以下载后修改并重新渲染。",
+      "terms": ["案例", "下载", "示例"]
+    },
+    {
+      "id": "showcase-product-intro",
+      "question": "怎样复现产品介绍视频案例？",
+      "answer": "这是一个 8 秒原创产品介绍案例，以文字、HTML 概念界面与 GSAP 表达从想法到成片的流程。页面提供真实视频、完整项目 ZIP 和验证记录；画面是概念演示，不冒充真实产品截图。",
+      "terms": ["产品介绍", "案例", "项目下载"]
+    },
+    {
+      "id": "showcase-chinese-explainer",
+      "question": "怎样制作并复现中文讲解案例？",
+      "answer": "中文讲解案例用短场景展示中文文字的信息层级与节奏。页面提供实际成片和可下载项目，复现时重点检查中文字体、换行和时间轴；具体制作与验证范围见正文记录。",
+      "terms": ["中文讲解", "案例", "字幕"]
+    },
+    {
+      "id": "showcase-data-story",
+      "question": "怎样制作可复现的数据动画？",
+      "answer": "数据动画案例用演示数据组织数字、图形与强调动画，提供实际成片和完整项目。数值仅用于演示，不代表真实业务表现；修改数据后应重新检查图形关系、文字与动画时长。",
+      "terms": ["数据动画", "图表", "演示数据"]
+    },
+    {
+      "id": "showcase-footage-edit",
+      "question": "怎样将已有素材组织成视频？",
+      "answer": "素材剪辑案例演示如何安排素材、标题和场景节奏，并提供实际成片、项目与验证记录。替换素材时需重新核对资源路径、时长、画幅与使用许可，不能只修改文件名就认为完成。",
+      "terms": ["素材剪辑", "案例", "视频素材"]
+    },
+    {
+      "id": "updates",
+      "question": "如何跟踪官方变化和中文站更新？",
+      "answer": "更新栏目区分官方内容解读与中文站维护记录。本站按固定来源版本整理内容，通过候选改动和人工审核持续维护；来源已变化但尚未核对的页面会保留原有版本说明。",
+      "terms": ["更新", "版本", "维护"]
+    },
+    {
+      "id": "updates-first-edition",
+      "question": "首版指南覆盖哪些官方能力？",
+      "answer": "首篇解读围绕 Studio、Agent 和 CLI 三种入口组织学习路径，连接入门、能力与案例页面。它是对所列官方资料的中文整理，核对日期不等于上游发布版本，使用时仍需查看条件与来源。",
+      "terms": ["首版", "官方解读", "学习路径"]
+    },
+    {
+      "id": "updates-site-changelog",
+      "question": "中文站自身的改动在哪里记录？",
+      "answer": "中文站更新记录说明内容、案例和维护机制的变化，并与上游产品更新区分。普通文字修订不自动刷新官方资料的核对日期；版本差异和实际发布情况可结合 GitHub 提交记录查看。",
+      "terms": ["中文站更新", "更新记录", "开源"]
+    },
+    {
+      "id": "community-about",
+      "question": "这是 HyperFrames 官方中文网站吗？",
+      "answer": "本站是独立维护的中文开源学习指南，不代表 HeyGen 或 HyperFrames 官方。HyperFrames 由 HeyGen 开发；本站保留官方来源、核对日期与实践边界，并通过 GitHub 接受反馈和贡献。",
+      "terms": ["关于", "独立维护", "官方"]
+    },
+    {
+      "id": "community-contributing",
+      "question": "如何贡献中文内容或反馈问题？",
+      "answer": "可以通过 GitHub Issues 反馈错误，通过 Pull Request 改进教程、来源映射或案例。贡献应保留稳定内容 ID、来源与验证限制；涉及官方变化时，维护者审核后再更新已核对的来源版本。",
+      "terms": ["贡献", "反馈", "Pull Request"]
+    },
+    {
+      "id": "community-sources",
+      "question": "官方内容如何同步为中文指南？",
+      "answer": "维护脚本固定上游提交、归档来源并比较变化，再定位受影响的中文页面。AI 接口可配置，用于生成候选稿；正式页面始终以人工审核后的 main 分支为准，采集成功不代表内容已经核对。",
+      "terms": ["来源", "同步", "AI 更新"]
+    },
+    {
+      "id": "community-licenses",
+      "question": "本站内容和案例分别采用什么许可？",
+      "answer": "网站代码与维护脚本采用 Apache-2.0，中文站原创文字采用 CC BY 4.0。上游派生内容、第三方图片、字体、视频与其他依赖保留各自许可及归属，不能将全部素材统一视为本站原创授权。",
+      "terms": ["许可", "Apache-2.0", "CC BY"]
+    }
+  ]
+}

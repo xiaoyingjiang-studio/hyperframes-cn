@@ -59,3 +59,10 @@ test('合法响应返回 Markdown 和用量；每次尝试计入预算',async()=
 test('预算耗尽不发出请求',async()=>{
  let called=false;await assert.rejects(generateDraft({},{env:{...env,AI_MAX_CALLS:'0'},fetcher:()=>{called=true}}),e=>e.fatal);assert.equal(called,false);
 });
+test('来源变化候选不能只更新正文而遗漏可见答案摘要',async()=>{
+ const payload={body:'中文正文。'.repeat(35),summary:'来源更新',checks:[]};
+ const fetcher=async()=>({ok:true,json:async()=>({choices:[{message:{content:JSON.stringify(payload)}}]})});
+ await assert.rejects(generateDraft({currentAnswer:'既有摘要'},{env,fetcher,sleep:async()=>{}}),/answer/);
+ payload.answer='依据新来源核对后的中文答案。'.repeat(4);
+ const result=await generateDraft({currentAnswer:'既有摘要'},{env,fetcher,sleep:async()=>{}});assert.equal(result.answer,payload.answer);
+});
