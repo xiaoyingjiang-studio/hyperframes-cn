@@ -14,6 +14,8 @@ if(action==='begin'){
   const pulls=await api(`pulls?state=open&head=${repo.split('/')[0]}:automation/upstream`);if(pulls.length)throw new Error('已有 PR，拒绝覆盖');
   const pr=await api('pulls','POST',{title:'docs: 核对 HyperFrames 官方内容变化',head:'automation/upstream',base:'main',draft:true,body:body+'\n\n审核步骤：查看差异和候选报告，修正内容；对核对完成的页面运行 node scripts/review-content.mjs <contentId>，提交记录后合并。机器人不会自动合并。'});
   console.log(pr.html_url);
+  const branch=await api('git/ref/heads/automation/upstream');
+  await api(`statuses/${branch.object.sha}`,'POST',{state:'success',context:'check',description:'同一同步工作流已完成内容、单元、构建审计与浏览器验证',target_url:`https://github.com/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`});
  }else{
   const issues=await api('issues?state=open&per_page=100');const existing=issues.find(x=>!x.pull_request&&x.title==='官方内容同步待办');
   if(existing)await api(`issues/${existing.number}`,'PATCH',{body});else await api('issues','POST',{title:'官方内容同步待办',body});

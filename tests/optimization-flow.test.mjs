@@ -63,6 +63,7 @@ test(
         "scripts/lib/io.mjs",
         "scripts/lib/optimization.mjs",
         "scripts/lib/ai.mjs",
+      "scripts/lib/source-context.mjs",
       ]) {
         await mkdir(dirname(resolve(directory, path)), { recursive: true });
         await copyFile(resolve(root, path), resolve(directory, path));

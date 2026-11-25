@@ -4,6 +4,8 @@ import { json, save, file, hash } from './lib/io.mjs';
 import { collect, diffIndex, affectedPages } from './lib/upstream.mjs';
 import { generateDraft, configured, Budget, checkCommands } from './lib/ai.mjs';
 import { applyCandidate } from './lib/candidate.mjs';
+import { buildSourceContext } from './lib/source-context.mjs';
+import { archiveSnapshot } from './lib/snapshots.mjs';
 
 const bootstrap = process.argv.includes('--bootstrap');
 const apply = process.argv.includes('--apply');
@@ -19,7 +21,7 @@ try {
   const changes = diffIndex(previous.entries, observed.index);
   const affected = bootstrap ? [] : affectedPages(pages, observed);
   const report = { checkedAt: now, commit: observed.commit, changes, affected: affected.map(x => x.id), generated: [], skipped: [], queue: [] };
-  for (const snapshot of Object.values(observed.sources)) await save(`.upstream/snapshots/${snapshot.id}/${snapshot.hash}.json`, snapshot);
+  for (const snapshot of Object.values(observed.sources)) await archiveSnapshot(snapshot);
   if (bootstrap) {
     for (const source of registry.sources) { if (observed.sources[source.id].deleted) throw new Error(`来源不存在：${source.path}`); source.blobSha = observed.sources[source.id].blobSha; }
     for (const page of pages) page.reviewedSources = Object.fromEntries(page.sources.map(id => [id, { hash: observed.sources[id].hash, commit: observed.commit, path: observed.sources[id].path }]));
@@ -38,7 +40,8 @@ try {
     const oldSources = await Promise.all(page.sources.map(id => json(`.upstream/snapshots/${id}/${page.reviewedSources[id]?.hash}.json`, null)));
     try {
       const intent = discovery.pages.find(p => p.id === page.id);
-      const draft = await generateDraft({ pageType: parsed.data.kind, current: parsed.content, currentAnswer: intent.answer, additionalOutput: '除 body、summary、checks 以外，必须输出 answer：依据新来源核对过的页面简明回答，45–180 个字符的单行纯文本，与完整正文一致。', oldSources, newSources: snapshots, glossary }, { budget });
+      const sourceContext = buildSourceContext(oldSources, snapshots);
+      const draft = await generateDraft({ pageType: parsed.data.kind, current: parsed.content, currentAnswer: intent.answer, additionalOutput: '除 body、summary、checks 以外，必须输出 answer：依据新来源核对过的页面简明回答，45–180 个字符的单行纯文本，与完整正文一致。sourceContext.changes 包含完整变更差异，references 是参考材料；partial 表示节选，不得从缺失上下文推断新事实。', sourceContext, glossary }, { budget });
       if (draft.skipped) { report.skipped.push({ id: page.id, reason: draft.reason }); continue; }
       const unknown = checkCommands(draft.body, parsed.content, snapshots.flatMap(s => s.files.map(f => f.text)).join('\n'));
       if (unknown.length) { report.skipped.push({ id: page.id, reason: '生成稿含无法从新来源或原稿确认的命令', commands: unknown }); continue; }

@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import { file, json, save, hash } from "./lib/io.mjs";
 import { validateObservations, prioritize } from "./lib/optimization.mjs";
 import { generateDraft, configured, Budget, checkCommands } from "./lib/ai.mjs";
+import { buildSourceContext } from './lib/source-context.mjs';
 
 const pages = await json("content/pages.json");
 const intents = await json("content/discovery.json");
@@ -94,8 +95,7 @@ for (const target of queue.slice(0, limit)) {
           "同时返回 answer：45–180 个字符的单行纯文本简明回答，与候选正文一致，不增加未经来源支持的事实。",
         signals: target.reasons,
         current: parsed.content,
-        oldSources: snapshots,
-        newSources: snapshots,
+        sourceContext: buildSourceContext(snapshots, snapshots),
         glossary,
       },
       { budget },
