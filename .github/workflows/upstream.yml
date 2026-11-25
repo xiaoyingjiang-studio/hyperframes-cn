@@ -67,9 +67,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: upstream-report
+          include-hidden-files: true
           path: |
             .upstream/report.json
+            .upstream/candidates/
             content/sync-status.json
+            artifacts/discovery-audit.json
           if-no-files-found: ignore
       - name: Report collection failure
         if: failure()
