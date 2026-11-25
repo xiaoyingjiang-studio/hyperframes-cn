@@ -6,7 +6,7 @@ kind: "tutorial"
 sources: ["developers-cli","packages-cli","quickstart"]
 reviewedAt: "2026-11-25"
 appliesTo: "官方文档 main；功能以当前安装版本为准"
-status: "reviewed"
+status: "needs-review"
 verification: "本站四个原创案例将记录实际 CLI、渲染与媒体检查结果；交互式 init 步骤按官方文档整理。"
 sidebar: {"order":8}
 ---
@@ -23,7 +23,7 @@ cd my-video
 npx hyperframes preview
 ~~~
 
-按初始化提示选择模板，然后在终端显示的地址打开浏览器预览。初次运行可能需要下载软件或浏览器；保留报错信息，不要在失败后直接跳到导出步骤。
+按初始化提示选择模板，然后在终端显示的地址打开浏览器预览编辑器。初次运行可能需要下载软件或浏览器；保留报错信息，不要在失败后直接跳到导出步骤。
 
 ## 检查项目
 
@@ -33,7 +33,7 @@ npx hyperframes check
 npx hyperframes snapshot --at 0,2,5
 ~~~
 
-结构检查、浏览器检查和截图各有用途。查看开场、标题最完整的时刻、转场和片尾；不要只看命令退出成功。
+`lint` 检查 HTML 结构，`check` 运行浏览器、布局、动效和对比度检查，`snapshot` 截取审阅帧。查看开场、标题最完整的时刻、转场和片尾；不要只看命令退出成功。
 
 ## 渲染并检查文件
 
@@ -50,4 +50,6 @@ npx hyperframes render --help
 npx hyperframes doctor
 ~~~
 
-CLI 能力会持续变化，当前安装版本的帮助优先于教程中未注明的新参数。可从[原创案例](/showcase/)下载项目源码，并按案例说明复现。
+CLI 能力会持续变化，当前安装版本的帮助优先于本页未列出的参数说明。`doctor` 用于诊断本机环境。`render` 的浏览器 GPU 自动选择会按机器、显卡驱动和 HyperFrames 版本测量一次，并把结果缓存在 `HYPERFRAMES_CONFIG_DIR`（默认 `~/.hyperframes`）下的 `gpu-choice.json`，之后复用。
+
+可从[原创案例](/showcase/)下载项目源码，并按案例说明复现。

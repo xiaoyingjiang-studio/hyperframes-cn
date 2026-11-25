@@ -1,12 +1,37 @@
 {
-  "checkedAt": "2026-11-25T02:47:32.836Z",
-  "commit": "c7e19fdd24cc55ea316495c0429cf142be72c716",
-  "changes": [],
-  "affected": [],
-  "generated": [],
+  "checkedAt": "2026-11-25T04:33:18.045Z",
+  "commit": "3339cb8ddab30f10d6082d60c384300fdc8d1763",
+  "changes": [
+    {
+      "type": "modified",
+      "path": "docs/packages/cli.mdx"
+    },
+    {
+      "type": "modified",
+      "path": "docs/packages/player.mdx"
+    }
+  ],
+  "affected": [
+    "start-cli"
+  ],
+  "generated": [
+    {
+      "id": "start-cli",
+      "summary": "依据新版 CLI 参考修订检查与渲染说明：明确 lint、check、snapshot 的分工，补充浏览器 GPU 自动选择按机器、驱动和版本测量并缓存到 gpu-choice.json 的行为；保留原有 Node.js/FFmpeg 准备、安装版本帮助优先和原创案例复现说明。",
+      "checks": [
+        "同时核对正文与 content/discovery.json 摘要、价格、账号、系统要求及命令；来源 main 不等同稳定发布承诺",
+        "Node.js 22 或更新兼容版本、FFmpeg 与 Chromium 的最低环境要求是否仍与当前安装文档一致",
+        "本站维护工程使用 Node.js 24 的说明是否仍准确",
+        "`/showcase/` 原创案例链接及下载、复现说明是否有效",
+        "`preview` 在终端地址打开浏览器预览编辑器的表述是否与当前版本一致",
+        "`gpu-choice.json` 的缓存位置、默认 `HYPERFRAMES_CONFIG_DIR` 及按机器、驱动和版本复用的行为是否与已安装版本一致",
+        "`check` 是否仍覆盖浏览器、布局、动效和对比度检查"
+      ]
+    }
+  ],
   "skipped": [],
   "queue": [],
-  "calls": 0,
-  "reservedTokens": 0,
-  "aiConfigured": false
+  "calls": 2,
+  "reservedTokens": 63300,
+  "aiConfigured": true
 }
