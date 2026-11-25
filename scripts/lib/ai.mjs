@@ -1,5 +1,9 @@
 export class DraftError extends Error { constructor(message, fatal = false) { super(message); this.fatal = fatal; } }
 export function configured(env = process.env) { return !!(env.AI_ENDPOINT && env.AI_MODEL && env.AI_API_KEY); }
+export function validateAnswer(answer) {
+  if (typeof answer !== 'string' || answer.length < 45 || answer.length > 180 || /[<>]|\n/.test(answer)) throw new DraftError('来源与内容优化候选需要同时返回 45–180 字的纯文本 answer 摘要');
+  return answer;
+}
 export function validateDraft(body) {
   if (typeof body !== 'string' || body.length < 120) throw new DraftError('候选内容过短或缺少正文');
   const prose = body.replace(/```[\s\S]*?```/g, '');
@@ -31,7 +35,7 @@ export async function generateDraft(input, { env = process.env, fetcher = fetch,
       const parsed = JSON.parse(value?.replace(/^```(?:json)?\s*|\s*```$/g, ''));
       validateDraft(parsed.body);
       if (typeof parsed.summary !== 'string' || !Array.isArray(parsed.checks) || parsed.checks.some(x => typeof x !== 'string')) throw new DraftError('候选输出不符合约定');
-      if (input.currentAnswer && (typeof parsed.answer !== 'string' || parsed.answer.length < 45 || parsed.answer.length > 180 || /[<>]|\n/.test(parsed.answer))) throw new DraftError('来源变化需要同时返回 45–180 字的纯文本 answer 摘要');
+      if (input.currentAnswer) validateAnswer(parsed.answer);
       return { body: parsed.body, summary: parsed.summary, checks: parsed.checks, ...(parsed.answer ? { answer: parsed.answer } : {}), usage: payload.usage || null };
     } catch (error) {
       if (error.fatal || attempt === 2) throw error instanceof DraftError ? error : new DraftError('AI 响应无法解析或请求超时');

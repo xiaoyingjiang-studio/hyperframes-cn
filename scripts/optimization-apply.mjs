@@ -1,7 +1,7 @@
 import { readFile, writeFile, rm } from "node:fs/promises";
 import matter from "gray-matter";
 import { file, json, save, hash } from "./lib/io.mjs";
-import { validateDraft, checkCommands } from "./lib/ai.mjs";
+import { validateDraft, validateAnswer, checkCommands } from "./lib/ai.mjs";
 import { assertFreshCandidate } from "./lib/optimization.mjs";
 const id = process.argv[2];
 if (!process.argv.includes("--reviewed"))
@@ -13,9 +13,8 @@ const page = pages.find((p) => p.id === id);
 if (!page || page.file.endsWith(".mdx")) throw new Error("不支持的候选页面");
 const candidate = await json(`content/optimization/candidates/${page.id}.json`);
 const raw = await readFile(file(page.file), "utf8");
-const intent = (await json("content/discovery.json")).pages.find(
-  (p) => p.id === id,
-);
+const discovery = await json("content/discovery.json");
+const intent = discovery.pages.find((p) => p.id === id);
 assertFreshCandidate(candidate, {
   page,
   raw,
@@ -23,6 +22,7 @@ assertFreshCandidate(candidate, {
   pendingIds: (await json("content/sync-status.json")).pendingPageIds,
 });
 validateDraft(candidate.body);
+validateAnswer(candidate.answer);
 const parsed = matter(raw);
 const snapshots = await Promise.all(
   page.sources.map((sourceId) =>
@@ -46,6 +46,8 @@ await writeFile(
   file(page.file),
   raw.slice(0, marker + 3) + "\n\n" + candidate.body + "\n",
 );
+intent.answer = candidate.answer;
+await save("content/discovery.json", discovery);
 await save(`content/optimization/reviews/${page.id}.json`, {
   pageId: id,
   approvedAt: new Date().toISOString(),
@@ -54,6 +56,8 @@ await save(`content/optimization/reviews/${page.id}.json`, {
   summary: candidate.summary,
   signals: candidate.signals,
   sourceVerificationUnchanged: true,
+  beforeIntentHash: candidate.intentHash,
+  afterIntentHash: hash(JSON.stringify(intent)),
 });
 await rm(file(`content/optimization/candidates/${page.id}.json`));
 console.log(

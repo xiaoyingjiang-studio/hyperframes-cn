@@ -89,6 +89,9 @@ for (const target of queue.slice(0, limit)) {
           "改善回答清晰度、信息组织和站内学习路径。观测仅用于选择问题，不能证明因果。不得堆砌关键词、编造引文或效果，不改变产品事实、原有已验证代码、适用条件和许可。",
         pageType: parsed.data.kind,
         intent: intents.pages.find((p) => p.id === page.id),
+        currentAnswer: intents.pages.find((p) => p.id === page.id).answer,
+        additionalOutput:
+          "同时返回 answer：45–180 个字符的单行纯文本简明回答，与候选正文一致，不增加未经来源支持的事实。",
         signals: target.reasons,
         current: parsed.content,
         oldSources: snapshots,
@@ -118,6 +121,7 @@ for (const target of queue.slice(0, limit)) {
       ),
       reviewedSourcesHash: hash(JSON.stringify(page.reviewedSources)),
       body: draft.body,
+      answer: draft.answer,
       summary: draft.summary,
       checks: [
         "逐项核对事实与来源；人工运行涉及的操作；确认摘要与正文一致；不得把流量变化当作已证实的优化效果",
