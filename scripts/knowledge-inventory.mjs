@@ -1,4 +1,4 @@
-import { collect, publishedRelease, diffIndex } from './lib/upstream.mjs';
+import { collect, publishedRelease, diffIndex, preserveIndexBaseline } from './lib/upstream.mjs';
 import { json, save, request, hash } from './lib/io.mjs';
 import { sections, mechanisms, studioTopics, skillEntity, sourceId, legacySection, connectKnowledge } from './lib/knowledge-policy.mjs';
 import { archiveSnapshot } from './lib/snapshots.mjs';
@@ -36,6 +36,7 @@ export async function inventory({ fetcher = request } = {}) {
     const old = previous.entities.find(e => e.id === entity.id);
     entity.related = old?.related || entity.related;
     entity.title = old?.title || entity.title;
+    entity.question = old?.question || entity.question;
     if (old?.automation === false) entity.automation = false;
   }
   for (const page of pages) if (!entities.some(e => e.articleId === page.id)) {
@@ -54,16 +55,17 @@ export async function inventory({ fetcher = request } = {}) {
   for (const snapshot of Object.values(observed.sources)) if (!snapshot.error) await archiveSnapshot({ ...snapshot, version: release.tag, channel: 'stable', collectedAt: observed.collectedAt });
   const main = await collect({ ...registry, sources: [] }, { fetcher });
   const previousMain = await json('.upstream/main-index.json', { entries: [] });
-  const ahead = diffIndex(observed.index, main.index);
+  const mainIndex = preserveIndexBaseline(previousMain, { commit: main.commit, entries: main.index });
+  const ahead = diffIndex(observed.index, mainIndex.entries);
   connectKnowledge(entities);
-  const knowledge = { schemaVersion: 1, release, sourceCommit: observed.commit, sections, publishedSkills: names, entities, preview: { commit: main.commit, changes: ahead, note: '公开主分支差异，不代表已正式发布或桌面应用已提供。' } };
+  const knowledge = { schemaVersion: 1, release, sourceCommit: observed.commit, sections, publishedSkills: names, entities, preview: { commit: mainIndex.commit, changes: ahead, note: '公开主分支差异，不代表已正式发布或桌面应用已提供。' } };
   // Only material changes are committed by the publishing workflow; reports may carry timestamps.
   await save('content/knowledge.json', knowledge);
   await save('content/sources.json', registry);
   await save('.upstream/stable-index.json', { commit: observed.commit, entries: observed.index });
-  await save('.upstream/main-index.json', { commit: main.commit, entries: main.index });
+  await save('.upstream/main-index.json', mainIndex);
   await save('.upstream/observed.json', { commit: observed.commit, sources: Object.fromEntries(Object.entries(observed.sources).map(([id, s]) => [id, { hash: s.hash, commit: s.commit, path: s.path, blobSha: s.blobSha, version: release.tag }])) });
-  await save('artifacts/inventory-report.json', { release, commit: observed.commit, skills: names, sources: registry.sources.length, changes: diffIndex(previousMain.entries, main.index).length, fingerprint: hash(JSON.stringify(knowledge)) });
+  await save('artifacts/inventory-report.json', { release, commit: observed.commit, observedMainCommit: main.commit, skills: names, sources: registry.sources.length, changes: diffIndex(previousMain.entries, main.index).length, fingerprint: hash(JSON.stringify(knowledge)) });
   return { registry, pages, knowledge, observed };
 }
 if (process.argv[1]?.replaceAll('\\', '/').endsWith('/knowledge-inventory.mjs')) {

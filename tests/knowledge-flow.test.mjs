@@ -27,8 +27,8 @@ test('真实脚本闭环：新增、更新、失败隔离与第二次幂等运�
       const quote='The same project and assets are checked before publishing.';
       const snapshot={id:'source',hash:'fresh',commit:'b'.repeat(40),path:'docs/a.md',files:[{path:'docs/a.md',text:quote}]};
       let calls=0;
-      const loadInventory=async()=>({pages:await json('content/pages.json'),knowledge:{release:{tag:'v1.0.0'},entities:['good','failed','new'].map(id=>({id,articleId:id,title:id,question:id,type:'tutorial',file:'src/content/docs/'+id+'.md',route:'/'+id+'/',sources:['source'],entries:['cli-agent'],related:[]}))},observed:{commit:snapshot.commit,sources:{source:snapshot}}});
-      const request=async(input,{role})=>{calls++;if(role==='verify')return{supported:input.entity.id!=='failed',issues:input.entity.id==='failed'?['来源冲突']:[],evidence:[{sourceId:'source',path:'docs/a.md',quote,sections:['answer','检查结果']}]};return{body:'依据同一项目与素材执行检查，明确适用条件与限制。'.repeat(20)+'\\n\\n## 检查结果\\n\\n检查画面和声音。',answer:'依据同一份项目与素材比较结果，检查内容、时序与声音。这里说明检查方法，不能把未执行的操作写成已经验证成功。',summary:'测试夹具更新'};};
+      const loadInventory=async()=>{const previous=await json('content/knowledge.json',{entities:[]});return{pages:await json('content/pages.json'),knowledge:{release:{tag:'v1.0.0'},entities:['good','failed','new'].map(id=>({id,articleId:id,title:id,question:id,type:'tutorial',file:'src/content/docs/'+id+'.md',route:'/'+id+'/',sources:['source'],entries:['cli-agent'],related:[],...previous.entities.find(e=>e.id===id)}))},observed:{commit:snapshot.commit,sources:{source:snapshot}}};};
+      const request=async(input,{role})=>{calls++;if(role==='verify')return{supported:input.entity.id!=='failed',issues:input.entity.id==='failed'?['来源冲突']:[],evidence:[{sourceId:'source',path:'docs/a.md',quote,sections:['answer','检查结果']}]};return{title:'怎样检查项目与素材',question:'怎样在发布前检查同一项目与素材？',body:'依据同一项目与素材执行检查，明确适用条件与限制。'.repeat(20)+'\\n\\n## 检查结果\\n\\n检查画面和声音。',answer:'依据同一份项目与素材比较结果，检查内容、时序与声音。这里说明检查方法，不能把未执行的操作写成已经验证成功。',summary:'测试夹具更新'};};
       process.argv.push('--apply');
       await syncKnowledge({loadInventory,request});
       const first=calls;await syncKnowledge({loadInventory,request});
@@ -37,6 +37,8 @@ test('真实脚本闭环：新增、更新、失败隔离与第二次幂等运�
     await promisify(execFile)(process.execPath, ['run.mjs'], { cwd: directory, env: { ...process.env, GITHUB_REPOSITORY: '', GITHUB_TOKEN: '' }, windowsHide: true, timeout: 20000 });
     const result = await read('content/pages.json');
     assert.equal(result.length, 3);
+    assert.match(await readFile(resolve(directory, 'src/content/docs/new.md'), 'utf8'), /title: 怎样检查项目与素材/);
+    assert.equal((await read('content/knowledge.json')).entities.find(e => e.id === 'new').question, '怎样在发布前检查同一项目与素材？');
     assert.equal(result.find(p => p.id === 'good').validation.mode, 'independent-model-and-evidence');
     assert.equal(result.find(p => p.id === 'new').reviewedSources.source.hash, 'fresh');
     assert.equal(await readFile(resolve(directory, pages[1].file), 'utf8'), original.replace('contentId: good', 'contentId: failed'));

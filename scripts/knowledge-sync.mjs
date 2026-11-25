@@ -41,12 +41,14 @@ export async function syncKnowledge({ fetcher, request, loadInventory = inventor
     let raw = existing ? await readFile(file(existing.proseFile || existing.file), 'utf8') : '';
     const beforeHash = hash(raw);
     const intent = discovery.pages.find(p => p.id === entity.articleId);
+    console.log(`处理知识任务：${entity.articleId}（${task.reason}）。`);
     try {
       if (snapshots.some(s => !s || s.deleted || s.error)) throw new Error('来源缺失或已移动修改，无法据此判断功能取消；自动延期');
       const parsed = existing ? existing.proseFile ? { content: raw } : splitDocument(raw) : { content: '' };
       const previousSnapshots = existing ? await Promise.all(existing.sources.map(id => json(`.upstream/snapshots/${id}/${existing.reviewedSources[id]?.hash}.json`, null))) : [];
-      const draft = await createVerifiedArticle({ entity, current: parsed.content, currentAnswer: intent?.answer || '', snapshots, previousSnapshots, purpose: optimize ? '仅优化表达，不改变产品事实、历史核对日期和来源版本；观测只用于编辑优先级，不证明因果。' : '依据正式来源补齐或更新创作知识', signals: task.signals, version: { cli: knowledge.release.tag, desktop: '桌面应用版本需官方另行确认，不沿用 CLI 版本' }, related: entity.related, glossary: await readFile(file('content/glossary.md'), 'utf8') }, { budget, ...(request ? { request } : {}) });
+      const draft = await createVerifiedArticle({ entity, current: parsed.content, currentAnswer: intent?.answer || '', snapshots, previousSnapshots, purpose: optimize ? '仅优化表达，不改变产品事实、历史核对日期和来源版本；观测只用于编辑优先级，不证明因果。' : '依据正式来源补齐或更新创作知识', signals: task.signals, version: { cli: knowledge.release.tag, desktop: '桌面应用版本需官方另行确认，不沿用 CLI 版本' }, related: entity.related, glossary: await readFile(file('content/glossary.md'), 'utf8') }, { budget, onVerdict: verdict => console.log(`独立核验 ${entity.articleId}：${verdict.supported === true ? '支持' : '需修订'}；${JSON.stringify(verdict.issues || []).slice(0, 1500)}`), ...(request ? { request } : {}) });
       if (draft.body.trim().length < 300) throw new Error('正文没有达到完整说明长度');
+      if (!existing && [ ['title', 4, 60], ['question', 8, 120] ].some(([key, min, max]) => typeof draft[key] !== 'string' || draft[key].length < min || draft[key].length > max || /[<>\n\r]/.test(draft[key]) || !/\p{Script=Han}/u.test(draft[key]))) throw new Error('新增页面缺少面向创作者的中文标题或主问题');
       for (const match of draft.body.matchAll(/\]\((\/[^)\s#]+)(?:#[^)]*)?\)/g)) {
         if (match[1] !== '/' && !pages.some(p => p.route === match[1]) && match[1] !== entity.route && !parsed.content.includes(match[0])) throw new Error('候选包含尚不存在的站内路径：' + match[1]);
       }
@@ -65,7 +67,8 @@ export async function syncKnowledge({ fetcher, request, loadInventory = inventor
           const front = splitDocument(raw).frontmatter.replace(/^status: .+$/m, 'status: "auto-checked"');
           await writeFile(file(page.file), front + '\n\n' + draft.body + '\n');
         } else {
-          const data = { title: entity.title, description: draft.answer, contentId: page.id, kind: entity.type, sources: page.sources, appliesTo: entity.entries.join(' / ') + '；框架资料 ' + knowledge.release.tag + '；桌面版本另行确认', status: 'auto-checked', verification: '依据固定官方来源与独立模型核验；未执行登录、付费服务或桌面操作。' };
+          entity.title = draft.title; entity.question = draft.question;
+          const data = { title: draft.title, description: draft.answer, contentId: page.id, kind: entity.type, sources: page.sources, appliesTo: entity.entries.join(' / ') + '；框架资料 ' + knowledge.release.tag + '；桌面版本另行确认', status: 'auto-checked', verification: '依据固定官方来源与独立模型核验；未执行登录、付费服务或桌面操作。' };
           await mkdir(dirname(file(page.file)), { recursive: true });
           await writeFile(file(page.file), matter.stringify(draft.body, data));
           pages.push(page);
@@ -78,13 +81,16 @@ export async function syncKnowledge({ fetcher, request, loadInventory = inventor
         else discovery.pages.push({ id: page.id, question: entity.question, answer: draft.answer, terms: [entity.title, entity.type] });
       } else pending.push(task);
       report.generated.push({ id: page.id, applied: apply });
+      console.log(`知识单元通过：${page.id}。`);
     } catch (error) {
       pending.push(failedTask(task, error.message));
       report.skipped.push({ id: entity.articleId, reason: error.message });
+      console.log(`知识任务延期：${entity.articleId}；${error.message}`);
       if (error.fatal) { pending.push(...tasks.slice(tasks.indexOf(task) + 1)); break; }
     }
   }
   await save('content/pages.json', pages);
+  await save('content/knowledge.json', knowledge);
   await save('content/discovery.json', discovery);
   const remaining = pending.filter(task => {
     const page = pages.find(p => p.id === task.articleId);
