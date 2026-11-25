@@ -1,7 +1,5 @@
 name: SEO and GEO maintenance
 on:
-  schedule:
-    - cron: '37 2 * * 1'
   workflow_dispatch:
 permissions:
   actions: write

@@ -51,7 +51,7 @@ PR 预览使用 `wrangler preview --name pr-<编号>`，不会替换正式部署
 
 ## 5. 创作者知识自动建设
 
-每日北京时间 09:17 运行 Build creator knowledge，支持手动补跑。使用官方最新正式 release 的固定提交盘点文档、skills 发布清单、引用材料和 registry；主分支差异单列前瞻。桌面应用版本不能由 CLI release 推定。
+每周一、周四北京时间 08:30（UTC 00:30）运行 Build creator knowledge，支持手动补跑；不再每日运行。SEO/GEO 优化保留手动入口，不设置独立定时触发。使用官方最新正式 release 的固定提交盘点文档、skills 发布清单、引用材料和 registry；主分支差异单列前瞻。桌面应用版本不能由 CLI release 推定。
 
 `pnpm knowledge:inventory` 盘点与归档；`pnpm knowledge:sync --apply` 生成并应用通过独立核验的正文、摘要与来源单元。每批最多五篇，共享十五次调用及十万保守 Token 预算。失败项进入持久队列并自动退避，其他合格文章继续发布。缺少模型时仍检测与构建，保留旧站。
 
