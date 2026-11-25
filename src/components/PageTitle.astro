@@ -3,6 +3,7 @@ import Default from '@astrojs/starlight/components/PageTitle.astro';
 import registry from '../../content/sources.json';
 import health from '../../content/sync-status.json';
 import pages from '../../content/pages.json';
+import discovery from '../../content/discovery.json';
 const entry = Astro.locals.starlightRoute.entry;
 const data = entry.data;
 const records = registry.sources.filter(s => data.sources?.includes(s.id));
@@ -12,13 +13,17 @@ const sourceUrl = (record: (typeof registry.sources)[number]) => {
   return reviewed?.commit ? `https://github.com/${registry.repository}/blob/${reviewed.commit}/${reviewed.path || record.path}` : record.url;
 };
 const pending = (health.pendingPageIds as string[]).includes(data.contentId);
+const intent = discovery.pages.find(p => p.id === data.contentId);
 ---
+<nav class="reading-breadcrumb" aria-label="面包屑"><a href="/">首页</a><span aria-hidden="true"> / </span><span aria-current="page">{data.title}</span></nav>
 <Default><slot /></Default>
+{intent && <aside class="answer-summary" aria-label="阅读摘要"><strong>{intent.question}</strong><p>{intent.answer}</p></aside>}
 <div class="source-meta" data-pagefind-ignore>
   <span>{data.kind === 'original' || data.kind === 'case' ? '中文站原创实践' : '基于官方资料整理'}</span>
   <span>核对于 <time datetime={data.reviewedAt}>{data.reviewedAt}</time></span>
   <span>{data.appliesTo}</span>
   {records.map(record => <a href={sourceUrl(record)} target="_blank" rel="noopener noreferrer">官方来源：{record.label}</a>)}
+  <a href={`/content/${data.contentId}.md`} download>阅读 Markdown</a>
 </div>
 {data.verification && <p class="verification-note">验证记录：{data.verification}</p>}
 {pending && <aside class="pending-notice">官方已有更新，本文待核对。现有内容仍对应上述核对日期。</aside>}

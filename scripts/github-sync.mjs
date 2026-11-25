@@ -5,7 +5,7 @@ if(!repo||!token)throw new Error('需要仓库环境与 GitHub Token');
 async function api(path,method='GET',body){const r=await fetch(`https://api.github.com/repos/${repo}/${path}`,{method,headers:{Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','Content-Type':'application/json','X-GitHub-Api-Version':'2022-11-28'},...(body?{body:JSON.stringify(body)}:{})});if(!r.ok)throw new Error(`GitHub API ${r.status}`);return r.status===204?null:r.json();}
 const action=process.argv[2];
 if(action==='begin'){
- const pulls=await api(`pulls?state=open&head=${repo.split('/')[0]}:automation/upstream`);const busy=pulls.length>0;
+ const pulls=await api('pulls?state=open&per_page=100');const busy=pulls.some(p=>p.head.ref.startsWith('automation/'));
  if(process.env.GITHUB_OUTPUT)await appendFile(process.env.GITHUB_OUTPUT,`busy=${busy}\n`);console.log(busy?'已有审核批次，本次只检测并更新待办。':'可创建新的审核批次。');
 }else if(action==='report'||action==='pr'){
  const report=await json('.upstream/report.json');

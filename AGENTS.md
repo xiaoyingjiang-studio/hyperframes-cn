@@ -1,5 +1,9 @@
 # HyperFrames 中文指南维护约定
 
+- SEO/GEO 工作先读 docs/SEO-GEO.md。正文、content/discovery.json 的可见摘要与来源一起维护；新增页面登记稳定问题，不制造重复意图页面。
+- AI 不能自行更改域名、收录开关、URL、审核基线、许可或体积预算。无真实观测不编造排名、流量和引用率；llms.txt 不代表任何搜索收录保证。
+- 涉及发现机制时执行 pnpm test:indexing；pnpm build 包含全站 SEO/GEO 审计。正文改写不得刷新 reviewedAt，官方来源变化与表达优化采用各自审核命令。
+
 - 网站是独立社区项目，使用 Astro、Starlight、TypeScript、Markdown/MDX 与 Pagefind，静态部署到 Cloudflare Workers。
 - 使用 pnpm，Node 版本见 .node-version。检查顺序：pnpm check、pnpm test、pnpm build；界面变化还应执行 pnpm test:e2e。
 - 正文位于 src/content/docs，稳定 ID 与来源映射位于 content/pages.json。正文与来源映射要一致，修改标题不改变网址。

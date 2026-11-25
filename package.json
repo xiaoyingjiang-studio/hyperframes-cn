@@ -9,7 +9,14 @@
   },
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
-    "build": "astro build && node scripts/postbuild.mjs",
+    "build": "astro build && node scripts/postbuild.mjs && node scripts/discovery-audit.mjs",
+    "audit:discovery": "node scripts/discovery-audit.mjs",
+    "test:indexing": "node scripts/test-indexing.mjs",
+    "metrics:collect": "node scripts/collect-search-metrics.mjs",
+    "optimize": "node scripts/optimize.mjs",
+    "optimize:apply": "node scripts/optimization-apply.mjs",
+    "metrics:import": "node scripts/import-metrics.mjs",
+    "indexnow": "node scripts/indexnow.mjs",
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check && node scripts/validate-content.mjs",
     "test": "node --test tests/*.test.mjs",
@@ -30,8 +37,11 @@
   "devDependencies": {
     "@astrojs/check": "0.9.12",
     "@playwright/test": "1.65.1",
+    "cheerio": "1.1.2",
+    "google-auth-library": "11.3.4",
     "gray-matter": "4.0.3",
     "hyperframes": "0.9.92",
+    "turndown": "7.2.2",
     "typescript": "5.9.3",
     "wrangler": "4.168.0"
   }

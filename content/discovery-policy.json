@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "maxHtmlGzipBytes": 65536,
+  "maxInitialJsGzipBytes": 184320,
+  "maxInitialCssGzipBytes": 102400,
+  "maxHeroImageBytes": 204800,
+  "note": "压缩体积是构建预算，不是 Core Web Vitals 或排名分数；超限应分析原因，禁止 AI 为通过检查自行放宽。"
+}

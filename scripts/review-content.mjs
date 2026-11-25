@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import matter from 'gray-matter';
 import { json, save, file } from './lib/io.mjs';
 const ids=process.argv.slice(2);
-if(!ids.length)throw new Error('用法：node scripts/review-content.mjs <contentId> [contentId...]；先人工检查正文、命令和候选报告。');
+if(!ids.length)throw new Error('用法：node scripts/review-content.mjs <contentId> [contentId...]；先人工检查正文、discovery 摘要、命令和候选报告。');
 const pages=await json('content/pages.json');const observed=await json('.upstream/observed.json');const status=await json('content/sync-status.json');
 const registry=await json('content/sources.json');
 for(const id of ids){

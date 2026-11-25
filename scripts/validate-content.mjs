@@ -1,10 +1,26 @@
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, stat, readdir } from 'node:fs/promises';
+import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { json, file } from './lib/io.mjs';
 const pages = await json('content/pages.json'); const registry = await json('content/sources.json');
 const sources = new Map(registry.sources.map(s => [s.id, s]));
 const errors = []; const ids = new Set(); const routes = new Set();
-if (pages.length !== 31) errors.push(`首版要求 31 篇内容 + 首页，当前 ${pages.length}`);
+const registeredFiles = new Set(pages.map(p => p.file));
+for (const item of await readdir(file('src/content/docs'), { recursive: true, withFileTypes: true })) {
+  if (!item.isFile() || !/\.mdx?$/.test(item.name)) continue;
+  const path = relative(file(''), join(item.parentPath, item.name)).replaceAll('\\', '/');
+  if (!registeredFiles.has(path)) errors.push(`正文未登记稳定 ID、路由与来源：${path}`);
+}
+if (pages.length < 31) errors.push(`已发布内容不能无迁移说明减少：当前 ${pages.length}`);
+const discovery = await json('content/discovery.json');
+const intents = new Map();
+for (const intent of discovery.pages) {
+  if (intents.has(intent.id)) errors.push(`重复阅读意图：${intent.id}`);
+  intents.set(intent.id, intent);
+  if (intent.answer?.length < 45 || intent.answer?.length > 180 || !intent.question || !Array.isArray(intent.terms) || intent.terms.length < 2) errors.push(`阅读意图不完整：${intent.id}`);
+}
+for (const id of ['home', ...pages.map(p => p.id)]) if (!intents.has(id)) errors.push(`缺少页面问题与摘要：${id}`);
+for (const id of intents.keys()) if (id !== 'home' && !pages.some(p => p.id === id)) errors.push(`意图对应页面不存在：${id}`);
 for (const page of pages) {
   if (ids.has(page.id) || routes.has(page.route)) errors.push(`重复 ID 或路由：${page.id}`);
   ids.add(page.id); routes.add(page.route);

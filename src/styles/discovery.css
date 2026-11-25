@@ -1,0 +1,6 @@
+.reading-breadcrumb { font-size:.85rem; color:var(--sl-color-gray-2); margin-bottom:1rem; }
+.answer-summary { padding:1rem 1.2rem; border:1px solid var(--sl-color-gray-5); border-radius:.75rem; background:var(--sl-color-bg-sidebar); margin-block:1rem; line-height:1.85; }
+.answer-summary strong { color:var(--sl-color-text); }
+.answer-summary p { margin-block:.45rem 0; }
+.home-definition { margin-block:0 4rem; padding:1.5rem; }
+.home-definition h2 { font-size:1.3rem; }

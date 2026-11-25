@@ -12,6 +12,7 @@ const now = new Date().toISOString();
 const registry = await json('content/sources.json');
 const pages = await json('content/pages.json');
 const status = await json('content/sync-status.json');
+const discovery = await json('content/discovery.json');
 try {
   const observed = await collect(registry);
   const previous = await json('.upstream/index.json', { entries: [] });
@@ -21,7 +22,7 @@ try {
   for (const snapshot of Object.values(observed.sources)) await save(`.upstream/snapshots/${snapshot.id}/${snapshot.hash}.json`, snapshot);
   if (bootstrap) {
     for (const source of registry.sources) { if (observed.sources[source.id].deleted) throw new Error(`来源不存在：${source.path}`); source.blobSha = observed.sources[source.id].blobSha; }
-    for (const page of pages) page.reviewedSources = Object.fromEntries(page.sources.map(id => [id, { hash: observed.sources[id].hash, commit: observed.commit }]));
+    for (const page of pages) page.reviewedSources = Object.fromEntries(page.sources.map(id => [id, { hash: observed.sources[id].hash, commit: observed.commit, path: observed.sources[id].path }]));
     await save('content/pages.json', pages);
     await save('content/sources.json', registry);
   }
@@ -36,16 +37,19 @@ try {
     if (page.file.endsWith('.mdx')) { report.skipped.push({ id: page.id, reason: '含受控组件的 MDX 页面由维护者修订，避免候选稿丢失播放器' }); continue; }
     const oldSources = await Promise.all(page.sources.map(id => json(`.upstream/snapshots/${id}/${page.reviewedSources[id]?.hash}.json`, null)));
     try {
-      const draft = await generateDraft({ pageType: parsed.data.kind, current: parsed.content, oldSources, newSources: snapshots, glossary }, { budget });
+      const intent = discovery.pages.find(p => p.id === page.id);
+      const draft = await generateDraft({ pageType: parsed.data.kind, current: parsed.content, currentAnswer: intent.answer, additionalOutput: '除 body、summary、checks 以外，必须输出 answer：依据新来源核对过的页面简明回答，45–180 个字符的单行纯文本，与完整正文一致。', oldSources, newSources: snapshots, glossary }, { budget });
       if (draft.skipped) { report.skipped.push({ id: page.id, reason: draft.reason }); continue; }
       const unknown = checkCommands(draft.body, parsed.content, snapshots.flatMap(s => s.files.map(f => f.text)).join('\n'));
       if (unknown.length) { report.skipped.push({ id: page.id, reason: '生成稿含无法从新来源或原稿确认的命令', commands: unknown }); continue; }
-      const candidate = { pageId: page.id, beforeHash: hash(raw), commit: observed.commit, body: draft.body, summary: draft.summary, checks: ['核实价格、账号、系统要求及命令行为；来源为上游 main，不等同稳定发布承诺', ...draft.checks], usage: draft.usage };
+      const candidate = { pageId: page.id, beforeHash: hash(raw), commit: observed.commit, body: draft.body, answer: draft.answer, summary: draft.summary, checks: ['同时核对正文与 content/discovery.json 摘要、价格、账号、系统要求及命令；来源 main 不等同稳定发布承诺', ...draft.checks], usage: draft.usage };
       await save(`.upstream/candidates/${page.id}.json`, candidate);
       report.generated.push({ id: page.id, summary: draft.summary, checks: candidate.checks });
       if (apply) {
         // This only runs on a new automation branch; main changes only after human merge.
         await applyCandidate(file(page.file), candidate.beforeHash, draft.body);
+        intent.answer = draft.answer;
+        await save('content/discovery.json', discovery);
       }
     } catch (error) { report.skipped.push({ id: page.id, reason: error.message }); if (error.fatal) break; }
   }

@@ -8,7 +8,7 @@ permissions:
   pull-requests: write
   issues: write
 concurrency:
-  group: upstream-sync
+  group: content-maintenance
   cancel-in-progress: false
 jobs:
   sync:
@@ -17,6 +17,8 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
         with:
           version: 10.32.1

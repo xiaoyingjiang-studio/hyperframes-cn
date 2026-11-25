@@ -40,6 +40,7 @@ jobs:
         with:
           ref: ${{ steps.target.outputs.sha }}
           persist-credentials: false
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
         with:
           version: 10.32.1
