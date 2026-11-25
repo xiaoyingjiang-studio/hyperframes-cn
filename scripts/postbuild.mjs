@@ -136,15 +136,12 @@ if (process.env.INDEXNOW_KEY) {
   );
 }
 await writeFile(file("dist/_headers"), headers);
-if (process.env.OLD_DEFAULT_HOST && site.indexable) {
-  const host = process.env.OLD_DEFAULT_HOST;
-  if (!/^[a-z0-9.-]+\.workers\.dev$/.test(host))
-    throw new Error("旧默认地址无效");
-  await writeFile(
-    file("dist/_redirects"),
-    `https://${host}/* ${site.url}/:splat 301\n`,
-  );
-}
+const oldHost = process.env.OLD_DEFAULT_HOST || '';
+if (oldHost && !/^[a-z0-9.-]+\.workers\.dev$/.test(oldHost))
+  throw new Error("旧默认地址无效");
+await save('.cache/edge-site.json', { site: site.url, indexable: site.indexable, oldHost });
+// Static Assets _redirects does not support hostname conditions. Use the small Worker router.
+await rm(file('dist/_redirects'), { force: true });
 async function walk(path) {
   const out = [];
   for (const item of await readdir(path, { withFileTypes: true })) {

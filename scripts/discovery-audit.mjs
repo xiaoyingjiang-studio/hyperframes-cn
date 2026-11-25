@@ -2,6 +2,7 @@ import { readFile, stat } from "node:fs/promises";
 import { load } from "cheerio";
 import { gzipSync } from "node:zlib";
 import { file, json, save, hash } from "./lib/io.mjs";
+import { markdownText } from './lib/markdown-text.mjs';
 const manifest = await json("dist/content-manifest.json");
 const findings = [];
 const documents = new Map();
@@ -139,7 +140,7 @@ for (const page of manifest.pages) {
   }
   if (
     hash(markdown) !== page.contentHash ||
-    !markdown.includes(page.description) ||
+    !(await markdownText(markdown)).includes(page.description.replace(/\s+/g, ' ').trim()) ||
     !markdown.includes(url) ||
     page.sources.some((s) => !markdown.includes(s.url))
   )

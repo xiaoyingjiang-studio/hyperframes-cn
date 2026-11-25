@@ -52,6 +52,8 @@ pnpm test:e2e
 4. 提交规范 sitemap；验证 canonical、重定向与 404；配置 `OLD_DEFAULT_HOST` 将旧正式入口迁移。预览始终 noindex。
 5. 配置 IndexNow 后，仅在发布及冒烟成功后通知新增、修改和删除地址。前次线上清单抓取失败时跳过，保留失败信息；相同内容哈希不重复提交。通知被接收不代表收录。[IndexNow 协议](https://www.indexnow.org/documentation)
 
+旧主机跳转使用最小 Worker 路由，构建时与 canonical 共用站点配置；预览构建关闭迁移。`_redirects` 不支持域名条件，不能用含主机名的伪规则代替。视频、样式和搜索索引继续直接静态服务；地址迁移会在部署后的冒烟检查中验证。[Cloudflare 重定向规则](https://developers.cloudflare.com/workers/static-assets/redirects/)
+
 | GitHub 配置 | 类型 | 作用 |
 | --- | --- | --- |
 | `SITE_URL` / `SITE_INDEXABLE` / `OLD_DEFAULT_HOST` | Variables | 正式地址、收录开关和旧入口 |

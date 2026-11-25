@@ -12,7 +12,7 @@
 
 先由账号持有人在本机完成 `pnpm exec wrangler login`，然后运行 `pnpm exec wrangler whoami` 确认账号。也可在 GitHub Environments 中使用仅限目标账号的部署 Token。不要将 Token 填入网页输入或代码。
 
-创建 GitHub 的 production 与 preview Environments；preview 设置维护者批准，尤其是手动预览外部 Fork PR 时，必须审核提交 SHA。production 与 preview 均配置 CLOUDFLARE_API_TOKEN、CLOUDFLARE_ACCOUNT_ID。Cloudflare Token 权限按 Wrangler 当前官方部署说明配置，限定目标账号，避免全局 API Key。
+创建 GitHub 的 production 与 preview Environments；preview 设置维护者批准，尤其是手动预览外部 Fork PR 时，必须审核提交 SHA。CLOUDFLARE_API_TOKEN、CLOUDFLARE_ACCOUNT_ID 使用仓库 Actions Secrets（发布前的配置检查也需要它们），环境内可另作覆盖。Cloudflare Token 选择“编辑 Cloudflare Workers”模板，限定目标账号；Workers Scripts 必须有编辑权限，“读取所有资源”模板不能发布。避免全局 API Key。
 
 在仓库 Variables 中设置：
 
@@ -38,6 +38,8 @@ PR 预览使用 `wrangler preview --name pr-<编号>`，不会替换正式部署
 ## 4. 域名切换
 
 在 Cloudflare 为 Worker 添加自定义域名并检查 HTTPS。更新 SITE_URL、OLD_DEFAULT_HOST，重建并验证 canonical、sitemap.xml、rss.xml、llms.txt、静态资源与旧默认地址跳转。确认后设置 SITE_INDEXABLE=true。预览与本地环境继续 false。
+
+跨主机迁移由一个只处理地址的 Worker 完成，因为 Static Assets 的 `_redirects` 不支持域名条件。`pnpm build` 生成忽略目录 `.cache/edge-site.json`，部署前必须完整构建；其中只有公开地址和收录开关，没有密钥。旧主机的页面和机器接口以 301 保留路径及查询；正式站和预览交给 ASSETS，保留真实 404。CSS、搜索索引、图片、视频和示例资源直接由静态资产服务，旧资源链接继续可用。HTML/机器接口经过 Worker，因此受 Workers 请求配额约束；静态资源仍直接服务。不要把所有资源都改成 Worker-first。
 
 没有环境变量覆盖时，site.config.json 是站点地址、源码仓库和收录开关的唯一默认配置。正式域名切换时同时更新该文件，并保持 GitHub Variables 一致。
 
