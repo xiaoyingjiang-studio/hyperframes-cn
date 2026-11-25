@@ -49,7 +49,7 @@
       "firstSeen": "2026-11-25T09:28:21.624Z",
       "attempts": 1,
       "error": "独立核验未通过：正文称“一次 check 覆盖了原先分散的 validate、inspect 和 layout 等环节”，来源原文为“validate, inspect, and layout still run but are deprecated: check covers all of them in one invocation”，语义一致，但“原先分散”属轻微引申，可接受。；正文“在动画较多的作品中，官方建议在 preview 或 render 之前先跑检查”对应来源“When the composition is animation-driven, run the checks before you reach for preview or render”，但该段在快照中被截断（omittedBlocks），仅标题与首句可见，具体“checks”指代需谨慎；当前表述未超出可见文本。；正文对 --caption-zone 与 --frame-check 的描述均有来源逐字支持，但 --caption-zone 段落属 check 章节细节，快照中该段完整可见，可放行。；“桌面应用与浏览器编辑器的检查入口需以各自官方说明为准”为合理边界声明，来源未直接支持桌面应用入口，但作为限定性表述不构成事实断言，可接受。；未发现将官方示例结果写成本次实测的表述；正文明确要求“不把官方示例结果写成本次实测”，符合规则。；answer 与正文一致，均有来源支持。",
-      "nextAttemptAt": "2026-11-26T10:06:44.749Z"
+      "retryReason": "verification-contract-fixed"
     },
     {
       "id": "mechanism-history",
