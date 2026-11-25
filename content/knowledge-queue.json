@@ -37,7 +37,9 @@
       "reason": "source-changed",
       "revision": "5a5b8df4a2c65da7b42c1b766444412fb4bac6d822300d69780e428cafeff4bf",
       "firstSeen": "2026-11-25T09:28:21.624Z",
-      "attempts": 0
+      "attempts": 1,
+      "error": "达到本批调用或保守 Token 预算上限",
+      "nextAttemptAt": "2026-11-26T09:57:41.214Z"
     },
     {
       "id": "mechanism-checks",
