@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { eligibleQueue, failedTask, createVerifiedArticle, validateEvidence, classifySource, contentDigest, requestKnowledge } from '../scripts/lib/knowledge.mjs';
 import { assertContentPath, assertStableRoutes, assertHead, deployWithRecovery, assertPublishedUnit } from '../scripts/lib/publishing.mjs';
 import { Budget } from '../scripts/lib/ai.mjs';
-import { publishedRelease, extractDependencies, collect } from '../scripts/lib/upstream.mjs';
+import { publishedRelease, extractDependencies, collect, preserveIndexBaseline } from '../scripts/lib/upstream.mjs';
 const quote = 'The preview and export use the same project and assets.';
 const snapshots = [{ id: 'source', files: [{ path: 'docs/test.md', text: quote }] }];
 const draft = { body: '依据项目与素材检查画面和导出。'.repeat(15) + '\n\n## 检查结果\n\n逐项比较实际文件。', answer: '依据同一份项目与素材比较预览和导出，检查内容、时序与声音。这里只说明检查方法，不能把未执行的导出写成已经验证成功。', summary: '说明创作检查方法' };
@@ -13,6 +13,16 @@ const input = { current: '旧稿', currentAnswer: '旧摘要', snapshots };
 test('来源证据必须真实存在且覆盖摘要与每个章节', () => {
   assert.doesNotThrow(() => validateEvidence(evidence, snapshots, draft.body, draft.answer));
   for (const records of [[], [{ ...evidence[0], quote: '模型编造的英文引用并不在任何实际的来源文件中' }], [{ ...evidence[0], sections: ['answer'] }]]) assert.throws(() => validateEvidence(records, snapshots, draft.body, draft.answer));
+});
+
+test('主分支仅有无关提交时不刷新内容基线，来源修改或移动时仍更新', () => {
+  const previous = { commit: 'old', entries: [{ path: 'docs/a.mdx', blobSha: 'a', url: 'fixed-old-url' }] };
+  const same = { commit: 'new', entries: [{ path: 'docs/a.mdx', blobSha: 'a', url: 'fixed-new-url' }] };
+  assert.deepEqual(preserveIndexBaseline(previous, same), previous);
+  for (const entry of [{ path: 'docs/a.mdx', blobSha: 'b' }, { path: 'docs/moved.mdx', blobSha: 'a' }]) {
+    const changed = { commit: 'new', entries: [entry] };
+    assert.deepEqual(preserveIndexBaseline(previous, changed), changed);
+  }
 });
 test('写作和核验是独立请求，拒绝只凭生成者自评发布', async () => {
   const roles = [];
@@ -24,6 +34,23 @@ test('核验失败最多修订一次，第二次失败自动隔离', async () =>
   let writes = 0, verifies = 0;
   await assert.rejects(createVerifiedArticle(input, { request: async (_, { role }) => { if (role === 'write') { writes++; return draft; } verifies++; return { supported: false, issues: ['账号条件没有来源'] }; } }), /独立核验未通过/);
   assert.equal(writes, 2); assert.equal(verifies, 2);
+});
+
+test('真实请求预算能容纳一次修订复检，错误引文也进入修订而非直接放弃', async () => {
+  let writes = 0, verifies = 0;
+  const env = { AI_ENDPOINT: 'https://model.example/api', AI_MODEL: 'fixture', AI_API_KEY: 'fixture' };
+  const budget = new Budget(env);
+  const longSnapshots = [{ id: 'source', path: 'docs/test.md', files: [{ path: 'docs/test.md', text: quote + '\n\n' + Array.from({ length: 200 }, (_, i) => `创作材料段落 ${i}：${'准备项目并检查素材。'.repeat(8)}`).join('\n\n') }] }];
+  const result = await createVerifiedArticle({ ...input, current: '既有实践与验证边界。'.repeat(150), snapshots: longSnapshots }, { env, budget, fetcher: async (_, request) => {
+    const messages = JSON.parse(request.body).messages;
+    const verify = messages[0].content.includes('独立的中文创作知识核验器');
+    if (verify) verifies++; else writes++;
+    const response = verify ? { supported: true, issues: [], evidence: verifies === 1 ? [{ ...evidence[0], quote: 'This fabricated quote does not exist in the fixed source.' }] : evidence } : draft;
+    return { ok: true, json: async () => ({ choices: [{ message: { content: JSON.stringify(response) } }] }) };
+  } });
+  assert.equal(result.mode, 'independent-model-and-evidence');
+  assert.equal(writes, 2); assert.equal(verifies, 2); assert.equal(budget.calls, 4);
+  assert.ok(budget.tokens <= 100000);
 });
 test('同一批中失败文章不阻止另一篇通过核验', async () => {
   const accepted = [], pending = [];
@@ -71,7 +98,7 @@ test('DashScope 混合思考模型在原预算内返回结构化正文，其他�
       return { ok: true, json: async () => ({ choices: [{ message: { content: JSON.stringify(draft) } }] }) };
     } });
     assert.equal(result.body, draft.body);
-    assert.equal(sent.max_tokens, 6000);
+    assert.equal(sent.max_tokens, 4000);
     assert.equal(budget.calls, 1);
     assert.equal(sent.enable_thinking, hybrid ? false : undefined);
     assert.deepEqual(sent.response_format, hybrid ? { type: 'json_object' } : undefined);

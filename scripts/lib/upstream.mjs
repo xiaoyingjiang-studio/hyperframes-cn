@@ -67,3 +67,9 @@ export function diffIndex(before, after) {
 export function affectedPages(pages, observed) {
   return pages.filter(p => p.sources.some(id => p.reviewedSources[id]?.hash !== observed.sources[id]?.hash));
 }
+
+export function preserveIndexBaseline(previous, current) {
+  // A commit outside the watched sources must not create a content PR by merely
+  // changing every fixed URL. The latest observed SHA stays in the run report.
+  return previous?.commit && Array.isArray(previous.entries) && diffIndex(previous.entries, current.entries).length === 0 ? previous : current;
+}
