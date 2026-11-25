@@ -1,4 +1,5 @@
 import config from '../../site.config.json';
+export const studioDownload = 'https://hyperframes.studio/studio/download';
 export const site = {
   name: 'HyperFrames 中文指南',
   description: '从一句中文提示词，到一个可以继续编辑的视频。了解 HyperFrames，找到适合你的创作方式。',

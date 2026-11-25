@@ -4,9 +4,10 @@
   "pages": [
     {
       "id": "home",
-      "question": "HyperFrames 是什么，如何开始使用？",
-      "answer": "HyperFrames 是 HeyGen 开源的 HTML 视频创作框架。你可以通过 Studio、AI Agent 或 CLI 制作可编辑的视频项目。本指南由社区独立维护，提供中文教程、官方资料来源与可下载复现的原创案例。",
-      "terms": ["HyperFrames", "中文教程", "HTML 视频"]
+      "title": "HyperFrames Studio：AI 视频创作与中文上手指南",
+      "question": "HyperFrames Studio 是什么，如何开始创作视频？",
+      "answer": "HyperFrames Studio 是 HeyGen 开发的桌面视频创作应用。描述你的想法，与 AI 一起制作视频，在预览中调整文字、画面与节奏，再导出作品。本站由中文社区独立维护，提供官方下载入口、中文上手指南与原创 HyperFrames 框架成片示例。",
+      "terms": ["HyperFrames Studio", "AI 视频创作", "中文上手指南"]
     },
     {
       "id": "overview-what-is-hyperframes",

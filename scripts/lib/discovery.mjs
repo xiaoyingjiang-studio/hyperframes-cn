@@ -263,7 +263,7 @@ export function renderHead(html, page, site) {
   head.append(
     $("<title>").text(
       page.id === "home"
-        ? "HyperFrames 中文指南：产品能力、入门教程与视频案例"
+        ? page.title
         : `${page.title} | ${site.name}`,
     ),
   );
@@ -291,8 +291,8 @@ export function renderHead(html, page, site) {
     locale: "zh_CN",
     image: site.url + page.image,
     "image:alt": page.title,
-    "image:width": "960",
-    "image:height": "540",
+    "image:width": String(page.imageWidth || 960),
+    "image:height": String(page.imageHeight || 540),
   }))
     meta("og:" + key, value, true);
   meta("twitter:card", "summary_large_image");

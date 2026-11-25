@@ -1,20 +1,32 @@
 ---
-import { site } from '../lib/site';
+import { studioDownload } from '../lib/site';
+import '../styles/navigation.css';
 const path = Astro.url.pathname;
+const links = [
+  { label: 'Studio', href: '/', active: path === '/' },
+  { label: '作品', href: '/showcase/', active: path.startsWith('/showcase') },
+  { label: '中文指南', href: '/start/studio/', active: /^\/(start|overview|features|guides)\//.test(path) },
+  { label: '更新', href: '/updates/', active: path.startsWith('/updates') },
+];
 ---
 <div class="site-header">
   <a href="/" class="brand" aria-label="HyperFrames 中文指南首页"><span class="brand-icon" aria-hidden="true">H<span>F</span></span><span>HyperFrames<small>中文指南</small></span></a>
   <nav aria-label="主导航">
-    <a href="/overview/what-is-hyperframes/" aria-current={path.startsWith('/overview') ? 'page' : undefined}>了解产品</a>
-    <a href="/start/studio/" aria-current={path.startsWith('/start') ? 'page' : undefined}>开始使用</a>
-    <a href="/showcase/" aria-current={path.startsWith('/showcase') ? 'page' : undefined}>案例</a>
-    <a href="/updates/" aria-current={path.startsWith('/updates') ? 'page' : undefined}>更新</a>
+    {path === '/' && <span class="studio-nav-indicator" aria-hidden="true"></span>}
+    {links.map(link => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
   </nav>
   <div class="header-actions">
     <button class="search-trigger" aria-label="搜索网站" data-search-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><span>搜索文档</span><kbd>Ctrl K</kbd></button>
     <button class="theme-toggle" aria-label="切换明暗主题" title="切换明暗主题">◐</button>
-    <a class="github-link" href={site.repository} aria-label="在 GitHub 查看本站源码">GitHub</a>
+    <a class="header-download" href={studioDownload}>下载 Studio</a>
   </div>
+  <details class="mobile-navigation">
+    <summary>导航</summary>
+    <nav aria-label="移动主导航">
+      {links.map(link => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
+      <a href={studioDownload}>下载 Studio<span>官方入口</span></a>
+    </nav>
+  </details>
 </div>
 <dialog id="site-search" aria-labelledby="search-title">
   <div class="search-heading"><h2 id="search-title">搜索中文指南</h2><button data-search-close aria-label="关闭搜索">关闭 <kbd>Esc</kbd></button></div>
@@ -63,6 +75,34 @@ const path = Astro.url.pathname;
   document.querySelector('.theme-toggle')?.addEventListener('click', () => {
     const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
-    try { localStorage.setItem('starlight-theme', next); } catch {}
+    const key = document.documentElement.dataset.themeScope === 'studio' ? 'hyperframes-studio-theme' : 'starlight-theme';
+    try { localStorage.setItem(key, next); } catch {}
   });
+  const menu = document.querySelector<HTMLDetailsElement>('.mobile-navigation');
+  menu?.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { menu.open = false; menu.querySelector('summary')?.focus(); }
+  });
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.open = false; }));
+  document.addEventListener('click', event => {
+    if (menu?.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+  });
+  const navigation = document.querySelector<HTMLElement>('.studio-home .site-header > nav');
+  const indicator = navigation?.querySelector<HTMLElement>('.studio-nav-indicator');
+  if (navigation && indicator) {
+    navigation.classList.add('has-indicator');
+    const current = navigation.querySelector<HTMLAnchorElement>('a[aria-current]')!;
+    const follow = (link: HTMLAnchorElement) => {
+      indicator.style.width = `${link.offsetWidth}px`;
+      indicator.style.transform = `translateX(${link.offsetLeft}px)`;
+    };
+    navigation.querySelectorAll<HTMLAnchorElement>('a').forEach(link => {
+      link.addEventListener('pointerenter', () => follow(link));
+      link.addEventListener('focus', () => follow(link));
+    });
+    navigation.addEventListener('pointerleave', () => follow(navigation.contains(document.activeElement) ? document.activeElement as HTMLAnchorElement : current));
+    navigation.addEventListener('focusout', event => { if (!navigation.contains(event.relatedTarget as Node)) follow(current); });
+    new ResizeObserver(() => follow(current)).observe(navigation);
+    document.fonts.ready.then(() => follow(current));
+    follow(current);
+  }
 </script>

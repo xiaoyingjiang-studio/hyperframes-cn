@@ -24,12 +24,15 @@ const site = resolveSite(await json("site.config.json"));
 const pages = await json("content/pages.json");
 const registry = await json("content/sources.json");
 const discovery = await json("content/discovery.json");
+// Reuse the Studio guide's existing reviewed sources without changing its baseline.
+const studioGuide = pages.find((page) => page.id === "start-studio");
 const records = [
   {
     id: "home",
     route: "/",
     file: "src/pages/index.astro",
-    sources: [],
+    sources: studioGuide.sources,
+    reviewedSources: studioGuide.reviewedSources,
     kind: "home",
   },
   ...pages,
@@ -38,7 +41,8 @@ const entries = [];
 await mkdir(file("dist/content"), { recursive: true });
 for (const page of records) {
   const raw = await readFile(file(page.file), "utf8");
-  const { data } = matter(raw);
+  // Astro frontmatter is TypeScript, not Markdown's YAML metadata.
+  const { data } = page.kind === "home" ? { data: {} } : matter(raw);
   const intent = discovery.pages.find((p) => p.id === page.id);
   if (!intent) throw new Error(`缺少阅读意图：${page.id}`);
   const dates = [gitDate(page.file), intentDate(page.id)]
@@ -47,7 +51,7 @@ for (const page of records) {
   const entry = {
     id: page.id,
     route: page.route,
-    title: page.id === "home" ? site.name : data.title,
+    title: page.id === "home" ? intent.title || site.name : data.title,
     description: intent.answer,
     question: intent.question,
     terms: intent.terms,
@@ -59,9 +63,11 @@ for (const page of records) {
     status: data.status,
     sources: sourceLinks(page, registry),
     markdown: `/content/${page.id}.md`,
-    image: page.id.startsWith("showcase-")
-      ? `/media/${page.id.slice(9)}.jpg`
-      : "/media/product-intro.jpg",
+    image: page.id === "home"
+      ? "/media/studio-first-video.jpg"
+      : page.id.startsWith("showcase-") ? `/media/${page.id.slice(9)}.jpg` : "/media/product-intro.jpg",
+    imageWidth: page.id === "home" ? 1280 : 960,
+    imageHeight: page.id === "home" ? 800 : 540,
   };
   const path = file(`dist${page.route}index.html`);
   let html = await readFile(path, "utf8");
