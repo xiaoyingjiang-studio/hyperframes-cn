@@ -66,3 +66,6 @@ test('来源变化候选不能只更新正文而遗漏可见答案摘要',async(
  payload.answer='依据新来源核对后的中文答案。'.repeat(4);
  const result=await generateDraft({currentAnswer:'既有摘要'},{env,fetcher,sleep:async()=>{}});assert.equal(result.answer,payload.answer);
 });
+test('连接检查只调用一次，错误不会被第二次预算检查掩盖',async()=>{
+ let calls=0;await assert.rejects(generateDraft({},{env,fetcher:async()=>{calls++;return {ok:false,status:429}},maxRetries:0}),/HTTP 429/);assert.equal(calls,1);
+});
