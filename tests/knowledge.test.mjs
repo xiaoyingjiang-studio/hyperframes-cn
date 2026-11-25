@@ -60,6 +60,23 @@ test('正式版不能接受草稿或预发布，skills 分类不混入仓库内�
   assert.equal(classifySource('.agents/skills/private/SKILL.md', ['media-use']), 'repository-internal');
   assert.equal(classifySource('registry/blocks/item/SKILL.md'), 'resource-instructions');
 });
+
+test('DashScope 混合思考模型在原预算内返回结构化正文，其他供应商不注入专用参数', async () => {
+  for (const [host, model, hybrid] of [['dashscope.aliyuncs.com', 'deepseek-v4.1-flash', true], ['dashscope-intl.aliyuncs.com', 'fixture', false], ['model.example', 'deepseek-v4.1-flash', false]]) {
+    let sent;
+    const env = { AI_ENDPOINT: `https://${host}/compatible-mode/v1/chat/completions`, AI_MODEL: model, AI_API_KEY: 'fixture' };
+    const budget = new Budget(env);
+    const result = await requestKnowledge({}, { env, budget, fetcher: async (_, options) => {
+      sent = JSON.parse(options.body);
+      return { ok: true, json: async () => ({ choices: [{ message: { content: JSON.stringify(draft) } }] }) };
+    } });
+    assert.equal(result.body, draft.body);
+    assert.equal(sent.max_tokens, 6000);
+    assert.equal(budget.calls, 1);
+    assert.equal(sent.enable_thinking, hybrid ? false : undefined);
+    assert.deepEqual(sent.response_format, hybrid ? { type: 'json_object' } : undefined);
+  }
+});
 test('skill 引用材料变化进入依赖，不越出官方文件树', () => {
   assert.deepEqual(extractDependencies('[规则](references/rules.md) [逃逸](../../outside.md)', 'skills/a/SKILL.md', new Set(['skills/a/references/rules.md', 'outside.md'])), ['skills/a/references/rules.md']);
 });

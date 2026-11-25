@@ -89,4 +89,6 @@ jobs:
             artifacts/release-failure.json
           if-no-files-found: ignore
       - name: Record release
-        run: echo "Published commit $GITHUB_SHA to $SITE_URL" >> "$GITHUB_STEP_SUMMARY"
+        run: echo "Published commit $RELEASE_SHA to $SITE_URL" >> "$GITHUB_STEP_SUMMARY"
+        env:
+          RELEASE_SHA: ${{ inputs.sha || github.sha }}
