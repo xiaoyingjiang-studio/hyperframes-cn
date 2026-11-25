@@ -1,3 +1,20 @@
+import { hash } from "./io.mjs";
+
+export function assertFreshCandidate(
+  candidate,
+  { page, raw, intent, pendingIds = [] },
+) {
+  if (
+    candidate.pageId !== page.id ||
+    candidate.beforeHash !== hash(raw) ||
+    candidate.intentHash !== hash(JSON.stringify(intent)) ||
+    candidate.reviewedSourcesHash !== hash(JSON.stringify(page.reviewedSources))
+  )
+    throw new Error("正文、摘要或来源基线已变化，拒绝覆盖，请重新审阅");
+  if (pendingIds.includes(page.id))
+    throw new Error("官方来源待核对，应先处理来源变化");
+}
+
 export function validateObservations(input, ids) {
   if (
     input.schemaVersion !== 1 ||
@@ -71,10 +88,25 @@ export function validateObservations(input, ids) {
 }
 export function prioritize(pages, observations, pendingIds = []) {
   const pending = new Set(pendingIds);
+  const latest = new Map();
+  for (const item of observations) {
+    const key = JSON.stringify([
+      item.kind,
+      item.engine,
+      item.model || "",
+      item.pageId,
+      item.query,
+      item.context || "",
+    ]);
+    const date = (value) =>
+      value.kind === "search" ? value.period.end : value.observedAt;
+    if (!latest.has(key) || date(item) >= date(latest.get(key)))
+      latest.set(key, item);
+  }
   return pages
     .filter((p) => !pending.has(p.id))
     .map((page) => {
-      const signals = observations.filter((o) => o.pageId === page.id);
+      const signals = [...latest.values()].filter((o) => o.pageId === page.id);
       const reasons = [];
       for (const signal of signals) {
         if (

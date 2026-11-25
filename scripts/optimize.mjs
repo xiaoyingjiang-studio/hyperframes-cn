@@ -46,6 +46,21 @@ const budget = new Budget();
 const glossary = await readFile(file("content/glossary.md"), "utf8");
 for (const target of queue.slice(0, limit)) {
   const page = pages.find((p) => p.id === target.pageId);
+  const reviewed = await json(
+    `content/optimization/reviews/${page.id}.json`,
+    null,
+  );
+  if (
+    reviewed &&
+    hash(JSON.stringify(reviewed.signals)) ===
+      hash(JSON.stringify(target.reasons))
+  ) {
+    report.skipped.push({
+      id: page.id,
+      reason: "同一组观测已用于上一轮编辑，等待新观测，不反复改写",
+    });
+    continue;
+  }
   if (page.file.endsWith(".mdx")) {
     report.skipped.push({
       id: page.id,

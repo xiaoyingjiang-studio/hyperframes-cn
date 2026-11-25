@@ -2,6 +2,7 @@ import { readFile, writeFile, rm } from "node:fs/promises";
 import matter from "gray-matter";
 import { file, json, save, hash } from "./lib/io.mjs";
 import { validateDraft, checkCommands } from "./lib/ai.mjs";
+import { assertFreshCandidate } from "./lib/optimization.mjs";
 const id = process.argv[2];
 if (!process.argv.includes("--reviewed"))
   throw new Error(
@@ -15,15 +16,12 @@ const raw = await readFile(file(page.file), "utf8");
 const intent = (await json("content/discovery.json")).pages.find(
   (p) => p.id === id,
 );
-if (
-  candidate.pageId !== page.id ||
-  candidate.beforeHash !== hash(raw) ||
-  candidate.intentHash !== hash(JSON.stringify(intent)) ||
-  candidate.reviewedSourcesHash !== hash(JSON.stringify(page.reviewedSources))
-)
-  throw new Error("正文、摘要或来源基线已变化，拒绝覆盖，请重新审阅");
-if ((await json("content/sync-status.json")).pendingPageIds.includes(id))
-  throw new Error("官方来源待核对，应先处理来源变化");
+assertFreshCandidate(candidate, {
+  page,
+  raw,
+  intent,
+  pendingIds: (await json("content/sync-status.json")).pendingPageIds,
+});
 validateDraft(candidate.body);
 const parsed = matter(raw);
 const snapshots = await Promise.all(

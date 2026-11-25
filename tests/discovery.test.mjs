@@ -10,7 +10,52 @@ import {
 import {
   validateObservations,
   prioritize,
+  assertFreshCandidate,
 } from "../scripts/lib/optimization.mjs";
+import { hash } from "../scripts/lib/io.mjs";
+test("候选应用前同时保护人工正文、摘要、来源与待核对状态", () => {
+  const page = {
+    id: "cli",
+    reviewedSources: { cli: { commit: "a", hash: "old" } },
+  };
+  const raw = "人工维护正文";
+  const intent = { answer: "人工维护摘要" };
+  const candidate = {
+    pageId: "cli",
+    beforeHash: hash(raw),
+    intentHash: hash(JSON.stringify(intent)),
+    reviewedSourcesHash: hash(JSON.stringify(page.reviewedSources)),
+  };
+  assert.doesNotThrow(() =>
+    assertFreshCandidate(candidate, { page, raw, intent }),
+  );
+  for (const changed of [
+    { page, raw: raw + "改动", intent },
+    { page, raw, intent: { answer: "人工新摘要" } },
+    { page: { ...page, reviewedSources: {} }, raw, intent },
+    { page, raw, intent, pendingIds: ["cli"] },
+  ])
+    assert.throws(() => assertFreshCandidate(candidate, changed));
+});
+test("新的同口径观测改善后，不再用过期低 CTR 持续改写", () => {
+  const old = {
+    kind: "search",
+    engine: "bing",
+    pageId: "cli",
+    query: "render",
+    period: { start: "2026-11-01", end: "2026-11-10" },
+    impressions: 200,
+    clicks: 1,
+    evidence: "old export",
+  };
+  const fresh = {
+    ...old,
+    period: { start: "2026-11-11", end: "2026-11-20" },
+    clicks: 20,
+    evidence: "new export",
+  };
+  assert.deepEqual(prioritize([{ id: "cli" }], [fresh, old]), []);
+});
 const site = {
   name: "中文指南",
   url: "https://guide.example.com",
