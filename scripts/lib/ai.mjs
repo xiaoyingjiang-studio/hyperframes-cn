@@ -15,8 +15,9 @@ export class Budget {
   constructor(env = process.env) { this.calls = 0; this.tokens = 0; this.maxCalls = Number(env.AI_MAX_CALLS || 15); this.maxTokens = Number(env.AI_MAX_TOTAL_TOKENS || 100000); }
   reserve(input, output) { const amount = Buffer.byteLength(input) + output; if (this.calls + 1 > this.maxCalls || this.tokens + amount > this.maxTokens) throw new DraftError('达到本批调用或保守 Token 预算上限', true); this.calls++; this.tokens += amount; return amount; }
 }
-export async function generateDraft(input, { env = process.env, fetcher = fetch, budget = new Budget(env), sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
+export async function generateDraft(input, { env = process.env, fetcher = fetch, budget = new Budget(env), maxRetries = 2, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   if (!configured(env)) return { skipped: true, reason: '未配置 AI，保留差异报告与人工待办' };
+  if (!Number.isInteger(maxRetries) || maxRetries < 0 || maxRetries > 2) throw new DraftError('AI 重试次数必须为 0–2', true);
   const endpoint = new URL(env.AI_ENDPOINT);
   if (endpoint.protocol !== 'https:' && !['127.0.0.1', 'localhost'].includes(endpoint.hostname)) throw new DraftError('AI 接口必须使用 HTTPS', true);
   const maxOutput = Math.min(Number(env.AI_MAX_OUTPUT_TOKENS || 6000), 12000);
@@ -25,20 +26,22 @@ export async function generateDraft(input, { env = process.env, fetcher = fetch,
     { role: 'user', content: JSON.stringify(input) },
   ];
   const serialized = JSON.stringify(messages);
-  for (let attempt = 0; attempt < 3; attempt++) {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
     budget.reserve(serialized, maxOutput);
     try {
       const response = await fetcher(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${env.AI_API_KEY}` }, body: JSON.stringify({ model: env.AI_MODEL, messages, max_tokens: maxOutput, temperature: 0.2 }), signal: AbortSignal.timeout(Number(env.AI_TIMEOUT_MS || 60000)) });
-      if (!response.ok) throw new DraftError(`AI 请求失败（HTTP ${response.status}）`, [400, 401, 402, 403, 404].includes(response.status) || (response.status === 429 && attempt === 2));
+      if (!response.ok) throw new DraftError(`AI 请求失败（HTTP ${response.status}）`, [400, 401, 402, 403, 404].includes(response.status) || (response.status === 429 && attempt === maxRetries));
       const payload = await response.json();
       const value = payload.choices?.[0]?.message?.content;
+      if (typeof value !== 'string' || !value.trim()) throw new DraftError(payload.choices?.[0]?.finish_reason === 'length' ? 'AI 达到输出长度上限但未返回正文，请检查思考模式与输出配置' : 'AI 未返回可解析正文');
       const parsed = JSON.parse(value?.replace(/^```(?:json)?\s*|\s*```$/g, ''));
       validateDraft(parsed.body);
       if (typeof parsed.summary !== 'string' || !Array.isArray(parsed.checks) || parsed.checks.some(x => typeof x !== 'string')) throw new DraftError('候选输出不符合约定');
       if (input.currentAnswer) validateAnswer(parsed.answer);
-      return { body: parsed.body, summary: parsed.summary, checks: parsed.checks, ...(parsed.answer ? { answer: parsed.answer } : {}), usage: payload.usage || null };
+      const usage = payload.usage ? Object.fromEntries(['prompt_tokens','completion_tokens','total_tokens'].filter(key => Number.isFinite(payload.usage[key]) && payload.usage[key] >= 0).map(key => [key,payload.usage[key]])) : null;
+      return { body: parsed.body, summary: parsed.summary, checks: parsed.checks, ...(parsed.answer ? { answer: parsed.answer } : {}), usage };
     } catch (error) {
-      if (error.fatal || attempt === 2) throw error instanceof DraftError ? error : new DraftError('AI 响应无法解析或请求超时');
+      if (error.fatal || attempt === maxRetries) throw error instanceof DraftError ? error : new DraftError('AI 响应无法解析或请求超时');
       await sleep(500 * 2 ** attempt);
     }
   }
