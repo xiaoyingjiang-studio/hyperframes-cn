@@ -2554,7 +2554,7 @@
     }
   ],
   "preview": {
-    "commit": "3953e2dffc7b80f35cac69590c28fbe89f4a8b7e",
+    "commit": "ed2a55ce5a46ae33e4638e34d369da77bd71f5ae",
     "changes": [],
     "note": "公开主分支差异，不代表已正式发布或桌面应用已提供。"
   }

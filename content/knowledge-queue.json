@@ -7,7 +7,9 @@
       "reason": "source-changed",
       "revision": "a73ac4b3e15e888f0f95c6fde6f5daeee6e3e342f1edda9e56a11afcb74c199b",
       "firstSeen": "2026-11-25T09:22:21.274Z",
-      "attempts": 0
+      "attempts": 1,
+      "error": "Unexpected end of JSON input",
+      "nextAttemptAt": "2026-11-26T09:44:44.721Z"
     },
     {
       "id": "start-cli",
@@ -15,7 +17,9 @@
       "reason": "source-changed",
       "revision": "e9f85f6c67928f5c9bdb4a4d230de66fa9b47968702ba0a937ad905bef4200cd",
       "firstSeen": "2026-11-25T09:22:21.274Z",
-      "attempts": 0
+      "attempts": 1,
+      "error": "达到本批调用或保守 Token 预算上限",
+      "nextAttemptAt": "2026-11-26T09:44:44.759Z"
     },
     {
       "id": "updates",
