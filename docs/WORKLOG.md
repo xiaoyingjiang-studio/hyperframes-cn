@@ -75,7 +75,13 @@
 
 按用户要求将知识建设改为每周一、周四北京时间 08:30（UTC cron 30 0 * * 1,4），取消每日运行及独立 SEO/GEO 定时触发，保留手动补跑。维护文档、项目记忆与公开来源说明同步更新；历史运行记录保留。
 
-## 后续记录模板
+## 2026-11-25：知识体系发布与真实恢复演练
+
+知识体系及定时调整通过 [PR #11](https://github.com/xiaoyingjiang-studio/hyperframes-cn/pull/11) 合并，主分支提交 `e56edef68636bcb2e90d7247a59ff0814687df20`。远端完整 Checks 按顺序通过 check、test、build、test:indexing 和 test:e2e。生产发布 [运行 45587758760](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/45587758760) 成功，实际读取线上 content-manifest.json 确认对应 buildSha、63 页面；知识入口和来源说明均返回 200，公开说明已显示每周一、周四北京时间 08:30。
+
+[隔离恢复演练 45587764852](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/45587764852) 成功：一次性 Worker 真实发布 A、B，注入冒烟失败，调用生产共用的恢复控制器并观察 A 返回；演练资源已清理，未向生产注入故障。旧人工同步 PR #9 与已被完整包含的首页 PR #10 已关闭，原分支保留。
+
+自动内容 PR 的初次启用受到组织 Actions 策略限制：仓库开关修改返回 409，说明组织不允许 Actions 创建或批准 PR；组织策略读取返回 403，当前 API 凭据不具备组织 Actions 管理权限。用户随后在组织层开放该能力，本站仓库开关已通过 API 启用；默认令牌权限仍为 read，具体工作流显式申请所需权限。主分支必要 check 和 PR 规则保留，未绕过保护；日常内容无需人工批准。
 
 ```text
 日期与阶段：

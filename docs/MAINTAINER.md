@@ -67,7 +67,9 @@ PR 预览使用 `wrangler preview --name pr-<编号>`，不会替换正式部署
 
 ## 6. AI 适配与消耗
 
-接口使用 HTTPS，Bearer 密钥，仅从 Secret 读取。请求包括 model、messages、max_tokens、temperature；服务需返回 choices[0].message.content，其中为 body/summary/checks JSON。用量取 usage，如供应商格式不同，新增适配器，不把密钥交给浏览器。
+接口使用 HTTPS，Bearer 密钥，仅从 Secret 读取。请求包括 model、messages、max_tokens、temperature；服务需返回 choices[0].message.content，写作返回 body/answer/summary JSON，独立核验返回 supported/issues/evidence JSON。如供应商格式不同，新增适配器，不把密钥交给浏览器。
+
+DashScope 的 DeepSeek V4 混合模型显式设置 enable_thinking=false 与 response_format=json_object，防止默认思考消耗完既定输出额度而没有正文；不增加输出或批次预算。其他供应商不注入此专用参数。依据：[官方思考模式说明](https://www.alibabacloud.com/help/en/model-studio/deep-thinking)。
 
 默认每批五篇、最多十五次尝试、保守累计十万 Token 预算。输入预算按 UTF-8 字节保守预留，输出按请求上限预留，不依赖服务商的计费估计。认证/余额/配置错误立即停止；可重试错误每页最多两次重试。金额硬上限需要所选供应商自身支持并配置。
 
