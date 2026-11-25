@@ -1,0 +1,13 @@
+{
+  "id": "product-updates",
+  "commit": "c7e19fdd24cc55ea316495c0429cf142be72c716",
+  "path": "docs/product-updates.mdx",
+  "blobSha": "046a550cf9dc02c3824aece6c1587d7fe4c7a646",
+  "hash": "0a2bc6265a9b481ed65dc698dfd83d4d3d3815a5de4dcac56eea350b0b048bdc",
+  "files": [
+    {
+      "path": "docs/product-updates.mdx",
+      "text": "---\ntitle: \"Product updates\"\ndescription: \"The HyperFrames changes that matter when you create, edit, and render projects.\"\n---\n\nThis page explains meaningful product changes in human terms. Use [Weekly updates](/weekly-updates) for the detailed digest and films, or the [complete release archive](/changelog) for every versioned change.\n\n## July 2026\n\n### Media that previews reliably\n\nStudio, published projects, and the render pipeline can prepare compatible preview versions of difficult video formats automatically. This particularly helps with HEVC and other files that a browser may not decode even though FFmpeg can render them.\n\nWhat this means:\n\n- fewer black video frames in Studio;\n- preview and render use consistent media decisions;\n- published projects can include the prepared media;\n- projects can opt out when automatic proxying is not wanted.\n\n### A clearer Studio inspector\n\nThe flatter Studio inspector is now the normal editing surface. Text, layout, style, motion, media, grade, and element-specific controls are easier to scan without navigating several competing panels.\n\n### More reliable rendering and long-running work\n\nRecent releases improved software-GPU capture, Windows behavior, browser worker reuse, failure diagnostics, audio handling, and composition synchronization.\n\nFor most users, the result is simple: fewer cases where a long or media-heavy render stalls or produces a frame that differs from preview.\n\n### Better storyboard and agent review\n\nStoryboard review now has clearer handoff behavior, safer history navigation, and a more explicit relationship between human comments and the next agent pass.\n\n### Safer agent-created motion\n\nLint and validation now catch more animation problems involving seek order, hidden initial states, conflicting writers, relative values, and SVG drawing.\n\n## Keep your project current\n\nScaffolded projects can pin a HyperFrames version for reproducibility. Ask your agent to check the project before render-affecting work, or run:\n\n```bash\nnpx hyperframes@latest upgrade --project . --check\n```\n\nRead the [release archive](/changelog) before upgrading a production workflow with custom integrations.\n\n## Related topics\n\n- [Read the complete release archive](/changelog)\n- [Make your first video](/quickstart)\n- [Review and edit a project in Studio](/studio)\n"
+    }
+  ]
+}

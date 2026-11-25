@@ -1,0 +1,57 @@
+import { posix } from 'node:path';
+import { hash, request } from './io.mjs';
+
+export function extractDependencies(text, path, treePaths) {
+  const refs = [...text.matchAll(/(?:from\s*|import\s*)["']([^"']+)["']/g)].map(m => m[1]);
+  return [...new Set(refs.map(ref => ref.startsWith('/') ? `docs${ref}` : posix.normalize(posix.join(posix.dirname(path), ref))).filter(p => treePaths.has(p) && /\.(?:mdx?|jsx?|tsx?|json)$/.test(p)))].sort();
+}
+export async function collect(registry, { token = process.env.GITHUB_TOKEN, ref = 'main', fetcher = request } = {}) {
+  const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'hyperframes-cn-content-sync', ...(token ? { Authorization: `Bearer ${token}` } : {}) };
+  const commit = await (await fetcher(`https://api.github.com/repos/${registry.repository}/commits/${encodeURIComponent(ref)}`, { headers })).json();
+  if (!/^[a-f0-9]{40}$/.test(commit.sha)) throw new Error('上游提交格式无效');
+  const tree = await (await fetcher(`https://api.github.com/repos/${registry.repository}/git/trees/${commit.sha}?recursive=1`, { headers })).json();
+  if (tree.truncated || !Array.isArray(tree.tree)) throw new Error('上游文件树不完整，停止同步');
+  const blobs = tree.tree.filter(x => x.type === 'blob');
+  const treePaths = new Set(blobs.map(x => x.path));
+  const cache = new Map();
+  async function raw(path) {
+    if (!cache.has(path)) cache.set(path, fetcher(`https://raw.githubusercontent.com/${registry.repository}/${commit.sha}/${path}`).then(r => r.text()));
+    return cache.get(path);
+  }
+  const sources = {};
+  for (const source of registry.sources) {
+    let path = source.path;
+    if (!treePaths.has(path)) {
+      const moved = source.blobSha && blobs.find(b => b.sha === source.blobSha);
+      if (!moved) { sources[source.id] = { id: source.id, commit: commit.sha, path, deleted: true, hash: 'deleted', files: [] }; continue; }
+      path = moved.path;
+    }
+    const files = [];
+    const visited = new Set();
+    async function visit(p) {
+      if (visited.has(p)) return;
+      if (visited.size >= 60) throw new Error('共享片段依赖过多，需要人工检查');
+      visited.add(p);
+      const text = await raw(p);
+      if (Buffer.byteLength(text) > 2 * 1024 * 1024) throw new Error('上游源文件过大，需要人工检查');
+      files.push({ path: p, text });
+      for (const dep of extractDependencies(text, p, treePaths)) await visit(dep);
+    }
+    await visit(path);
+    files.sort((a, b) => a.path.localeCompare(b.path));
+    sources[source.id] = { id: source.id, commit: commit.sha, path, blobSha: blobs.find(b => b.path === path).sha, hash: hash(JSON.stringify(files)), files };
+  }
+  const index = blobs.filter(b => /^docs\/.*\.(md|mdx)$/.test(b.path) || /^skills\/.*SKILL\.md$/.test(b.path) || /^registry\/.*\.json$/.test(b.path)).map(b => ({ path: b.path, blobSha: b.sha, url: `https://github.com/${registry.repository}/blob/${commit.sha}/${b.path}` }));
+  return { commit: commit.sha, collectedAt: new Date().toISOString(), sources, index };
+}
+export function diffIndex(before, after) {
+  const old = new Map(before.map(x => [x.path, x])); const fresh = new Map(after.map(x => [x.path, x]));
+  const removed = before.filter(x => !fresh.has(x.path));
+  const added = after.filter(x => !old.has(x.path));
+  const moves = []; const matched = new Set();
+  for (const entry of added) { const previous = removed.find(x => x.blobSha === entry.blobSha && !matched.has(x.path)); if (previous) { moves.push({ type: 'moved', path: entry.path, from: previous.path }); matched.add(previous.path); } }
+  return [...moves, ...added.filter(x => !moves.some(m => m.path === x.path)).map(x => ({ type: 'added', path: x.path })), ...removed.filter(x => !matched.has(x.path)).map(x => ({ type: 'deleted', path: x.path })), ...after.filter(x => old.has(x.path) && old.get(x.path).blobSha !== x.blobSha).map(x => ({ type: 'modified', path: x.path }))];
+}
+export function affectedPages(pages, observed) {
+  return pages.filter(p => p.sources.some(id => p.reviewedSources[id]?.hash !== observed.sources[id]?.hash));
+}

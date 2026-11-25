@@ -1,0 +1,695 @@
+[
+  {
+    "id": "overview-what-is-hyperframes",
+    "route": "/overview/what-is-hyperframes/",
+    "file": "src/content/docs/overview/what-is-hyperframes.md",
+    "sources": [
+      "introduction",
+      "concepts-determinism"
+    ],
+    "reviewedSources": {
+      "introduction": {
+        "hash": "8da216d35ce54dc6d9d4e7c675bc9596dbd671264112e352064f20ce34e77a1f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/introduction.mdx"
+      },
+      "concepts-determinism": {
+        "hash": "1f75de67a9617b3414c611edc6d098ec9878ccb207590fe2e793ed05d7bd4f6b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/determinism.mdx"
+      }
+    }
+  },
+  {
+    "id": "overview-choose-your-path",
+    "route": "/overview/choose-your-path/",
+    "file": "src/content/docs/overview/choose-your-path.md",
+    "sources": [
+      "quickstart",
+      "guides-mcp"
+    ],
+    "reviewedSources": {
+      "quickstart": {
+        "hash": "791801ee8d8a02f56104c474afa38d8088d4a4d551963e3f4e872e8dd596391f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/quickstart.mdx"
+      },
+      "guides-mcp": {
+        "hash": "7715cb6870a73f1b5e985eafa5947fcdab5cff8bc757ad60af2074edb4a02c8a",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/mcp.mdx"
+      }
+    }
+  },
+  {
+    "id": "overview-free-and-paid",
+    "route": "/overview/free-and-paid/",
+    "file": "src/content/docs/overview/free-and-paid.md",
+    "sources": [
+      "readme",
+      "faq",
+      "guides-media"
+    ],
+    "reviewedSources": {
+      "readme": {
+        "hash": "a7e8da609d7a9d0e30825442f2ec80690937306497bff3b4c53a8b99dd4999bb",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "README.md"
+      },
+      "faq": {
+        "hash": "0a6c6f4301251ef9aea48eb87565857c3fbc2a2cb4f15c60529e4c3402248bab",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/faq.mdx"
+      },
+      "guides-media": {
+        "hash": "ba881b3fc9151631705271562c0cbf7016a06ff167efd14f5808e5ada12049b1",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/media.mdx"
+      }
+    }
+  },
+  {
+    "id": "start-studio",
+    "route": "/start/studio/",
+    "file": "src/content/docs/start/studio.md",
+    "sources": [
+      "studio-app-index",
+      "studio-app-first-video",
+      "studio-app-export"
+    ],
+    "reviewedSources": {
+      "studio-app-index": {
+        "hash": "8245f0dcd4e837138b03dda620555e0188211984297730f6870c58f78893bc5f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/studio-app/index.mdx"
+      },
+      "studio-app-first-video": {
+        "hash": "74a6893707c364c402c25287abbbbec146dbf033c57677c0e1e78ca476afad47",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/studio-app/first-video.mdx"
+      },
+      "studio-app-export": {
+        "hash": "b52eacbceb54b40931676f728dc7c9fa0158b270c095bc7031c13f677c71c4fa",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/studio-app/export.mdx"
+      }
+    }
+  },
+  {
+    "id": "start-codex",
+    "route": "/start/codex/",
+    "file": "src/content/docs/start/codex.md",
+    "sources": [
+      "guides-with-codex",
+      "guides-skills",
+      "guides-plugins"
+    ],
+    "reviewedSources": {
+      "guides-with-codex": {
+        "hash": "e7ee7836dbdbe6b5db4bfc0cf418dc460f6da20f319c0ae0302e976ff391747f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/with-codex.mdx"
+      },
+      "guides-skills": {
+        "hash": "76b27b2e8ff30ac891f5db62abe1530d857ee274ecc4dee5e5f9b6f9c740d076",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/skills.mdx"
+      },
+      "guides-plugins": {
+        "hash": "ccdc0b87f690f08cffb6364d7b166067ec8b1a03c72e18a7c05a2de43c809a5b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/plugins.mdx"
+      }
+    }
+  },
+  {
+    "id": "start-claude-code",
+    "route": "/start/claude-code/",
+    "file": "src/content/docs/start/claude-code.md",
+    "sources": [
+      "guides-with-claude-code",
+      "guides-skills",
+      "guides-plugins"
+    ],
+    "reviewedSources": {
+      "guides-with-claude-code": {
+        "hash": "bc63b43fac005b40ab14b754cb0ee25e3a3f43d1ffc277250a07f7b6b6678ab7",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/with-claude-code.mdx"
+      },
+      "guides-skills": {
+        "hash": "76b27b2e8ff30ac891f5db62abe1530d857ee274ecc4dee5e5f9b6f9c740d076",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/skills.mdx"
+      },
+      "guides-plugins": {
+        "hash": "ccdc0b87f690f08cffb6364d7b166067ec8b1a03c72e18a7c05a2de43c809a5b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/plugins.mdx"
+      }
+    }
+  },
+  {
+    "id": "start-cursor",
+    "route": "/start/cursor/",
+    "file": "src/content/docs/start/cursor.md",
+    "sources": [
+      "guides-with-cursor",
+      "guides-skills",
+      "guides-plugins"
+    ],
+    "reviewedSources": {
+      "guides-with-cursor": {
+        "hash": "abacff4c715f174e546b1894ec659396720bc607a8c904a0bb7d323c0d8caf01",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/with-cursor.mdx"
+      },
+      "guides-skills": {
+        "hash": "76b27b2e8ff30ac891f5db62abe1530d857ee274ecc4dee5e5f9b6f9c740d076",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/skills.mdx"
+      },
+      "guides-plugins": {
+        "hash": "ccdc0b87f690f08cffb6364d7b166067ec8b1a03c72e18a7c05a2de43c809a5b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/plugins.mdx"
+      }
+    }
+  },
+  {
+    "id": "start-cli",
+    "route": "/start/cli/",
+    "file": "src/content/docs/start/cli.md",
+    "sources": [
+      "developers-cli",
+      "packages-cli",
+      "quickstart"
+    ],
+    "reviewedSources": {
+      "developers-cli": {
+        "hash": "8c1ee3be6a8e8daf486f82be08ff5e969309173ea51baef96a07724a05d21e10",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/developers/cli.mdx"
+      },
+      "packages-cli": {
+        "hash": "5805ca3a86d33542065e53fe6ebeb6ca490c851e7bec0ae318e4f107602c324a",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/packages/cli.mdx"
+      },
+      "quickstart": {
+        "hash": "791801ee8d8a02f56104c474afa38d8088d4a4d551963e3f4e872e8dd596391f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/quickstart.mdx"
+      }
+    }
+  },
+  {
+    "id": "features-editing",
+    "route": "/features/editing/",
+    "file": "src/content/docs/features/editing.md",
+    "sources": [
+      "prompting-editing-existing-videos",
+      "studio-app-edit-with-the-agent"
+    ],
+    "reviewedSources": {
+      "prompting-editing-existing-videos": {
+        "hash": "ae7bc92cc09b5b229515e11fda8ffda697baebb48321bfdc3f2ebecbba8d7b1b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/editing-existing-videos.mdx"
+      },
+      "studio-app-edit-with-the-agent": {
+        "hash": "49183e0abdf2c4ed77daf006f0ae9c3f93231294c27c12d3488427c90ffb6f53",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/studio-app/edit-with-the-agent.mdx"
+      }
+    }
+  },
+  {
+    "id": "features-captions",
+    "route": "/features/captions/",
+    "file": "src/content/docs/features/captions.md",
+    "sources": [
+      "guides-captions-and-recuts",
+      "prompting-captions-catalog",
+      "prompting-media-and-audio"
+    ],
+    "reviewedSources": {
+      "guides-captions-and-recuts": {
+        "hash": "4a7b285ac51f608fd7adba928dabb46532afe13546369d333aec8baba6c17864",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/captions-and-recuts.mdx"
+      },
+      "prompting-captions-catalog": {
+        "hash": "d2f00066d425ba2739e21c7521d02d1a50523ae2e220bba86807f85aa77bd42f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/captions-catalog.mdx"
+      },
+      "prompting-media-and-audio": {
+        "hash": "731f55b8d06031e07c461347c65935d33549bf704cb383b72c1b3f7c9e11a23b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/media-and-audio.mdx"
+      }
+    }
+  },
+  {
+    "id": "features-motion",
+    "route": "/features/motion/",
+    "file": "src/content/docs/features/motion.md",
+    "sources": [
+      "guides-gsap-animation",
+      "prompting-motion",
+      "concepts-frame-adapters"
+    ],
+    "reviewedSources": {
+      "guides-gsap-animation": {
+        "hash": "d63b6cd41ec85e314aced0c5ebb2d45338bc9840c60caa46b48461e7944758d9",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/gsap-animation.mdx"
+      },
+      "prompting-motion": {
+        "hash": "644cb7c7d11c3195010bf30a1c41f4013fec5dea150e4df87eca753478600f27",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/motion.mdx"
+      },
+      "concepts-frame-adapters": {
+        "hash": "7ad3b7e4073bea30d010f3987411f4d1568d11e0558dc01da04643db0bc046d0",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/frame-adapters.mdx"
+      }
+    }
+  },
+  {
+    "id": "features-media",
+    "route": "/features/media/",
+    "file": "src/content/docs/features/media.md",
+    "sources": [
+      "guides-media",
+      "guides-voice-and-audio",
+      "guides-remove-background"
+    ],
+    "reviewedSources": {
+      "guides-media": {
+        "hash": "ba881b3fc9151631705271562c0cbf7016a06ff167efd14f5808e5ada12049b1",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/media.mdx"
+      },
+      "guides-voice-and-audio": {
+        "hash": "88c51e39a5f5579f9e1ba812de144d743d6df033bfef24045cba4eba9ceda83e",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/voice-and-audio.mdx"
+      },
+      "guides-remove-background": {
+        "hash": "f4cb21d30845bda48ca735768fcc8873321512aab8a1afd5e791d42f2bbdd89a",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/remove-background.mdx"
+      }
+    }
+  },
+  {
+    "id": "features-skills-catalog",
+    "route": "/features/skills-catalog/",
+    "file": "src/content/docs/features/skills-catalog.md",
+    "sources": [
+      "guides-skills",
+      "guides-plugins",
+      "catalog-index"
+    ],
+    "reviewedSources": {
+      "guides-skills": {
+        "hash": "76b27b2e8ff30ac891f5db62abe1530d857ee274ecc4dee5e5f9b6f9c740d076",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/skills.mdx"
+      },
+      "guides-plugins": {
+        "hash": "ccdc0b87f690f08cffb6364d7b166067ec8b1a03c72e18a7c05a2de43c809a5b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/plugins.mdx"
+      },
+      "catalog-index": {
+        "hash": "04be5387bcf3cd11186315c6f58d7221772994eaa116e86c12499cab08be2797",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/catalog/index.mdx"
+      }
+    }
+  },
+  {
+    "id": "features-render-share",
+    "route": "/features/render-share/",
+    "file": "src/content/docs/features/render-share.md",
+    "sources": [
+      "guides-rendering",
+      "guides-export-and-share",
+      "developers-cli"
+    ],
+    "reviewedSources": {
+      "guides-rendering": {
+        "hash": "dbf5e4e90d09d81fc3cac5f04cc75f56dbd1b923c72ed2d837610277a2a6e676",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/rendering.mdx"
+      },
+      "guides-export-and-share": {
+        "hash": "0997364b53b439e6e1ebfc650682700c6fd0e28fef9fa2a57bb3a4822b14be10",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/export-and-share.mdx"
+      },
+      "developers-cli": {
+        "hash": "8c1ee3be6a8e8daf486f82be08ff5e969309173ea51baef96a07724a05d21e10",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/developers/cli.mdx"
+      }
+    }
+  },
+  {
+    "id": "guides-prompting",
+    "route": "/guides/prompting/",
+    "file": "src/content/docs/guides/prompting.md",
+    "sources": [
+      "prompting-overview",
+      "prompting-examples"
+    ],
+    "reviewedSources": {
+      "prompting-overview": {
+        "hash": "b05be8d1838ae82a0273c0637d44ffed95a8ecb6776eac700a0c17141a1bab8e",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/overview.mdx"
+      },
+      "prompting-examples": {
+        "hash": "7ecf1a3ee6baabd87bf507c37c17981dac3863995d61a6afeac0fc1ccfdf6994",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/examples.mdx"
+      }
+    }
+  },
+  {
+    "id": "guides-chinese-typography",
+    "route": "/guides/chinese-typography/",
+    "file": "src/content/docs/guides/chinese-typography.md",
+    "sources": [
+      "guides-captions-and-recuts",
+      "prompting-captions-catalog"
+    ],
+    "reviewedSources": {
+      "guides-captions-and-recuts": {
+        "hash": "4a7b285ac51f608fd7adba928dabb46532afe13546369d333aec8baba6c17864",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/captions-and-recuts.mdx"
+      },
+      "prompting-captions-catalog": {
+        "hash": "d2f00066d425ba2739e21c7521d02d1a50523ae2e220bba86807f85aa77bd42f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/captions-catalog.mdx"
+      }
+    }
+  },
+  {
+    "id": "guides-windows",
+    "route": "/guides/windows/",
+    "file": "src/content/docs/guides/windows.md",
+    "sources": [
+      "quickstart",
+      "developers-cli",
+      "help"
+    ],
+    "reviewedSources": {
+      "quickstart": {
+        "hash": "791801ee8d8a02f56104c474afa38d8088d4a4d551963e3f4e872e8dd596391f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/quickstart.mdx"
+      },
+      "developers-cli": {
+        "hash": "8c1ee3be6a8e8daf486f82be08ff5e969309173ea51baef96a07724a05d21e10",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/developers/cli.mdx"
+      },
+      "help": {
+        "hash": "0d90c3e34af3a0e483fdd0a4a8847c80e8ea62ddfb3278d13c35d4cd92b5beb7",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/help.mdx"
+      }
+    }
+  },
+  {
+    "id": "guides-project-structure",
+    "route": "/guides/project-structure/",
+    "file": "src/content/docs/guides/project-structure.md",
+    "sources": [
+      "concepts-compositions",
+      "concepts-data-attributes",
+      "concepts-determinism"
+    ],
+    "reviewedSources": {
+      "concepts-compositions": {
+        "hash": "e832ef3df9460857626d8762f16d76d4e4afb0539e1293929718d7d58b0aaeef",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/compositions.mdx"
+      },
+      "concepts-data-attributes": {
+        "hash": "63445b855a6c75b2c5053929ec1934b319eaf27f21eba449692edbdd4f335bca",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/data-attributes.mdx"
+      },
+      "concepts-determinism": {
+        "hash": "1f75de67a9617b3414c611edc6d098ec9878ccb207590fe2e793ed05d7bd4f6b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/determinism.mdx"
+      }
+    }
+  },
+  {
+    "id": "guides-troubleshooting",
+    "route": "/guides/troubleshooting/",
+    "file": "src/content/docs/guides/troubleshooting.md",
+    "sources": [
+      "help",
+      "developers-cli",
+      "guides-performance"
+    ],
+    "reviewedSources": {
+      "help": {
+        "hash": "0d90c3e34af3a0e483fdd0a4a8847c80e8ea62ddfb3278d13c35d4cd92b5beb7",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/help.mdx"
+      },
+      "developers-cli": {
+        "hash": "8c1ee3be6a8e8daf486f82be08ff5e969309173ea51baef96a07724a05d21e10",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/developers/cli.mdx"
+      },
+      "guides-performance": {
+        "hash": "3bb0551054850fee38688597f1a7ecca3116e3dac5db98f4bb0a804704d002a3",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/performance.mdx"
+      }
+    }
+  },
+  {
+    "id": "showcase",
+    "route": "/showcase/",
+    "file": "src/content/docs/showcase/index.mdx",
+    "sources": [
+      "examples"
+    ],
+    "reviewedSources": {
+      "examples": {
+        "hash": "940e9e5f60b2ee60cca733d2dbb1fd6c9fa60826db9a1823bbf1f23cde8a32bb",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/examples.mdx"
+      }
+    }
+  },
+  {
+    "id": "showcase-product-intro",
+    "route": "/showcase/product-intro/",
+    "file": "src/content/docs/showcase/product-intro.mdx",
+    "sources": [
+      "guides-product-launch-video",
+      "concepts-compositions"
+    ],
+    "reviewedSources": {
+      "guides-product-launch-video": {
+        "hash": "4aa089bf8b06be532ba339631a1a08c673cdfd1856cf0105893d181fbd324713",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/product-launch-video.mdx"
+      },
+      "concepts-compositions": {
+        "hash": "e832ef3df9460857626d8762f16d76d4e4afb0539e1293929718d7d58b0aaeef",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/compositions.mdx"
+      }
+    }
+  },
+  {
+    "id": "showcase-chinese-explainer",
+    "route": "/showcase/chinese-explainer/",
+    "file": "src/content/docs/showcase/chinese-explainer.mdx",
+    "sources": [
+      "guides-faceless-explainer",
+      "concepts-compositions"
+    ],
+    "reviewedSources": {
+      "guides-faceless-explainer": {
+        "hash": "0281773ebcfe57b78f9077b540707eb7ed4c54ed19a37fba9d02b8716b6d1f4a",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/faceless-explainer.mdx"
+      },
+      "concepts-compositions": {
+        "hash": "e832ef3df9460857626d8762f16d76d4e4afb0539e1293929718d7d58b0aaeef",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/compositions.mdx"
+      }
+    }
+  },
+  {
+    "id": "showcase-data-story",
+    "route": "/showcase/data-story/",
+    "file": "src/content/docs/showcase/data-story.mdx",
+    "sources": [
+      "prompting-data-and-maps",
+      "concepts-compositions"
+    ],
+    "reviewedSources": {
+      "prompting-data-and-maps": {
+        "hash": "450394cab6f2464faef0ce6c02d71300b2109859e66e6c46549f94201a5bdd2d",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/data-and-maps.mdx"
+      },
+      "concepts-compositions": {
+        "hash": "e832ef3df9460857626d8762f16d76d4e4afb0539e1293929718d7d58b0aaeef",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/compositions.mdx"
+      }
+    }
+  },
+  {
+    "id": "showcase-footage-edit",
+    "route": "/showcase/footage-edit/",
+    "file": "src/content/docs/showcase/footage-edit.mdx",
+    "sources": [
+      "prompting-editing-existing-videos",
+      "concepts-compositions"
+    ],
+    "reviewedSources": {
+      "prompting-editing-existing-videos": {
+        "hash": "ae7bc92cc09b5b229515e11fda8ffda697baebb48321bfdc3f2ebecbba8d7b1b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/editing-existing-videos.mdx"
+      },
+      "concepts-compositions": {
+        "hash": "e832ef3df9460857626d8762f16d76d4e4afb0539e1293929718d7d58b0aaeef",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/compositions.mdx"
+      }
+    }
+  },
+  {
+    "id": "updates",
+    "route": "/updates/",
+    "file": "src/content/docs/updates/index.md",
+    "sources": [
+      "changelog",
+      "product-updates"
+    ],
+    "reviewedSources": {
+      "changelog": {
+        "hash": "110c119c969da5b1693902bce54c3bdf28496d544e7ac2901b939db8b0350872",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/changelog.mdx"
+      },
+      "product-updates": {
+        "hash": "0a2bc6265a9b481ed65dc698dfd83d4d3d3815a5de4dcac56eea350b0b048bdc",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/product-updates.mdx"
+      }
+    }
+  },
+  {
+    "id": "updates-first-edition",
+    "route": "/updates/first-edition/",
+    "file": "src/content/docs/updates/first-edition.md",
+    "sources": [
+      "quickstart",
+      "developers-cli",
+      "studio-app-index"
+    ],
+    "reviewedSources": {
+      "quickstart": {
+        "hash": "791801ee8d8a02f56104c474afa38d8088d4a4d551963e3f4e872e8dd596391f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/quickstart.mdx"
+      },
+      "developers-cli": {
+        "hash": "8c1ee3be6a8e8daf486f82be08ff5e969309173ea51baef96a07724a05d21e10",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/developers/cli.mdx"
+      },
+      "studio-app-index": {
+        "hash": "8245f0dcd4e837138b03dda620555e0188211984297730f6870c58f78893bc5f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/studio-app/index.mdx"
+      }
+    }
+  },
+  {
+    "id": "updates-site-changelog",
+    "route": "/updates/site-changelog/",
+    "file": "src/content/docs/updates/site-changelog.md",
+    "sources": [],
+    "reviewedSources": {}
+  },
+  {
+    "id": "community-about",
+    "route": "/community/about/",
+    "file": "src/content/docs/community/about.md",
+    "sources": [],
+    "reviewedSources": {}
+  },
+  {
+    "id": "community-contributing",
+    "route": "/community/contributing/",
+    "file": "src/content/docs/community/contributing.md",
+    "sources": [],
+    "reviewedSources": {}
+  },
+  {
+    "id": "community-sources",
+    "route": "/community/sources/",
+    "file": "src/content/docs/community/sources.md",
+    "sources": [
+      "docs",
+      "changelog",
+      "guides-skills"
+    ],
+    "reviewedSources": {
+      "docs": {
+        "hash": "3397f737a1556fb7c61958cb68e4e91e2d5790d158746cf1822df6505d576fc7",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/docs.json"
+      },
+      "changelog": {
+        "hash": "110c119c969da5b1693902bce54c3bdf28496d544e7ac2901b939db8b0350872",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/changelog.mdx"
+      },
+      "guides-skills": {
+        "hash": "76b27b2e8ff30ac891f5db62abe1530d857ee274ecc4dee5e5f9b6f9c740d076",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/skills.mdx"
+      }
+    }
+  },
+  {
+    "id": "community-licenses",
+    "route": "/community/licenses/",
+    "file": "src/content/docs/community/licenses.md",
+    "sources": [
+      "license"
+    ],
+    "reviewedSources": {
+      "license": {
+        "hash": "be77f24c776c8bfea96d3f21adb6f397448d971836744eb2bf6cf9f29bfb9ad3",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "LICENSE"
+      }
+    }
+  }
+]

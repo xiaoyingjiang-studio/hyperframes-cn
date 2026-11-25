@@ -1,0 +1,16 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../lib/site';
+import '../styles/global.css';
+const { title = site.name, description = site.description } = Astro.props;
+---
+<!doctype html><html lang="zh-CN" data-theme="dark"><head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{title}</title><meta name="description" content={description} />
+  <meta name="robots" content={site.indexable ? 'index,follow' : 'noindex,nofollow'} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, site.url)} />
+  <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" /><meta property="og:locale" content="zh_CN" /><meta property="og:image" content={new URL('/media/product-intro.jpg', site.url)} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="alternate" type="application/rss+xml" title="HyperFrames 中文指南更新" href="/rss.xml" />
+  <script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem('starlight-theme')||'dark'}catch{}</script>
+</head><body class="presentation"><a class="skip-link" href="#main">跳到主要内容</a><header class="header-shell"><Header /></header><main id="main" data-pagefind-body><slot /></main><Footer /></body></html>

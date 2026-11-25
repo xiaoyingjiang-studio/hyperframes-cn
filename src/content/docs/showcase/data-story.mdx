@@ -1,0 +1,47 @@
+---
+title: "数据动画：让变化有一个起点"
+description: "8 秒原创示例：本站虚构演示数据、CSS 条形图与时间轴。"
+contentId: "showcase-data-story"
+kind: "case"
+sources: ["prompting-data-and-maps","concepts-compositions"]
+reviewedAt: "2026-11-25"
+appliesTo: "本站原创示例；依赖与执行结果见案例验证记录"
+status: "practice"
+verification: "查看 examples/verification.json 中逐项记录的命令、版本与结果。"
+sidebar: {"order":23}
+---
+
+import CasePlayer from '../../../components/CasePlayer.astro';
+
+<CasePlayer id="data-story" title="数据动画：让变化有一个起点" />
+
+## 输入与目标
+
+本站虚构演示数据、CSS 条形图与时间轴。本例画面为 960×540、30fps、8 秒。目标是演示一个清晰的小工作流，便于下载后修改。
+
+## 制作过程
+
+先显示坐标与类别，然后按时间轴增长三条柱形，完整显示数值与演示标识。先完成静态布局，再使用暂停的 GSAP 时间轴安排动作，并注册到根合成。
+
+## 可以复用的提示词
+
+> 制作一支 8 秒的数据动画，使用演示数据 24、48、72 展示三组柱形。标注“示例数据，非产品指标”，固定统一刻度，不夸大差异。
+
+## 下载与复现
+
+[下载完整项目 ZIP](/examples/data-story.zip)，解压后保留目录中的 HTML、GSAP、中文字体、配置与许可文件，即可独立检查和渲染。也可分别下载 [HTML 源码](/examples/data-story/index.html)、[GSAP](/examples/data-story/gsap.min.js)、[中文字体](/examples/data-story/font.ttf) 和 [字体许可](/examples/data-story/OFL.txt)。需要全部项目时，从本站 GitHub 下载仓库并查看 examples 目录。
+
+~~~bash
+npx hyperframes lint examples/data-story
+npx hyperframes render examples/data-story --output data-story.mp4
+~~~
+
+完整 ZIP 已包含本例所需文件。批量复现四个案例的方法见仓库维护手册。
+
+## 验证与边界
+
+数值只用于教学，不是任何产品经营指标。图形增长不代表预测，修改数值时需要同步检查刻度与标注。具体渲染版本、媒体信息和命令结果记录在 [案例验证记录](/examples/verification.json)，未验证步骤不会被标为成功。
+
+## 继续修改
+
+先修改一句文案或一项数值，重新检查布局并导出。确认画面变化后再调整时长与动画，避免同时修改太多因素。

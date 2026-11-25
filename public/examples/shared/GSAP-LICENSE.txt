@@ -1,0 +1,8 @@
+GSAP 3.15.1
+Copyright 2026, GreenSock. All rights reserved.
+Subject to the terms at https://gsap.com/standard-license.
+Original package license: Standard 'no charge' license: https://gsap.com/standard-license.
+
+The distributed npm package does not include a standalone full license file.
+The copyright and license notice at the top of every bundled gsap.min.js is retained.
+This notice is a reference to the original terms, not a replacement or relicensing.

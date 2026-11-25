@@ -1,0 +1,9 @@
+---
+interface Props { id: string; title: string; }
+const { id, title } = Astro.props;
+---
+<figure class="case-player"><video controls preload="none" playsinline poster={`/media/${id}.jpg`} aria-label={title}>
+  <source src={`/media/${id}.mp4`} type="video/mp4" />
+  <track default kind="captions" srclang="zh" label="中文" src={`/media/${id}.vtt`} />
+  你的浏览器无法播放此视频。请使用下方下载链接。
+</video><figcaption>本站原创 HyperFrames 示例 · <a href={`/media/${id}.mp4`} download>下载视频</a> · <a href={`/examples/${id}.zip`} download>下载完整项目</a></figcaption></figure>

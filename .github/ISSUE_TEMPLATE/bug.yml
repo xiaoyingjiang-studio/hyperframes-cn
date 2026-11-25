@@ -1,0 +1,15 @@
+name: 网站功能问题
+description: 搜索、导航、展示或维护工具异常。
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤与页面地址
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 浏览器、系统与实际结果
+    validations:
+      required: true

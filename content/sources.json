@@ -1,0 +1,313 @@
+{
+  "repository": "heygen-com/hyperframes",
+  "sources": [
+    {
+      "id": "introduction",
+      "path": "docs/introduction.mdx",
+      "label": "introduction",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/introduction.mdx",
+      "blobSha": "2cc585c22ac3ae2cdd7a39b2bbf0d5175ca1400c"
+    },
+    {
+      "id": "concepts-determinism",
+      "path": "docs/concepts/determinism.mdx",
+      "label": "determinism",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/concepts/determinism.mdx",
+      "blobSha": "c3e63841bfea1910a08bd9753a0fabe7050d4e04"
+    },
+    {
+      "id": "quickstart",
+      "path": "docs/quickstart.mdx",
+      "label": "quickstart",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/quickstart.mdx",
+      "blobSha": "df9efd3a46441a994c6f0017f002fd0ab278f753"
+    },
+    {
+      "id": "guides-mcp",
+      "path": "docs/guides/mcp.mdx",
+      "label": "mcp",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/mcp.mdx",
+      "blobSha": "0d95f0561d0a2bf07adbce9b1916b49836865a2c"
+    },
+    {
+      "id": "readme",
+      "path": "README.md",
+      "label": "项目 README",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/README.md",
+      "blobSha": "c1712141abd3b94426fd29eb00145b0bbd493167"
+    },
+    {
+      "id": "faq",
+      "path": "docs/faq.mdx",
+      "label": "faq",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/faq.mdx",
+      "blobSha": "0c3d7170070dd9b3427a1cf80ed6fea27cef48fe"
+    },
+    {
+      "id": "guides-media",
+      "path": "docs/guides/media.mdx",
+      "label": "media",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/media.mdx",
+      "blobSha": "d3cc9cfc31f9ac3d56863ea55e516bcc883c3981"
+    },
+    {
+      "id": "studio-app-index",
+      "path": "docs/studio-app/index.mdx",
+      "label": "index",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/studio-app/index.mdx",
+      "blobSha": "824d978e8fdd8abdbd4678d9fc1ff2524e152135"
+    },
+    {
+      "id": "studio-app-first-video",
+      "path": "docs/studio-app/first-video.mdx",
+      "label": "first-video",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/studio-app/first-video.mdx",
+      "blobSha": "89e5e22dc83e2a86e417eaa2bc8a25ac868cd599"
+    },
+    {
+      "id": "studio-app-export",
+      "path": "docs/studio-app/export.mdx",
+      "label": "export",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/studio-app/export.mdx",
+      "blobSha": "096ebe740f2da35105fe8ca3aba7922dc2d37825"
+    },
+    {
+      "id": "guides-with-codex",
+      "path": "docs/guides/with-codex.mdx",
+      "label": "with-codex",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/with-codex.mdx",
+      "blobSha": "a1dde7642583a036aa685e2a605cfd8353ed09a8"
+    },
+    {
+      "id": "guides-skills",
+      "path": "docs/guides/skills.mdx",
+      "label": "skills",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/skills.mdx",
+      "blobSha": "0a6ef50ddec3569475e17d80b656fdc4dfc2a5ea"
+    },
+    {
+      "id": "guides-plugins",
+      "path": "docs/guides/plugins.mdx",
+      "label": "plugins",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/plugins.mdx",
+      "blobSha": "9c1c726c9c4781e8ff7e4bb1661270896cc7bddf"
+    },
+    {
+      "id": "guides-with-claude-code",
+      "path": "docs/guides/with-claude-code.mdx",
+      "label": "with-claude-code",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/with-claude-code.mdx",
+      "blobSha": "23621a08bd63fc86c119df83f27646a3e87ee6a5"
+    },
+    {
+      "id": "guides-with-cursor",
+      "path": "docs/guides/with-cursor.mdx",
+      "label": "with-cursor",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/with-cursor.mdx",
+      "blobSha": "c63daf42a0811189c5364cdb0fd3ae860e5aa424"
+    },
+    {
+      "id": "developers-cli",
+      "path": "docs/developers/cli.mdx",
+      "label": "cli",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/developers/cli.mdx",
+      "blobSha": "409abaf510fe43272b3623f2ed20a9ad31c15dbe"
+    },
+    {
+      "id": "packages-cli",
+      "path": "docs/packages/cli.mdx",
+      "label": "cli",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/packages/cli.mdx",
+      "blobSha": "a95c26d4df484caa1d7d7c2fabbcf56cc8bc27f2"
+    },
+    {
+      "id": "prompting-editing-existing-videos",
+      "path": "docs/prompting/editing-existing-videos.mdx",
+      "label": "editing-existing-videos",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/prompting/editing-existing-videos.mdx",
+      "blobSha": "ba3f726f48c38a65b18fb3cb2cb7573a51a63d8f"
+    },
+    {
+      "id": "studio-app-edit-with-the-agent",
+      "path": "docs/studio-app/edit-with-the-agent.mdx",
+      "label": "edit-with-the-agent",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/studio-app/edit-with-the-agent.mdx",
+      "blobSha": "298b33984db7cb91597d45f72a06a2da746a3915"
+    },
+    {
+      "id": "guides-captions-and-recuts",
+      "path": "docs/guides/captions-and-recuts.mdx",
+      "label": "captions-and-recuts",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/captions-and-recuts.mdx",
+      "blobSha": "ca823f4e841a72eca2ed1734e10358bf1b6f66bb"
+    },
+    {
+      "id": "prompting-captions-catalog",
+      "path": "docs/prompting/captions-catalog.mdx",
+      "label": "captions-catalog",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/prompting/captions-catalog.mdx",
+      "blobSha": "1b6dbeb7c067bf9b7bc5d0266797eb24eda3245b"
+    },
+    {
+      "id": "prompting-media-and-audio",
+      "path": "docs/prompting/media-and-audio.mdx",
+      "label": "media-and-audio",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/prompting/media-and-audio.mdx",
+      "blobSha": "53c380d17ac4c473f553ddbe832a5be4f020c9ab"
+    },
+    {
+      "id": "guides-gsap-animation",
+      "path": "docs/guides/gsap-animation.mdx",
+      "label": "gsap-animation",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/gsap-animation.mdx",
+      "blobSha": "92ff7b179198145bbac370c5d7ff13b8e16af563"
+    },
+    {
+      "id": "prompting-motion",
+      "path": "docs/prompting/motion.mdx",
+      "label": "motion",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/prompting/motion.mdx",
+      "blobSha": "3b5d9e0d66a3416fd8876ddbde3564d112015e5f"
+    },
+    {
+      "id": "concepts-frame-adapters",
+      "path": "docs/concepts/frame-adapters.mdx",
+      "label": "frame-adapters",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/concepts/frame-adapters.mdx",
+      "blobSha": "0b45b90b4010e11bbec25f7b18f078cd1ec96a7d"
+    },
+    {
+      "id": "guides-voice-and-audio",
+      "path": "docs/guides/voice-and-audio.mdx",
+      "label": "voice-and-audio",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/voice-and-audio.mdx",
+      "blobSha": "fdae4802a9b3fd19053473ab501a85acece6977c"
+    },
+    {
+      "id": "guides-remove-background",
+      "path": "docs/guides/remove-background.mdx",
+      "label": "remove-background",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/remove-background.mdx",
+      "blobSha": "cb6d76a714fe0314ce7f503cd65ef4aafb0b5700"
+    },
+    {
+      "id": "catalog-index",
+      "path": "docs/catalog/index.mdx",
+      "label": "index",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/catalog/index.mdx",
+      "blobSha": "7c49fbdaf76b50e702f672a37090424556c24136"
+    },
+    {
+      "id": "guides-rendering",
+      "path": "docs/guides/rendering.mdx",
+      "label": "rendering",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/rendering.mdx",
+      "blobSha": "0356f2c2f6a5ffa2c1738e4345ece62445c179c4"
+    },
+    {
+      "id": "guides-export-and-share",
+      "path": "docs/guides/export-and-share.mdx",
+      "label": "export-and-share",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/export-and-share.mdx",
+      "blobSha": "65e8cfd13f1adf92b1a43dea049af07bc5c9d3b1"
+    },
+    {
+      "id": "prompting-overview",
+      "path": "docs/prompting/overview.mdx",
+      "label": "overview",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/prompting/overview.mdx",
+      "blobSha": "746a9166f9a904553d423b35543e0ffe2b2228d8"
+    },
+    {
+      "id": "prompting-examples",
+      "path": "docs/prompting/examples.mdx",
+      "label": "examples",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/prompting/examples.mdx",
+      "blobSha": "99873b0baa502751d3a012707059097dd900ddb9"
+    },
+    {
+      "id": "help",
+      "path": "docs/help.mdx",
+      "label": "help",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/help.mdx",
+      "blobSha": "5c94bf1cb4d91e759235e15c943546c548824b84"
+    },
+    {
+      "id": "concepts-compositions",
+      "path": "docs/concepts/compositions.mdx",
+      "label": "compositions",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/concepts/compositions.mdx",
+      "blobSha": "5b3bea943d7ae480417a03b1b11310a55e160216"
+    },
+    {
+      "id": "concepts-data-attributes",
+      "path": "docs/concepts/data-attributes.mdx",
+      "label": "data-attributes",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/concepts/data-attributes.mdx",
+      "blobSha": "ac3fa0af5b5c370501eb75aea2e3616906e448d9"
+    },
+    {
+      "id": "guides-performance",
+      "path": "docs/guides/performance.mdx",
+      "label": "performance",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/performance.mdx",
+      "blobSha": "8d7c9f07d81dc132dc3b3c646d192acbb3fba191"
+    },
+    {
+      "id": "examples",
+      "path": "docs/examples.mdx",
+      "label": "examples",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/examples.mdx",
+      "blobSha": "bc35aed87445dcea7acbfd2f6d362fe21719856d"
+    },
+    {
+      "id": "guides-product-launch-video",
+      "path": "docs/guides/product-launch-video.mdx",
+      "label": "product-launch-video",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/product-launch-video.mdx",
+      "blobSha": "a34ddef85ce3e76ed00f16819be6841b12280c78"
+    },
+    {
+      "id": "guides-faceless-explainer",
+      "path": "docs/guides/faceless-explainer.mdx",
+      "label": "faceless-explainer",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/guides/faceless-explainer.mdx",
+      "blobSha": "812da9fe5166fdbecb14dafb0e9de67896a24886"
+    },
+    {
+      "id": "prompting-data-and-maps",
+      "path": "docs/prompting/data-and-maps.mdx",
+      "label": "data-and-maps",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/prompting/data-and-maps.mdx",
+      "blobSha": "d556444fb83d57d2658067894172a08a47c40bc0"
+    },
+    {
+      "id": "changelog",
+      "path": "docs/changelog.mdx",
+      "label": "changelog",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/changelog.mdx",
+      "blobSha": "d385d73044940334f03f493259b6cbc074f774e1"
+    },
+    {
+      "id": "product-updates",
+      "path": "docs/product-updates.mdx",
+      "label": "product-updates",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/product-updates.mdx",
+      "blobSha": "046a550cf9dc02c3824aece6c1587d7fe4c7a646"
+    },
+    {
+      "id": "docs",
+      "path": "docs/docs.json",
+      "label": "docs",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/docs.json",
+      "blobSha": "0498b40981004fd69d5f8646ff98a816dece7b59"
+    },
+    {
+      "id": "license",
+      "path": "LICENSE",
+      "label": "LICENSE",
+      "url": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+      "blobSha": "ae06b37e1c5116ccfaa615ac25ec1aabf5658d8c"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.mp4 binary
+*.jpg binary
+*.ttf binary
+*.zip binary
+**/gsap.min.js -whitespace
+**/OFL.txt -whitespace

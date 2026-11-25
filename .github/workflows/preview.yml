@@ -1,0 +1,77 @@
+name: Preview
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: PR number to preview after reviewing its exact commit
+        required: true
+        type: number
+      sha:
+        description: Full SHA reviewed by the maintainer (required for manual previews)
+        required: true
+        type: string
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  preview:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    environment: preview
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Resolve exact reviewed commit
+        id: target
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ inputs.pr || github.event.pull_request.number }}
+          EXPECTED_SHA: ${{ inputs.sha || github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          actual=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR" --jq .head.sha)
+          test "$actual" = "$EXPECTED_SHA"
+          echo "sha=$actual" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: github.event.action != 'closed'
+        with:
+          ref: ${{ steps.target.outputs.sha }}
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.32.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Validate and build preview
+        if: github.event.action != 'closed'
+        run: pnpm check && pnpm test && pnpm build
+        env:
+          SITE_INDEXABLE: 'false'
+          PUBLIC_REPOSITORY: https://github.com/${{ github.repository }}
+      - name: Deploy isolated preview
+        if: github.event.action != 'closed'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PR: ${{ inputs.pr || github.event.pull_request.number }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          pnpm exec wrangler preview --name "pr-$PR" 2>&1 | tee /tmp/preview.log
+          url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' /tmp/preview.log | head -1)
+          test -n "$url"
+          node scripts/smoke.mjs "$url"
+          gh pr comment "$PR" --body "Preview for ${{ steps.target.outputs.sha }}: $url"
+      - name: Delete closed preview
+        if: github.event.action == 'closed'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PR: ${{ github.event.pull_request.number }}
+        run: pnpm exec wrangler preview delete --name "pr-$PR"

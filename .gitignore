@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.cache/
+.env
+.env.*
+!.env.example
+test-results/
+playwright-report/
+*.log
+artifacts/
+**/.hyperframes/
+examples/footage-edit/product-intro.mp4
