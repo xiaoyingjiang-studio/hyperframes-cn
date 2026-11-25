@@ -5,7 +5,7 @@ const path = Astro.url.pathname;
 const links = [
   { label: 'Studio', href: '/', active: path === '/' },
   { label: '作品', href: '/showcase/', active: path.startsWith('/showcase') },
-  { label: '中文指南', href: '/start/studio/', active: /^\/(start|overview|features|guides)\//.test(path) },
+  { label: '中文指南', href: '/knowledge/', active: /^\/(knowledge|studio|skills|mechanisms|capabilities|start|overview|features|guides)\//.test(path) },
   { label: '更新', href: '/updates/', active: path.startsWith('/updates') },
 ];
 ---

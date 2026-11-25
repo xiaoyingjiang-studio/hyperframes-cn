@@ -1,0 +1,25 @@
+{
+  "id": "home",
+  "sources": [
+    "studio-app-index",
+    "studio-app-first-video",
+    "studio-app-export"
+  ],
+  "reviewedSources": {
+    "studio-app-index": {
+      "hash": "8245f0dcd4e837138b03dda620555e0188211984297730f6870c58f78893bc5f",
+      "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+      "path": "docs/studio-app/index.mdx"
+    },
+    "studio-app-first-video": {
+      "hash": "74a6893707c364c402c25287abbbbec146dbf033c57677c0e1e78ca476afad47",
+      "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+      "path": "docs/studio-app/first-video.mdx"
+    },
+    "studio-app-export": {
+      "hash": "b52eacbceb54b40931676f728dc7c9fa0158b270c095bc7031c13f677c71c4fa",
+      "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+      "path": "docs/studio-app/export.mdx"
+    }
+  }
+}

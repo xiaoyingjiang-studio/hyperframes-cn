@@ -1,75 +1,18 @@
 name: SEO and GEO maintenance
 on:
   schedule:
-    - cron: "37 2 * * 1"
+    - cron: '37 2 * * 1'
   workflow_dispatch:
 permissions:
-  contents: write
-  pull-requests: write
-  statuses: write
-concurrency:
-  group: content-maintenance
-  cancel-in-progress: false
+  actions: write
+  contents: read
 jobs:
-  discovery:
+  dispatch:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.32.1
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .node-version
-          cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm check && pnpm test && pnpm build
-      - id: batch
-        run: node scripts/github-optimization.mjs begin
-      - name: Collect optional finalized Search Console page aggregates
-        if: steps.batch.outputs.busy != 'true'
-        run: node scripts/collect-search-metrics.mjs
-        continue-on-error: true
+      - name: Use the same verified content and publication pipeline
         env:
-          SITE_URL: ${{ vars.SITE_URL }}
-          SITE_INDEXABLE: ${{ vars.SITE_INDEXABLE || 'false' }}
-          GSC_PROPERTY: ${{ vars.GSC_PROPERTY }}
-          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
-      - name: Propose only from real observations, never overwrite open review
-        if: steps.batch.outputs.busy != 'true'
-        run: pnpm optimize
-        env:
-          AI_ENDPOINT: ${{ vars.AI_ENDPOINT }}
-          AI_MODEL: ${{ vars.AI_MODEL }}
-          AI_API_KEY: ${{ secrets.AI_API_KEY }}
-          AI_MAX_CALLS: "9"
-          AI_MAX_TOTAL_TOKENS: "60000"
-          OPTIMIZE_MAX_PAGES: "3"
-          OPTIMIZATION_OBSERVATIONS: artifacts/search-observations.json
-      - name: Validate the exact candidate tree before opening a PR
-        if: steps.batch.outputs.busy != 'true'
-        run: |
-          set -euo pipefail
-          count=$(node -e "console.log(JSON.parse(require('fs').readFileSync('artifacts/optimization-report.json')).generated.length)")
-          if [ "$count" = 0 ]; then exit 0; fi
-          pnpm exec playwright install --with-deps chromium
-          pnpm test:e2e
-          git config user.name 'hyperframes-cn-bot'
-          git config user.email 'hyperframes-cn-bot@users.noreply.github.com'
-          git switch -C automation/discovery
-          git add content/optimization/candidates
-          git commit -m 'docs: prepare evidence-based discovery improvements'
-          git push --force-with-lease origin automation/discovery
-          node scripts/github-optimization.mjs pr
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: discovery-reports
-          path: |
-            artifacts/discovery-audit.json
-            artifacts/optimization-report.json
-          if-no-files-found: ignore
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: gh api --method POST "repos/$REPOSITORY/actions/workflows/upstream.yml/dispatches" -f ref=main -F 'inputs[optimize]=true'

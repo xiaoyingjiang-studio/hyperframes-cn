@@ -58,9 +58,11 @@ export function gitDate(path, oldest = false) {
     return undefined;
   }
 }
+let intentHistory;
 export function intentDate(id) {
   try {
-    const commits = execFileSync(
+    if (!intentHistory) {
+      const commits = execFileSync(
       "git",
       ["log", "--format=%H %cI", "--", "content/discovery.json"],
       { cwd: root, encoding: "utf8", windowsHide: true },
@@ -68,8 +70,7 @@ export function intentDate(id) {
       .trim()
       .split("\n")
       .filter(Boolean);
-    let previous, date;
-    for (const line of commits) {
+      intentHistory = commits.map(line => {
       const [commit, at] = line.split(" ");
       const value = JSON.parse(
         execFileSync("git", ["show", `${commit}:content/discovery.json`], {
@@ -78,11 +79,18 @@ export function intentDate(id) {
           windowsHide: true,
           stdio: ["ignore", "pipe", "ignore"],
         }),
-      ).pages.find((p) => p.id === id);
+      );
+      return { at, pages: value.pages };
+      });
+    }
+    let previous, date;
+    for (const revision of intentHistory) {
+      const value = revision.pages.find((p) => p.id === id);
+      if (value === undefined && previous === undefined) continue;
       const serialized = JSON.stringify(value);
       if (previous !== undefined && previous !== serialized) break;
       previous = serialized;
-      date = at;
+      date = revision.at;
     }
     return date;
   } catch {

@@ -1,7 +1,12 @@
 ---
 import { site } from '../lib/site';
 import health from '../../content/sync-status.json';
+import knowledge from '../../content/knowledge.json';
+import pages from '../../content/pages.json';
+import discovery from '../../content/discovery.json';
+const entity = knowledge.entities.find(e => e.route === Astro.url.pathname);
 ---
+{entity && entity.related.length > 0 && <nav class="knowledge-related" aria-label="关联学习"><strong>继续学习</strong><ul>{entity.related.map(id => { const page = pages.find(p => p.id === id); return page && <li><a href={page.route}>{discovery.pages.find(p => p.id === id)?.question || id}</a></li>; })}</ul></nav>}
 <footer class="site-footer" data-pagefind-ignore>
   <div><strong>让创作经验，持续生长。</strong><p>独立维护的 HyperFrames 中文开源指南。HyperFrames 由 HeyGen 开发。</p></div>
   <div class="footer-links"><a href="/community/about/">关于本站</a><a href="/community/contributing/">参与贡献</a><a href="/community/licenses/">许可与归属</a><a href={site.repository}>GitHub</a><a href={`${site.repository}/issues`}>反馈问题</a><a href="/rss.xml">RSS</a><a href="https://hyperframes.heygen.com/introduction">官方文档</a></div>

@@ -1,21 +1,26 @@
-name: Sync official content
+name: Build creator knowledge
 on:
   schedule:
     - cron: '17 1 * * *'
   workflow_dispatch:
+    inputs:
+      optimize:
+        description: Use real observations to improve existing content
+        type: boolean
+        default: false
 permissions:
   contents: write
   pull-requests: write
-  issues: write
   statuses: write
 concurrency:
   group: content-maintenance
   cancel-in-progress: false
 jobs:
-  sync:
+  knowledge:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
+    outputs:
+      merged_sha: ${{ steps.publish.outputs.merged_sha }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -29,51 +34,89 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - id: batch
-        run: node scripts/github-sync.mjs begin
-      - name: Detect while preserving open review
-        if: steps.batch.outputs.busy == 'true'
-        run: pnpm sync --report-only
-      - name: Prepare a new review batch
-        if: steps.batch.outputs.busy != 'true'
-        run: pnpm sync --apply
+        run: node scripts/github-publish.mjs begin
         env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Preserve an existing automation branch
+        if: steps.batch.outputs.busy == 'true'
+        run: pnpm knowledge:inventory
+      - name: Read optional finalized search observations
+        if: steps.batch.outputs.busy != 'true' && inputs.optimize
+        continue-on-error: true
+        run: pnpm metrics:collect
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          SITE_INDEXABLE: ${{ vars.SITE_INDEXABLE || 'false' }}
+          GSC_PROPERTY: ${{ vars.GSC_PROPERTY }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      - name: Generate and independently verify coherent content units
+        if: steps.batch.outputs.busy != 'true'
+        run: |
+          if [ "$OPTIMIZE" = true ]; then
+            pnpm knowledge:sync --apply --optimize
+          else
+            pnpm knowledge:sync --apply
+          fi
+        env:
+          OPTIMIZE: ${{ inputs.optimize || 'false' }}
+          OPTIMIZATION_OBSERVATIONS: artifacts/search-observations.json
+          GITHUB_TOKEN: ${{ github.token }}
           AI_ENDPOINT: ${{ vars.AI_ENDPOINT }}
           AI_MODEL: ${{ vars.AI_MODEL }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_MAX_BATCH_PAGES: '5'
           AI_MAX_CALLS: '15'
           AI_MAX_TOTAL_TOKENS: '100000'
-      - run: node scripts/github-sync.mjs report
-      - name: Validate generated changes in this run
-        if: steps.batch.outputs.busy != 'true'
-        run: pnpm check && pnpm test && pnpm build
-      - name: Open draft PR only for meaningful upstream changes
+          OPTIMIZE_MAX_PAGES: '3'
+      - name: Commit material changes before checking the exact tree
+        id: changes
         if: steps.batch.outputs.busy != 'true'
         run: |
           set -euo pipefail
-          changed=$(node -e "const r=JSON.parse(require('fs').readFileSync('.upstream/report.json'));console.log(Boolean(r.affected.length||r.changes.length))")
-          if [ "$changed" != true ]; then exit 0; fi
-          pnpm exec playwright install --with-deps chromium
-          pnpm test:e2e
+          if git diff --quiet -- . ':!content/sync-status.json'; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           git config user.name 'hyperframes-cn-bot'
           git config user.email 'hyperframes-cn-bot@users.noreply.github.com'
-          git switch -C automation/upstream
           git add .upstream content src/content/docs
-          git commit -m 'docs: prepare official content review'
-          git push --force-with-lease origin automation/upstream
-          node scripts/github-sync.mjs pr
-      - name: Preserve reports
+          git commit -m 'docs: update verified creator knowledge'
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+      - name: Validate exact content, evidence and generated site
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          node scripts/content-guard.mjs
+          pnpm check
+          pnpm test
+          node scripts/validate-content.mjs --production
+          pnpm build
+          pnpm test:indexing
+          pnpm exec playwright install --with-deps chromium
+          pnpm test:e2e
+          test -z "$(git status --porcelain --untracked-files=no)"
+        env:
+          CONTENT_BASE_SHA: ${{ steps.batch.outputs.base }}
+      - name: Automatically merge the checked content commit
+        id: publish
+        if: steps.changes.outputs.changed == 'true'
+        run: node scripts/github-publish.mjs merge
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CONTENT_BASE_SHA: ${{ steps.batch.outputs.base }}
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: upstream-report
+          name: knowledge-reports
           include-hidden-files: true
           path: |
-            .upstream/report.json
+            artifacts/
             .upstream/candidates/
-            content/sync-status.json
-            artifacts/discovery-audit.json
+            playwright-report/
           if-no-files-found: ignore
-      - name: Report collection failure
-        if: failure()
-        run: node scripts/github-sync.mjs failure
+  deploy:
+    needs: knowledge
+    if: needs.knowledge.outputs.merged_sha != ''
+    uses: ./.github/workflows/deploy.yml
+    with:
+      sha: ${{ needs.knowledge.outputs.merged_sha }}
+    secrets: inherit

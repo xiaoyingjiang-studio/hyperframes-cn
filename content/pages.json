@@ -312,24 +312,45 @@
     "sources": [
       "guides-skills",
       "guides-plugins",
-      "catalog-index"
+      "catalog-index",
+      "official-skills-manifest"
     ],
     "reviewedSources": {
       "guides-skills": {
         "hash": "76b27b2e8ff30ac891f5db62abe1530d857ee274ecc4dee5e5f9b6f9c740d076",
-        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
-        "path": "docs/guides/skills.mdx"
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/guides/skills.mdx",
+        "blobSha": "0a6ef50ddec3569475e17d80b656fdc4dfc2a5ea",
+        "version": "v0.9.94"
       },
       "guides-plugins": {
         "hash": "ccdc0b87f690f08cffb6364d7b166067ec8b1a03c72e18a7c05a2de43c809a5b",
-        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
-        "path": "docs/guides/plugins.mdx"
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/guides/plugins.mdx",
+        "blobSha": "9c1c726c9c4781e8ff7e4bb1661270896cc7bddf",
+        "version": "v0.9.94"
       },
       "catalog-index": {
         "hash": "04be5387bcf3cd11186315c6f58d7221772994eaa116e86c12499cab08be2797",
-        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
-        "path": "docs/catalog/index.mdx"
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/catalog/index.mdx",
+        "blobSha": "7c49fbdaf76b50e702f672a37090424556c24136",
+        "version": "v0.9.94"
+      },
+      "official-skills-manifest": {
+        "hash": "70ab094ca5a2e6461b35472efbe2c63c43e498dfa3ed2cc2942c464c7dae5cb2",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills-manifest.json",
+        "blobSha": "13ee3ec94aaed786a7f1bd9023a1b17c06b52ba6",
+        "version": "v0.9.94"
       }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:15:39.441Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:15:39.447Z",
+      "digest": "25b90b9dd2b8a7ab51292ab5f091c65586bec42e3f4ba85ca6bf02897157332d"
     }
   },
   {
@@ -495,7 +516,8 @@
         "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
         "path": "docs/examples.mdx"
       }
-    }
+    },
+    "proseFile": "content/case-prose/showcase.md"
   },
   {
     "id": "showcase-product-intro",
@@ -516,7 +538,8 @@
         "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
         "path": "docs/concepts/compositions.mdx"
       }
-    }
+    },
+    "proseFile": "content/case-prose/showcase-product-intro.md"
   },
   {
     "id": "showcase-chinese-explainer",
@@ -537,7 +560,8 @@
         "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
         "path": "docs/concepts/compositions.mdx"
       }
-    }
+    },
+    "proseFile": "content/case-prose/showcase-chinese-explainer.md"
   },
   {
     "id": "showcase-data-story",
@@ -558,7 +582,8 @@
         "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
         "path": "docs/concepts/compositions.mdx"
       }
-    }
+    },
+    "proseFile": "content/case-prose/showcase-data-story.md"
   },
   {
     "id": "showcase-footage-edit",
@@ -579,7 +604,8 @@
         "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
         "path": "docs/concepts/compositions.mdx"
       }
-    }
+    },
+    "proseFile": "content/case-prose/showcase-footage-edit.md"
   },
   {
     "id": "updates",
@@ -690,6 +716,776 @@
         "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
         "path": "LICENSE"
       }
+    }
+  },
+  {
+    "id": "mechanisms-brief",
+    "route": "/mechanisms/brief/",
+    "file": "src/content/docs/mechanisms/brief.md",
+    "sources": [
+      "studio-app-first-video",
+      "official-skills-hyperframes"
+    ],
+    "reviewedSources": {
+      "studio-app-first-video": {
+        "hash": "74a6893707c364c402c25287abbbbec146dbf033c57677c0e1e78ca476afad47",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/first-video.mdx",
+        "version": "v0.9.94"
+      },
+      "official-skills-hyperframes": {
+        "hash": "645d215add1c3eb990166aa6788932af432d7402ea0505920a4c4a0fffd7236e",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/hyperframes/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.209Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.209Z",
+      "digest": "30ea4ad2b9bd2bea7dd6f4736d020d2cda5626f59a8e2d086ea85985fc1546f4"
+    }
+  },
+  {
+    "id": "mechanisms-editable-project",
+    "route": "/mechanisms/editable-project/",
+    "file": "src/content/docs/mechanisms/editable-project.md",
+    "sources": [
+      "concepts-compositions",
+      "official-docs-concepts-variables"
+    ],
+    "reviewedSources": {
+      "concepts-compositions": {
+        "hash": "e832ef3df9460857626d8762f16d76d4e4afb0539e1293929718d7d58b0aaeef",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/concepts/compositions.mdx",
+        "version": "v0.9.94"
+      },
+      "official-docs-concepts-variables": {
+        "hash": "01caf6a4694bdc470ecad5bfc21eff11340330c2e7fad5bb90c5306d54d5dc39",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/concepts/variables.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.215Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.215Z",
+      "digest": "4f01b442676e94b521bf7e3758d7aa2631c8c3b153ed1ca88867f0de88cd89a9"
+    }
+  },
+  {
+    "id": "mechanisms-time-and-scenes",
+    "route": "/mechanisms/time-and-scenes/",
+    "file": "src/content/docs/mechanisms/time-and-scenes.md",
+    "sources": [
+      "concepts-compositions",
+      "concepts-data-attributes"
+    ],
+    "reviewedSources": {
+      "concepts-compositions": {
+        "hash": "e832ef3df9460857626d8762f16d76d4e4afb0539e1293929718d7d58b0aaeef",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/concepts/compositions.mdx",
+        "version": "v0.9.94"
+      },
+      "concepts-data-attributes": {
+        "hash": "63445b855a6c75b2c5053929ec1934b319eaf27f21eba449692edbdd4f335bca",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/concepts/data-attributes.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.221Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.221Z",
+      "digest": "b05ea03cc0e3e4af2cfcd96d1738afe21d844d822e1af01a2923e5e4382f7ec1"
+    }
+  },
+  {
+    "id": "mechanisms-targeted-edits",
+    "route": "/mechanisms/targeted-edits/",
+    "file": "src/content/docs/mechanisms/targeted-edits.md",
+    "sources": [
+      "studio-app-edit-with-the-agent"
+    ],
+    "reviewedSources": {
+      "studio-app-edit-with-the-agent": {
+        "hash": "49183e0abdf2c4ed77daf006f0ae9c3f93231294c27c12d3488427c90ffb6f53",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/edit-with-the-agent.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.227Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.227Z",
+      "digest": "c468cd53fa8d60a2c6a9e5ad061d8f145fd9b3e2939a545800b7749a5eb52e34"
+    }
+  },
+  {
+    "id": "mechanisms-batch-edits",
+    "route": "/mechanisms/batch-edits/",
+    "file": "src/content/docs/mechanisms/batch-edits.md",
+    "sources": [
+      "studio-app-edit-with-the-agent"
+    ],
+    "reviewedSources": {
+      "studio-app-edit-with-the-agent": {
+        "hash": "49183e0abdf2c4ed77daf006f0ae9c3f93231294c27c12d3488427c90ffb6f53",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/edit-with-the-agent.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.233Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.233Z",
+      "digest": "95fdc61f17e44655d8ec585384a267cffdba631bee3dbb6fb75eb661d47073c8"
+    }
+  },
+  {
+    "id": "mechanisms-references",
+    "route": "/mechanisms/references/",
+    "file": "src/content/docs/mechanisms/references.md",
+    "sources": [
+      "official-docs-studio-app-reference-video",
+      "official-skills-style-sampling",
+      "official-skills-reverse-any-video"
+    ],
+    "reviewedSources": {
+      "official-docs-studio-app-reference-video": {
+        "hash": "8a9975acb12875b96bf7bc86f0480e3642200a522da432e88b7e72c9b2ba6fd9",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/reference-video.mdx",
+        "version": "v0.9.94"
+      },
+      "official-skills-style-sampling": {
+        "hash": "ac8ba2feb19629f6d5f47e340c822a221af4fbf5de755a27375326f9c8dec792",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/style-sampling/SKILL.md",
+        "version": "v0.9.94"
+      },
+      "official-skills-reverse-any-video": {
+        "hash": "570cbc102c10ceb248f4cc89f10bedb10a7144f651c5b26643532010ee232078",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/reverse-any-video/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.240Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.240Z",
+      "digest": "1ac9004a30533b5351a4e4c576c6191209976e0dd797cb88c272115f4be15a97"
+    }
+  },
+  {
+    "id": "mechanisms-media-and-blocks",
+    "route": "/mechanisms/media-and-blocks/",
+    "file": "src/content/docs/mechanisms/media-and-blocks.md",
+    "sources": [
+      "guides-media",
+      "catalog-index"
+    ],
+    "reviewedSources": {
+      "guides-media": {
+        "hash": "ba881b3fc9151631705271562c0cbf7016a06ff167efd14f5808e5ada12049b1",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/guides/media.mdx",
+        "version": "v0.9.94"
+      },
+      "catalog-index": {
+        "hash": "04be5387bcf3cd11186315c6f58d7221772994eaa116e86c12499cab08be2797",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/catalog/index.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.246Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.246Z",
+      "digest": "5a4b7c38c13f5559b3e77eb7e80691c0c6034698efc1609ddf0536c6e9f0cc04"
+    }
+  },
+  {
+    "id": "mechanisms-audio-and-captions",
+    "route": "/mechanisms/audio-and-captions/",
+    "file": "src/content/docs/mechanisms/audio-and-captions.md",
+    "sources": [
+      "guides-captions-and-recuts",
+      "guides-voice-and-audio"
+    ],
+    "reviewedSources": {
+      "guides-captions-and-recuts": {
+        "hash": "4a7b285ac51f608fd7adba928dabb46532afe13546369d333aec8baba6c17864",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/guides/captions-and-recuts.mdx",
+        "version": "v0.9.94"
+      },
+      "guides-voice-and-audio": {
+        "hash": "88c51e39a5f5579f9e1ba812de144d743d6df033bfef24045cba4eba9ceda83e",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/guides/voice-and-audio.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.261Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.261Z",
+      "digest": "7a4592e96bcfcda298597912d763206e6b7ada0f67a4481ca31da25c9426ffe6"
+    }
+  },
+  {
+    "id": "mechanisms-brand-and-variables",
+    "route": "/mechanisms/brand-and-variables/",
+    "file": "src/content/docs/mechanisms/brand-and-variables.md",
+    "sources": [
+      "official-docs-concepts-variables",
+      "official-docs-studio-app-brand-kits"
+    ],
+    "reviewedSources": {
+      "official-docs-concepts-variables": {
+        "hash": "01caf6a4694bdc470ecad5bfc21eff11340330c2e7fad5bb90c5306d54d5dc39",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/concepts/variables.mdx",
+        "version": "v0.9.94"
+      },
+      "official-docs-studio-app-brand-kits": {
+        "hash": "4571f0f9e9a969c7939f8c3f0fee562ca5e0212610afb4b4efe78f4e3de0ef4c",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/brand-kits.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.268Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.268Z",
+      "digest": "197bb4e4a21e8f24f44956153775c073398483e4e863724f81bde2d209d1d66f"
+    }
+  },
+  {
+    "id": "mechanisms-preview-and-export",
+    "route": "/mechanisms/preview-and-export/",
+    "file": "src/content/docs/mechanisms/preview-and-export.md",
+    "sources": [
+      "concepts-determinism",
+      "studio-app-export"
+    ],
+    "reviewedSources": {
+      "concepts-determinism": {
+        "hash": "1f75de67a9617b3414c611edc6d098ec9878ccb207590fe2e793ed05d7bd4f6b",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/concepts/determinism.mdx",
+        "version": "v0.9.94"
+      },
+      "studio-app-export": {
+        "hash": "b52eacbceb54b40931676f728dc7c9fa0158b270c095bc7031c13f677c71c4fa",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/export.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.273Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.273Z",
+      "digest": "93650ced7fb6b77f3c92a5edb77cc0a3a100b466e52f5aa458edae5af751868f"
+    }
+  },
+  {
+    "id": "mechanisms-checks",
+    "route": "/mechanisms/checks/",
+    "file": "src/content/docs/mechanisms/checks.md",
+    "sources": [
+      "official-skills-hyperframes",
+      "official-skills-hyperframes-cli-references-lint-validate-inspect"
+    ],
+    "reviewedSources": {
+      "official-skills-hyperframes": {
+        "hash": "645d215add1c3eb990166aa6788932af432d7402ea0505920a4c4a0fffd7236e",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/hyperframes/SKILL.md",
+        "version": "v0.9.94"
+      },
+      "official-skills-hyperframes-cli-references-lint-validate-inspect": {
+        "hash": "9004c39114f5ef28f85749e7897f63ae28150bd956618e7b522f97a7fb371c07",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.279Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.279Z",
+      "digest": "396679c0245d7eab49ecfbd03cdfe9a7b46ec9a2058c46f30b05be662d1222a5"
+    }
+  },
+  {
+    "id": "mechanisms-history",
+    "route": "/mechanisms/history/",
+    "file": "src/content/docs/mechanisms/history.md",
+    "sources": [
+      "studio-app-edit-with-the-agent",
+      "official-skills-hyperframes-cli"
+    ],
+    "reviewedSources": {
+      "studio-app-edit-with-the-agent": {
+        "hash": "49183e0abdf2c4ed77daf006f0ae9c3f93231294c27c12d3488427c90ffb6f53",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/edit-with-the-agent.mdx",
+        "version": "v0.9.94"
+      },
+      "official-skills-hyperframes-cli": {
+        "hash": "ee6e914aebcb0033eb708f2d710611afdc8c79c2622a461d0e144b6ddf5dbcf6",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/hyperframes-cli/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.285Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.285Z",
+      "digest": "04b022fc2774be0ebb6b69a160e5d9c8eb74552ce931baaa57ca80917056b239"
+    }
+  },
+  {
+    "id": "skills-hyperframes",
+    "route": "/skills/hyperframes/",
+    "file": "src/content/docs/skills/hyperframes.md",
+    "sources": [
+      "official-skills-hyperframes"
+    ],
+    "reviewedSources": {
+      "official-skills-hyperframes": {
+        "hash": "645d215add1c3eb990166aa6788932af432d7402ea0505920a4c4a0fffd7236e",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/hyperframes/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.291Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.291Z",
+      "digest": "c5db638e6caf3c6fcf3978a12307dabb267d0298763873e9ceb23f25c428841d"
+    }
+  },
+  {
+    "id": "skills-hyperframes-cli",
+    "route": "/skills/hyperframes-cli/",
+    "file": "src/content/docs/skills/hyperframes-cli.md",
+    "sources": [
+      "official-skills-hyperframes-cli"
+    ],
+    "reviewedSources": {
+      "official-skills-hyperframes-cli": {
+        "hash": "ee6e914aebcb0033eb708f2d710611afdc8c79c2622a461d0e144b6ddf5dbcf6",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/hyperframes-cli/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.297Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.297Z",
+      "digest": "777588faeff67c8d2fce781eab7132d3fdea47c6de4e3509ad1a25678366b0d5"
+    }
+  },
+  {
+    "id": "skills-hyperframes-registry",
+    "route": "/skills/hyperframes-registry/",
+    "file": "src/content/docs/skills/hyperframes-registry.md",
+    "sources": [
+      "official-skills-hyperframes-registry"
+    ],
+    "reviewedSources": {
+      "official-skills-hyperframes-registry": {
+        "hash": "a756b33dbabd8404085bbecb6ab36e21c5e853369fd560f6900bc636064bfc82",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/hyperframes-registry/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.304Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.304Z",
+      "digest": "616f596dd9cc1076fbc6b0d906ca8dcce3aa6e9d98216900abfae96cfbc81f11"
+    }
+  },
+  {
+    "id": "skills-media-use",
+    "route": "/skills/media-use/",
+    "file": "src/content/docs/skills/media-use.md",
+    "sources": [
+      "official-skills-media-use"
+    ],
+    "reviewedSources": {
+      "official-skills-media-use": {
+        "hash": "6443efae95735caf5864db51f3f0eb8799e2dd76ef5060974c87da0e0707ec5b",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/media-use/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.309Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.309Z",
+      "digest": "1766f41ebee7503ea2144b30cd46acabd1dd321cd78f88293bb589ec41cf7be8"
+    }
+  },
+  {
+    "id": "skills-reverse-any-video",
+    "route": "/skills/reverse-any-video/",
+    "file": "src/content/docs/skills/reverse-any-video.md",
+    "sources": [
+      "official-skills-reverse-any-video"
+    ],
+    "reviewedSources": {
+      "official-skills-reverse-any-video": {
+        "hash": "570cbc102c10ceb248f4cc89f10bedb10a7144f651c5b26643532010ee232078",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/reverse-any-video/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.317Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.317Z",
+      "digest": "3294a92686bab01a210afba858b148065a32b7cc155e1b1746aabba63f05a1e7"
+    }
+  },
+  {
+    "id": "skills-style-sampling",
+    "route": "/skills/style-sampling/",
+    "file": "src/content/docs/skills/style-sampling.md",
+    "sources": [
+      "official-skills-style-sampling"
+    ],
+    "reviewedSources": {
+      "official-skills-style-sampling": {
+        "hash": "ac8ba2feb19629f6d5f47e340c822a221af4fbf5de755a27375326f9c8dec792",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/style-sampling/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.322Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.322Z",
+      "digest": "a488b0cdf50b6b51d827a2ae4e58b07218a21cbe765574bd22bff92c7ee1521e"
+    }
+  },
+  {
+    "id": "skills-figma",
+    "route": "/skills/figma/",
+    "file": "src/content/docs/skills/figma.md",
+    "sources": [
+      "official-skills-figma"
+    ],
+    "reviewedSources": {
+      "official-skills-figma": {
+        "hash": "0696b95e7c947f18d6860f6a2983d4f252fe8c8068bbc005b3a42f28e3ab31b6",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/figma/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.328Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.328Z",
+      "digest": "3552d736fa794a304ca6b1659e69452f75be02e6dea816f4ce5b2f1155e75349"
+    }
+  },
+  {
+    "id": "skills-slideshow",
+    "route": "/skills/slideshow/",
+    "file": "src/content/docs/skills/slideshow.md",
+    "sources": [
+      "official-skills-slideshow"
+    ],
+    "reviewedSources": {
+      "official-skills-slideshow": {
+        "hash": "bce3adc7aed2a5a08f1303bb6a89d00aaf25b302d5cff401224a113f15e994eb",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/slideshow/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.334Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.334Z",
+      "digest": "254ac29ee49221fec5e08cb7586e13e704e53075ca6aa4555bf40ec935dac5a0"
+    }
+  },
+  {
+    "id": "skills-remotion-to-hyperframes",
+    "route": "/skills/remotion-to-hyperframes/",
+    "file": "src/content/docs/skills/remotion-to-hyperframes.md",
+    "sources": [
+      "official-skills-remotion-to-hyperframes"
+    ],
+    "reviewedSources": {
+      "official-skills-remotion-to-hyperframes": {
+        "hash": "c7873e8840a8d5314e63ede648d7d31c5e3ccfa99e32b82a818d73f6c3d89876",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/remotion-to-hyperframes/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.339Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.339Z",
+      "digest": "12df8171b5ae389d30e017c54077d473ab1c056eaf5915a0655b7ad1b749d898"
+    }
+  },
+  {
+    "id": "studio-workspace",
+    "route": "/studio/workspace/",
+    "file": "src/content/docs/studio/workspace.md",
+    "sources": [
+      "official-docs-studio-app-workspace"
+    ],
+    "reviewedSources": {
+      "official-docs-studio-app-workspace": {
+        "hash": "6bfe1b05e43152aaf89e6682fa58c15ca884be089a7641a633d71fc0e512020a",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/workspace.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.346Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.346Z",
+      "digest": "32ac00b68f5d5f0f8f424787e320f20de3a4c3379490b9e81a3b599b50cdf24a"
+    }
+  },
+  {
+    "id": "studio-video-clips",
+    "route": "/studio/video-clips/",
+    "file": "src/content/docs/studio/video-clips.md",
+    "sources": [
+      "official-docs-studio-app-video-clips"
+    ],
+    "reviewedSources": {
+      "official-docs-studio-app-video-clips": {
+        "hash": "e3e5839d8a7da1093420a37fd4ead9e4fd4a91afb23171237bf88ef197111d6d",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/video-clips.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.353Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.353Z",
+      "digest": "91438dceb507386224913e2fbf460a4da301163b9191c706a40c8106b1ba41c7"
+    }
+  },
+  {
+    "id": "studio-reference-video",
+    "route": "/studio/reference-video/",
+    "file": "src/content/docs/studio/reference-video.md",
+    "sources": [
+      "official-docs-studio-app-reference-video"
+    ],
+    "reviewedSources": {
+      "official-docs-studio-app-reference-video": {
+        "hash": "8a9975acb12875b96bf7bc86f0480e3642200a522da432e88b7e72c9b2ba6fd9",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/reference-video.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.359Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.359Z",
+      "digest": "b169ee994413c31a15c2fb41c173ba8d44a58997b2a6034bacbf8e999ee6d1e7"
+    }
+  },
+  {
+    "id": "studio-edit-with-the-agent",
+    "route": "/studio/edit-with-the-agent/",
+    "file": "src/content/docs/studio/edit-with-the-agent.md",
+    "sources": [
+      "studio-app-edit-with-the-agent"
+    ],
+    "reviewedSources": {
+      "studio-app-edit-with-the-agent": {
+        "hash": "49183e0abdf2c4ed77daf006f0ae9c3f93231294c27c12d3488427c90ffb6f53",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/edit-with-the-agent.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.364Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.364Z",
+      "digest": "33433bd4f0d8d66256d5a854d5afc9da86973e140ef3d694866c6656b8cafaa1"
+    }
+  },
+  {
+    "id": "studio-brand-kits",
+    "route": "/studio/brand-kits/",
+    "file": "src/content/docs/studio/brand-kits.md",
+    "sources": [
+      "official-docs-studio-app-brand-kits"
+    ],
+    "reviewedSources": {
+      "official-docs-studio-app-brand-kits": {
+        "hash": "4571f0f9e9a969c7939f8c3f0fee562ca5e0212610afb4b4efe78f4e3de0ef4c",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/brand-kits.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.370Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.370Z",
+      "digest": "4ed837c2287dc5b14e3032a8f6af9f9d78f395c7f2d9e945fcde40cd84450950"
+    }
+  },
+  {
+    "id": "studio-export",
+    "route": "/studio/export/",
+    "file": "src/content/docs/studio/export.md",
+    "sources": [
+      "studio-app-export"
+    ],
+    "reviewedSources": {
+      "studio-app-export": {
+        "hash": "b52eacbceb54b40931676f728dc7c9fa0158b270c095bc7031c13f677c71c4fa",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/export.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.376Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.376Z",
+      "digest": "d43028ad59fa1ba404c745ba0168450699824398095d7df1215cc2885f51da2f"
+    }
+  },
+  {
+    "id": "studio-existing-project",
+    "route": "/studio/existing-project/",
+    "file": "src/content/docs/studio/existing-project.md",
+    "sources": [
+      "official-docs-studio-app-existing-project"
+    ],
+    "reviewedSources": {
+      "official-docs-studio-app-existing-project": {
+        "hash": "c00adda507b84c83f2c988f19532696ed6957f73c2e22d0115344d51db5c7df2",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/existing-project.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.381Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.381Z",
+      "digest": "8ad02117858d43f6211ef1f43a65a09d64c98481f6caeb08c7ad4bf86d90153a"
+    }
+  },
+  {
+    "id": "studio-connect-your-agent",
+    "route": "/studio/connect-your-agent/",
+    "file": "src/content/docs/studio/connect-your-agent.md",
+    "sources": [
+      "official-docs-studio-app-connect-your-agent"
+    ],
+    "reviewedSources": {
+      "official-docs-studio-app-connect-your-agent": {
+        "hash": "250b977f43a41f44de4814601f3580f9f7e47f2baa2033618a856e04f1cc5fb1",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/connect-your-agent.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.387Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.387Z",
+      "digest": "d2e59c76e7a9c54f53409f10a536f234f9ada083dcf040415421360021173e30"
+    }
+  },
+  {
+    "id": "knowledge",
+    "route": "/knowledge/",
+    "file": "src/content/docs/knowledge/index.md",
+    "sources": [],
+    "reviewedSources": {},
+    "sourceVersion": "v0.9.94",
+    "sourceVerifiedAt": "2026-11-25T09:06:53.394Z",
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:06:53.394Z",
+      "digest": "d65210465818cc48edf583f9e05c83704280ee9b036e936b73bfa07df7a3d391"
+    }
+  },
+  {
+    "id": "updates-preview",
+    "route": "/updates/preview/",
+    "file": "src/content/docs/updates/preview.md",
+    "sources": [],
+    "reviewedSources": {},
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-25T09:14:12.048Z",
+      "digest": "c40f1f70d52ef17541e8943dbbc31211e8914f3d512622c793c4ac1878647a8b"
     }
   }
 ]

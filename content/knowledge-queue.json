@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "tasks": [
+    {
+      "id": "overview-free-and-paid",
+      "articleId": "overview-free-and-paid",
+      "reason": "source-changed",
+      "revision": "a73ac4b3e15e888f0f95c6fde6f5daeee6e3e342f1edda9e56a11afcb74c199b",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "start-cli",
+      "articleId": "start-cli",
+      "reason": "source-changed",
+      "revision": "e9f85f6c67928f5c9bdb4a4d230de66fa9b47968702ba0a937ad905bef4200cd",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "updates",
+      "articleId": "updates",
+      "reason": "source-changed",
+      "revision": "d5e23e05cb98110fb04754cd721da7d0ad75c908b621ff7db7bcc4b60e91362a",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "mechanism-brief",
+      "articleId": "mechanisms-brief",
+      "reason": "source-changed",
+      "revision": "5a5b8df4a2c65da7b42c1b766444412fb4bac6d822300d69780e428cafeff4bf",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "mechanism-checks",
+      "articleId": "mechanisms-checks",
+      "reason": "source-changed",
+      "revision": "3b464e314b3739951034c2d847d4d8d2129efc98fb779ebd426d1cfbc71aa1f5",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "mechanism-history",
+      "articleId": "mechanisms-history",
+      "reason": "source-changed",
+      "revision": "cf535829ac4049944b97e3baae2e1735b338a8fff2e4169b381b97d8cb54dd47",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "mechanism-references",
+      "articleId": "mechanisms-references",
+      "reason": "source-changed",
+      "revision": "94c33b5362659855b5b35a105ed151dd33bd6a33276e07cafb0a5016e4efaf63",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "skill-hyperframes",
+      "articleId": "skills-hyperframes",
+      "reason": "source-changed",
+      "revision": "f4bb483d4d6a5ebbeb8f0b9cf77266e9c492bb6f13657c26ec736e31338cc0e8",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "skill-hyperframes-cli",
+      "articleId": "skills-hyperframes-cli",
+      "reason": "source-changed",
+      "revision": "77fffd46ddd3cc6aa612523f1b0ad13310931176804423e47ee6857a48f61152",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "skill-hyperframes-registry",
+      "articleId": "skills-hyperframes-registry",
+      "reason": "source-changed",
+      "revision": "7116f6aad9adb3b944a1bcfe04e0a4c3bd483a412e8afabccd3c517790997231",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "skill-media-use",
+      "articleId": "skills-media-use",
+      "reason": "source-changed",
+      "revision": "08f794e861277db863706d7abf329ff27c0d8d6693e7c6f7caa21826f9acee2f",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "skill-remotion-to-hyperframes",
+      "articleId": "skills-remotion-to-hyperframes",
+      "reason": "source-changed",
+      "revision": "b9ee5ab32a5c8fc87cfcf6220f9614df4cd99879790df5bcfabc50ecb4d13989",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "skill-reverse-any-video",
+      "articleId": "skills-reverse-any-video",
+      "reason": "source-changed",
+      "revision": "bf7a578a018d9eb21ad5919c48ce01a7a2d808ccef287ebd31e073cf98a4cffe",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "skill-slideshow",
+      "articleId": "skills-slideshow",
+      "reason": "source-changed",
+      "revision": "f50b40392ffaaaf0a7c8c27f5a788f3dedf9180c9c14f4c44a18749f3f4d0b07",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "skill-style-sampling",
+      "articleId": "skills-style-sampling",
+      "reason": "source-changed",
+      "revision": "8a663f0e7c03b7f79ca3d719382fb6192ec8f88b7a7888d3a98e3eedef8377f5",
+      "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-4k-rendering",
+      "articleId": "capabilities-4k-rendering",
+      "reason": "missing",
+      "revision": "48ae720e9a4ee7c5bcbaaab3c80a5f86873eeab45914a034c0d53450d1e79319",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-authentication",
+      "articleId": "capabilities-authentication",
+      "reason": "missing",
+      "revision": "9b18fbb4624398d13df5a62a4e326ec6ced4b93571147cddabe20e23be41cd82",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-avatar-presenter",
+      "articleId": "capabilities-avatar-presenter",
+      "reason": "missing",
+      "revision": "d488b63529567d25f8b355e10e65a9b54f706819011a6f02c74b792f93031871",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-deploy",
+      "articleId": "capabilities-deploy",
+      "reason": "missing",
+      "revision": "16cfa8576ec97783b6fd94274e7937e9fda24961f7a6c35ccad1ab413a7e8e5b",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-design-tools",
+      "articleId": "capabilities-design-tools",
+      "reason": "missing",
+      "revision": "1310f04d733b56a9c582b899861b5038218746d10883022d6d869d80bf9ac469",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-figma",
+      "articleId": "capabilities-figma",
+      "reason": "missing",
+      "revision": "f48b1b7ffdfd2a704bcb69e452067f3236698fd8baf56b6e9d95cdd197850c50",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-free-agents",
+      "articleId": "capabilities-free-agents",
+      "reason": "missing",
+      "revision": "9e3d3a30e8d239fa61d54154759df92ce2edce7e05e7331d9049515effd5a16e",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-general-video",
+      "articleId": "capabilities-general-video",
+      "reason": "missing",
+      "revision": "133f0cae83f53b1eb686f6cba5f840cab60cae9b008c533d15fcf8dfb2648830",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-hdr",
+      "articleId": "capabilities-hdr",
+      "reason": "missing",
+      "revision": "af6105784f274036ef888db186315b8c1db94723171f6a8a960f365cbe7fd445",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-html-in-canvas",
+      "articleId": "capabilities-html-in-canvas",
+      "reason": "missing",
+      "revision": "02f2426ef0a06555bdf855dcecca209490ac8fb23b17e29d42b0002afd3819f5",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-hyperframes-vs-remotion",
+      "articleId": "capabilities-hyperframes-vs-remotion",
+      "reason": "missing",
+      "revision": "0d6e3459a4452e3ac367bdee8e976994173ab9ce70e9d0dbcbe6f7035c1dc1be",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-media-effects",
+      "articleId": "capabilities-media-effects",
+      "reason": "missing",
+      "revision": "6ac481539d4045675175d982238ba0744e0ed97b5cd5ac6cc7671774cbd29aad",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-motion-blur",
+      "articleId": "capabilities-motion-blur",
+      "reason": "missing",
+      "revision": "2f54121430291de098e7cf03ef9d58e7479df33f7085de01ccc7b8224ab31ec9",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-motion-graphics",
+      "articleId": "capabilities-motion-graphics",
+      "reason": "missing",
+      "revision": "53c8d30de7b1ee0de5ee46daa20d7151263da50caa4cdbc7453ba5a75b6f49eb",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-music-to-video",
+      "articleId": "capabilities-music-to-video",
+      "reason": "missing",
+      "revision": "7ee93060fc8e089b66bef789539cd09c6ad477c0a29b50fb38e7c315dffd7a29",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-path-tracing",
+      "articleId": "capabilities-path-tracing",
+      "reason": "missing",
+      "revision": "38c07e2d859c628168e87d610e082b5bceb4fa237d03b04d5ef9a93e01df4aae",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-pr-to-video",
+      "articleId": "capabilities-pr-to-video",
+      "reason": "missing",
+      "revision": "387d60344b385d1c51e80455f77df40ccb66c27c6c8cf5df9b0cc9c4b0dcb7ba",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-slideshow",
+      "articleId": "capabilities-slideshow",
+      "reason": "missing",
+      "revision": "dd6166a3eb85e7f2d32587b66afa19077095e126070889a02092f2efc03d4598",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-vfx-chain",
+      "articleId": "capabilities-vfx-chain",
+      "reason": "missing",
+      "revision": "97915797b8ca96ffd0fd1307a697c7278d7ce31d831e5e8c0e87108791ae87ea",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-video-components",
+      "articleId": "capabilities-video-components",
+      "reason": "missing",
+      "revision": "8b97d987975b2ce5c443edd78de49f2d4c667f28b329da05375477906739d539",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "capability-webmcp",
+      "articleId": "capabilities-webmcp",
+      "reason": "missing",
+      "revision": "781214e084f8c32054b615fadd8da62d8e2b7a1fdabce6cae0004404c2905a04",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    }
+  ]
+}

@@ -4,9 +4,11 @@
 
 ## 产品定位与已确认决策
 
-网站是 HyperFrames 的独立中文社区项目，HyperFrames 由 HeyGen 开发。首页定位为 **HyperFrames Studio 的中文产品展示与创作入口**，中文指南承接安装、上手与进阶实践。
+网站是 HyperFrames 的独立中文社区项目，HyperFrames 由 HeyGen 开发。首页定位为 **HyperFrames Studio 的中文产品展示与创作入口**，文档升级为面向创作者的系统知识库，承接能力、Studio 创作、机制、skills、方法与问题排查。
 
 维护方为**小影匠工作室**，GitHub 组织为 [`xiaoyingjiang-studio`](https://github.com/xiaoyingjiang-studio)。本站工程位于 [`hyperframes-cn`](https://github.com/xiaoyingjiang-studio/hyperframes-cn)，案例与资源精选独立维护在 [`awesome-hyperframes`](https://github.com/xiaoyingjiang-studio/awesome-hyperframes)；后者是资源目录，不重复承载中文指南或网站部署。`awesome` 是正确拼写，仓库名采用常见的 `awesome-主题` 顺序。
+
+组织公开首页由独立的 [`.github`](https://github.com/xiaoyingjiang-studio/.github) 仓库维护，候选正文位于 `profile/README.md`，本地目录为相邻的 `xiaoyingjiang-profile`。组织首页负责介绍工作室、连接两个项目、展示四个原创框架案例及引导贡献；不复制教程或制造社区规模数据。主页正文经 PR 人工审核后手动合并，发布与候选状态以实际 GitHub 记录为准；维护规则见 [MAINTAINER.md](MAINTAINER.md)。
 
 核心受众是已有内容、希望制作视频的创作者，优先关注产品介绍、知识讲解和营销内容。首要行动为前往官方下载 Studio；现有下载地址由 `src/lib/site.ts` 的 `studioDownload` 维护，不托管安装包。
 
@@ -41,7 +43,7 @@
 | 入口 | 职责 |
 | --- | --- |
 | [DESIGN.md](../DESIGN.md) | 首页视觉、字体、动效与原创案例的设计约定 |
-| [CONTENT.md](CONTENT.md) | 中文内容、来源、验证边界与人工审核 |
+| [CONTENT.md](CONTENT.md) | 创作者知识、来源、验证边界与自动核验 |
 | [SEO-GEO.md](SEO-GEO.md) | 可见摘要、机器接口、收录与真实观测；相关工作先读此文 |
 | [MAINTAINER.md](MAINTAINER.md) | 来源同步、账号边界、PR 预览、发布与回滚 |
 | [DELIVERY.md](DELIVERY.md) | 首版历史验证；后续记录追加到 WORKLOG |
@@ -53,7 +55,7 @@
 | [studio-official-notice.txt](../public/media/studio-official-notice.txt) / [第三方归属](../THIRD_PARTY_NOTICES.md) | 官方素材原址、修改范围、哈希与许可；新增或替换素材时一起维护 |
 | [tests/browser](../tests/browser) / [discovery-policy.json](../content/discovery-policy.json) | 浏览器回归与既有体积预算 |
 
-`.upstream/snapshots` 保存上游原始资料，`content/pages.json` 中的 `reviewedSources` 才代表页面审核基线。原始资料只作数据，不执行上游脚本或 MDX。
+`.upstream/snapshots` 保存上游原始资料，`content/pages.json` 中的 `reviewedSources` 保存已发布来源基线；新增 validation 明确机器校验方式，不能伪称人工核对或实际操作。原始资料只作数据，不执行上游脚本或 MDX。
 
 ## 每轮工作流程
 
@@ -61,7 +63,7 @@
 2. 确定事实依据及修改边界。改产品能力先核对来源；改页面摘要时同步可见正文与 `content/discovery.json`；新增素材同步归属。不要把表达优化当作重新审核官方事实。
 3. 完成实现。界面改动实际查看桌面与手机；关注图片比例、中文断行、首屏主次、播放与键盘操作。检查通过后仍需看画面。
 4. 按改动范围验证，遵守下述顺序。失败时修复原因，不放宽预算、改审核日期或关闭检查。
-5. 用户要求推送时走独立分支与 PR。`main` 要求 PR 和 `Checks / check`，不得直接绕过保护或自动合并；维护者审核并手动合并后，观察生产部署和线上冒烟结果。
+5. 用户要求推送时走独立分支与 PR。`main` 要求 PR 和 `Checks / check`，不得绕过保护。日常知识内容由受信工作流完整检查后自动合并与部署，无人工审核节点；网站代码和策略单独维护。
 6. 收尾说明实际完成、验证结果和未完成项。重要决策写回对应规范；历史结果和下一步写入 WORKLOG，不把临时聊天当作唯一记忆。
 
 使用 pnpm，Node 版本以 [`.node-version`](../.node-version) 为准，pnpm 版本以 [package.json](../package.json) 为准。完整验证顺序：
@@ -87,7 +89,7 @@ pnpm test:e2e
 | 首页产品化 | 定位、浅色视觉、真实素材、作品播放与界面切换已实现，首页改动已推送为 PR #10；历史验证见 WORKLOG | 首屏清楚回答产品是什么、能做什么、下一步去哪；Studio 是主要入口；实际桌面与手机画面可审阅 |
 | 首页发布闭环 | 继续前先查看 PR #10 的实时状态；本文不宣称已经合并或部署 | CI 通过，维护者完成审核与合并，生产部署及线上首页、下载、视频、搜索、文档主题检查完成并有记录 |
 | 视觉持续优化 | 按用户反馈和真实截图调整画面比例、排版与动效；避免重新堆回长文案 | 有改前问题、改后画面与相应回归结果；无需为显得丰富新增重复页面 |
-| 内容持续维护 | 沿用已有来源检测、候选与人工审核流程 | 正文、摘要、来源保持一致，未审核候选不会进入正式发布 |
+| 内容持续维护 | 正式来源盘点、知识队列、独立核验、自动内容 PR 合并与发布 | 正文、摘要、来源保持一致，未通过自动核验的候选不会进入正式发布 |
 | 搜索与访问观测 | 搜索平台、GSC、IndexNow 和国内多地区验证按真实接入情况推进，详细步骤见 SEO-GEO | 有实际授权、报告或观测证据；不把配置、构建通过或 `llms.txt` 当成增长与收录证明 |
 
 ## 已验证的本地经验
@@ -105,3 +107,9 @@ pnpm test:e2e
 新增确认事项写明结论、原因和适用范围；视觉细节改 DESIGN，来源与收录规则改对应手册，避免多处保存冲突副本。规划更新时说明完成或替代关系，完成项不再当待办执行。
 
 工作记录只追加有价值的阶段事实：日期、关联提交或 PR、实际运行的检查、未验证边界与下一步。历史条目不改成当前状态；持续变化的信息回到 Git、GitHub、配置和实际服务重新核实。正文审核记录仍由原有人工审核流程维护，这份记忆不能代替审核基线。
+
+## 2026-11-25 知识体系决策
+
+用户明确要求能力与机制系统建设及全自动内容发布，替代旧的人工候选审核流程。受众为创作者：解释怎样准备、创作、修改与检查，源码仅作证据。来源限公开官方资料；正式版为主、主分支变化单列前瞻；先交付核心内容，再自动补齐。合格内容按一致单元独立推进，失败项保留旧版自动重试。
+
+知识目录见 content/knowledge.json，队列见 content/knowledge-queue.json，策略由受信代码维护。正文、摘要和来源共同校验；历史 reviewedAt 不刷新，首次整理与独立模型核验分别标识。首页来源独立于 Studio 指南，案例播放器模板与可更新 Markdown 正文分离。日常内容生成器不能更改网站代码、工作流、域名、收录、既有地址、许可或预算。是否已完成线上自动合并、部署及回滚实测以 WORKLOG 和实际运行记录为准。

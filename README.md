@@ -38,7 +38,7 @@ pnpm preview
 - 32 个首版页面，覆盖产品、入门、能力、指南、案例、更新与贡献。
 - Astro 定制首页、Starlight 文档、本地中文搜索、主题与移动端适配。
 - 44 个固定官方来源快照、完整官方源文件索引、来源到中文页面的映射。
-- 外部模型 HTTP 适配器、受限候选生成、人工复核、差异报告和每日 GitHub 工作流。
+- 外部模型适配器、独立核验、知识队列、全自动内容 PR 合并、准确提交发布与失败恢复。
 - 四个原创 HyperFrames 项目、实际 MP4 与海报、字幕轨和机器可读验证记录。
 - Cloudflare Workers 静态部署、PR Preview、SEO 开关、域名迁移、检查与回滚说明。
 
@@ -50,9 +50,9 @@ pnpm preview
 | pnpm test | 来源变化、AI 校验、限流与预算等测试 |
 | pnpm build | 静态页面、搜索、站点地图、RSS、llms.txt、响应头 |
 | pnpm test:e2e | 桌面与手机的关键交互；需先安装 Playwright Chromium |
-| pnpm sync | 检查官方变化并生成候选数据，不修改正文 |
-| pnpm sync --apply | 在新的审核分支写入候选正文，标为 needs-review |
-| node scripts/review-content.mjs ID | 人工核实后更新指定页面的审核基线与日期 |
+| pnpm sync | 盘点正式来源、持续建设队列并生成独立核验候选 |
+| pnpm sync --apply | 应用通过独立模型和来源证据核验的正文与摘要 |
+| node scripts/review-content.mjs ID | 仅供历史维护，不进入日常自动发布 |
 | pnpm links | 检查外链并保留结果，不把访问限制直接判断为失效 |
 | node scripts/render-examples.mjs | 重新检查并渲染全部案例；需要 FFmpeg 与 Chrome |
 

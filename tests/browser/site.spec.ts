@@ -41,7 +41,7 @@ for(const query of ['字幕','配音','中文字体','Codex','render'])test(`本
  await expect(page.locator('#search-results a').first()).toBeVisible();await page.keyboard.press('Escape');await expect(page.locator('#site-search')).not.toBeVisible();
 });
 test('文档来源、目录和复制代码可用',async({page},info)=>{
- await page.goto('/start/cli/');await expect(page.locator('.source-meta')).toContainText('核对于');
+ await page.goto('/start/cli/');await expect(page.locator('.source-meta')).toContainText('历史人工核对');
  await expect(page.getByRole('heading',{level:1})).toContainText('CLI');
  await expect(page.locator('.source-meta a').first()).toHaveAttribute('href',/github\.com\/heygen-com\/hyperframes\/blob\/[a-f0-9]{40}\//);
  await expect(page.locator('.expressive-code button').first()).toBeAttached();

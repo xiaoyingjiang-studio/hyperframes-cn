@@ -3,13 +3,19 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      sha:
+        type: string
+        required: true
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: production
   cancel-in-progress: false
 jobs:
   configuration:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     outputs:
       ready: ${{ steps.config.outputs.ready }}
@@ -44,6 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ inputs.sha || github.sha }}
           persist-credentials: false
           fetch-depth: 0
       - uses: pnpm/action-setup@v4
@@ -61,14 +68,13 @@ jobs:
         run: node -e "if(!process.env.SITE_URL?.startsWith('https://')) throw Error('Configure the actual workers.dev or custom SITE_URL before deploying')"
       - name: Capture previous published content hashes
         run: node scripts/previous-manifest.mjs
-      - name: Deploy static assets
-        run: pnpm exec wrangler deploy
+      - name: Deploy exact commit and recover automatically on failure
+        run: node scripts/release.mjs
         env:
+          RELEASE_SHA: ${{ inputs.sha || github.sha }}
+          GITHUB_TOKEN: ${{ github.token }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      - run: node scripts/smoke.mjs
-        env:
-          SMOKE_URL: ${{ vars.SITE_URL }}
       - name: Notify IndexNow only after successful deployment and smoke check
         run: pnpm indexnow --submit
         continue-on-error: true
@@ -79,6 +85,8 @@ jobs:
           path: |
             artifacts/discovery-audit.json
             artifacts/indexnow-result.json
+            artifacts/release.json
+            artifacts/release-failure.json
           if-no-files-found: ignore
       - name: Record release
         run: echo "Published commit $GITHUB_SHA to $SITE_URL" >> "$GITHUB_STEP_SUMMARY"

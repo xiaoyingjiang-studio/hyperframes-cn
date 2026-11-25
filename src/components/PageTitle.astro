@@ -4,6 +4,7 @@ import registry from '../../content/sources.json';
 import health from '../../content/sync-status.json';
 import pages from '../../content/pages.json';
 import discovery from '../../content/discovery.json';
+import knowledge from '../../content/knowledge.json';
 const entry = Astro.locals.starlightRoute.entry;
 const data = entry.data;
 const records = registry.sources.filter(s => data.sources?.includes(s.id));
@@ -14,16 +15,23 @@ const sourceUrl = (record: (typeof registry.sources)[number]) => {
 };
 const pending = (health.pendingPageIds as string[]).includes(data.contentId);
 const intent = discovery.pages.find(p => p.id === data.contentId);
+const entity = knowledge.entities.find(e => e.articleId === data.contentId);
+const entryNames: Record<string, string> = { studio: 'Studio 桌面应用', 'cli-agent': 'CLI / Agent', 'browser-editor': '浏览器编辑器' };
+const validation = manifest && 'validation' in manifest ? manifest.validation as { mode: string; checkedAt: string } : undefined;
+const previewChanges = knowledge.preview.changes as Array<{ type: string; path: string }>;
 ---
 <nav class="reading-breadcrumb" aria-label="面包屑"><a href="/">首页</a><span aria-hidden="true"> / </span><span aria-current="page">{data.title}</span></nav>
 <Default><slot /></Default>
 {intent && <aside class="answer-summary" aria-label="阅读摘要"><strong>{intent.question}</strong><p>{intent.answer}</p></aside>}
 <div class="source-meta" data-pagefind-ignore>
   <span>{data.kind === 'original' || data.kind === 'case' ? '中文站原创实践' : '基于官方资料整理'}</span>
-  <span>核对于 <time datetime={data.reviewedAt}>{data.reviewedAt}</time></span>
+  {data.reviewedAt && <span>历史人工核对：<time datetime={data.reviewedAt}>{data.reviewedAt}</time></span>}
+  {validation && <span>{validation.mode === 'independent-model-and-evidence' ? '独立模型与来源校验' : '固定来源整理'} · <time datetime={validation.checkedAt}>{validation.checkedAt.slice(0, 10)}</time></span>}
   <span>{data.appliesTo}</span>
   {records.map(record => <a href={sourceUrl(record)} target="_blank" rel="noopener noreferrer">官方来源：{record.label}</a>)}
   <a href={`/content/${data.contentId}.md`} download>阅读 Markdown</a>
 </div>
-{data.verification && <p class="verification-note">验证记录：{data.verification}</p>}
-{pending && <aside class="pending-notice">官方已有更新，本文待核对。现有内容仍对应上述核对日期。</aside>}
+{entity && <div class="knowledge-context" aria-label="知识分类"><span>{knowledge.sections.find(s => s.id === entity.section)?.title}</span>{entity.entries.map(entry => <span>{entryNames[entry] || entry}</span>)}</div>}
+{data.contentId === 'updates-preview' && <aside class="answer-summary"><strong>正式资料版本：{knowledge.release.tag}</strong><p>{knowledge.preview.note}</p><p>主分支与正式资料共有 {previewChanges.length} 项文件差异。以下最多列出 15 项，不代表功能已开放。</p><ul>{previewChanges.slice(0, 15).map(change => <li><a href={`https://github.com/${registry.repository}/tree/${knowledge.preview.commit}`}>{change.type} · {change.path}</a></li>)}</ul></aside>}
+{data.verification && <details class="verification-note"><summary>来源与验证范围</summary><p>{data.verification}</p></details>}
+{pending && <aside class="pending-notice">本页有自动更新任务等待处理，当前保留上述来源版本的内容。</aside>}

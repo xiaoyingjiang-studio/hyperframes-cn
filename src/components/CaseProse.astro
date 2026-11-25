@@ -1,0 +1,15 @@
+---
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import pages from '../../content/pages.json';
+import { validateDraft } from '../../scripts/lib/ai.mjs';
+const { id } = Astro.props;
+const page = pages.find(p => p.id === id);
+const path = page && 'proseFile' in page ? page.proseFile as string : undefined;
+if (!path || !/^content\/case-prose\/[a-z0-9-]+\.md$/.test(path)) throw new Error('案例正文路径无效');
+const prose = import.meta.glob('../../content/case-prose/*.md', { query: '?raw', import: 'default', eager: true });
+const body = prose['../../' + path] as string;
+validateDraft(body);
+const processor = await createMarkdownProcessor();
+const rendered = await processor.render(body);
+---
+<Fragment set:html={rendered.code} />

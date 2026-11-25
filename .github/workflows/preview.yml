@@ -17,7 +17,7 @@ permissions:
   pull-requests: write
 jobs:
   preview:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.head.repo.full_name == github.repository && !startsWith(github.event.pull_request.head.ref, 'automation/knowledge-'))
     runs-on: ubuntu-latest
     environment: preview
     steps:

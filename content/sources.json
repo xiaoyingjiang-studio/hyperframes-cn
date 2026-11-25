@@ -118,7 +118,7 @@
       "path": "docs/packages/cli.mdx",
       "label": "cli",
       "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/packages/cli.mdx",
-      "blobSha": "a95c26d4df484caa1d7d7c2fabbcf56cc8bc27f2"
+      "blobSha": "3628f51b73ca4f2d4e55e95775cf6a8c0b50c28e"
     },
     {
       "id": "prompting-editing-existing-videos",
@@ -286,7 +286,7 @@
       "path": "docs/changelog.mdx",
       "label": "changelog",
       "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/changelog.mdx",
-      "blobSha": "d385d73044940334f03f493259b6cbc074f774e1"
+      "blobSha": "6382fada486998cfa14fafd210c4e3e716ecd79a"
     },
     {
       "id": "product-updates",
@@ -308,6 +308,278 @@
       "label": "LICENSE",
       "url": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
       "blobSha": "ae06b37e1c5116ccfaa615ac25ec1aabf5658d8c"
+    },
+    {
+      "id": "official-skills-hyperframes",
+      "path": "skills/hyperframes/SKILL.md",
+      "label": "skills/hyperframes/SKILL.md",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/skills/hyperframes/SKILL.md",
+      "blobSha": "729e73521abd66b786b8a7bafa318f0d47d511eb"
+    },
+    {
+      "id": "official-docs-concepts-variables",
+      "path": "docs/concepts/variables.mdx",
+      "label": "docs/concepts/variables.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/concepts/variables.mdx",
+      "blobSha": "18c4ce74ffee04bbbba747138690be50d59304ce"
+    },
+    {
+      "id": "official-docs-studio-app-reference-video",
+      "path": "docs/studio-app/reference-video.mdx",
+      "label": "docs/studio-app/reference-video.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/studio-app/reference-video.mdx",
+      "blobSha": "3bdc15c78d4ab5896e5cd0cd29f13722345514dd"
+    },
+    {
+      "id": "official-skills-style-sampling",
+      "path": "skills/style-sampling/SKILL.md",
+      "label": "skills/style-sampling/SKILL.md",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/skills/style-sampling/SKILL.md",
+      "blobSha": "9cdfd04cbee774923cb48ad0996297fad6612757"
+    },
+    {
+      "id": "official-skills-reverse-any-video",
+      "path": "skills/reverse-any-video/SKILL.md",
+      "label": "skills/reverse-any-video/SKILL.md",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/skills/reverse-any-video/SKILL.md",
+      "blobSha": "3c3fd29bf87625467d56606532c37afa3ba83a9a"
+    },
+    {
+      "id": "official-docs-studio-app-brand-kits",
+      "path": "docs/studio-app/brand-kits.mdx",
+      "label": "docs/studio-app/brand-kits.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/studio-app/brand-kits.mdx",
+      "blobSha": "e63fa0ba2e5d2b1fe33a9ec47b69df834b8f833c"
+    },
+    {
+      "id": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "label": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "blobSha": "07b4fb6dd8e9a78202bd6495e91da8d9c0f71b7f"
+    },
+    {
+      "id": "official-skills-hyperframes-cli",
+      "path": "skills/hyperframes-cli/SKILL.md",
+      "label": "skills/hyperframes-cli/SKILL.md",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/skills/hyperframes-cli/SKILL.md",
+      "blobSha": "98dde45536f4bfb372f41a55178741a79ecdb57a"
+    },
+    {
+      "id": "official-docs-studio-app-workspace",
+      "path": "docs/studio-app/workspace.mdx",
+      "label": "docs/studio-app/workspace.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/studio-app/workspace.mdx",
+      "blobSha": "b0693f44cea67060fee2f23857fc08139e33034c"
+    },
+    {
+      "id": "official-docs-studio-app-video-clips",
+      "path": "docs/studio-app/video-clips.mdx",
+      "label": "docs/studio-app/video-clips.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/studio-app/video-clips.mdx",
+      "blobSha": "a50ed69866f6a56cd9a553afc768f4d5e1df0d10"
+    },
+    {
+      "id": "official-docs-studio-app-existing-project",
+      "path": "docs/studio-app/existing-project.mdx",
+      "label": "docs/studio-app/existing-project.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/studio-app/existing-project.mdx",
+      "blobSha": "0f4213d6d42a3392dbdac55deed18f38d09d3114"
+    },
+    {
+      "id": "official-docs-studio-app-connect-your-agent",
+      "path": "docs/studio-app/connect-your-agent.mdx",
+      "label": "docs/studio-app/connect-your-agent.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/studio-app/connect-your-agent.mdx",
+      "blobSha": "09113b06bca085e74535e026a237624eb1a153bc"
+    },
+    {
+      "id": "official-skills-figma",
+      "path": "skills/figma/SKILL.md",
+      "label": "skills/figma/SKILL.md",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/skills/figma/SKILL.md",
+      "blobSha": "b56f8c5e5ecbe2b799c7ca21e94afcfb4d817c09"
+    },
+    {
+      "id": "official-skills-hyperframes-registry",
+      "path": "skills/hyperframes-registry/SKILL.md",
+      "label": "skills/hyperframes-registry/SKILL.md",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/skills/hyperframes-registry/SKILL.md",
+      "blobSha": "4c41be231c7fe4a09840c04fd53efb924d165c51"
+    },
+    {
+      "id": "official-skills-media-use",
+      "path": "skills/media-use/SKILL.md",
+      "label": "skills/media-use/SKILL.md",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/skills/media-use/SKILL.md",
+      "blobSha": "2ec9a59a43407fe7e178a821a41592b866b48b34"
+    },
+    {
+      "id": "official-skills-remotion-to-hyperframes",
+      "path": "skills/remotion-to-hyperframes/SKILL.md",
+      "label": "skills/remotion-to-hyperframes/SKILL.md",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/skills/remotion-to-hyperframes/SKILL.md",
+      "blobSha": "ffc05c17d238dbed3ea8c733054178a4c635f25f"
+    },
+    {
+      "id": "official-skills-slideshow",
+      "path": "skills/slideshow/SKILL.md",
+      "label": "skills/slideshow/SKILL.md",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/skills/slideshow/SKILL.md",
+      "blobSha": "506d7cea85380595578060c4bfa957dd1ba34b69"
+    },
+    {
+      "id": "official-docs-guides-4k-rendering",
+      "path": "docs/guides/4k-rendering.mdx",
+      "label": "docs/guides/4k-rendering.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/4k-rendering.mdx",
+      "blobSha": "a4e04490297459df39137483d3b4e55c59573a91"
+    },
+    {
+      "id": "official-docs-guides-authentication",
+      "path": "docs/guides/authentication.mdx",
+      "label": "docs/guides/authentication.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/authentication.mdx",
+      "blobSha": "2badd9bc8b0839c97df9ab8f139caef999474856"
+    },
+    {
+      "id": "official-docs-guides-avatar-presenter",
+      "path": "docs/guides/avatar-presenter.mdx",
+      "label": "docs/guides/avatar-presenter.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/avatar-presenter.mdx",
+      "blobSha": "6fb8270e71fd0b13216e93677c886044d0592770"
+    },
+    {
+      "id": "official-docs-guides-deploy",
+      "path": "docs/guides/deploy.mdx",
+      "label": "docs/guides/deploy.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/deploy.mdx",
+      "blobSha": "74219913db09b7882a551ec9fe534a822e9224c8"
+    },
+    {
+      "id": "official-docs-guides-design-tools",
+      "path": "docs/guides/design-tools.mdx",
+      "label": "docs/guides/design-tools.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/design-tools.mdx",
+      "blobSha": "b8eef07d6feb2150e4a4154e4cc8371955f05f4d"
+    },
+    {
+      "id": "official-docs-guides-figma",
+      "path": "docs/guides/figma.mdx",
+      "label": "docs/guides/figma.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/figma.mdx",
+      "blobSha": "4c223a6d2147712312bf05a083f3f12c59daf3c9"
+    },
+    {
+      "id": "official-docs-guides-free-agents",
+      "path": "docs/guides/free-agents.mdx",
+      "label": "docs/guides/free-agents.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/free-agents.mdx",
+      "blobSha": "213301688de891ba922ed03da23ff59a5862a842"
+    },
+    {
+      "id": "official-docs-guides-general-video",
+      "path": "docs/guides/general-video.mdx",
+      "label": "docs/guides/general-video.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/general-video.mdx",
+      "blobSha": "a880b2e30cce79f2158848f81d8ef3aa0bbe1764"
+    },
+    {
+      "id": "official-docs-guides-hdr",
+      "path": "docs/guides/hdr.mdx",
+      "label": "docs/guides/hdr.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/hdr.mdx",
+      "blobSha": "028b16874584bbd73227f9d841bcb6c8268930eb"
+    },
+    {
+      "id": "official-docs-guides-html-in-canvas",
+      "path": "docs/guides/html-in-canvas.mdx",
+      "label": "docs/guides/html-in-canvas.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/html-in-canvas.mdx",
+      "blobSha": "ca180ce38496cbdf7d5255e15cdd2220f80695e4"
+    },
+    {
+      "id": "official-docs-guides-hyperframes-vs-remotion",
+      "path": "docs/guides/hyperframes-vs-remotion.mdx",
+      "label": "docs/guides/hyperframes-vs-remotion.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/hyperframes-vs-remotion.mdx",
+      "blobSha": "a8826c3f2dca63eace80718710d91bc8babc0f76"
+    },
+    {
+      "id": "official-docs-guides-media-effects",
+      "path": "docs/guides/media-effects.mdx",
+      "label": "docs/guides/media-effects.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/media-effects.mdx",
+      "blobSha": "55d8540d7158ed5c4e59a6cb53c5b6fc81fe087a"
+    },
+    {
+      "id": "official-docs-guides-motion-blur",
+      "path": "docs/guides/motion-blur.mdx",
+      "label": "docs/guides/motion-blur.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/motion-blur.mdx",
+      "blobSha": "3a68f5d23ac2b407d4344886c2a6fd792d8a7e65"
+    },
+    {
+      "id": "official-docs-guides-motion-graphics",
+      "path": "docs/guides/motion-graphics.mdx",
+      "label": "docs/guides/motion-graphics.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/motion-graphics.mdx",
+      "blobSha": "076ce11f8aaa02b9350a9389cc42298cc5984940"
+    },
+    {
+      "id": "official-docs-guides-music-to-video",
+      "path": "docs/guides/music-to-video.mdx",
+      "label": "docs/guides/music-to-video.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/music-to-video.mdx",
+      "blobSha": "19bcbb24d8e1a3d457988a438b0ba99fbf983191"
+    },
+    {
+      "id": "official-docs-guides-path-tracing",
+      "path": "docs/guides/path-tracing.mdx",
+      "label": "docs/guides/path-tracing.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/path-tracing.mdx",
+      "blobSha": "fe99e475e888d62ae36ab5cfd48fcabb39775ac3"
+    },
+    {
+      "id": "official-docs-guides-pr-to-video",
+      "path": "docs/guides/pr-to-video.mdx",
+      "label": "docs/guides/pr-to-video.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/pr-to-video.mdx",
+      "blobSha": "33cca34c5db7724bda8dde218809cdc5343f664b"
+    },
+    {
+      "id": "official-docs-guides-slideshow",
+      "path": "docs/guides/slideshow.mdx",
+      "label": "docs/guides/slideshow.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/slideshow.mdx",
+      "blobSha": "9bba7b7f562268592748a7e607f8b3a8f033dff3"
+    },
+    {
+      "id": "official-docs-guides-vfx-chain",
+      "path": "docs/guides/vfx-chain.mdx",
+      "label": "docs/guides/vfx-chain.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/vfx-chain.mdx",
+      "blobSha": "f11174732bd245bc131716778e506fd42e81aef7"
+    },
+    {
+      "id": "official-docs-guides-video-components",
+      "path": "docs/guides/video-components.mdx",
+      "label": "docs/guides/video-components.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/video-components.mdx",
+      "blobSha": "238b1158437ffd81535e3a7743a29b8036e13103"
+    },
+    {
+      "id": "official-docs-guides-webmcp",
+      "path": "docs/guides/webmcp.mdx",
+      "label": "docs/guides/webmcp.mdx",
+      "url": "https://github.com/heygen-com/hyperframes/blob/28d16a3e4de42d3235efeeebf4681d9710773b7e/docs/guides/webmcp.mdx",
+      "blobSha": "02b08004ae23cca92bea56fc8b9c8ec4495fc616"
+    },
+    {
+      "id": "official-skills-manifest",
+      "path": "skills-manifest.json",
+      "label": "正式 skills 发布清单",
+      "blobSha": "13ee3ec94aaed786a7f1bd9023a1b17c06b52ba6"
     }
   ]
 }
