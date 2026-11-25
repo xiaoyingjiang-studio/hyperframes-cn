@@ -1,14 +1,16 @@
 # HyperFrames 中文指南
 
-SEO 与 AI 工具搜索引用优化的内容规范、自动审计、真实观测、AI 候选 PR 和域名切换步骤见 [SEO/GEO 维护手册](docs/SEO-GEO.md)。
+后续维护先读 [项目记忆与工作入口](docs/PROJECT-MEMORY.md)，了解产品定位、已确认约束、实现位置与后续规划；阶段进度和验证边界记录在 [工作记录](docs/WORKLOG.md)。SEO、内容审核与部署的详细规则仍由各自手册维护。
 
-面向中国用户的独立开源学习网站：产品能力、快速开始、中文实践、四个真实视频案例，以及随官方更新的内容维护工具。
+面向中国创作者的独立社区网站：首页展示 HyperFrames Studio、真实作品与官方下载入口，中文指南承接安装、上手和进阶实践，并提供四个原创框架视频案例与随官方更新的内容维护工具。
 
 HyperFrames 由 HeyGen 开发。本站为独立社区项目，官方来源为 https://github.com/heygen-com/hyperframes 。
 
-测试站点：https://hyperframes-cn.raijin-kzh.workers.dev
+正式域名：https://xiaoyingjiang.com/ 。本地与 PR 预览默认 noindex；配置与发布状态以站点配置、GitHub Variables 和实际工作流为准。
 
-公开源码：https://github.com/zhkuang/hyperframes-cn
+公开源码：https://github.com/xiaoyingjiang-studio/hyperframes-cn
+
+由[小影匠工作室](https://github.com/xiaoyingjiang-studio)维护。优质案例与资源目录独立收录在 [awesome-hyperframes](https://github.com/xiaoyingjiang-studio/awesome-hyperframes)。
 
 ## 本地运行
 
@@ -36,7 +38,7 @@ pnpm preview
 - 32 个首版页面，覆盖产品、入门、能力、指南、案例、更新与贡献。
 - Astro 定制首页、Starlight 文档、本地中文搜索、主题与移动端适配。
 - 44 个固定官方来源快照、完整官方源文件索引、来源到中文页面的映射。
-- 外部模型 HTTP 适配器、受限候选生成、人工复核、差异报告和每日 GitHub 工作流。
+- 外部模型适配器、独立核验、知识队列、全自动内容 PR 合并、准确提交发布与失败恢复。
 - 四个原创 HyperFrames 项目、实际 MP4 与海报、字幕轨和机器可读验证记录。
 - Cloudflare Workers 静态部署、PR Preview、SEO 开关、域名迁移、检查与回滚说明。
 
@@ -48,9 +50,9 @@ pnpm preview
 | pnpm test | 来源变化、AI 校验、限流与预算等测试 |
 | pnpm build | 静态页面、搜索、站点地图、RSS、llms.txt、响应头 |
 | pnpm test:e2e | 桌面与手机的关键交互；需先安装 Playwright Chromium |
-| pnpm sync | 检查官方变化并生成候选数据，不修改正文 |
-| pnpm sync --apply | 在新的审核分支写入候选正文，标为 needs-review |
-| node scripts/review-content.mjs ID | 人工核实后更新指定页面的审核基线与日期 |
+| pnpm sync | 盘点正式来源、持续建设队列并生成独立核验候选 |
+| pnpm sync --apply | 应用通过独立模型和来源证据核验的正文与摘要 |
+| node scripts/review-content.mjs ID | 仅供历史维护，不进入日常自动发布 |
 | pnpm links | 检查外链并保留结果，不把访问限制直接判断为失效 |
 | node scripts/render-examples.mjs | 重新检查并渲染全部案例；需要 FFmpeg 与 Chrome |
 
@@ -62,9 +64,9 @@ pnpm preview
 2. 在 Cloudflare 创建 Worker 或首次使用 Wrangler 部署，采用仓库内 wrangler.jsonc；不同时启用 Workers Builds。
 3. 根据[部署与维护手册](docs/MAINTAINER.md)设置 GitHub Environments、Secrets、Variables 与分支规则。
 4. 手动运行 Deploy production，确认工作流成功与线上冒烟检查结果。
-5. 暂用真实 workers.dev 地址，保持 SITE_INDEXABLE=false；域名后续接入。
+5. 新部署先用真实 workers.dev 地址验证，保持 SITE_INDEXABLE=false；本站正式域名与旧入口迁移规则见 [SEO/GEO 维护手册](docs/SEO-GEO.md)，不要用新部署示例覆盖现有配置。
 
-当前网站通过 Wrangler 登录账号进行首次发布，默认不开放搜索引擎收录。后续 GitHub 自动发布需要在 Environments 中配置专用 Cloudflare 部署 Token；未配置时工作流明确跳过发布，检查与来源检测仍可运行。AI 接口配置独立于网站发布。具体状态见 docs/DELIVERY.md。
+本站已有正式域名与 GitHub 自动发布的历史验证记录，见 [首版交付记录](docs/DELIVERY.md)。当前配置与运行结果需从实际工作流核实；本地默认仍保持 SITE_INDEXABLE=false。AI 接口配置独立于网站发布。
 
 ## 内容规范
 

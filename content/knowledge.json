@@ -1,0 +1,2561 @@
+{
+  "schemaVersion": 1,
+  "release": {
+    "tag": "v0.9.94",
+    "publishedAt": "2026-11-25T08:24:19Z",
+    "url": "https://github.com/heygen-com/hyperframes/releases/tag/v0.9.94"
+  },
+  "sourceCommit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+  "sections": [
+    {
+      "id": "orientation",
+      "title": "认识与选择"
+    },
+    {
+      "id": "studio",
+      "title": "Studio 创作"
+    },
+    {
+      "id": "capabilities",
+      "title": "能力地图"
+    },
+    {
+      "id": "mechanisms",
+      "title": "创作机制"
+    },
+    {
+      "id": "skills",
+      "title": "Skills 与创作工具"
+    },
+    {
+      "id": "workflows",
+      "title": "创作方法"
+    },
+    {
+      "id": "problems",
+      "title": "问题与限制"
+    },
+    {
+      "id": "updates",
+      "title": "更新与前瞻"
+    },
+    {
+      "id": "community",
+      "title": "关于与贡献"
+    }
+  ],
+  "publishedSkills": [
+    "figma",
+    "hyperframes",
+    "hyperframes-cli",
+    "hyperframes-registry",
+    "media-use",
+    "remotion-to-hyperframes",
+    "reverse-any-video",
+    "slideshow",
+    "style-sampling"
+  ],
+  "entities": [
+    {
+      "id": "mechanism-brief",
+      "articleId": "mechanisms-brief",
+      "route": "/mechanisms/brief/",
+      "file": "src/content/docs/mechanisms/brief.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "把需求变成可执行的创作任务",
+      "question": "一段需求怎样表达为可执行的创作任务？",
+      "paths": [
+        "docs/studio-app/first-video.mdx",
+        "skills/hyperframes/SKILL.md"
+      ],
+      "entries": [
+        "studio",
+        "cli-agent"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "studio-app-first-video",
+        "official-skills-hyperframes"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-editable-project",
+      "articleId": "mechanisms-editable-project",
+      "route": "/mechanisms/editable-project/",
+      "file": "src/content/docs/mechanisms/editable-project.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "理解可编辑项目与素材",
+      "question": "项目里哪些内容可以修改、替换和复用？",
+      "paths": [
+        "docs/concepts/compositions.mdx",
+        "docs/concepts/variables.mdx"
+      ],
+      "entries": [
+        "studio",
+        "cli-agent",
+        "browser-editor"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "concepts-compositions",
+        "official-docs-concepts-variables"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-time-and-scenes",
+      "articleId": "mechanisms-time-and-scenes",
+      "route": "/mechanisms/time-and-scenes/",
+      "file": "src/content/docs/mechanisms/time-and-scenes.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "场景、片段与时间",
+      "question": "场景、片段、轨道与时间怎样影响画面？",
+      "paths": [
+        "docs/concepts/compositions.mdx",
+        "docs/concepts/data-attributes.mdx"
+      ],
+      "entries": [
+        "studio",
+        "cli-agent",
+        "browser-editor"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "concepts-compositions",
+        "concepts-data-attributes"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-targeted-edits",
+      "articleId": "mechanisms-targeted-edits",
+      "route": "/mechanisms/targeted-edits/",
+      "file": "src/content/docs/mechanisms/targeted-edits.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "让修改准确落在画面上",
+      "question": "选取、画圈、评论和时间范围怎样帮助定位修改？",
+      "paths": [
+        "docs/studio-app/edit-with-the-agent.mdx"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "studio-app-edit-with-the-agent"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-batch-edits",
+      "articleId": "mechanisms-batch-edits",
+      "route": "/mechanisms/batch-edits/",
+      "file": "src/content/docs/mechanisms/batch-edits.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "组织多条修改要求",
+      "question": "多条修改怎样组合，怎样减少相互干扰？",
+      "paths": [
+        "docs/studio-app/edit-with-the-agent.mdx"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "studio-app-edit-with-the-agent"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-references",
+      "articleId": "mechanisms-references",
+      "route": "/mechanisms/references/",
+      "file": "src/content/docs/mechanisms/references.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "分清参考视频与风格参考",
+      "question": "参考视频与风格参考分别怎样影响结果？",
+      "paths": [
+        "docs/studio-app/reference-video.mdx",
+        "skills/style-sampling/SKILL.md",
+        "skills/reverse-any-video/SKILL.md"
+      ],
+      "entries": [
+        "studio",
+        "cli-agent"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-docs-studio-app-reference-video",
+        "official-skills-style-sampling",
+        "official-skills-reverse-any-video"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-media-and-blocks",
+      "articleId": "mechanisms-media-and-blocks",
+      "route": "/mechanisms/media-and-blocks/",
+      "file": "src/content/docs/mechanisms/media-and-blocks.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "组合素材、生成内容与组件",
+      "question": "用户素材、生成素材与组件怎样组合？",
+      "paths": [
+        "docs/guides/media.mdx",
+        "docs/catalog/index.mdx"
+      ],
+      "entries": [
+        "studio",
+        "cli-agent"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "guides-media",
+        "catalog-index"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-audio-and-captions",
+      "articleId": "mechanisms-audio-and-captions",
+      "route": "/mechanisms/audio-and-captions/",
+      "file": "src/content/docs/mechanisms/audio-and-captions.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "配合字幕、配音、音乐与原声",
+      "question": "字幕、配音、音乐和原声怎样配合？",
+      "paths": [
+        "docs/guides/captions-and-recuts.mdx",
+        "docs/guides/voice-and-audio.mdx"
+      ],
+      "entries": [
+        "studio",
+        "cli-agent"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "guides-captions-and-recuts",
+        "guides-voice-and-audio"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-brand-and-variables",
+      "articleId": "mechanisms-brand-and-variables",
+      "route": "/mechanisms/brand-and-variables/",
+      "file": "src/content/docs/mechanisms/brand-and-variables.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "保持品牌与系列风格一致",
+      "question": "变量与品牌设置怎样帮助保持一致？",
+      "paths": [
+        "docs/concepts/variables.mdx",
+        "docs/studio-app/brand-kits.mdx"
+      ],
+      "entries": [
+        "studio",
+        "cli-agent",
+        "browser-editor"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-docs-concepts-variables",
+        "official-docs-studio-app-brand-kits"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-preview-and-export",
+      "articleId": "mechanisms-preview-and-export",
+      "route": "/mechanisms/preview-and-export/",
+      "file": "src/content/docs/mechanisms/preview-and-export.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "理解预览与导出的差别",
+      "question": "为什么预览、拖动时间轴和最终导出可能不同？",
+      "paths": [
+        "docs/concepts/determinism.mdx",
+        "docs/studio-app/export.mdx"
+      ],
+      "entries": [
+        "studio",
+        "cli-agent",
+        "browser-editor"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "concepts-determinism",
+        "studio-app-export"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-checks",
+      "articleId": "mechanisms-checks",
+      "route": "/mechanisms/checks/",
+      "file": "src/content/docs/mechanisms/checks.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "理解自动检查的边界",
+      "question": "自动检查能发现什么，不能证明什么？",
+      "paths": [
+        "skills/hyperframes/SKILL.md",
+        "skills/hyperframes-cli/references/lint-validate-inspect.md"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-skills-hyperframes",
+        "official-skills-hyperframes-cli-references-lint-validate-inspect"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "mechanism-history",
+      "articleId": "mechanisms-history",
+      "route": "/mechanisms/history/",
+      "file": "src/content/docs/mechanisms/history.md",
+      "type": "mechanism",
+      "section": "mechanisms",
+      "title": "保留修改与恢复项目",
+      "question": "怎样保留自己的修改，并在失败后恢复？",
+      "paths": [
+        "docs/studio-app/edit-with-the-agent.mdx",
+        "skills/hyperframes-cli/SKILL.md"
+      ],
+      "entries": [
+        "studio",
+        "cli-agent"
+      ],
+      "related": [
+        "start-studio",
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "studio-app-edit-with-the-agent",
+        "official-skills-hyperframes-cli"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "studio-workspace",
+      "articleId": "studio-workspace",
+      "route": "/studio/workspace/",
+      "file": "src/content/docs/studio/workspace.md",
+      "type": "tutorial",
+      "section": "studio",
+      "title": "认识 Studio 创作工作区",
+      "question": "怎样在 Studio 工作区找到创作、素材与编辑入口？",
+      "paths": [
+        "docs/studio-app/workspace.mdx"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [
+        "start-studio",
+        "mechanisms-targeted-edits"
+      ],
+      "sources": [
+        "official-docs-studio-app-workspace"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "mechanism-targeted-edits"
+        }
+      ]
+    },
+    {
+      "id": "studio-video-clips",
+      "articleId": "studio-video-clips",
+      "route": "/studio/video-clips/",
+      "file": "src/content/docs/studio/video-clips.md",
+      "type": "tutorial",
+      "section": "studio",
+      "title": "生成并修改视频素材",
+      "question": "怎样在 Studio 使用 HeyGen Video 1 生成和修改素材？",
+      "paths": [
+        "docs/studio-app/video-clips.mdx"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [
+        "start-studio",
+        "mechanisms-targeted-edits"
+      ],
+      "sources": [
+        "official-docs-studio-app-video-clips"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "mechanism-targeted-edits"
+        }
+      ]
+    },
+    {
+      "id": "studio-reference-video",
+      "articleId": "studio-reference-video",
+      "route": "/studio/reference-video/",
+      "file": "src/content/docs/studio/reference-video.md",
+      "type": "tutorial",
+      "section": "studio",
+      "title": "使用参考视频开始创作",
+      "question": "怎样用参考视频说明想做的视频？",
+      "paths": [
+        "docs/studio-app/reference-video.mdx"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [
+        "start-studio",
+        "mechanisms-targeted-edits"
+      ],
+      "sources": [
+        "official-docs-studio-app-reference-video"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "mechanism-targeted-edits"
+        }
+      ]
+    },
+    {
+      "id": "studio-edit-with-the-agent",
+      "articleId": "studio-edit-with-the-agent",
+      "route": "/studio/edit-with-the-agent/",
+      "file": "src/content/docs/studio/edit-with-the-agent.md",
+      "type": "tutorial",
+      "section": "studio",
+      "title": "选取、画圈与批量修改",
+      "question": "怎样准确指示 Studio 修改画面中的内容？",
+      "paths": [
+        "docs/studio-app/edit-with-the-agent.mdx"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [
+        "start-studio",
+        "mechanisms-targeted-edits"
+      ],
+      "sources": [
+        "studio-app-edit-with-the-agent"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "mechanism-targeted-edits"
+        }
+      ]
+    },
+    {
+      "id": "studio-brand-kits",
+      "articleId": "studio-brand-kits",
+      "route": "/studio/brand-kits/",
+      "file": "src/content/docs/studio/brand-kits.md",
+      "type": "tutorial",
+      "section": "studio",
+      "title": "使用品牌资料保持一致",
+      "question": "怎样准备和使用 Studio 品牌资料？",
+      "paths": [
+        "docs/studio-app/brand-kits.mdx"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [
+        "start-studio",
+        "mechanisms-targeted-edits"
+      ],
+      "sources": [
+        "official-docs-studio-app-brand-kits"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "mechanism-targeted-edits"
+        }
+      ]
+    },
+    {
+      "id": "studio-export",
+      "articleId": "studio-export",
+      "route": "/studio/export/",
+      "file": "src/content/docs/studio/export.md",
+      "type": "tutorial",
+      "section": "studio",
+      "title": "导出并检查最终视频",
+      "question": "怎样导出 Studio 视频并检查交付结果？",
+      "paths": [
+        "docs/studio-app/export.mdx"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [
+        "start-studio",
+        "mechanisms-targeted-edits"
+      ],
+      "sources": [
+        "studio-app-export"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "mechanism-targeted-edits"
+        }
+      ]
+    },
+    {
+      "id": "studio-existing-project",
+      "articleId": "studio-existing-project",
+      "route": "/studio/existing-project/",
+      "file": "src/content/docs/studio/existing-project.md",
+      "type": "tutorial",
+      "section": "studio",
+      "title": "打开已有的可编辑项目",
+      "question": "怎样继续编辑已经存在的 HyperFrames 项目？",
+      "paths": [
+        "docs/studio-app/existing-project.mdx"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [
+        "start-studio",
+        "mechanisms-targeted-edits"
+      ],
+      "sources": [
+        "official-docs-studio-app-existing-project"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "mechanism-targeted-edits"
+        }
+      ]
+    },
+    {
+      "id": "studio-connect-your-agent",
+      "articleId": "studio-connect-your-agent",
+      "route": "/studio/connect-your-agent/",
+      "file": "src/content/docs/studio/connect-your-agent.md",
+      "type": "tutorial",
+      "section": "studio",
+      "title": "连接创作 Agent",
+      "question": "怎样选择并连接 Studio 使用的 Agent？",
+      "paths": [
+        "docs/studio-app/connect-your-agent.mdx"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [
+        "start-studio",
+        "mechanisms-targeted-edits"
+      ],
+      "sources": [
+        "official-docs-studio-app-connect-your-agent"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "mechanism-targeted-edits"
+        }
+      ]
+    },
+    {
+      "id": "skill-figma",
+      "articleId": "skills-figma",
+      "type": "skill",
+      "section": "skills",
+      "title": "figma：把设计素材用于视频创作",
+      "question": "figma skill 解决什么创作问题，怎样使用？",
+      "route": "/skills/figma/",
+      "file": "src/content/docs/skills/figma.md",
+      "paths": [
+        "skills/figma/SKILL.md"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-skills-figma"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "skill-hyperframes",
+      "articleId": "skills-hyperframes",
+      "type": "skill",
+      "section": "skills",
+      "title": "hyperframes：完整视频的创作规范与协作入口",
+      "question": "hyperframes skill 解决什么创作问题，怎样使用？",
+      "route": "/skills/hyperframes/",
+      "file": "src/content/docs/skills/hyperframes.md",
+      "paths": [
+        "skills/hyperframes/SKILL.md"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-skills-hyperframes"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "skill-hyperframes-cli",
+      "articleId": "skills-hyperframes-cli",
+      "type": "skill",
+      "section": "skills",
+      "title": "hyperframes-cli：项目操作、检查与交付工具",
+      "question": "hyperframes-cli skill 解决什么创作问题，怎样使用？",
+      "route": "/skills/hyperframes-cli/",
+      "file": "src/content/docs/skills/hyperframes-cli.md",
+      "paths": [
+        "skills/hyperframes-cli/SKILL.md"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-skills-hyperframes-cli"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "skill-hyperframes-registry",
+      "articleId": "skills-hyperframes-registry",
+      "type": "skill",
+      "section": "skills",
+      "title": "hyperframes-registry：寻找并使用可编辑视觉模块",
+      "question": "hyperframes-registry skill 解决什么创作问题，怎样使用？",
+      "route": "/skills/hyperframes-registry/",
+      "file": "src/content/docs/skills/hyperframes-registry.md",
+      "paths": [
+        "skills/hyperframes-registry/SKILL.md"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-skills-hyperframes-registry"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "skill-media-use",
+      "articleId": "skills-media-use",
+      "type": "skill",
+      "section": "skills",
+      "title": "media-use：寻找、生成与处理媒体素材",
+      "question": "media-use skill 解决什么创作问题，怎样使用？",
+      "route": "/skills/media-use/",
+      "file": "src/content/docs/skills/media-use.md",
+      "paths": [
+        "skills/media-use/SKILL.md"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-skills-media-use"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "skill-remotion-to-hyperframes",
+      "articleId": "skills-remotion-to-hyperframes",
+      "type": "skill",
+      "section": "skills",
+      "title": "remotion-to-hyperframes：复用其他工具制作的项目与画面",
+      "question": "remotion-to-hyperframes skill 解决什么创作问题，怎样使用？",
+      "route": "/skills/remotion-to-hyperframes/",
+      "file": "src/content/docs/skills/remotion-to-hyperframes.md",
+      "paths": [
+        "skills/remotion-to-hyperframes/SKILL.md"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-skills-remotion-to-hyperframes"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "skill-reverse-any-video",
+      "articleId": "skills-reverse-any-video",
+      "type": "skill",
+      "section": "skills",
+      "title": "reverse-any-video：把具体参考视频重建为可编辑项目",
+      "question": "reverse-any-video skill 解决什么创作问题，怎样使用？",
+      "route": "/skills/reverse-any-video/",
+      "file": "src/content/docs/skills/reverse-any-video.md",
+      "paths": [
+        "skills/reverse-any-video/SKILL.md"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-skills-reverse-any-video"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "skill-slideshow",
+      "articleId": "skills-slideshow",
+      "type": "skill",
+      "section": "skills",
+      "title": "slideshow：制作可现场播放的交互演示",
+      "question": "slideshow skill 解决什么创作问题，怎样使用？",
+      "route": "/skills/slideshow/",
+      "file": "src/content/docs/skills/slideshow.md",
+      "paths": [
+        "skills/slideshow/SKILL.md"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-skills-slideshow"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "skill-style-sampling",
+      "articleId": "skills-style-sampling",
+      "type": "skill",
+      "section": "skills",
+      "title": "style-sampling：按成熟风格制作新主题的一集",
+      "question": "style-sampling skill 解决什么创作问题，怎样使用？",
+      "route": "/skills/style-sampling/",
+      "file": "src/content/docs/skills/style-sampling.md",
+      "paths": [
+        "skills/style-sampling/SKILL.md"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [
+        "features-skills-catalog"
+      ],
+      "sources": [
+        "official-skills-style-sampling"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        }
+      ]
+    },
+    {
+      "id": "capability-4k-rendering",
+      "articleId": "capabilities-4k-rendering",
+      "file": "src/content/docs/capabilities/4k-rendering.md",
+      "route": "/capabilities/4k-rendering/",
+      "title": "4k-rendering",
+      "question": "怎样使用 4k-rendering 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/4k-rendering.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-4k-rendering"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-authentication",
+      "articleId": "capabilities-authentication",
+      "file": "src/content/docs/capabilities/authentication.md",
+      "route": "/capabilities/authentication/",
+      "title": "authentication",
+      "question": "怎样使用 authentication 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/authentication.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-authentication"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-avatar-presenter",
+      "articleId": "capabilities-avatar-presenter",
+      "file": "src/content/docs/capabilities/avatar-presenter.md",
+      "route": "/capabilities/avatar-presenter/",
+      "title": "avatar-presenter",
+      "question": "怎样使用 avatar-presenter 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/avatar-presenter.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-avatar-presenter"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-deploy",
+      "articleId": "capabilities-deploy",
+      "file": "src/content/docs/capabilities/deploy.md",
+      "route": "/capabilities/deploy/",
+      "title": "deploy",
+      "question": "怎样使用 deploy 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/deploy.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-deploy"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-design-tools",
+      "articleId": "capabilities-design-tools",
+      "file": "src/content/docs/capabilities/design-tools.md",
+      "route": "/capabilities/design-tools/",
+      "title": "design-tools",
+      "question": "怎样使用 design-tools 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/design-tools.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-design-tools"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-figma",
+      "articleId": "capabilities-figma",
+      "file": "src/content/docs/capabilities/figma.md",
+      "route": "/capabilities/figma/",
+      "title": "figma",
+      "question": "怎样使用 figma 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/figma.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-figma"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-free-agents",
+      "articleId": "capabilities-free-agents",
+      "file": "src/content/docs/capabilities/free-agents.md",
+      "route": "/capabilities/free-agents/",
+      "title": "free-agents",
+      "question": "怎样使用 free-agents 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/free-agents.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-free-agents"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-general-video",
+      "articleId": "capabilities-general-video",
+      "file": "src/content/docs/capabilities/general-video.md",
+      "route": "/capabilities/general-video/",
+      "title": "general-video",
+      "question": "怎样使用 general-video 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/general-video.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-general-video"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-hdr",
+      "articleId": "capabilities-hdr",
+      "file": "src/content/docs/capabilities/hdr.md",
+      "route": "/capabilities/hdr/",
+      "title": "hdr",
+      "question": "怎样使用 hdr 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/hdr.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-hdr"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-html-in-canvas",
+      "articleId": "capabilities-html-in-canvas",
+      "file": "src/content/docs/capabilities/html-in-canvas.md",
+      "route": "/capabilities/html-in-canvas/",
+      "title": "html-in-canvas",
+      "question": "怎样使用 html-in-canvas 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/html-in-canvas.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-html-in-canvas"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-hyperframes-vs-remotion",
+      "articleId": "capabilities-hyperframes-vs-remotion",
+      "file": "src/content/docs/capabilities/hyperframes-vs-remotion.md",
+      "route": "/capabilities/hyperframes-vs-remotion/",
+      "title": "hyperframes-vs-remotion",
+      "question": "怎样使用 hyperframes-vs-remotion 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/hyperframes-vs-remotion.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-hyperframes-vs-remotion"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-media-effects",
+      "articleId": "capabilities-media-effects",
+      "file": "src/content/docs/capabilities/media-effects.md",
+      "route": "/capabilities/media-effects/",
+      "title": "media-effects",
+      "question": "怎样使用 media-effects 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/media-effects.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-media-effects"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-motion-blur",
+      "articleId": "capabilities-motion-blur",
+      "file": "src/content/docs/capabilities/motion-blur.md",
+      "route": "/capabilities/motion-blur/",
+      "title": "motion-blur",
+      "question": "怎样使用 motion-blur 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/motion-blur.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-motion-blur"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-motion-graphics",
+      "articleId": "capabilities-motion-graphics",
+      "file": "src/content/docs/capabilities/motion-graphics.md",
+      "route": "/capabilities/motion-graphics/",
+      "title": "motion-graphics",
+      "question": "怎样使用 motion-graphics 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/motion-graphics.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-motion-graphics"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-music-to-video",
+      "articleId": "capabilities-music-to-video",
+      "file": "src/content/docs/capabilities/music-to-video.md",
+      "route": "/capabilities/music-to-video/",
+      "title": "music-to-video",
+      "question": "怎样使用 music-to-video 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/music-to-video.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-music-to-video"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-path-tracing",
+      "articleId": "capabilities-path-tracing",
+      "file": "src/content/docs/capabilities/path-tracing.md",
+      "route": "/capabilities/path-tracing/",
+      "title": "path-tracing",
+      "question": "怎样使用 path-tracing 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/path-tracing.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-path-tracing"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-pr-to-video",
+      "articleId": "capabilities-pr-to-video",
+      "file": "src/content/docs/capabilities/pr-to-video.md",
+      "route": "/capabilities/pr-to-video/",
+      "title": "pr-to-video",
+      "question": "怎样使用 pr-to-video 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/pr-to-video.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-pr-to-video"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-slideshow",
+      "articleId": "capabilities-slideshow",
+      "file": "src/content/docs/capabilities/slideshow.md",
+      "route": "/capabilities/slideshow/",
+      "title": "slideshow",
+      "question": "怎样使用 slideshow 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/slideshow.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-slideshow"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-vfx-chain",
+      "articleId": "capabilities-vfx-chain",
+      "file": "src/content/docs/capabilities/vfx-chain.md",
+      "route": "/capabilities/vfx-chain/",
+      "title": "vfx-chain",
+      "question": "怎样使用 vfx-chain 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/vfx-chain.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-vfx-chain"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-video-components",
+      "articleId": "capabilities-video-components",
+      "file": "src/content/docs/capabilities/video-components.md",
+      "route": "/capabilities/video-components/",
+      "title": "video-components",
+      "question": "怎样使用 video-components 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/video-components.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-video-components"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "capability-webmcp",
+      "articleId": "capabilities-webmcp",
+      "file": "src/content/docs/capabilities/webmcp.md",
+      "route": "/capabilities/webmcp/",
+      "title": "webmcp",
+      "question": "怎样使用 webmcp 完成视频创作？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/webmcp.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-webmcp"
+      ],
+      "available": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "product-hyperframes",
+      "articleId": "overview-what-is-hyperframes",
+      "file": "src/content/docs/overview/what-is-hyperframes.md",
+      "route": "/overview/what-is-hyperframes/",
+      "title": "HyperFrames 是什么",
+      "type": "product",
+      "section": "orientation",
+      "sources": [
+        "introduction",
+        "concepts-determinism"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": []
+    },
+    {
+      "id": "overview-choose-your-path",
+      "articleId": "overview-choose-your-path",
+      "file": "src/content/docs/overview/choose-your-path.md",
+      "route": "/overview/choose-your-path/",
+      "title": "选择你的使用方式",
+      "type": "tutorial",
+      "section": "orientation",
+      "sources": [
+        "quickstart",
+        "guides-mcp"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "overview-free-and-paid",
+      "articleId": "overview-free-and-paid",
+      "file": "src/content/docs/overview/free-and-paid.md",
+      "route": "/overview/free-and-paid/",
+      "title": "免费、开源与付费服务",
+      "type": "tutorial",
+      "section": "orientation",
+      "sources": [
+        "readme",
+        "faq",
+        "guides-media"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "product-studio",
+      "articleId": "start-studio",
+      "file": "src/content/docs/start/studio.md",
+      "route": "/start/studio/",
+      "title": "用 Studio 制作第一个视频",
+      "type": "product",
+      "section": "studio",
+      "sources": [
+        "studio-app-index",
+        "studio-app-first-video",
+        "studio-app-export"
+      ],
+      "entries": [
+        "studio"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": []
+    },
+    {
+      "id": "start-codex",
+      "articleId": "start-codex",
+      "file": "src/content/docs/start/codex.md",
+      "route": "/start/codex/",
+      "title": "使用 Codex 创建视频",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "guides-with-codex",
+        "guides-skills",
+        "guides-plugins"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "start-claude-code",
+      "articleId": "start-claude-code",
+      "file": "src/content/docs/start/claude-code.md",
+      "route": "/start/claude-code/",
+      "title": "使用 Claude Code 创建视频",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "guides-with-claude-code",
+        "guides-skills",
+        "guides-plugins"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "start-cursor",
+      "articleId": "start-cursor",
+      "file": "src/content/docs/start/cursor.md",
+      "route": "/start/cursor/",
+      "title": "使用 Cursor 创建视频",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "guides-with-cursor",
+        "guides-skills",
+        "guides-plugins"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "start-cli",
+      "articleId": "start-cli",
+      "file": "src/content/docs/start/cli.md",
+      "route": "/start/cli/",
+      "title": "CLI 快速开始",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "developers-cli",
+        "packages-cli",
+        "quickstart"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "features-editing",
+      "articleId": "features-editing",
+      "file": "src/content/docs/features/editing.md",
+      "route": "/features/editing/",
+      "title": "创作与编辑",
+      "type": "capability",
+      "section": "capabilities",
+      "sources": [
+        "prompting-editing-existing-videos",
+        "studio-app-edit-with-the-agent"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "features-captions",
+      "articleId": "features-captions",
+      "file": "src/content/docs/features/captions.md",
+      "route": "/features/captions/",
+      "title": "字幕与动态文字",
+      "type": "capability",
+      "section": "capabilities",
+      "sources": [
+        "guides-captions-and-recuts",
+        "prompting-captions-catalog",
+        "prompting-media-and-audio"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "features-motion",
+      "articleId": "features-motion",
+      "file": "src/content/docs/features/motion.md",
+      "route": "/features/motion/",
+      "title": "动画与视觉效果",
+      "type": "capability",
+      "section": "capabilities",
+      "sources": [
+        "guides-gsap-animation",
+        "prompting-motion",
+        "concepts-frame-adapters"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "features-media",
+      "articleId": "features-media",
+      "file": "src/content/docs/features/media.md",
+      "route": "/features/media/",
+      "title": "图片、视频与声音",
+      "type": "capability",
+      "section": "capabilities",
+      "sources": [
+        "guides-media",
+        "guides-voice-and-audio",
+        "guides-remove-background"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "resource-catalog",
+      "articleId": "features-skills-catalog",
+      "file": "src/content/docs/features/skills-catalog.md",
+      "route": "/features/skills-catalog/",
+      "title": "Skills 与组件目录",
+      "type": "resource",
+      "section": "skills",
+      "sources": [
+        "guides-skills",
+        "guides-plugins",
+        "catalog-index",
+        "official-skills-manifest"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "features-render-share",
+      "articleId": "features-render-share",
+      "file": "src/content/docs/features/render-share.md",
+      "route": "/features/render-share/",
+      "title": "预览、渲染与分享",
+      "type": "capability",
+      "section": "capabilities",
+      "sources": [
+        "guides-rendering",
+        "guides-export-and-share",
+        "developers-cli"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "guides-prompting",
+      "articleId": "guides-prompting",
+      "file": "src/content/docs/guides/prompting.md",
+      "route": "/guides/prompting/",
+      "title": "提示词与迭代",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "prompting-overview",
+        "prompting-examples"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "guides-chinese-typography",
+      "articleId": "guides-chinese-typography",
+      "file": "src/content/docs/guides/chinese-typography.md",
+      "route": "/guides/chinese-typography/",
+      "title": "中文字体与字幕实践",
+      "type": "tutorial",
+      "section": "problems",
+      "sources": [
+        "guides-captions-and-recuts",
+        "prompting-captions-catalog"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "guides-windows",
+      "articleId": "guides-windows",
+      "file": "src/content/docs/guides/windows.md",
+      "route": "/guides/windows/",
+      "title": "Windows 环境准备",
+      "type": "tutorial",
+      "section": "problems",
+      "sources": [
+        "quickstart",
+        "developers-cli",
+        "help"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "guides-project-structure",
+      "articleId": "guides-project-structure",
+      "file": "src/content/docs/guides/project-structure.md",
+      "route": "/guides/project-structure/",
+      "title": "项目结构与渲染原理",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "concepts-compositions",
+        "concepts-data-attributes",
+        "concepts-determinism"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "guides-troubleshooting",
+      "articleId": "guides-troubleshooting",
+      "file": "src/content/docs/guides/troubleshooting.md",
+      "route": "/guides/troubleshooting/",
+      "title": "常见问题与排错",
+      "type": "tutorial",
+      "section": "problems",
+      "sources": [
+        "help",
+        "developers-cli",
+        "guides-performance"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "showcase",
+      "articleId": "showcase",
+      "file": "src/content/docs/showcase/index.mdx",
+      "route": "/showcase/",
+      "title": "四个可以复现的小作品",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "examples"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "showcase-product-intro",
+      "articleId": "showcase-product-intro",
+      "file": "src/content/docs/showcase/product-intro.mdx",
+      "route": "/showcase/product-intro/",
+      "title": "产品介绍：从想法到成片",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "guides-product-launch-video",
+        "concepts-compositions"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "showcase-chinese-explainer",
+      "articleId": "showcase-chinese-explainer",
+      "file": "src/content/docs/showcase/chinese-explainer.mdx",
+      "route": "/showcase/chinese-explainer/",
+      "title": "中文讲解：把复杂内容分成三步",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "guides-faceless-explainer",
+        "concepts-compositions"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "showcase-data-story",
+      "articleId": "showcase-data-story",
+      "file": "src/content/docs/showcase/data-story.mdx",
+      "route": "/showcase/data-story/",
+      "title": "数据动画：让变化有一个起点",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "prompting-data-and-maps",
+        "concepts-compositions"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "showcase-footage-edit",
+      "articleId": "showcase-footage-edit",
+      "file": "src/content/docs/showcase/footage-edit.mdx",
+      "route": "/showcase/footage-edit/",
+      "title": "素材剪辑：给已有片段新的节奏",
+      "type": "workflow",
+      "section": "workflows",
+      "sources": [
+        "prompting-editing-existing-videos",
+        "concepts-compositions"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "updates",
+      "articleId": "updates",
+      "file": "src/content/docs/updates/index.md",
+      "route": "/updates/",
+      "title": "更新动态",
+      "type": "tutorial",
+      "section": "updates",
+      "sources": [
+        "changelog",
+        "product-updates"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "updates-first-edition",
+      "articleId": "updates-first-edition",
+      "file": "src/content/docs/updates/first-edition.md",
+      "route": "/updates/first-edition/",
+      "title": "首篇解读：从三个入口理解完整工作流",
+      "type": "tutorial",
+      "section": "updates",
+      "sources": [
+        "quickstart",
+        "developers-cli",
+        "studio-app-index"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": false,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "updates-site-changelog",
+      "articleId": "updates-site-changelog",
+      "file": "src/content/docs/updates/site-changelog.md",
+      "route": "/updates/site-changelog/",
+      "title": "中文站更新记录",
+      "type": "tutorial",
+      "section": "updates",
+      "sources": [],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": false,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "community-about",
+      "articleId": "community-about",
+      "file": "src/content/docs/community/about.md",
+      "route": "/community/about/",
+      "title": "关于本站",
+      "type": "tutorial",
+      "section": "community",
+      "sources": [],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": false,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "community-contributing",
+      "articleId": "community-contributing",
+      "file": "src/content/docs/community/contributing.md",
+      "route": "/community/contributing/",
+      "title": "参与贡献",
+      "type": "tutorial",
+      "section": "community",
+      "sources": [],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": false,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "community-sources",
+      "articleId": "community-sources",
+      "file": "src/content/docs/community/sources.md",
+      "route": "/community/sources/",
+      "title": "内容来源与同步机制",
+      "type": "tutorial",
+      "section": "community",
+      "sources": [
+        "docs",
+        "changelog",
+        "guides-skills"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": false,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "community-licenses",
+      "articleId": "community-licenses",
+      "file": "src/content/docs/community/licenses.md",
+      "route": "/community/licenses/",
+      "title": "许可与素材归属",
+      "type": "tutorial",
+      "section": "community",
+      "sources": [
+        "license"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "automation": false,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "articleId": "knowledge",
+      "title": "HyperFrames 创作者知识库",
+      "question": "怎样按创作目标、问题和机制学习 HyperFrames？",
+      "route": "/knowledge/",
+      "file": "src/content/docs/knowledge/index.md",
+      "type": "index",
+      "section": "orientation",
+      "sources": [],
+      "entries": [
+        "studio",
+        "cli-agent",
+        "browser-editor"
+      ],
+      "related": [],
+      "automation": false,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        }
+      ]
+    },
+    {
+      "id": "updates-preview",
+      "articleId": "updates-preview",
+      "title": "公开变化与未发布能力前瞻",
+      "question": "怎样区分 HyperFrames 正式发布与公开主分支变化？",
+      "route": "/updates/preview/",
+      "file": "src/content/docs/updates/preview.md",
+      "type": "update",
+      "section": "updates",
+      "sources": [],
+      "entries": [
+        "studio",
+        "cli-agent"
+      ],
+      "related": [
+        "knowledge"
+      ],
+      "automation": false,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "applies-to",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "knowledge"
+        }
+      ]
+    }
+  ],
+  "preview": {
+    "commit": "3953e2dffc7b80f35cac69590c28fbe89f4a8b7e",
+    "changes": [],
+    "note": "公开主分支差异，不代表已正式发布或桌面应用已提供。"
+  }
+}

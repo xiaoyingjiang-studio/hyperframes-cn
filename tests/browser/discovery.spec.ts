@@ -1,4 +1,38 @@
 import { test, expect } from "@playwright/test";
+test("Studio 首页的标题、可见摘要与来源完整导出", async ({ page, request }) => {
+  await page.goto('/');
+  await expect(page).toHaveTitle('HyperFrames Studio：AI 视频创作与中文上手指南');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content',/\/media\/studio-first-video.jpg$/);
+  await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content','1280');
+  await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content','800');
+  const description = await page.locator('meta[name="description"]').getAttribute('content');
+  await expect(page.locator('.answer-summary')).toContainText(description!);
+  const manifest = await (await request.get('/content-manifest.json')).json();
+  const home = manifest.pages.find((entry: { id: string }) => entry.id === 'home');
+  expect(home.title).toBe(await page.title());expect(home.sources).toHaveLength(3);
+  expect(home.reviewedAt).toBeUndefined();
+  const markdown = await (await request.get('/content/home.md')).text();
+  expect(markdown).toContain(description!);
+  for (const source of home.sources) {
+    expect(await page.locator('.source-meta a').evaluateAll(links=>links.map(link=>(link as HTMLAnchorElement).href))).toContain(source.url);
+    expect(markdown).toContain(source.url);
+  }
+});
+test("无 JavaScript 的首页仍有下载、作品和原生导航", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+  const page = await context.newPage();await page.goto('http://127.0.0.1:4321/');
+  await expect(page.locator('html')).toHaveAttribute('data-theme','light');
+  await expect(page.locator('.studio-hero .button.primary')).toHaveAttribute('href','https://hyperframes.studio/studio/download');
+  await expect(page.locator('.studio-work')).toHaveCount(4);
+  await expect(page.locator('#studio-preview')).toBeVisible();
+  await expect(page.locator('[data-studio-play]')).toBeHidden();
+  await expect(page.locator('.studio-step-tabs')).toBeHidden();
+  for (const panel of await page.locator('.studio-step-panel').all()) await expect(panel).toBeVisible();
+  for (const work of await page.locator('.studio-work').all()) await expect(work).toHaveAttribute('href',/^https:\/\/static\.heygen\.ai\/hyperframes-oss\/homepage\/showcase\/hq\/.*\.mp4$/);
+  await page.locator('.mobile-navigation summary').click();
+  await expect(page.getByRole('navigation',{name:'移动主导航'}).getByRole('link',{name:'中文指南'})).toBeVisible();
+  await context.close();
+});
 test("禁用 JavaScript 仍能阅读正文、摘要与固定来源", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();

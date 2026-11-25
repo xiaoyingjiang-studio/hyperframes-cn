@@ -8,6 +8,7 @@ import {
 } from "node:fs/promises";
 import { join, sep } from "node:path";
 import matter from "gray-matter";
+import { execFileSync } from 'node:child_process';
 import { load } from "cheerio";
 import { file, json, save, hash } from "./lib/io.mjs";
 import {
@@ -24,12 +25,14 @@ const site = resolveSite(await json("site.config.json"));
 const pages = await json("content/pages.json");
 const registry = await json("content/sources.json");
 const discovery = await json("content/discovery.json");
+const homeSources = await json('content/home-sources.json');
+const knowledge = await json('content/knowledge.json');
 const records = [
   {
     id: "home",
     route: "/",
     file: "src/pages/index.astro",
-    sources: [],
+    ...homeSources,
     kind: "home",
   },
   ...pages,
@@ -38,16 +41,17 @@ const entries = [];
 await mkdir(file("dist/content"), { recursive: true });
 for (const page of records) {
   const raw = await readFile(file(page.file), "utf8");
-  const { data } = matter(raw);
+  // Astro frontmatter is TypeScript, not Markdown's YAML metadata.
+  const { data } = page.kind === "home" ? { data: {} } : matter(raw);
   const intent = discovery.pages.find((p) => p.id === page.id);
   if (!intent) throw new Error(`缺少阅读意图：${page.id}`);
-  const dates = [gitDate(page.file), intentDate(page.id)]
+  const dates = [gitDate(page.file), page.proseFile ? gitDate(page.proseFile) : undefined, intentDate(page.id)]
     .filter(Boolean)
     .sort();
   const entry = {
     id: page.id,
     route: page.route,
-    title: page.id === "home" ? site.name : data.title,
+    title: page.id === "home" ? intent.title || site.name : data.title,
     description: intent.answer,
     question: intent.question,
     terms: intent.terms,
@@ -57,11 +61,17 @@ for (const page of records) {
     appliesTo: data.appliesTo,
     verification: data.verification,
     status: data.status,
+    sourceVersion: page.sourceVersion,
+    sourceVerifiedAt: page.sourceVerifiedAt,
+    validation: page.validation,
+    knowledge: knowledge.entities.find(entity => entity.articleId === page.id),
     sources: sourceLinks(page, registry),
     markdown: `/content/${page.id}.md`,
-    image: page.id.startsWith("showcase-")
-      ? `/media/${page.id.slice(9)}.jpg`
-      : "/media/product-intro.jpg",
+    image: page.id === "home"
+      ? "/media/studio-first-video.jpg"
+      : page.id.startsWith("showcase-") ? `/media/${page.id.slice(9)}.jpg` : "/media/product-intro.jpg",
+    imageWidth: page.id === "home" ? 1280 : 960,
+    imageHeight: page.id === "home" ? 800 : 540,
   };
   const path = file(`dist${page.route}index.html`);
   let html = await readFile(path, "utf8");
@@ -69,7 +79,8 @@ for (const page of records) {
   await writeFile(path, html);
   const body = toMarkdown(html, site.url + page.route);
   const header = `# ${entry.title}\n\n规范地址：${site.url}${entry.route}\n\n维护者：${discovery.publisher}（独立社区项目）\n${entry.modified ? `\n正文修订：${entry.modified}（Git 记录）\n` : ""}${entry.reviewedAt ? `\n官方资料核对：${entry.reviewedAt}\n\n适用条件：${entry.appliesTo}\n\n验证边界：${entry.verification || "按所列来源整理；不代表所有入口均已实测。"}\n` : ""}\n许可：原创文字 CC BY 4.0；派生内容与素材分别保留原许可，详见 ${site.url}/community/licenses/\n\n## 官方来源\n\n${entry.sources.map((s) => `- [${s.label}](${s.url})`).join("\n") || "本站原创说明；产品事实见站内关联指南与官方来源。"}\n\n---\n\n`;
-  const markdown = header + body.replace(/^# [^\n]+\n*/, "") + "\n";
+  const verification = entry.sourceVersion ? `来源版本：${entry.sourceVersion}\n\n来源核验：${entry.sourceVerifiedAt}\n\n内容校验：${entry.validation?.mode || '来源整理'}\n\n适用条件：${entry.appliesTo}\n\n验证边界：${entry.verification}\n\n` : '';
+  const markdown = header + verification + body.replace(/^# [^\n]+\n*/, "") + "\n";
   await writeFile(file("dist" + entry.markdown), markdown);
   const document = load(html);
   const sections = document("h2[id],h3[id]")
@@ -86,11 +97,13 @@ for (const page of records) {
   entries.push({ ...entry, sections, contentHash: hash(markdown) });
 }
 await save("dist/content-manifest.json", {
-  schemaVersion: 1,
+  schemaVersion: 2,
+  buildSha: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
   site: site.url,
   indexable: site.indexable,
   publisher: discovery.publisher,
   pages: entries,
+  knowledge: { release: knowledge.release, publishedSkills: knowledge.publishedSkills, entities: knowledge.entities.map(entity => ({ ...entity, published: pages.some(page => page.id === entity.articleId) })) },
 });
 await writeFile(
   file("dist/sitemap.xml"),

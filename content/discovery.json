@@ -4,195 +4,634 @@
   "pages": [
     {
       "id": "home",
-      "question": "HyperFrames 是什么，如何开始使用？",
-      "answer": "HyperFrames 是 HeyGen 开源的 HTML 视频创作框架。你可以通过 Studio、AI Agent 或 CLI 制作可编辑的视频项目。本指南由社区独立维护，提供中文教程、官方资料来源与可下载复现的原创案例。",
-      "terms": ["HyperFrames", "中文教程", "HTML 视频"]
+      "title": "HyperFrames Studio：AI 视频创作与中文上手指南",
+      "question": "HyperFrames Studio 是什么，如何开始创作视频？",
+      "answer": "HyperFrames Studio 是 HeyGen 开发的桌面视频创作应用。描述你的想法，与 AI 一起制作视频，在预览中调整文字、画面与节奏，再导出作品。本站由中文社区独立维护，提供官方下载入口、中文上手指南与原创 HyperFrames 框架成片示例。",
+      "terms": [
+        "HyperFrames Studio",
+        "AI 视频创作",
+        "中文上手指南"
+      ]
     },
     {
       "id": "overview-what-is-hyperframes",
       "question": "HyperFrames 是什么？",
       "answer": "HyperFrames 用 HTML、CSS、JavaScript 和时间轴描述视频，将网页技术组织成可预览、可渲染的项目。它提供 Studio、Agent 与 CLI 等使用方式；具体能力和服务条件应按对应入口核对。",
-      "terms": ["HyperFrames 是什么", "HTML 视频", "开源"]
+      "terms": [
+        "HyperFrames 是什么",
+        "HTML 视频",
+        "开源"
+      ]
     },
     {
       "id": "overview-choose-your-path",
       "question": "应该选择 Studio、Agent 还是 CLI？",
       "answer": "希望直接描述需求并预览作品，可以先了解 Studio；已有 Codex、Claude Code 或 Cursor 工作流，可以从 Agent 开始；需要掌握检查、渲染与自动化，可以选择 CLI。三种路径都需要核对各自环境与服务条件。",
-      "terms": ["Studio", "Agent", "CLI"]
+      "terms": [
+        "Studio",
+        "Agent",
+        "CLI"
+      ]
     },
     {
       "id": "overview-free-and-paid",
       "question": "HyperFrames 免费吗，哪些功能可能收费？",
       "answer": "开源框架的许可与在线服务的计费是不同事项。使用本地框架时仍需考虑素材许可与计算资源；涉及生成模型、账号或托管服务时，应查看官方当前条款，不能将开源等同于所有服务免费。",
-      "terms": ["免费", "费用", "许可"]
+      "terms": [
+        "免费",
+        "费用",
+        "许可"
+      ]
     },
     {
       "id": "start-studio",
       "question": "如何用 HyperFrames Studio 开始制作视频？",
       "answer": "先按官方入口安装适合系统的 Studio，再描述目标、检查预览并逐步修改。开始前核对平台、登录及服务条件。本页按官方流程整理，未将本站没有完成的账号操作标为实测。",
-      "terms": ["Studio", "安装", "入门"]
+      "terms": [
+        "Studio",
+        "安装",
+        "入门"
+      ]
     },
     {
       "id": "start-codex",
       "question": "如何在 Codex 中使用 HyperFrames？",
       "answer": "让 Codex 读取 HyperFrames 的官方 Skills，并在明确的项目目录中创建和修改视频。先给出时长、画幅、文案与素材，再检查项目、预览关键帧并渲染；具体权限和命令以工具环境与官方说明为准。",
-      "terms": ["Codex", "Skills", "视频"]
+      "terms": [
+        "Codex",
+        "Skills",
+        "视频"
+      ]
     },
     {
       "id": "start-claude-code",
       "question": "如何在 Claude Code 中使用 HyperFrames？",
       "answer": "在 Claude Code 的工作目录中准备 HyperFrames Skills 与项目材料，让 Agent 按时间轴生成和迭代作品。生成后仍需运行项目检查与渲染，并核对字幕、字体及素材加载情况。",
-      "terms": ["Claude Code", "Skills", "入门"]
+      "terms": [
+        "Claude Code",
+        "Skills",
+        "入门"
+      ]
     },
     {
       "id": "start-cursor",
       "question": "如何在 Cursor 中使用 HyperFrames？",
       "answer": "在 Cursor 中打开独立视频项目，准备官方 Skills 和清楚的制作要求，再用 Agent 逐步生成、预览与修改。每次迭代应检查实际画面，导出前确认资源齐全及动画可以按时间定位。",
-      "terms": ["Cursor", "Agent", "入门"]
+      "terms": [
+        "Cursor",
+        "Agent",
+        "入门"
+      ]
     },
     {
       "id": "start-cli",
       "question": "如何通过命令行创建、检查和渲染视频？",
       "answer": "HyperFrames CLI 的基本循环是初始化项目、预览、检查，再渲染输出。准备兼容的 Node.js、FFmpeg 与 Chromium 环境；命令参数以实际安装版本的帮助为准，完成后还需用播放器检查成片。",
-      "terms": ["CLI", "render", "命令行"]
+      "terms": [
+        "CLI",
+        "render",
+        "命令行"
+      ]
     },
     {
       "id": "features-editing",
       "question": "HyperFrames 如何创作和编辑视频？",
       "answer": "HyperFrames 将视频保留为可编辑的 HTML 项目。你可以修改文字、布局、媒体与动画，再通过预览和渲染确认结果。Agent 能协助修改代码，但自然语言要求仍需转换为实际项目变化并检查。",
-      "terms": ["编辑", "HTML", "创作"]
+      "terms": [
+        "编辑",
+        "HTML",
+        "创作"
+      ]
     },
     {
       "id": "features-captions",
       "question": "如何制作字幕和动态文字？",
       "answer": "字幕与动态文字可以作为视频项目中的文本元素，按时间轴控制出现、强调与离场。中文内容需同时检查字体覆盖、换行、安全区和停留时长；语音识别或配音服务另有使用条件。",
-      "terms": ["字幕", "动态文字", "中文"]
+      "terms": [
+        "字幕",
+        "动态文字",
+        "中文"
+      ]
     },
     {
       "id": "features-motion",
       "question": "HyperFrames 支持哪些动画与效果？",
       "answer": "HTML 布局、CSS 样式与 GSAP 时间轴可以组织文字动效、视觉强调和场景转场。导出要求动画能够按给定时间还原画面，应避免依赖不可控的实时计时或外部状态。",
-      "terms": ["动画", "GSAP", "转场"]
+      "terms": [
+        "动画",
+        "GSAP",
+        "转场"
+      ]
     },
     {
       "id": "features-media",
       "question": "如何使用图片、视频、声音和配音？",
       "answer": "视频项目可以组织图片、视频与声音等素材。使用前应确认文件可加载、时间范围和素材许可；调用生成或配音服务时还要核对账号、模型和费用条件，不能假设本地项目已包含这些服务。",
-      "terms": ["配音", "声音", "媒体"]
+      "terms": [
+        "配音",
+        "声音",
+        "媒体"
+      ]
     },
     {
       "id": "features-skills-catalog",
-      "question": "Skills、组件和 Catalog 各有什么用？",
-      "answer": "Skills 提供 Agent 制作视频时可参考的工作规范，Catalog 提供可复用的组件或区块入口。安装后仍需将资源接入项目，并核对依赖、时间轴和许可；组件不是无需配置即可使用的成片。",
-      "terms": ["Skills", "Catalog", "组件"]
+      "question": "HyperFrames 的 skills 分别负责什么，怎样与组件和 Studio 工具配合？",
+      "answer": "Skills 规定 Agent 的工作方式，组件与区块提供可编辑视觉内容，Studio 工具提供应用操作入口。按完整制作、素材、视觉模块、参考重建或设计导入选择对应 skill，并核对安装来源、版本与账号条件。",
+      "terms": [
+        "Skills",
+        "Catalog",
+        "组件"
+      ]
     },
     {
       "id": "features-render-share",
       "question": "如何预览、导出和分享 HyperFrames 视频？",
       "answer": "先预览关键时刻并运行检查，再渲染为视频文件；分享前确认画幅、时长、字幕和音画。可编辑项目与导出视频是不同交付物，分享项目时还需保留依赖、素材与许可记录。",
-      "terms": ["render", "导出", "预览"]
+      "terms": [
+        "render",
+        "导出",
+        "预览"
+      ]
     },
     {
       "id": "guides-prompting",
       "question": "怎样写提示词并有效迭代视频？",
       "answer": "先说明受众、目标、时长、画幅、文案和素材，再按场景描述节奏与重点。每轮选择可检查的修改目标，例如标题大小或停留时长，并对照实际预览确认，避免同时更改太多因素。",
-      "terms": ["提示词", "迭代", "Agent"]
+      "terms": [
+        "提示词",
+        "迭代",
+        "Agent"
+      ]
     },
     {
       "id": "guides-chinese-typography",
       "question": "中文字体和字幕如何避免缺字或换行问题？",
       "answer": "选择许可清楚、字形覆盖完整的中文字体，并让渲染环境能够实际加载。检查长句换行、行高、字号和安全区；本站案例包含所需字体与许可，其他项目仍需按自己的文案核对字符覆盖。",
-      "terms": ["中文字体", "字幕", "缺字"]
+      "terms": [
+        "中文字体",
+        "字幕",
+        "缺字"
+      ]
     },
     {
       "id": "guides-windows",
       "question": "Windows 上运行 HyperFrames 要准备什么？",
       "answer": "Windows 用户需要兼容的 Node.js、可调用的 FFmpeg 和 Chromium 环境，并留意终端路径、文件权限与字体加载。本站记录了原创案例的本地执行结果，其他交互式安装流程仍应按官方说明核对。",
-      "terms": ["Windows", "FFmpeg", "安装"]
+      "terms": [
+        "Windows",
+        "FFmpeg",
+        "安装"
+      ]
     },
     {
       "id": "guides-project-structure",
       "question": "HyperFrames 项目由哪些文件组成？",
       "answer": "项目以 HTML 组织画面，结合样式、脚本、媒体和动画时间轴描述作品。理解根合成、资源路径与可寻址时间轴，有助于定位预览和渲染差异，也方便复用或自动化修改。",
-      "terms": ["项目结构", "合成", "时间轴"]
+      "terms": [
+        "项目结构",
+        "合成",
+        "时间轴"
+      ]
     },
     {
       "id": "guides-troubleshooting",
       "question": "预览或渲染失败应该怎样排查？",
       "answer": "先保留完整错误与工具版本，再分别检查环境、项目结构、资源加载和时间轴。预览成功不代表导出必然一致；用项目检查、关键帧截图和实际视频播放逐步缩小问题范围。",
-      "terms": ["报错", "排错", "render"]
+      "terms": [
+        "报错",
+        "排错",
+        "render"
+      ]
     },
     {
       "id": "showcase",
       "question": "在哪里查看并下载真实 HyperFrames 案例？",
       "answer": "本站提供产品介绍、中文讲解、数据动画和素材剪辑四个原创短案例，包含实际 MP4、海报、完整项目与验证记录。概念界面和演示数据均注明用途，可以下载后修改并重新渲染。",
-      "terms": ["案例", "下载", "示例"]
+      "terms": [
+        "案例",
+        "下载",
+        "示例"
+      ]
     },
     {
       "id": "showcase-product-intro",
       "question": "怎样复现产品介绍视频案例？",
       "answer": "这是一个 8 秒原创产品介绍案例，以文字、HTML 概念界面与 GSAP 表达从想法到成片的流程。页面提供真实视频、完整项目 ZIP 和验证记录；画面是概念演示，不冒充真实产品截图。",
-      "terms": ["产品介绍", "案例", "项目下载"]
+      "terms": [
+        "产品介绍",
+        "案例",
+        "项目下载"
+      ]
     },
     {
       "id": "showcase-chinese-explainer",
       "question": "怎样制作并复现中文讲解案例？",
       "answer": "中文讲解案例用短场景展示中文文字的信息层级与节奏。页面提供实际成片和可下载项目，复现时重点检查中文字体、换行和时间轴；具体制作与验证范围见正文记录。",
-      "terms": ["中文讲解", "案例", "字幕"]
+      "terms": [
+        "中文讲解",
+        "案例",
+        "字幕"
+      ]
     },
     {
       "id": "showcase-data-story",
       "question": "怎样制作可复现的数据动画？",
       "answer": "数据动画案例用演示数据组织数字、图形与强调动画，提供实际成片和完整项目。数值仅用于演示，不代表真实业务表现；修改数据后应重新检查图形关系、文字与动画时长。",
-      "terms": ["数据动画", "图表", "演示数据"]
+      "terms": [
+        "数据动画",
+        "图表",
+        "演示数据"
+      ]
     },
     {
       "id": "showcase-footage-edit",
       "question": "怎样将已有素材组织成视频？",
       "answer": "素材剪辑案例演示如何安排素材、标题和场景节奏，并提供实际成片、项目与验证记录。替换素材时需重新核对资源路径、时长、画幅与使用许可，不能只修改文件名就认为完成。",
-      "terms": ["素材剪辑", "案例", "视频素材"]
+      "terms": [
+        "素材剪辑",
+        "案例",
+        "视频素材"
+      ]
     },
     {
       "id": "updates",
       "question": "如何跟踪官方变化和中文站更新？",
       "answer": "更新栏目区分官方内容解读与中文站维护记录。本站按固定来源版本整理内容，通过候选改动和人工审核持续维护；来源已变化但尚未核对的页面会保留原有版本说明。",
-      "terms": ["更新", "版本", "维护"]
+      "terms": [
+        "更新",
+        "版本",
+        "维护"
+      ]
     },
     {
       "id": "updates-first-edition",
       "question": "首版指南覆盖哪些官方能力？",
       "answer": "首篇解读围绕 Studio、Agent 和 CLI 三种入口组织学习路径，连接入门、能力与案例页面。它是对所列官方资料的中文整理，核对日期不等于上游发布版本，使用时仍需查看条件与来源。",
-      "terms": ["首版", "官方解读", "学习路径"]
+      "terms": [
+        "首版",
+        "官方解读",
+        "学习路径"
+      ]
     },
     {
       "id": "updates-site-changelog",
       "question": "中文站自身的改动在哪里记录？",
       "answer": "中文站更新记录说明内容、案例和维护机制的变化，并与上游产品更新区分。普通文字修订不自动刷新官方资料的核对日期；版本差异和实际发布情况可结合 GitHub 提交记录查看。",
-      "terms": ["中文站更新", "更新记录", "开源"]
+      "terms": [
+        "中文站更新",
+        "更新记录",
+        "开源"
+      ]
     },
     {
       "id": "community-about",
       "question": "这是 HyperFrames 官方中文网站吗？",
       "answer": "本站是独立维护的中文开源学习指南，不代表 HeyGen 或 HyperFrames 官方。HyperFrames 由 HeyGen 开发；本站保留官方来源、核对日期与实践边界，并通过 GitHub 接受反馈和贡献。",
-      "terms": ["关于", "独立维护", "官方"]
+      "terms": [
+        "关于",
+        "独立维护",
+        "官方"
+      ]
     },
     {
       "id": "community-contributing",
       "question": "如何贡献中文内容或反馈问题？",
       "answer": "可以通过 GitHub Issues 反馈错误，通过 Pull Request 改进教程、来源映射或案例。贡献应保留稳定内容 ID、来源与验证限制；涉及官方变化时，维护者审核后再更新已核对的来源版本。",
-      "terms": ["贡献", "反馈", "Pull Request"]
+      "terms": [
+        "贡献",
+        "反馈",
+        "Pull Request"
+      ]
     },
     {
       "id": "community-sources",
       "question": "官方内容如何同步为中文指南？",
-      "answer": "维护脚本固定上游提交、归档来源并比较变化，再定位受影响的中文页面。AI 接口可配置，用于生成候选稿；正式页面始终以人工审核后的 main 分支为准，采集成功不代表内容已经核对。",
-      "terms": ["来源", "同步", "AI 更新"]
+      "answer": "知识内容依据公开官方资料和固定提交持续建设，写作、独立核验、检查、内容合并与发布自动完成。历史人工核对、来源整理和实际操作验证分别标注；失败内容保留旧版并自动重试。",
+      "terms": [
+        "来源",
+        "同步",
+        "AI 更新"
+      ]
     },
     {
       "id": "community-licenses",
       "question": "本站内容和案例分别采用什么许可？",
       "answer": "网站代码与维护脚本采用 Apache-2.0，中文站原创文字采用 CC BY 4.0。上游派生内容、第三方图片、字体、视频与其他依赖保留各自许可及归属，不能将全部素材统一视为本站原创授权。",
-      "terms": ["许可", "Apache-2.0", "CC BY"]
+      "terms": [
+        "许可",
+        "Apache-2.0",
+        "CC BY"
+      ]
+    },
+    {
+      "id": "mechanisms-brief",
+      "question": "一段需求怎样表达为可执行的创作任务？",
+      "answer": "把目的、观众与交付条件写成具体要求，比只描述“高级、有冲击力”更便于执行。HyperFrames 的技能约定先理解任务，再组织场景、素材、动作与检查；这是一套公开工作规范，不是对模型隐藏推理过程的说明。",
+      "terms": [
+        "把需求变成可执行的创作任务",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-editable-project",
+      "question": "项目里哪些内容可以修改、替换和复用？",
+      "answer": "成片和可编辑项目承担不同职责：视频文件用于播放与交付，项目保存场景、文字、媒体、时间安排和可调整的变量。HyperFrames 用合成文件描述画面，根合成可以引用子合成，便于单独修改或复用一个场景。",
+      "terms": [
+        "理解可编辑项目与素材",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-time-and-scenes",
+      "question": "场景、片段、轨道与时间怎样影响画面？",
+      "answer": "场景是组织画面的单位，片段是有开始时间和持续时间的内容。轨道帮助编辑器组织片段；画面前后遮挡还受层级影响。理解这些区别，可以更准确地说明“哪个内容何时出现、停留多久”。",
+      "terms": [
+        "场景、片段与时间",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-targeted-edits",
+      "question": "选取、画圈、评论和时间范围怎样帮助定位修改？",
+      "answer": "Studio 的选取、画圈和评论用于告诉 Agent“改哪里”。公开文档说明，可以选择元素、在画面上绘制标记，或给某个位置与时刻留下评论。它们提供定位上下文，具体修改仍需要配合文字要求。",
+      "terms": [
+        "让修改准确落在画面上",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-batch-edits",
+      "question": "多条修改怎样组合，怎样减少相互干扰？",
+      "answer": "选取、绘图和评论可以先积累到 Pending video edits，再作为一次请求发送。它们不会仅因为被添加就自行运行。批量组织适合处理一轮明确的问题，也需要避免互相矛盾的要求。",
+      "terms": [
+        "组织多条修改要求",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-references",
+      "question": "参考视频与风格参考分别怎样影响结果？",
+      "answer": "参考可以传达剪辑、字幕、画面组织和风格，目标需要说清楚。Studio 的参考流程会依据视频内容选择处理方式；重建一个具体视频与按某种风格做新主题，也分别有不同的 skill。",
+      "terms": [
+        "分清参考视频与风格参考",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-media-and-blocks",
+      "question": "用户素材、生成素材与组件怎样组合？",
+      "answer": "用户素材、生成媒体与组件解决不同问题。素材提供真实画面和声音，生成服务补足缺少的内容，区块与组件提供可编辑的视觉结构。组合前先明确每项内容承担的信息职责。",
+      "terms": [
+        "组合素材、生成内容与组件",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-audio-and-captions",
+      "question": "字幕、配音、音乐和原声怎样配合？",
+      "answer": "字幕、配音、音乐与原声分别承担可读信息、叙事、节奏和现场声音。它们应共同服务于一句话能否被听清、看懂，而不是简单叠加。HyperFrames 的媒体与渲染规范分别处理画面时序和声音混合。",
+      "terms": [
+        "配合字幕、配音、音乐与原声",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-brand-and-variables",
+      "question": "变量与品牌设置怎样帮助保持一致？",
+      "answer": "品牌资料用于统一颜色、字体、标志、文件与规则，变量用于替换设计中允许变化的内容。两者一起帮助系列创作保持一致，但它们不意味着所有项目结构都会自动同步。",
+      "terms": [
+        "保持品牌与系列风格一致",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-preview-and-export",
+      "question": "为什么预览、拖动时间轴和最终导出可能不同？",
+      "answer": "HyperFrames 渲染按时间逐帧取得画面，而不是把浏览器实时播放录成视频。可寻址时间轴、预先准备的素材和固定输出参数，让同一时刻能够重复检查。实时预览流畅度与导出结果因此不是同一个判断。",
+      "terms": [
+        "理解预览与导出的差别",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-checks",
+      "question": "自动检查能发现什么，不能证明什么？",
+      "answer": "自动检查帮助发现格式、运行、布局、动作和对比度等问题。官方 CLI 技能把 check 放在最终检查环节，并要求查看抽帧。检查结果是定位问题的工具，不能代替观看作品。",
+      "terms": [
+        "理解自动检查的边界",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "mechanisms-history",
+      "question": "怎样保留自己的修改，并在失败后恢复？",
+      "answer": "手动编辑与 Agent 修改可能作用于同一项目。Studio 提供撤销、重做以及对已完成 Agent 操作的回退入口；从外部 Agent 切换到应用后，返回时也应先了解应用中的改动。",
+      "terms": [
+        "保留修改与恢复项目",
+        "mechanism",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "skills-hyperframes",
+      "question": "hyperframes skill 解决什么创作问题，怎样使用？",
+      "answer": "任何制作、修改、动画或渲染任务都先理解它；它规定项目、时间轴、媒体与检查的共同约定。提供主题、观众、时长、比例、已有素材和交付要求；输出是能够继续修改并渲染的项目。",
+      "terms": [
+        "hyperframes：完整视频的创作规范与协作入口",
+        "skill",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "skills-hyperframes-cli",
+      "question": "hyperframes-cli skill 解决什么创作问题，怎样使用？",
+      "answer": "需要创建项目、读时间轴、查看帧、预览、渲染、分享或排查失败时使用。它负责操作路径，不替代影片内容设计。准备项目目录、希望完成的操作及错误输出；结果可能是检查报告、静帧、预览或成片，按任务分别验收。",
+      "terms": [
+        "hyperframes-cli：项目操作、检查与交付工具",
+        "skill",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "skills-hyperframes-registry",
+      "question": "hyperframes-registry skill 解决什么创作问题，怎样使用？",
+      "answer": "需要标题、转场、字幕样式、图表、地图或视觉效果时，先查目录，再决定是否从零制作。准备画面用途、想强调的信息、视觉要求和尺寸；输出是安装进项目的可编辑区块或组件。",
+      "terms": [
+        "hyperframes-registry：寻找并使用可编辑视觉模块",
+        "skill",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "skills-media-use",
+      "question": "media-use skill 解决什么创作问题，怎样使用？",
+      "answer": "当视频需要图片、声音、标志、配音、人物、生成片段或素材调色处理时使用。先提供已有文件、用途、所需时长和是否允许付费生成；素材落为项目内的文件，并保留来源记录。",
+      "terms": [
+        "media-use：寻找、生成与处理媒体素材",
+        "skill",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "skills-reverse-any-video",
+      "question": "reverse-any-video skill 解决什么创作问题，怎样使用？",
+      "answer": "目标是重建一个具体视频，而不只是借用宽泛风格时使用。官方技能要求以原视频逐帧比较。准备有权使用的视频文件或可访问来源，说明要忠实重建还是另外改编；输出为可编辑项目与对照结果。",
+      "terms": [
+        "reverse-any-video：把具体参考视频重建为可编辑项目",
+        "skill",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "skills-style-sampling",
+      "question": "style-sampling skill 解决什么创作问题，怎样使用？",
+      "answer": "想用既定风格做新内容时使用；要复制某个具体视频则先考虑 reverse-any-video。准备新主题、需要讲清的问题，以及适用模板要求的个人素材；输出是采用该风格组织的新内容。",
+      "terms": [
+        "style-sampling：按成熟风格制作新主题的一集",
+        "skill",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "skills-figma",
+      "question": "figma skill 解决什么创作问题，怎样使用？",
+      "answer": "需要将 Figma 中的品牌、素材、组件或分镜用于视频时使用；仅有链接不足以说明要怎样使用。提供具体文件、节点与创作目标，并准备授权访问；公开技能区分素材、品牌变量、动效与分镜的获取方式。",
+      "terms": [
+        "figma：把设计素材用于视频创作",
+        "skill",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "skills-slideshow",
+      "question": "slideshow skill 解决什么创作问题，怎样使用？",
+      "answer": "交付目标是带有逐步显现、分支和演讲备注的演示时使用，公开技能明确其主要交付不是 MP4。准备讲述顺序、各页内容、互动分支与演讲备注；输出为可导航的演示项目。",
+      "terms": [
+        "slideshow：制作可现场播放的交互演示",
+        "skill",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "skills-remotion-to-hyperframes",
+      "question": "remotion-to-hyperframes skill 解决什么创作问题，怎样使用？",
+      "answer": "已有 Remotion 或其他动画工具的代码、视频与逐帧输出，希望放入 HyperFrames 继续使用时选择。提供源项目或输出文件，说明希望保留哪些可编辑能力；结果按原生、托管或媒体层级导入。",
+      "terms": [
+        "remotion-to-hyperframes：复用其他工具制作的项目与画面",
+        "skill",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "studio-workspace",
+      "question": "怎样在 Studio 工作区找到创作、素材与编辑入口？",
+      "answer": "Studio 项目将 Agent 对话、画面预览和辅助面板放在一起，时间轴可以在预览下展开。创作时先区分“告诉 Agent 做什么”和“直接操作项目”这两条路径。在聊天里，@ 用来加入媒体、项目或样式等上下文，# 选择工具，/ 提供命令与已安装 skills。右侧面板帮助查看媒体、字幕、灵感和图层。先选择具体对象，再补充需要的动作。",
+      "terms": [
+        "认识 Studio 创作工作区",
+        "tutorial",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "studio-video-clips",
+      "question": "怎样在 Studio 使用 HeyGen Video 1 生成和修改素材？",
+      "answer": "HeyGen Video 1 用描述生成连续镜头，并把片段放入项目；它与导入已有文件不同。官方分别说明聊天工具与 Generate media 表单，两者可用参数和范围不能直接混用。在聊天中用 # 选择 HeyGen Video 1，明确主体、动作、镜头和风格。也可以在 Generate media 中选择视频模型；修改已有视频时先选中片段，再描述",
+      "terms": [
+        "生成并修改视频素材",
+        "tutorial",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "studio-reference-video",
+      "question": "怎样用参考视频说明想做的视频？",
+      "answer": "Studio 的参考入口接受链接、文件和灵感片段，帮助用一个实例说明剪辑、字幕与效果。提供参考以后，还需要换入自己的主题、人物和品牌。先选择参考，等待应用给出处理方向。人物讲话可能进入编辑风格复制，图形动画可能进入视频简报；方向不确定时需要明确选择。随后提供自己的内容，并说明哪些特征需要保留。",
+      "terms": [
+        "使用参考视频开始创作",
+        "tutorial",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "studio-edit-with-the-agent",
+      "question": "怎样准确指示 Studio 修改画面中的内容？",
+      "answer": "每次修改都应包含位置与动作。选择元素、绘图和评论可以提供上下文，文字说明则定义改动目标。多个标记会进入待处理编辑列表，核对后再统一发送。先定位时刻，选中或圈出对象，再写“把什么改成什么、哪些部分保持”。需要处理一个时间范围时，可结合时间轴说明。发送前合并冲突指令，删除已经解决的项。",
+      "terms": [
+        "选取、画圈与批量修改",
+        "tutorial",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "studio-brand-kits",
+      "question": "怎样准备和使用 Studio 品牌资料？",
+      "answer": "品牌资料保存颜色、字体、标志、文件和规则，为项目提供统一的视觉约束。使用前需要登录；若工作区尚未开放，不能仅凭其他人的界面认定自己也能使用。从网站扫描或已有文件建立资料，核对主标志、颜色角色与文字样式，再为项目选择对应品牌资料。把“禁止改变标志比例”等要求写入规则，减少每轮重复说明。",
+      "terms": [
+        "使用品牌资料保持一致",
+        "tutorial",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "studio-export",
+      "question": "怎样导出 Studio 视频并检查交付结果？",
+      "answer": "视频完成后，从项目顶部 Export 打开导出面板。先确认目的地，再选择本地或云端渲染、画面尺寸、格式与帧率；MP4 适合常见分享场景，其他格式按交付要求选择。渲染过程可能显示准备、绘制、编码、合成和保存等阶段。结束后在 Downloads 中找到文件，使用实际播放器检查开头、结尾、声音、中文和切换点，并保留源项目。",
+      "terms": [
+        "导出并检查最终视频",
+        "tutorial",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "studio-existing-project",
+      "question": "怎样继续编辑已经存在的 HyperFrames 项目？",
+      "answer": "已经在 Claude Code、Codex 或其他 Agent 中建立的 HyperFrames 项目，可以在桌面应用继续处理。官方说明导入不会把项目移动成另一套文件，应用与原工具可能编辑同一目录。从应用选择导入或打开项目文件夹，确认看到的是正确项目。支持的命令行交接与会话延续受平台和启动环境影响；官方当前的 Mac 交接路径不能直接推及其他系统。",
+      "terms": [
+        "打开已有的可编辑项目",
+        "tutorial",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "studio-connect-your-agent",
+      "question": "怎样选择并连接 Studio 使用的 Agent？",
+      "answer": "Studio 通过连接的 Agent 执行创作任务。先确认自己选择的工具可以独立运行，再按官方连接页面和应用提示配置；连接成功、账号登录与媒体服务可用是不同的条件。打开当前应用中的 Agent 选择入口，核对选择的是预期工具及工作环境。先完成一个小任务，查看对话、项目文件和预览是否发生相符变化，再开展较大的创作。",
+      "terms": [
+        "连接创作 Agent",
+        "tutorial",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "knowledge",
+      "question": "怎样按创作目标、问题和机制学习 HyperFrames？",
+      "answer": "按想完成的作品、遇到的问题或想理解的机制进入学习。知识库区分 Studio 桌面应用、CLI／Agent 和浏览器编辑器，连接能力、方法、skills、案例与排错，并注明来源、版本和实际验证边界。",
+      "terms": [
+        "HyperFrames 创作者知识库",
+        "index",
+        "HyperFrames"
+      ]
+    },
+    {
+      "id": "updates-preview",
+      "question": "怎样区分 HyperFrames 正式发布与公开主分支变化？",
+      "answer": "操作指南以正式发布资料为主，公开主分支的文件变化单独记录为前瞻。文件变化不等于功能已对所有用户开放，CLI、skills 与桌面应用也可能采用不同版本，使用前应核对实际入口与条件。",
+      "terms": [
+        "版本差异",
+        "能力前瞻",
+        "正式发布"
+      ]
     }
   ]
 }

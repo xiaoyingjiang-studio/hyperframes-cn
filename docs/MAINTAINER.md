@@ -4,7 +4,11 @@
 
 仓库建议命名 hyperframes-cn，公开代码和内容。默认分支 main，启用 Issues 与 Discussions。更新 PUBLIC_REPOSITORY、CODEOWNERS 和 README 中的仓库归属。先检查 git status，避免把 .env、缓存和私人素材纳入提交。
 
-在 GitHub Settings → Actions → General 中允许 Actions 创建 PR。仅同步任务需要 contents/pull-requests/issues 写权限，普通 PR 检查只读。main 要求 PR 与 Checks / check 通过，禁用自动合并；单维护者阶段不要求无法自我满足的另一位审核者批准。新增维护者后再启用 CODEOWNERS review。
+本站现归小影匠工作室组织 `xiaoyingjiang-studio`，源码地址为 `https://github.com/xiaoyingjiang-studio/hyperframes-cn`。本地 origin 应指向该地址；原个人仓库链接由 GitHub 重定向。CODEOWNERS 中的 `@zhkuang` 保留为实际维护者，不替换为不存在的组织团队。案例与资源精选仓库为 `xiaoyingjiang-studio/awesome-hyperframes`，独立维护，不部署为本站。
+
+GitHub 组织公开主页独立维护在 [`xiaoyingjiang-studio/.github`](https://github.com/xiaoyingjiang-studio/.github) 的 `profile/README.md`，本地工程为相邻的 `xiaoyingjiang-profile` 目录。该仓库仅承载组织介绍、项目入口与原创案例预览，不复制网站教程或资源目录，不添加影响其他仓库的组织级默认社区模板。主页修改经 PR 人工审核、手动合并后，再检查组织公开 Overview；不能将候选分支渲染视为已经发布。预览图复用原项目固定提交，保留素材归属与框架案例的验证边界。
+
+在 GitHub Settings → Actions → General 中允许 Actions 创建 PR。仅同步任务需要 contents/pull-requests/issues 写权限，普通 PR 检查只读。main 保留 PR、严格 check 和会话解决要求，审核人数为零。受信知识流水线检查后自动合并，无人工批准节点；禁止绕过保护。网站代码与策略单独维护。
 
 ## 2. Cloudflare 首次配置
 
@@ -45,25 +49,21 @@ PR 预览使用 `wrangler preview --name pr-<编号>`，不会替换正式部署
 
 外部搜索平台收录情况与国内网络访问需要实际测试，不把本机成功当作所有地区成功。记录地区、网络、时间、页面首屏、搜索和视频是否能完成加载；未经测试的地区不要标注通过。
 
-## 5. 官方来源同步
+## 5. 创作者知识自动建设
 
-每日 01:17 UTC（北京时间 09:17）从固定官方提交采集。手动补跑 Sync official content 使用同一个流程。GitHub 定时任务可能延迟，公开仓库长期不活跃可能停用；在 Actions 页面检查启用状态。
+每周一、周四北京时间 08:30（UTC 00:30）运行 Build creator knowledge，支持手动补跑；不再每日运行。SEO/GEO 优化保留手动入口，不设置独立定时触发。使用官方最新正式 release 的固定提交盘点文档、skills 发布清单、引用材料和 registry；主分支差异单列前瞻。桌面应用版本不能由 CLI release 推定。
 
-已有 automation/upstream PR 时，仅重新检测、更新同步待办和 artifact，不覆盖审核分支。没有打开的批次时，最多生成五页 Markdown 候选，运行检查后创建草稿 PR。缺少 AI 或部分生成失败时保留差异和人工待办。
+`pnpm knowledge:inventory` 盘点与归档；`pnpm knowledge:sync --apply` 生成并应用通过独立核验的正文、摘要与来源单元。每批最多五篇，共享十五次调用及十万保守 Token 预算。失败项进入持久队列并自动退避，其他合格文章继续发布。缺少模型时仍检测与构建，保留旧站。
 
-查看 .upstream/report.json 的 affected、generated、skipped、queue 和来源变化。snapshot 的 commit 固定上游版本。sources.json 的 path 是来源位置；如果官方移动并修改文件，需要维护者修复路径与归属，不能自动认为删除功能。
+工作流先提交候选树，再执行内容文件白名单、稳定地址、正文摘要哈希、来源引文、完整网站检查与浏览器验收；通过后自动创建内容 PR 并按准确 SHA 合并。主分支变化使旧结果失效，不覆盖人工修改或已有自动化分支。生成器不能改网站代码、工作流、首页、许可和预算。
 
-人工审核步骤：
+合并后显式调用 reusable production workflow。知识验收不经过需人工批准的 preview；production 只保留受保护分支限制，无 reviewer。外部代码预览继续保留原有审批与密钥隔离。
 
-1. 打开候选页面、旧来源、新来源和 PR 差异。
-2. 核实产品事实、命令、代码、适用系统、账号和费用条件；含播放器的 MDX 页面手工修改。
-3. 必要时执行实际操作，记录未验证边界。
-4. 对完成的文章运行 `node scripts/review-content.mjs <contentId>`，一次可以传多个 ID。
-5. 提交基线与日期变更，运行 pnpm check、pnpm test、pnpm build，查看预览后手动合并。
+发布保存上一 Cloudflare 部署，检查新站与构建 SHA；失败自动恢复旧部署并复查。失败文章摘要通过 knowledge-failure 标签保存，阻止原样重复上线，并进入后续自动修复。没有可回退版本或无法读取旧清单时不发布。
 
-没有审核完成的来源可以继续留在待办；已生成且标为 needs-review 的正文必须先复核，正式部署会阻止发布。不要用 --bootstrap 推进日常审核，bootstrap 只用于项目初次建立基线。
+首批 source-based 明确标注固定来源整理；auto-checked 必须有独立模型与逐节引文核验。历史 reviewedAt 不刷新。案例固定播放器与 Markdown 正文分离。旧 review-content 与优化候选脚本只保留历史兼容，不进入活动流程。
 
-网页页脚反映已发布构建中的来源检查状态；最新运行与错误以 Actions、同步待办和 artifact 为准。静态站不向 GitHub 实时请求，不能把当前页脚时间当成后台此刻状态。
+页脚是已发布构建的状态，不是后台实时服务；最新结果查看 Actions、队列与报告。工作流配置、本地模拟和 PR 创建不能代替真实发布验收。
 
 ## 6. AI 适配与消耗
 
