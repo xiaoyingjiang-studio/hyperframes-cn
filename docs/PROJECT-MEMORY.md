@@ -93,6 +93,7 @@ pnpm test:e2e
 ## 已验证的本地经验
 
 - Windows 使用 PowerShell。读取中文文件明确使用 UTF-8；把含中文脚本管道传给 Node/Python 时，先设置 `$OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::new()`，避免写入或匹配成问号。
+- Windows PowerShell 5.1 执行含中文的 `.ps1` 时使用 UTF-8 BOM，避免脚本被按本地编码误读。读取长文案作为 JSON API 字段时，用 `[IO.File]::ReadAllText(...)` 取得纯字符串，避免把 `Get-Content` 附带的 PowerShell 文件系统属性一起递归序列化；提交前核对载荷类型和大小，错误只输出必要摘要。
 - 本地已有 Chrome 可用时，PowerShell 用 `$env:LOCAL_CHROME='1'; pnpm test:e2e`；CI 按工作流安装 Playwright Chromium。不要为本机浏览器缺失而修改测试标准。
 - 首页中文文案变化后，用 `scripts/subset-studio-font.py` 和已授权、附 OFL 的 Noto Sans SC 可变源字体重新生成子集；脚本需要 fontTools 与 Brotli。普通构建不依赖字体源文件，检查实际字形和变量字重。
 - 修改原创影片源码才运行完整 HyperFrames 检查、抽帧和渲染；流程见 MAINTAINER。仅调整首页引用或官方素材，不编造新影片渲染记录。
