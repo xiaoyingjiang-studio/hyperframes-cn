@@ -1,0 +1,137 @@
+{
+  "title": "自动检查能发现什么，不能证明什么",
+  "question": "HyperFrames 的自动检查能发现哪些问题，又不能证明什么？创作者该如何使用检查结果？",
+  "body": "自动检查是定位问题的工具，不是作品合格的证明。它能帮你发现格式、运行、布局、动作和对比度方面的问题，但故事是否清晰、事实是否准确、素材授权是否充分，仍要由创作者自己判断。\n\n## 自动检查能发现什么\n\n按官方 CLI 技能（Skill）的说明，`check` 是最终检查环节：它先运行同一套 linter，再在同一个浏览器会话中审计运行时、布局、动作和对比度。`lint` 适合在迭代过程中提供快速的静态反馈。\n\n如果 linter 报错，检查会失败，但浏览器审计仍会继续并一并报告；除非错误导致没有可加载的合成（例如根节点缺少 `data-composition-id`）。当浏览器根本没有运行（没有可加载的合成、linter 崩溃或浏览器启动失败）时，`browserSkipped` 为 `true`，布局、动作和对比度部分为空，而不是“干净通过”。这一点很关键：空结果不等于没有问题。\n\n`check` 还支持一些针对性参数。`--caption-zone` 接收分数形式的带状区域（`x0/y0/x1/y1` 必填，取合成自身画布的 0–1 比例，竖屏同样适用），可带 `severity` 和逗号分隔的 `seek` 比例，用来标记文本元素的 DOM 盒与该区域重叠。若下三分之一字幕是有意放置，可在元素或其最近包裹层加 `data-layout-allow-caption-zone` 豁免。`--frame-check` 报告超出画布超过 `max(120px, 6% 最小画布尺寸)` 的媒体元素。\n\n## 怎样用于创作\n\n先处理错误，再结合画面判断警告。对于有意的重叠、溢出或遮挡，应确认意图与实际画面一致，而不是为了通过检查随意忽略。向 Agent 提供具体错误和发生位置，比只说“修复所有问题”更有依据。\n\n官方技能把 `check` 放在最终检查环节，并要求查看抽帧。`snapshot` 是单独截取静帧和放大局部画面的工具。检查关键静帧之后，还要播放完整视频和声音，关注信息顺序、节奏、错字、素材真实性与最终文件。\n\n## 怎样检查结果\n\n运行 `check` 时用 `npx hyperframes check`，不要通过 `npm run`：工具超时的 SIGTERM 会立刻结束 npm，而 `check` 会继续运行，并把报告保存到它在 stderr 中给出的文件（`.hyperframes/artifacts/checks/`）。一条命令，一次 Chrome 启动。不要在 `check` 前紧接一个多余的独立 `lint`。\n\n记录你运行了哪个命令、针对哪个项目及版本。没有运行过的检查只能描述操作方法，不能标成已经通过；也不要把官方示例结果写成本次实测。\n\n## 条件与边界\n\n自动检查不能证明故事清晰、营销事实正确、素材授权充分，也不能证明所有设备均可播放。它给出的是可定位的信号，最终判断仍要回到完整播放与人工审看。\n\n## 下一步\n\n在 [Studio 首次创作](/start/studio/) 中实践，再用[问题排查](/guides/troubleshooting/)记录遇到的现象。需要工具分工时，查看 [Skills 与组件目录](/features/skills-catalog/)。",
+  "answer": "自动检查能发现格式、运行、布局、动作和对比度等问题，官方 CLI 技能把 check 作为最终检查环节并要求查看抽帧。但检查结果只是定位问题的工具，不能证明故事清晰、事实正确、授权充分或所有设备可播放，也不能代替完整观看作品。",
+  "summary": "依据官方 CLI 技能补充 check 的失败与 browserSkipped 边界、caption-zone 与 frame-check 参数、npx 运行方式，并强调空结果不等于通过、检查不能代替观看。",
+  "evidence": [
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "Use `check` as the required final gate: it reruns the same linter, then audits runtime, layout, motion, and contrast in one browser session.",
+      "sections": [
+        "answer",
+        "自动检查能发现什么"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "A lint error fails the check, but the browser audits still run and report alongside it, unless the error leaves no composition to load (a root with no `data-composition-id`).",
+      "sections": [
+        "自动检查能发现什么"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "When the browser never ran (no composition to load, a linter crash, or a browser launch failure), `browserSkipped` is `true` and the `layout`, `motion` and `contrast` sections are empty, not clean.",
+      "sections": [
+        "自动检查能发现什么"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "`--caption-zone` takes fractional band geometry (`x0/y0/x1/y1` required, 0-1 fractions of the composition's own canvas, portrait included) with optional `severity` and comma-separated `seek` fractions; it flags a text element's DOM box (`getBoundingClientRect`) that overlaps the band.",
+      "sections": [
+        "自动检查能发现什么"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "Waive intentional lower-third copy with `data-layout-allow-caption-zone` on the element or its nearest wrapper (see Escape hatches).",
+      "sections": [
+        "自动检查能发现什么",
+        "怎样用于创作"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "`--frame-check` reports media elements breaching the canvas beyond `max(120px, 6% of the min canvas dimension)`.",
+      "sections": [
+        "自动检查能发现什么"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "Use `lint` for fast static feedback while iterating.",
+      "sections": [
+        "自动检查能发现什么"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "`snapshot` is the standalone utility for capturing still frames and zoomed crops.",
+      "sections": [
+        "怎样用于创作"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "Run it as `npx hyperframes check`, never through `npm run`: a tool timeout's SIGTERM ends npm at once, while `check` goes on and saves its report to the file it names on stderr (`.hyperframes/artifacts/checks/`).",
+      "sections": [
+        "怎样检查结果"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "Do not chain a redundant standalone `lint` immediately before `check`.",
+      "sections": [
+        "怎样检查结果"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "One command, one Chrome boot.",
+      "sections": [
+        "怎样检查结果"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes-cli-references-lint-validate-inspect",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "quote": "`validate`, `inspect`, and `layout` still run but are deprecated: `check` covers all of them in one invocation.",
+      "sections": [
+        "条件与边界"
+      ]
+    },
+    {
+      "sourceId": "official-skills-hyperframes",
+      "path": "skills/hyperframes/SKILL.md",
+      "quote": "**Running the CLI:** every `npx hyperframes <command>` here, the beacon included, means `node <SKILLS>/hyperframes/scripts/plugin-cli.mjs <command>` run in the project",
+      "sections": [
+        "下一步"
+      ]
+    }
+  ],
+  "checkedAt": "2026-11-26T00:57:11.957Z",
+  "mode": "independent-model-and-evidence",
+  "beforeHash": "bd45f69c6099d2ceb63931524242fd239757f5715a8822844da24674ccc4acae",
+  "beforeAnswerHash": "4ec5de5de25076e4a63c29f33adc41c5b85d1465d958db80cd585b519054221c",
+  "pageId": "mechanisms-checks",
+  "rawBeforeHash": "148e429e2fa49698da4bb366cdfd2088d92182b5fd439193f0577b190eace511",
+  "intentBeforeHash": "d25ad16e9673602e656e19532865f5e0dbaa6f64a5b7990fe1441268e41fb768",
+  "baseline": {
+    "official-skills-hyperframes": {
+      "hash": "9c21151d0c9654658bf58b1245b2a0e150177b7a385174b2e23230f4fdec2567",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
+      "path": "skills/hyperframes/SKILL.md",
+      "version": "v0.9.96"
+    },
+    "official-skills-hyperframes-cli-references-lint-validate-inspect": {
+      "hash": "9004c39114f5ef28f85749e7897f63ae28150bd956618e7b522f97a7fb371c07",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
+      "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
+      "version": "v0.9.96"
+    }
+  },
+  "sourceRevision": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8"
+}
