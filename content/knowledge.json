@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "release": {
-    "tag": "v0.9.94",
-    "publishedAt": "2026-11-25T08:24:19Z",
-    "url": "https://github.com/heygen-com/hyperframes/releases/tag/v0.9.94"
+    "tag": "v0.9.96",
+    "publishedAt": "2026-11-25T18:50:54Z",
+    "url": "https://github.com/heygen-com/hyperframes/releases/tag/v0.9.96"
   },
-  "sourceCommit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+  "sourceCommit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
   "sections": [
     {
       "id": "orientation",
@@ -2554,8 +2554,21 @@
     }
   ],
   "preview": {
-    "commit": "47e6307efa79b9f609c0da7b5d408a92f061a23c",
-    "changes": [],
+    "commit": "306ce775846063aa29678dd0ea7772cadb317356",
+    "changes": [
+      {
+        "type": "modified",
+        "path": "docs/developers/share-source.mdx"
+      },
+      {
+        "type": "modified",
+        "path": "docs/weekly-updates.mdx"
+      },
+      {
+        "type": "modified",
+        "path": "skills-manifest.json"
+      }
+    ],
     "note": "公开主分支差异，不代表已正式发布或桌面应用已提供。"
   }
 }

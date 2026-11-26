@@ -2,16 +2,6 @@
   "schemaVersion": 1,
   "tasks": [
     {
-      "id": "overview-free-and-paid",
-      "articleId": "overview-free-and-paid",
-      "reason": "source-changed",
-      "revision": "a73ac4b3e15e888f0f95c6fde6f5daeee6e3e342f1edda9e56a11afcb74c199b",
-      "firstSeen": "2026-11-25T09:22:21.274Z",
-      "attempts": 1,
-      "error": "Unexpected end of JSON input",
-      "nextAttemptAt": "2026-11-26T09:44:44.721Z"
-    },
-    {
       "id": "start-cli",
       "articleId": "start-cli",
       "reason": "source-changed",
@@ -20,16 +10,6 @@
       "attempts": 1,
       "error": "达到本批调用或保守 Token 预算上限",
       "nextAttemptAt": "2026-11-26T09:44:44.759Z"
-    },
-    {
-      "id": "updates",
-      "articleId": "updates",
-      "reason": "source-changed",
-      "revision": "d5e23e05cb98110fb04754cd721da7d0ad75c908b621ff7db7bcc4b60e91362a",
-      "firstSeen": "2026-11-25T09:22:21.274Z",
-      "attempts": 1,
-      "error": "达到本批调用或保守 Token 预算上限",
-      "nextAttemptAt": "2026-11-26T09:53:45.849Z"
     },
     {
       "id": "mechanism-brief",
@@ -52,16 +32,6 @@
       "nextAttemptAt": "2026-11-26T10:06:44.792Z"
     },
     {
-      "id": "mechanism-checks",
-      "articleId": "mechanisms-checks",
-      "reason": "source-changed",
-      "revision": "3b464e314b3739951034c2d847d4d8d2129efc98fb779ebd426d1cfbc71aa1f5",
-      "firstSeen": "2026-11-25T09:28:21.624Z",
-      "attempts": 2,
-      "error": "独立核验未通过：正文章节或摘要没有证据映射",
-      "retryReason": "evidence-contract-fixed"
-    },
-    {
       "id": "mechanism-references",
       "articleId": "mechanisms-references",
       "reason": "source-changed",
@@ -70,6 +40,22 @@
       "attempts": 1,
       "error": "达到本批调用或保守 Token 预算上限",
       "nextAttemptAt": "2026-11-26T10:13:17.989Z"
+    },
+    {
+      "id": "overview-free-and-paid",
+      "articleId": "overview-free-and-paid",
+      "reason": "source-changed",
+      "revision": "e575f9f5f264d6f610f4316f51cd98eeb56ec72106209dbb2c439ac3387b2625",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
+    },
+    {
+      "id": "updates",
+      "articleId": "updates",
+      "reason": "source-changed",
+      "revision": "e4480c2abd1f3448dd7ee66e714c14bccbdcc1fa86ae2b1cc5482f8a44313e1e",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 0
     },
     {
       "id": "skill-hyperframes",
@@ -99,7 +85,7 @@
       "id": "skill-media-use",
       "articleId": "skills-media-use",
       "reason": "source-changed",
-      "revision": "08f794e861277db863706d7abf329ff27c0d8d6693e7c6f7caa21826f9acee2f",
+      "revision": "b172d21009be797ba944d98688c2c000449bb3e69fd5ceda6020809b74c552e0",
       "firstSeen": "2026-11-25T09:28:21.624Z",
       "attempts": 0
     },
@@ -133,6 +119,14 @@
       "reason": "source-changed",
       "revision": "8a663f0e7c03b7f79ca3d719382fb6192ec8f88b7a7888d3a98e3eedef8377f5",
       "firstSeen": "2026-11-25T09:28:21.624Z",
+      "attempts": 0
+    },
+    {
+      "id": "resource-catalog",
+      "articleId": "features-skills-catalog",
+      "reason": "source-changed",
+      "revision": "d44c39381af79bc8c0d44f4404fdfc4abed26d45d01f3bb9457a6ba00a113664",
+      "firstSeen": "2026-11-26T00:56:58.820Z",
       "attempts": 0
     },
     {

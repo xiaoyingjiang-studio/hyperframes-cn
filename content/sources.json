@@ -34,7 +34,7 @@
       "path": "README.md",
       "label": "项目 README",
       "url": "https://github.com/heygen-com/hyperframes/blob/main/README.md",
-      "blobSha": "c1712141abd3b94426fd29eb00145b0bbd493167"
+      "blobSha": "f56f244cda088cac4a3a9d7888ceb893ffe443e2"
     },
     {
       "id": "faq",
@@ -286,7 +286,7 @@
       "path": "docs/changelog.mdx",
       "label": "changelog",
       "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/changelog.mdx",
-      "blobSha": "6382fada486998cfa14fafd210c4e3e716ecd79a"
+      "blobSha": "aeb090b74239b43cc2125ccfcf192b29a8a5a404"
     },
     {
       "id": "product-updates",
@@ -300,7 +300,7 @@
       "path": "docs/docs.json",
       "label": "docs",
       "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/docs.json",
-      "blobSha": "0498b40981004fd69d5f8646ff98a816dece7b59"
+      "blobSha": "9855ae8ac1390e474d99f5bbdbaf7abed35ecdb4"
     },
     {
       "id": "license",
@@ -579,7 +579,7 @@
       "id": "official-skills-manifest",
       "path": "skills-manifest.json",
       "label": "正式 skills 发布清单",
-      "blobSha": "13ee3ec94aaed786a7f1bd9023a1b17c06b52ba6"
+      "blobSha": "00c379df1b66a8733b812be2b49d3db11a78b165"
     }
   ]
 }

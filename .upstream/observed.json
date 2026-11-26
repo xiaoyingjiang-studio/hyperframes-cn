@@ -1,586 +1,586 @@
 {
-  "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+  "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
   "sources": {
     "introduction": {
       "hash": "8da216d35ce54dc6d9d4e7c675bc9596dbd671264112e352064f20ce34e77a1f",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/introduction.mdx",
       "blobSha": "2cc585c22ac3ae2cdd7a39b2bbf0d5175ca1400c",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "concepts-determinism": {
       "hash": "1f75de67a9617b3414c611edc6d098ec9878ccb207590fe2e793ed05d7bd4f6b",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/concepts/determinism.mdx",
       "blobSha": "c3e63841bfea1910a08bd9753a0fabe7050d4e04",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "quickstart": {
       "hash": "791801ee8d8a02f56104c474afa38d8088d4a4d551963e3f4e872e8dd596391f",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/quickstart.mdx",
       "blobSha": "df9efd3a46441a994c6f0017f002fd0ab278f753",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-mcp": {
       "hash": "7715cb6870a73f1b5e985eafa5947fcdab5cff8bc757ad60af2074edb4a02c8a",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/mcp.mdx",
       "blobSha": "0d95f0561d0a2bf07adbce9b1916b49836865a2c",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "readme": {
-      "hash": "dca1e4729023ffe946a67bcd2a2cfc1989782d72dcbfaa6999a918ff5a53331c",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "hash": "6565075b231e5251343279781e3fb7afd409f56511905d3749628c0643fc7f8f",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "README.md",
-      "blobSha": "c1712141abd3b94426fd29eb00145b0bbd493167",
-      "version": "v0.9.94"
+      "blobSha": "f56f244cda088cac4a3a9d7888ceb893ffe443e2",
+      "version": "v0.9.96"
     },
     "faq": {
       "hash": "0a6c6f4301251ef9aea48eb87565857c3fbc2a2cb4f15c60529e4c3402248bab",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/faq.mdx",
       "blobSha": "0c3d7170070dd9b3427a1cf80ed6fea27cef48fe",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-media": {
       "hash": "ba881b3fc9151631705271562c0cbf7016a06ff167efd14f5808e5ada12049b1",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/media.mdx",
       "blobSha": "d3cc9cfc31f9ac3d56863ea55e516bcc883c3981",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "studio-app-index": {
       "hash": "8245f0dcd4e837138b03dda620555e0188211984297730f6870c58f78893bc5f",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/studio-app/index.mdx",
       "blobSha": "824d978e8fdd8abdbd4678d9fc1ff2524e152135",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "studio-app-first-video": {
       "hash": "74a6893707c364c402c25287abbbbec146dbf033c57677c0e1e78ca476afad47",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/studio-app/first-video.mdx",
       "blobSha": "89e5e22dc83e2a86e417eaa2bc8a25ac868cd599",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "studio-app-export": {
       "hash": "b52eacbceb54b40931676f728dc7c9fa0158b270c095bc7031c13f677c71c4fa",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/studio-app/export.mdx",
       "blobSha": "096ebe740f2da35105fe8ca3aba7922dc2d37825",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-with-codex": {
       "hash": "e7ee7836dbdbe6b5db4bfc0cf418dc460f6da20f319c0ae0302e976ff391747f",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/with-codex.mdx",
       "blobSha": "a1dde7642583a036aa685e2a605cfd8353ed09a8",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-skills": {
       "hash": "76b27b2e8ff30ac891f5db62abe1530d857ee274ecc4dee5e5f9b6f9c740d076",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/skills.mdx",
       "blobSha": "0a6ef50ddec3569475e17d80b656fdc4dfc2a5ea",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-plugins": {
       "hash": "ccdc0b87f690f08cffb6364d7b166067ec8b1a03c72e18a7c05a2de43c809a5b",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/plugins.mdx",
       "blobSha": "9c1c726c9c4781e8ff7e4bb1661270896cc7bddf",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-with-claude-code": {
       "hash": "bc63b43fac005b40ab14b754cb0ee25e3a3f43d1ffc277250a07f7b6b6678ab7",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/with-claude-code.mdx",
       "blobSha": "23621a08bd63fc86c119df83f27646a3e87ee6a5",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-with-cursor": {
       "hash": "abacff4c715f174e546b1894ec659396720bc607a8c904a0bb7d323c0d8caf01",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/with-cursor.mdx",
       "blobSha": "c63daf42a0811189c5364cdb0fd3ae860e5aa424",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "developers-cli": {
       "hash": "8c1ee3be6a8e8daf486f82be08ff5e969309173ea51baef96a07724a05d21e10",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/developers/cli.mdx",
       "blobSha": "409abaf510fe43272b3623f2ed20a9ad31c15dbe",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "packages-cli": {
       "hash": "87e3e4d7607daf455d52b197f77cfb77ca18091090defd2d7dce5cb8a16a13dd",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/packages/cli.mdx",
       "blobSha": "3628f51b73ca4f2d4e55e95775cf6a8c0b50c28e",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "prompting-editing-existing-videos": {
       "hash": "ae7bc92cc09b5b229515e11fda8ffda697baebb48321bfdc3f2ebecbba8d7b1b",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/prompting/editing-existing-videos.mdx",
       "blobSha": "ba3f726f48c38a65b18fb3cb2cb7573a51a63d8f",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "studio-app-edit-with-the-agent": {
       "hash": "49183e0abdf2c4ed77daf006f0ae9c3f93231294c27c12d3488427c90ffb6f53",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/studio-app/edit-with-the-agent.mdx",
       "blobSha": "298b33984db7cb91597d45f72a06a2da746a3915",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-captions-and-recuts": {
       "hash": "4a7b285ac51f608fd7adba928dabb46532afe13546369d333aec8baba6c17864",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/captions-and-recuts.mdx",
       "blobSha": "ca823f4e841a72eca2ed1734e10358bf1b6f66bb",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "prompting-captions-catalog": {
       "hash": "d2f00066d425ba2739e21c7521d02d1a50523ae2e220bba86807f85aa77bd42f",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/prompting/captions-catalog.mdx",
       "blobSha": "1b6dbeb7c067bf9b7bc5d0266797eb24eda3245b",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "prompting-media-and-audio": {
       "hash": "731f55b8d06031e07c461347c65935d33549bf704cb383b72c1b3f7c9e11a23b",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/prompting/media-and-audio.mdx",
       "blobSha": "53c380d17ac4c473f553ddbe832a5be4f020c9ab",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-gsap-animation": {
       "hash": "d63b6cd41ec85e314aced0c5ebb2d45338bc9840c60caa46b48461e7944758d9",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/gsap-animation.mdx",
       "blobSha": "92ff7b179198145bbac370c5d7ff13b8e16af563",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "prompting-motion": {
       "hash": "644cb7c7d11c3195010bf30a1c41f4013fec5dea150e4df87eca753478600f27",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/prompting/motion.mdx",
       "blobSha": "3b5d9e0d66a3416fd8876ddbde3564d112015e5f",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "concepts-frame-adapters": {
       "hash": "7ad3b7e4073bea30d010f3987411f4d1568d11e0558dc01da04643db0bc046d0",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/concepts/frame-adapters.mdx",
       "blobSha": "0b45b90b4010e11bbec25f7b18f078cd1ec96a7d",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-voice-and-audio": {
       "hash": "88c51e39a5f5579f9e1ba812de144d743d6df033bfef24045cba4eba9ceda83e",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/voice-and-audio.mdx",
       "blobSha": "fdae4802a9b3fd19053473ab501a85acece6977c",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-remove-background": {
       "hash": "f4cb21d30845bda48ca735768fcc8873321512aab8a1afd5e791d42f2bbdd89a",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/remove-background.mdx",
       "blobSha": "cb6d76a714fe0314ce7f503cd65ef4aafb0b5700",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "catalog-index": {
       "hash": "04be5387bcf3cd11186315c6f58d7221772994eaa116e86c12499cab08be2797",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/catalog/index.mdx",
       "blobSha": "7c49fbdaf76b50e702f672a37090424556c24136",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-rendering": {
       "hash": "dbf5e4e90d09d81fc3cac5f04cc75f56dbd1b923c72ed2d837610277a2a6e676",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/rendering.mdx",
       "blobSha": "0356f2c2f6a5ffa2c1738e4345ece62445c179c4",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-export-and-share": {
       "hash": "0997364b53b439e6e1ebfc650682700c6fd0e28fef9fa2a57bb3a4822b14be10",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/export-and-share.mdx",
       "blobSha": "65e8cfd13f1adf92b1a43dea049af07bc5c9d3b1",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "prompting-overview": {
       "hash": "b05be8d1838ae82a0273c0637d44ffed95a8ecb6776eac700a0c17141a1bab8e",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/prompting/overview.mdx",
       "blobSha": "746a9166f9a904553d423b35543e0ffe2b2228d8",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "prompting-examples": {
       "hash": "7ecf1a3ee6baabd87bf507c37c17981dac3863995d61a6afeac0fc1ccfdf6994",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/prompting/examples.mdx",
       "blobSha": "99873b0baa502751d3a012707059097dd900ddb9",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "help": {
       "hash": "0d90c3e34af3a0e483fdd0a4a8847c80e8ea62ddfb3278d13c35d4cd92b5beb7",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/help.mdx",
       "blobSha": "5c94bf1cb4d91e759235e15c943546c548824b84",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "concepts-compositions": {
       "hash": "e832ef3df9460857626d8762f16d76d4e4afb0539e1293929718d7d58b0aaeef",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/concepts/compositions.mdx",
       "blobSha": "5b3bea943d7ae480417a03b1b11310a55e160216",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "concepts-data-attributes": {
       "hash": "63445b855a6c75b2c5053929ec1934b319eaf27f21eba449692edbdd4f335bca",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/concepts/data-attributes.mdx",
       "blobSha": "ac3fa0af5b5c370501eb75aea2e3616906e448d9",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-performance": {
       "hash": "3bb0551054850fee38688597f1a7ecca3116e3dac5db98f4bb0a804704d002a3",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/performance.mdx",
       "blobSha": "8d7c9f07d81dc132dc3b3c646d192acbb3fba191",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "examples": {
       "hash": "940e9e5f60b2ee60cca733d2dbb1fd6c9fa60826db9a1823bbf1f23cde8a32bb",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/examples.mdx",
       "blobSha": "bc35aed87445dcea7acbfd2f6d362fe21719856d",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-product-launch-video": {
       "hash": "4aa089bf8b06be532ba339631a1a08c673cdfd1856cf0105893d181fbd324713",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/product-launch-video.mdx",
       "blobSha": "a34ddef85ce3e76ed00f16819be6841b12280c78",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "guides-faceless-explainer": {
       "hash": "0281773ebcfe57b78f9077b540707eb7ed4c54ed19a37fba9d02b8716b6d1f4a",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/faceless-explainer.mdx",
       "blobSha": "812da9fe5166fdbecb14dafb0e9de67896a24886",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "prompting-data-and-maps": {
       "hash": "450394cab6f2464faef0ce6c02d71300b2109859e66e6c46549f94201a5bdd2d",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/prompting/data-and-maps.mdx",
       "blobSha": "d556444fb83d57d2658067894172a08a47c40bc0",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "changelog": {
-      "hash": "2b12b54465f094e18a802eaf7654733af487404406182146cd0859e70c345a1a",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "hash": "19f2928aee747e06f6cec70b6e9076c9a3d97d66ac682a8b754d08f1222ed675",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/changelog.mdx",
-      "blobSha": "6382fada486998cfa14fafd210c4e3e716ecd79a",
-      "version": "v0.9.94"
+      "blobSha": "aeb090b74239b43cc2125ccfcf192b29a8a5a404",
+      "version": "v0.9.96"
     },
     "product-updates": {
       "hash": "0a2bc6265a9b481ed65dc698dfd83d4d3d3815a5de4dcac56eea350b0b048bdc",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/product-updates.mdx",
       "blobSha": "046a550cf9dc02c3824aece6c1587d7fe4c7a646",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "docs": {
-      "hash": "3397f737a1556fb7c61958cb68e4e91e2d5790d158746cf1822df6505d576fc7",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "hash": "b8af32906a28a1581cf9b5b72e803a33c0ac37300b6550b4a91ee37028a8c412",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/docs.json",
-      "blobSha": "0498b40981004fd69d5f8646ff98a816dece7b59",
-      "version": "v0.9.94"
+      "blobSha": "9855ae8ac1390e474d99f5bbdbaf7abed35ecdb4",
+      "version": "v0.9.96"
     },
     "license": {
       "hash": "be77f24c776c8bfea96d3f21adb6f397448d971836744eb2bf6cf9f29bfb9ad3",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "LICENSE",
       "blobSha": "ae06b37e1c5116ccfaa615ac25ec1aabf5658d8c",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-hyperframes": {
       "hash": "9c21151d0c9654658bf58b1245b2a0e150177b7a385174b2e23230f4fdec2567",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills/hyperframes/SKILL.md",
       "blobSha": "729e73521abd66b786b8a7bafa318f0d47d511eb",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-concepts-variables": {
       "hash": "01caf6a4694bdc470ecad5bfc21eff11340330c2e7fad5bb90c5306d54d5dc39",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/concepts/variables.mdx",
       "blobSha": "18c4ce74ffee04bbbba747138690be50d59304ce",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-studio-app-reference-video": {
       "hash": "8a9975acb12875b96bf7bc86f0480e3642200a522da432e88b7e72c9b2ba6fd9",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/studio-app/reference-video.mdx",
       "blobSha": "3bdc15c78d4ab5896e5cd0cd29f13722345514dd",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-style-sampling": {
       "hash": "f4f25259b7a7238f4cd5844201a231233941ca715fd2d5a55ce2c80fa2e4c1e3",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills/style-sampling/SKILL.md",
       "blobSha": "9cdfd04cbee774923cb48ad0996297fad6612757",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-reverse-any-video": {
       "hash": "9dba863135fe7e23b1490682456966b05988269a195dcee0bb454db7ce029adb",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills/reverse-any-video/SKILL.md",
       "blobSha": "3c3fd29bf87625467d56606532c37afa3ba83a9a",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-studio-app-brand-kits": {
       "hash": "4571f0f9e9a969c7939f8c3f0fee562ca5e0212610afb4b4efe78f4e3de0ef4c",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/studio-app/brand-kits.mdx",
       "blobSha": "e63fa0ba2e5d2b1fe33a9ec47b69df834b8f833c",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-hyperframes-cli-references-lint-validate-inspect": {
       "hash": "9004c39114f5ef28f85749e7897f63ae28150bd956618e7b522f97a7fb371c07",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills/hyperframes-cli/references/lint-validate-inspect.md",
       "blobSha": "07b4fb6dd8e9a78202bd6495e91da8d9c0f71b7f",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-hyperframes-cli": {
       "hash": "deb75cf36c79c1e4dfa8d17570a4af9b73fa37cd65c4cdad72efbe059bdbcad0",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills/hyperframes-cli/SKILL.md",
       "blobSha": "98dde45536f4bfb372f41a55178741a79ecdb57a",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-studio-app-workspace": {
       "hash": "6bfe1b05e43152aaf89e6682fa58c15ca884be089a7641a633d71fc0e512020a",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/studio-app/workspace.mdx",
       "blobSha": "b0693f44cea67060fee2f23857fc08139e33034c",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-studio-app-video-clips": {
       "hash": "e3e5839d8a7da1093420a37fd4ead9e4fd4a91afb23171237bf88ef197111d6d",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/studio-app/video-clips.mdx",
       "blobSha": "a50ed69866f6a56cd9a553afc768f4d5e1df0d10",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-studio-app-existing-project": {
       "hash": "c00adda507b84c83f2c988f19532696ed6957f73c2e22d0115344d51db5c7df2",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/studio-app/existing-project.mdx",
       "blobSha": "0f4213d6d42a3392dbdac55deed18f38d09d3114",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-studio-app-connect-your-agent": {
       "hash": "250b977f43a41f44de4814601f3580f9f7e47f2baa2033618a856e04f1cc5fb1",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/studio-app/connect-your-agent.mdx",
       "blobSha": "09113b06bca085e74535e026a237624eb1a153bc",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-figma": {
       "hash": "0696b95e7c947f18d6860f6a2983d4f252fe8c8068bbc005b3a42f28e3ab31b6",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills/figma/SKILL.md",
       "blobSha": "b56f8c5e5ecbe2b799c7ca21e94afcfb4d817c09",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-hyperframes-registry": {
       "hash": "f5d4b3cedc91d1b544ba2ade38fca8d8caa1b63969894070f5fef58b1832c8b7",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills/hyperframes-registry/SKILL.md",
       "blobSha": "4c41be231c7fe4a09840c04fd53efb924d165c51",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-media-use": {
-      "hash": "908f635fda825ee81a08860e06176d2fee18fb4835870d9ecd2a166628f6e3fc",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "hash": "91414f5e8d5266d12d7418df8f3f3b0a5185e817de8478797e1e7bbf0b8899cc",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills/media-use/SKILL.md",
       "blobSha": "2ec9a59a43407fe7e178a821a41592b866b48b34",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-remotion-to-hyperframes": {
       "hash": "826000ccd18be39ce83a0d1cdccee6299246aad4870be8995fd5df7641e53036",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills/remotion-to-hyperframes/SKILL.md",
       "blobSha": "ffc05c17d238dbed3ea8c733054178a4c635f25f",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-slideshow": {
       "hash": "5f76c1a3db680cf6219540255f2d0935cb38707d30bf2dd806e2689436865f27",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills/slideshow/SKILL.md",
       "blobSha": "506d7cea85380595578060c4bfa957dd1ba34b69",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-4k-rendering": {
       "hash": "51f476f4e2eb7b6fcee813fee15f8732ca7c1a2bd2e3f42fbd3b7909b0892174",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/4k-rendering.mdx",
       "blobSha": "a4e04490297459df39137483d3b4e55c59573a91",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-authentication": {
       "hash": "1e8811e0ca2824720b11432329ac8074c564bb70450e7c46b274c09dcb3d10c0",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/authentication.mdx",
       "blobSha": "2badd9bc8b0839c97df9ab8f139caef999474856",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-avatar-presenter": {
       "hash": "86611bd003eba46e4967feb47899883d5e97bc53b0c4579857f00af3821d51f9",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/avatar-presenter.mdx",
       "blobSha": "6fb8270e71fd0b13216e93677c886044d0592770",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-deploy": {
       "hash": "0c1e3ce45621e3e60c41abb6b47bcca98057fba3ac49032794f22a3f41c211f8",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/deploy.mdx",
       "blobSha": "74219913db09b7882a551ec9fe534a822e9224c8",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-design-tools": {
       "hash": "d36d39b310c1e9fe1edff74354e050405c020077e4a5ccc55c8f7776d58714a0",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/design-tools.mdx",
       "blobSha": "b8eef07d6feb2150e4a4154e4cc8371955f05f4d",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-figma": {
       "hash": "faed09a6199c686a0323f282588134295201dd0d0800aabc17f7affabe43d360",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/figma.mdx",
       "blobSha": "4c223a6d2147712312bf05a083f3f12c59daf3c9",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-free-agents": {
       "hash": "9a651127287c0246369f761cb1528d1c5df083d7ce55add7fab759c351b0ba3c",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/free-agents.mdx",
       "blobSha": "213301688de891ba922ed03da23ff59a5862a842",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-general-video": {
       "hash": "a30c0fc4b40c0b53becb147c85d7303e2260bba39d6b41c3fb208d859bf63601",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/general-video.mdx",
       "blobSha": "a880b2e30cce79f2158848f81d8ef3aa0bbe1764",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-hdr": {
       "hash": "f2b0cfc0aa2c832291b5991f6b090fdc1ce2a4e4bd2b9233788920b508aac5e2",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/hdr.mdx",
       "blobSha": "028b16874584bbd73227f9d841bcb6c8268930eb",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-html-in-canvas": {
       "hash": "47bb6194309163b8f71a291723041e051d105c0a3070d510bf8ab92227fdce9b",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/html-in-canvas.mdx",
       "blobSha": "ca180ce38496cbdf7d5255e15cdd2220f80695e4",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-hyperframes-vs-remotion": {
       "hash": "d26909dbb8ee406f012e2d8492c81e88b427135eeea00bdd488eb50535239cf0",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/hyperframes-vs-remotion.mdx",
       "blobSha": "a8826c3f2dca63eace80718710d91bc8babc0f76",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-media-effects": {
       "hash": "35d5d55efcc9efadcdd2fa3818680ebd6c314581b0a0a55cb9a943e4fc90a18d",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/media-effects.mdx",
       "blobSha": "55d8540d7158ed5c4e59a6cb53c5b6fc81fe087a",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-motion-blur": {
       "hash": "78901cb16828390daeb595f9257e06132e6c0b3f49bf1220416bbe749523586c",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/motion-blur.mdx",
       "blobSha": "3a68f5d23ac2b407d4344886c2a6fd792d8a7e65",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-motion-graphics": {
       "hash": "66c5356d4963024cc4723795c078cbc9c50ca7af28ecad5542249acdff4de36c",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/motion-graphics.mdx",
       "blobSha": "076ce11f8aaa02b9350a9389cc42298cc5984940",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-music-to-video": {
       "hash": "f2b64ce42db891a29d266d9fd980a383673695a72365ee63f47dcbead098406a",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/music-to-video.mdx",
       "blobSha": "19bcbb24d8e1a3d457988a438b0ba99fbf983191",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-path-tracing": {
       "hash": "2a8d43cc66f7bc0882ee87399eb42877866a7ac6e7c1c32f7045028bbd39cf6f",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/path-tracing.mdx",
       "blobSha": "fe99e475e888d62ae36ab5cfd48fcabb39775ac3",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-pr-to-video": {
       "hash": "37bf660c234c846ecf6b1487c59e791a51734dbc621c4a9f4d751c78a7f94872",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/pr-to-video.mdx",
       "blobSha": "33cca34c5db7724bda8dde218809cdc5343f664b",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-slideshow": {
       "hash": "f9a247ece80231de72f4016c9b111a777616a6f8fa4fd1649026e0335edd47f7",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/slideshow.mdx",
       "blobSha": "9bba7b7f562268592748a7e607f8b3a8f033dff3",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-vfx-chain": {
       "hash": "25bbce6d5f2e75474974af3a72e47339c0dcc604f6e529bf9a69a5878a247222",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/vfx-chain.mdx",
       "blobSha": "f11174732bd245bc131716778e506fd42e81aef7",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-video-components": {
       "hash": "bbf725042dca4c45ecfd29f3918131ca0b08a6f8d49626313b47754b0bf5e5bb",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/video-components.mdx",
       "blobSha": "238b1158437ffd81535e3a7743a29b8036e13103",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-docs-guides-webmcp": {
       "hash": "177810644a8eb756c6927ac629c276129fee4f90553d1d1486275d4e010ef63c",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "docs/guides/webmcp.mdx",
       "blobSha": "02b08004ae23cca92bea56fc8b9c8ec4495fc616",
-      "version": "v0.9.94"
+      "version": "v0.9.96"
     },
     "official-skills-manifest": {
-      "hash": "70ab094ca5a2e6461b35472efbe2c63c43e498dfa3ed2cc2942c464c7dae5cb2",
-      "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+      "hash": "d3324c765a559f215c8c1747e3a3a2b722798171520cb8155d735e8e4b0ad4d9",
+      "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
       "path": "skills-manifest.json",
-      "blobSha": "13ee3ec94aaed786a7f1bd9023a1b17c06b52ba6",
-      "version": "v0.9.94"
+      "blobSha": "00c379df1b66a8733b812be2b49d3db11a78b165",
+      "version": "v0.9.96"
     }
   }
 }
