@@ -130,16 +130,6 @@
       "attempts": 0
     },
     {
-      "id": "capability-4k-rendering",
-      "articleId": "capabilities-4k-rendering",
-      "reason": "missing",
-      "revision": "48ae720e9a4ee7c5bcbaaab3c80a5f86873eeab45914a034c0d53450d1e79319",
-      "firstSeen": "2026-11-25T09:22:21.274Z",
-      "attempts": 1,
-      "error": "独立核验未通过：仅接受 Markdown 正文，拒绝 MDX、HTML 与模块代码",
-      "retryReason": "markdown-code-span-parser-fixed"
-    },
-    {
       "id": "capability-authentication",
       "articleId": "capabilities-authentication",
       "reason": "missing",

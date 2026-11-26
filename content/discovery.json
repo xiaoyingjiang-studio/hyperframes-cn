@@ -632,6 +632,15 @@
         "能力前瞻",
         "正式发布"
       ]
+    },
+    {
+      "id": "capabilities-4k-rendering",
+      "question": "怎样用 HyperFrames 的 4K 渲染能力完成视频创作，并确认输出确实是 4K？",
+      "answer": "HyperFrames 支持两种 4K 路径：渲染时用 --resolution 4k 超采样已有项目，或初始化时以 4K 画布创作。需满足宽高比、整数倍、MP4 等条件，并用 ffprobe 核对输出为 3840×2160。",
+      "terms": [
+        "用 HyperFrames 输出 4K 视频：两种路径与检查要点",
+        "capability"
+      ]
     }
   ]
 }
