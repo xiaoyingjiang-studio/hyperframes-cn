@@ -9,7 +9,11 @@ import { validateObservations, prioritize } from './lib/optimization.mjs';
 
 export async function syncKnowledge({ fetcher, request, loadInventory = inventory } = {}) {
   const apply = process.argv.includes('--apply');
+  const target = process.env.KNOWLEDGE_TARGET || '';
+  if (target && process.env.GITHUB_EVENT_NAME && process.env.GITHUB_EVENT_NAME !== 'workflow_dispatch') throw new Error('定向知识验收只能手动触发，定时任务保持默认排序');
+  if (target && !/^[a-z0-9-]+$/.test(target)) throw new Error('定向验收需要登记的知识实体 ID');
   const { pages, knowledge, observed } = await loadInventory({ fetcher });
+  if (target && !knowledge.entities.some(e => e.id === target && e.automation !== false)) throw new Error('定向验收实体未登记或禁止自动更新');
   const discovery = await json('content/discovery.json');
   const state = await json('content/knowledge-queue.json', { tasks: [] });
   if (process.env.GITHUB_REPOSITORY && process.env.GITHUB_TOKEN) {
@@ -33,7 +37,7 @@ export async function syncKnowledge({ fetcher, request, loadInventory = inventor
   const pending = [...state.tasks.filter(t => !tasks.some(x => x.id === t.id))];
   let processed = 0;
   for (const task of tasks) {
-    if (processed >= limit || process.argv.includes('--report-only')) { pending.push(task); continue; }
+    if ((target && task.id !== target) || processed >= limit || process.argv.includes('--report-only')) { pending.push(task); continue; }
     processed++;
     const entity = knowledge.entities.find(e => e.id === task.id);
     const existing = pages.find(p => p.id === entity.articleId);

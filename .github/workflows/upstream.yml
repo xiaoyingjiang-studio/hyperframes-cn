@@ -9,6 +9,10 @@ on:
         description: Use real observations to improve existing content
         type: boolean
         default: false
+      entity:
+        description: Optional registered topic ID for one-time validation
+        type: string
+        default: ''
 permissions:
   contents: write
   pull-requests: write
@@ -60,6 +64,7 @@ jobs:
           fi
         env:
           OPTIMIZE: ${{ inputs.optimize || 'false' }}
+          KNOWLEDGE_TARGET: ${{ inputs.entity || '' }}
           OPTIMIZATION_OBSERVATIONS: artifacts/search-observations.json
           GITHUB_TOKEN: ${{ github.token }}
           AI_ENDPOINT: ${{ vars.AI_ENDPOINT }}
