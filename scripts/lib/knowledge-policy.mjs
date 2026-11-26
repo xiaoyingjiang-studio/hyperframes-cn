@@ -4,6 +4,13 @@ export const sections = [
   ['mechanisms', '创作机制'], ['skills', 'Skills 与创作工具'], ['workflows', '创作方法'],
   ['problems', '问题与限制'], ['updates', '更新与前瞻'], ['community', '关于与贡献'],
 ].map(([id, title]) => ({ id, title }));
+export function sectionOverview(sectionId) {
+  if (!sections.some(section => section.id === sectionId)) throw new Error('未知知识栏目');
+  return { id: `learn-${sectionId}`, articleId: `learn-${sectionId}`, route: `/learn/${sectionId}/`, file: `src/content/docs/learn/${sectionId}.md` };
+}
+export function automaticContent(page, previous) {
+  return previous?.automation ?? (!page.id.startsWith('community-') && !page.id.startsWith('updates-') && page.id !== 'knowledge');
+}
 export const mechanisms = [
   ['brief', '把需求变成可执行的创作任务', '一段需求怎样表达为可执行的创作任务？', ['docs/studio-app/first-video.mdx', 'skills/hyperframes/SKILL.md']],
   ['editable-project', '理解可编辑项目与素材', '项目里哪些内容可以修改、替换和复用？', ['docs/concepts/compositions.mdx', 'docs/concepts/variables.mdx']],
@@ -63,8 +70,8 @@ export function connectKnowledge(entities) {
     if (entity.articleId === 'overview-what-is-hyperframes') { entity.id = 'product-hyperframes'; entity.type = 'product'; }
     if (entity.articleId === 'start-studio') { entity.id = 'product-studio'; entity.type = 'product'; }
     if (entity.articleId === 'features-skills-catalog') { entity.id = 'resource-catalog'; entity.type = 'resource'; }
-    if (entity.section === 'capabilities') entity.type = 'capability';
-    if (entity.section === 'workflows') entity.type = 'workflow';
+    if (entity.type !== 'directory' && entity.section === 'capabilities') entity.type = 'capability';
+    if (entity.type !== 'directory' && entity.section === 'workflows') entity.type = 'workflow';
   }
   for (const entity of entities) {
     entity.relations = [];

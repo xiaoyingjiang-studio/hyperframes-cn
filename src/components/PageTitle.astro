@@ -5,7 +5,7 @@ import health from '../../content/sync-status.json';
 import pages from '../../content/pages.json';
 import discovery from '../../content/discovery.json';
 import knowledge from '../../content/knowledge.json';
-import { applicability, entryNames } from '../lib/content-metadata.mjs';
+import { applicability, entryNames, readingTrail } from '../lib/content-metadata.mjs';
 const entry = Astro.locals.starlightRoute.entry;
 const data = entry.data;
 const records = registry.sources.filter(s => data.sources?.includes(s.id));
@@ -17,14 +17,20 @@ const sourceUrl = (record: (typeof registry.sources)[number]) => {
 const pending = (health.pendingPageIds as string[]).includes(data.contentId);
 const intent = discovery.pages.find(p => p.id === data.contentId);
 const entity = knowledge.entities.find(e => e.articleId === data.contentId);
+const section = entity && knowledge.sections.find(s => s.id === entity.section);
+const overview = section && knowledge.entities.find(e => e.section === section.id && e.type === 'directory');
 const validation = manifest && 'validation' in manifest ? manifest.validation as { mode: string; checkedAt: string } : undefined;
 const sourceVersion = manifest && 'sourceVersion' in manifest ? manifest.sourceVersion : undefined;
 const appliesTo = applicability(data.appliesTo, sourceVersion);
 const previewChanges = knowledge.preview.changes as Array<{ type: string; path: string }>;
+const trail = readingTrail({ id: data.contentId, title: data.title, route: Astro.url.pathname }, knowledge);
 ---
-<nav class="reading-breadcrumb" aria-label="面包屑"><a href="/">首页</a><span aria-hidden="true"> / </span><span aria-current="page">{data.title}</span></nav>
+<nav class="reading-breadcrumb" aria-label="面包屑">{trail.map((part, index) => <>{index > 0 && <span aria-hidden="true"> / </span>}{index === trail.length - 1 ? <span aria-current="page">{part.name}</span> : <a href={part.route}>{part.name}</a>}</>)}</nav>
 <Default><slot /></Default>
 {intent && <aside class="answer-summary" aria-label="阅读摘要"><strong>{intent.question}</strong><p>{intent.answer}</p></aside>}
+{entity && <div class="knowledge-context" aria-label="知识分类">{overview ? <a href={overview.route}>{section?.title}</a> : <span>{section?.title}</span>}{entity.entries.map(entry => <span>{entryNames[entry] || entry}</span>)}</div>}
+<details class="article-evidence" data-pagefind-ignore>
+<summary>来源与验证范围{sourceVersion && <span> · {sourceVersion}</span>}</summary>
 <div class="source-meta" data-pagefind-ignore>
   <span>{data.kind === 'original' || data.kind === 'case' ? '中文站原创实践' : '基于官方资料整理'}</span>
   {data.reviewedAt && <span>历史人工核对：<time datetime={data.reviewedAt}>{data.reviewedAt}</time></span>}
@@ -34,7 +40,7 @@ const previewChanges = knowledge.preview.changes as Array<{ type: string; path: 
   {records.map(record => <a href={sourceUrl(record)} target="_blank" rel="noopener noreferrer">官方来源：{record.label}</a>)}
   <a href={`/content/${data.contentId}.md`} download>阅读 Markdown</a>
 </div>
-{entity && <div class="knowledge-context" aria-label="知识分类"><span>{knowledge.sections.find(s => s.id === entity.section)?.title}</span>{entity.entries.map(entry => <span>{entryNames[entry] || entry}</span>)}</div>}
+{data.verification && <p class="verification-note">{data.verification}</p>}
+</details>
 {data.contentId === 'updates-preview' && <aside class="answer-summary"><strong>正式资料版本：{knowledge.release.tag}</strong><p>{knowledge.preview.note}</p><p>主分支与正式资料共有 {previewChanges.length} 项文件差异。以下最多列出 15 项，不代表功能已开放。</p><ul>{previewChanges.slice(0, 15).map(change => <li><a href={`https://github.com/${registry.repository}/tree/${knowledge.preview.commit}`}>{change.type} · {change.path}</a></li>)}</ul></aside>}
-{data.verification && <details class="verification-note"><summary>来源与验证范围</summary><p>{data.verification}</p></details>}
 {pending && <aside class="pending-notice">本页有自动更新任务等待处理，当前保留上述来源版本的内容。</aside>}

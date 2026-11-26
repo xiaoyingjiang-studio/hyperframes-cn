@@ -2552,6 +2552,360 @@
           "target": "knowledge"
         }
       ]
+    },
+    {
+      "id": "learn-orientation",
+      "articleId": "learn-orientation",
+      "route": "/learn/orientation/",
+      "file": "src/content/docs/learn/orientation.md",
+      "title": "认识与选择总览",
+      "question": "刚接触 HyperFrames，应该先弄懂什么、选择哪个入口？",
+      "type": "directory",
+      "section": "orientation",
+      "entries": [],
+      "sources": [
+        "introduction",
+        "concepts-determinism",
+        "quickstart",
+        "guides-mcp",
+        "readme",
+        "faq",
+        "guides-media"
+      ],
+      "related": [
+        "overview-what-is-hyperframes",
+        "overview-choose-your-path",
+        "overview-free-and-paid"
+      ],
+      "automation": true,
+      "available": true,
+      "relations": [
+        {
+          "type": "learn-with",
+          "target": "product-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "overview-choose-your-path"
+        },
+        {
+          "type": "learn-with",
+          "target": "overview-free-and-paid"
+        }
+      ]
+    },
+    {
+      "id": "learn-studio",
+      "articleId": "learn-studio",
+      "route": "/learn/studio/",
+      "file": "src/content/docs/learn/studio.md",
+      "title": "Studio 创作总览",
+      "question": "第一次用 Studio，怎样从想法走到可以交付的视频？",
+      "type": "directory",
+      "section": "studio",
+      "entries": [],
+      "sources": [
+        "studio-app-index",
+        "studio-app-first-video",
+        "studio-app-export",
+        "official-docs-studio-app-workspace"
+      ],
+      "related": [
+        "start-studio",
+        "studio-workspace",
+        "studio-export"
+      ],
+      "automation": true,
+      "available": true,
+      "relations": [
+        {
+          "type": "learn-with",
+          "target": "product-studio"
+        },
+        {
+          "type": "learn-with",
+          "target": "studio-workspace"
+        },
+        {
+          "type": "learn-with",
+          "target": "studio-export"
+        }
+      ]
+    },
+    {
+      "id": "learn-capabilities",
+      "articleId": "learn-capabilities",
+      "route": "/learn/capabilities/",
+      "file": "src/content/docs/learn/capabilities.md",
+      "title": "能力地图总览",
+      "question": "HyperFrames 能做哪些视频内容，怎样按创作目标选能力？",
+      "type": "directory",
+      "section": "capabilities",
+      "entries": [],
+      "sources": [
+        "prompting-editing-existing-videos",
+        "studio-app-edit-with-the-agent",
+        "guides-captions-and-recuts",
+        "prompting-captions-catalog",
+        "prompting-media-and-audio",
+        "guides-gsap-animation",
+        "prompting-motion",
+        "concepts-frame-adapters"
+      ],
+      "related": [
+        "features-editing",
+        "features-captions",
+        "features-motion"
+      ],
+      "automation": true,
+      "available": true,
+      "relations": [
+        {
+          "type": "learn-with",
+          "target": "features-editing"
+        },
+        {
+          "type": "learn-with",
+          "target": "features-captions"
+        },
+        {
+          "type": "learn-with",
+          "target": "features-motion"
+        }
+      ]
+    },
+    {
+      "id": "learn-mechanisms",
+      "articleId": "learn-mechanisms",
+      "route": "/learn/mechanisms/",
+      "file": "src/content/docs/learn/mechanisms.md",
+      "title": "创作机制总览",
+      "question": "不懂实现细节，怎样理解创作和修改为什么这样工作？",
+      "type": "directory",
+      "section": "mechanisms",
+      "entries": [],
+      "sources": [
+        "studio-app-first-video",
+        "official-skills-hyperframes",
+        "concepts-compositions",
+        "official-docs-concepts-variables",
+        "concepts-determinism",
+        "studio-app-export"
+      ],
+      "related": [
+        "mechanisms-brief",
+        "mechanisms-editable-project",
+        "mechanisms-preview-and-export"
+      ],
+      "automation": true,
+      "available": true,
+      "relations": [
+        {
+          "type": "learn-with",
+          "target": "mechanism-brief"
+        },
+        {
+          "type": "learn-with",
+          "target": "mechanism-editable-project"
+        },
+        {
+          "type": "learn-with",
+          "target": "mechanism-preview-and-export"
+        }
+      ]
+    },
+    {
+      "id": "learn-skills",
+      "articleId": "learn-skills",
+      "route": "/learn/skills/",
+      "file": "src/content/docs/learn/skills.md",
+      "title": "Skills 与创作工具总览",
+      "question": "Skill 是什么，怎样选对 HyperFrames 的创作工具？",
+      "type": "directory",
+      "section": "skills",
+      "entries": [],
+      "sources": [
+        "guides-skills",
+        "guides-plugins",
+        "catalog-index",
+        "official-skills-manifest",
+        "official-skills-hyperframes",
+        "official-skills-figma"
+      ],
+      "related": [
+        "features-skills-catalog",
+        "skills-hyperframes",
+        "skills-figma"
+      ],
+      "automation": true,
+      "available": true,
+      "relations": [
+        {
+          "type": "learn-with",
+          "target": "resource-catalog"
+        },
+        {
+          "type": "learn-with",
+          "target": "skill-hyperframes"
+        },
+        {
+          "type": "learn-with",
+          "target": "skill-figma"
+        }
+      ]
+    },
+    {
+      "id": "learn-workflows",
+      "articleId": "learn-workflows",
+      "route": "/learn/workflows/",
+      "file": "src/content/docs/learn/workflows.md",
+      "title": "创作方法总览",
+      "question": "知道功能以后，怎样把它们组合成一段完整作品？",
+      "type": "directory",
+      "section": "workflows",
+      "entries": [],
+      "sources": [
+        "prompting-overview",
+        "prompting-examples",
+        "guides-product-launch-video",
+        "concepts-compositions",
+        "guides-faceless-explainer"
+      ],
+      "related": [
+        "guides-prompting",
+        "showcase-product-intro",
+        "showcase-chinese-explainer"
+      ],
+      "automation": true,
+      "available": true,
+      "relations": [
+        {
+          "type": "learn-with",
+          "target": "guides-prompting"
+        },
+        {
+          "type": "learn-with",
+          "target": "showcase-product-intro"
+        },
+        {
+          "type": "learn-with",
+          "target": "showcase-chinese-explainer"
+        }
+      ]
+    },
+    {
+      "id": "learn-problems",
+      "articleId": "learn-problems",
+      "route": "/learn/problems/",
+      "file": "src/content/docs/learn/problems.md",
+      "title": "问题与限制总览",
+      "question": "视频或工具出问题时，怎样判断该检查哪里？",
+      "type": "directory",
+      "section": "problems",
+      "entries": [],
+      "sources": [
+        "help",
+        "developers-cli",
+        "guides-performance",
+        "guides-captions-and-recuts",
+        "prompting-captions-catalog",
+        "quickstart"
+      ],
+      "related": [
+        "guides-troubleshooting",
+        "guides-chinese-typography",
+        "guides-windows"
+      ],
+      "automation": true,
+      "available": true,
+      "relations": [
+        {
+          "type": "learn-with",
+          "target": "guides-troubleshooting"
+        },
+        {
+          "type": "learn-with",
+          "target": "guides-chinese-typography"
+        },
+        {
+          "type": "learn-with",
+          "target": "guides-windows"
+        }
+      ]
+    },
+    {
+      "id": "learn-updates",
+      "articleId": "learn-updates",
+      "route": "/learn/updates/",
+      "file": "src/content/docs/learn/updates.md",
+      "title": "更新与前瞻总览",
+      "question": "怎样判断一次更新是否已经能用、会不会影响自己的项目？",
+      "type": "directory",
+      "section": "updates",
+      "entries": [],
+      "sources": [
+        "changelog",
+        "product-updates"
+      ],
+      "related": [
+        "updates",
+        "updates-preview"
+      ],
+      "automation": true,
+      "available": true,
+      "relations": [
+        {
+          "type": "learn-with",
+          "target": "updates"
+        },
+        {
+          "type": "learn-with",
+          "target": "updates-preview"
+        }
+      ]
+    },
+    {
+      "id": "learn-community",
+      "articleId": "learn-community",
+      "route": "/learn/community/",
+      "file": "src/content/docs/learn/community.md",
+      "title": "关于与贡献总览",
+      "question": "这份中文知识库由谁维护，怎样使用、核实和贡献内容？",
+      "type": "directory",
+      "section": "community",
+      "entries": [],
+      "sources": [
+        "docs",
+        "changelog",
+        "guides-skills",
+        "license"
+      ],
+      "related": [
+        "community-about",
+        "community-contributing",
+        "community-sources",
+        "community-licenses"
+      ],
+      "automation": true,
+      "available": true,
+      "relations": [
+        {
+          "type": "learn-with",
+          "target": "community-about"
+        },
+        {
+          "type": "learn-with",
+          "target": "community-contributing"
+        },
+        {
+          "type": "learn-with",
+          "target": "community-sources"
+        },
+        {
+          "type": "learn-with",
+          "target": "community-licenses"
+        }
+      ]
     }
   ],
   "preview": {

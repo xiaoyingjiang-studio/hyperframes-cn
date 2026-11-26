@@ -11,7 +11,7 @@ import matter from "gray-matter";
 import { execFileSync } from 'node:child_process';
 import { load } from "cheerio";
 import { file, json, save, hash } from "./lib/io.mjs";
-import { applicability } from '../src/lib/content-metadata.mjs';
+import { applicability, readingTrail } from '../src/lib/content-metadata.mjs';
 import {
   resolveSite,
   xml,
@@ -66,6 +66,7 @@ for (const page of records) {
     sourceVerifiedAt: page.sourceVerifiedAt,
     validation: page.validation,
     knowledge: knowledge.entities.find(entity => entity.articleId === page.id),
+    breadcrumbs: readingTrail({ ...page, title: data.title }, knowledge),
     sources: sourceLinks(page, registry),
     markdown: `/content/${page.id}.md`,
     image: page.id === "home"
@@ -80,7 +81,7 @@ for (const page of records) {
   await writeFile(path, html);
   const body = toMarkdown(html, site.url + page.route);
   const header = `# ${entry.title}\n\n规范地址：${site.url}${entry.route}\n\n维护者：${discovery.publisher}（独立社区项目）\n${entry.modified ? `\n正文修订：${entry.modified}（Git 记录）\n` : ""}${entry.reviewedAt ? `\n官方资料核对：${entry.reviewedAt}\n\n适用条件：${entry.appliesTo}\n\n验证边界：${entry.verification || "按所列来源整理；不代表所有入口均已实测。"}\n` : ""}\n许可：原创文字 CC BY 4.0；派生内容与素材分别保留原许可，详见 ${site.url}/community/licenses/\n\n## 官方来源\n\n${entry.sources.map((s) => `- [${s.label}](${s.url})`).join("\n") || "本站原创说明；产品事实见站内关联指南与官方来源。"}\n\n---\n\n`;
-  const verification = entry.sourceVersion ? `来源版本：${entry.sourceVersion}\n\n来源核验：${entry.sourceVerifiedAt}\n\n内容校验：${entry.validation?.mode || '来源整理'}\n\n适用条件：${entry.appliesTo}\n\n验证边界：${entry.verification}\n\n` : '';
+  const verification = entry.sourceVersion ? `来源版本：${entry.sourceVersion}\n\n来源核验：${entry.sourceVerifiedAt}\n\n内容校验：${entry.validation?.mode || '来源整理'}\n\n适用条件：${entry.appliesTo}\n\n验证边界：${entry.verification}\n\n` : !entry.reviewedAt && page.kind !== 'home' ? `内容校验：${entry.validation?.mode || '来源整理'}\n\n适用条件：${entry.appliesTo}\n\n验证边界：${entry.verification || '按所列来源整理，不代表实际操作已经执行。'}\n\n` : '';
   const markdown = header + verification + body.replace(/^# [^\n]+\n*/, "") + "\n";
   await writeFile(file("dist" + entry.markdown), markdown);
   const document = load(html);
@@ -104,7 +105,7 @@ await save("dist/content-manifest.json", {
   indexable: site.indexable,
   publisher: discovery.publisher,
   pages: entries,
-  knowledge: { release: knowledge.release, publishedSkills: knowledge.publishedSkills, entities: knowledge.entities.map(entity => ({ ...entity, published: pages.some(page => page.id === entity.articleId) })) },
+  knowledge: { release: knowledge.release, sections: knowledge.sections.map(section => ({ ...section, overview: pages.find(page => page.id === `learn-${section.id}`)?.route })), publishedSkills: knowledge.publishedSkills, entities: knowledge.entities.map(entity => ({ ...entity, published: pages.some(page => page.id === entity.articleId) })) },
 });
 await writeFile(
   file("dist/sitemap.xml"),

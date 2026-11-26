@@ -133,7 +133,7 @@ export function structuredData(page, site) {
       publisher: { "@id": org },
     },
     {
-      "@type": page.kind === "index" ? "CollectionPage" : "WebPage",
+      "@type": ["index", "catalog"].includes(page.kind) ? "CollectionPage" : "WebPage",
       "@id": url + "#webpage",
       url,
       name: page.title,
@@ -150,15 +150,7 @@ export function structuredData(page, site) {
     graph.push({
       "@type": "BreadcrumbList",
       "@id": url + "#breadcrumb",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "首页",
-          item: site.url + "/",
-        },
-        { "@type": "ListItem", position: 2, name: page.title, item: url },
-      ],
+      itemListElement: (page.breadcrumbs || [{ name: "首页", route: "/" }, { name: page.title, route: page.route }]).map((part, index) => ({ "@type": "ListItem", position: index + 1, name: part.name, item: site.url + part.route })),
     });
   if (["tutorial", "adaptation", "case", "update"].includes(page.kind))
     graph.push({

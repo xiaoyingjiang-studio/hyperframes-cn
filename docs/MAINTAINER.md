@@ -77,7 +77,7 @@ Markdown 候选使用标准解析器识别行内与块级代码示例，示例�
 
 ## 6. AI 适配与消耗
 
-接口使用 HTTPS，Bearer 密钥，仅从 Secret 读取。请求包括 model、messages、max_tokens、temperature；服务需返回 choices[0].message.content，写作返回 body/answer/summary JSON，独立核验返回 supported/issues/evidence JSON。如供应商格式不同，新增适配器，不把密钥交给浏览器。
+接口使用 HTTPS，Bearer 密钥，仅从 Secret 读取。请求包括 model、messages、max_tokens、temperature；服务需返回 choices[0].message.content，写作返回 body/answer/summary JSON，独立核验返回 supported/issues/notes/evidence 及 teaching JSON。teaching 的 explainsConcept、connectsExample、givesNextStep 必须全部为 true，防止只有事实罗列却没有新手解释的候选发布；失败与证据核验共用一次修订机会。具体标准见 CONTENT。如供应商格式不同，新增适配器，不把密钥交给浏览器。
 
 DashScope 的 DeepSeek V4 混合模型显式设置 enable_thinking=false 与 response_format=json_object，防止默认思考消耗完既定输出额度而没有正文；不增加输出或批次预算。其他供应商不注入此专用参数。依据：[官方思考模式说明](https://www.alibabacloud.com/help/en/model-studio/deep-thinking)。
 

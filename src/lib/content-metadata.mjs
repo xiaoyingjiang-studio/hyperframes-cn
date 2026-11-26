@@ -14,3 +14,12 @@ export function applicability(value, sourceVersion) {
   const ids = entries.split(' / ');
   return ids.every(id => Object.hasOwn(entryNames, id)) ? [ids.map(id => entryNames[id]).join('、'), ...conditions].join('；') : normalized;
 }
+
+export function readingTrail(page, knowledge) {
+  if (page.id === 'home') return [];
+  if (page.id === 'knowledge') return [{ name: '首页', route: '/' }, { name: page.title, route: page.route }];
+  const entity = knowledge.entities.find(entity => entity.articleId === page.id);
+  const section = knowledge.sections.find(section => section.id === entity?.section);
+  const overview = knowledge.entities.find(entity => entity.type === 'directory' && entity.section === section?.id);
+  return [{ name: '知识库', route: '/knowledge/' }, ...(overview && overview.articleId !== page.id ? [{ name: section.title, route: overview.route }] : []), { name: page.title, route: page.route }];
+}

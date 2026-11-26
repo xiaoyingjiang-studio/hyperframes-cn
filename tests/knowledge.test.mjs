@@ -4,12 +4,39 @@ import { eligibleQueue, failedTask, createVerifiedArticle, validateEvidence, cla
 import { assertContentPath, assertStableRoutes, assertHead, deployWithRecovery, assertPublishedUnit } from '../scripts/lib/publishing.mjs';
 import { Budget } from '../scripts/lib/ai.mjs';
 import { publishedRelease, extractDependencies, collect, preserveIndexBaseline } from '../scripts/lib/upstream.mjs';
-import { capabilityTopics } from '../scripts/lib/knowledge-policy.mjs';
+import { capabilityTopics, sectionOverview, automaticContent, connectKnowledge } from '../scripts/lib/knowledge-policy.mjs';
 const quote = 'The preview and export use the same project and assets.';
 const snapshots = [{ id: 'source', files: [{ path: 'docs/test.md', text: quote }] }];
 const draft = { body: '依据项目与素材检查画面和导出。'.repeat(15) + '\n\n## 检查结果\n\n逐项比较实际文件。', answer: '依据同一份项目与素材比较预览和导出，检查内容、时序与声音。这里只说明检查方法，不能把未执行的导出写成已经验证成功。', summary: '说明创作检查方法' };
 const evidence = [{ sourceId: 'source', path: 'docs/test.md', quote, sections: ['answer', '检查结果'] }];
 const input = { current: '旧稿', currentAnswer: '旧摘要', snapshots };
+
+test('栏目总览采用固定路由并自动维护，来源盘点保留显式设置', () => {
+  const overview = sectionOverview('skills');
+  assert.equal(overview.route, '/learn/skills/');
+  assert.equal(automaticContent(overview), true);
+  assert.equal(automaticContent({ id: 'skills-figma' }, { automation: false }), false);
+  assert.equal(automaticContent({ id: 'skills-figma' }), true);
+  assert.throws(() => sectionOverview('../other'), /未知知识栏目/);
+  const entity = { ...overview, section: 'skills', type: 'directory' };
+  assert.doesNotThrow(() => assertStableRoutes([], [overview], [entity]));
+  assert.throws(() => assertStableRoutes([], [{ ...overview, route: '/invented/' }], [{ ...entity, route: '/invented/' }]), /固定规则/);
+  const directories = ['capabilities', 'workflows'].map(section => ({ ...sectionOverview(section), section, type: 'directory', entries: [], related: [] }));
+  connectKnowledge(directories);
+  assert.ok(directories.every(entity => entity.type === 'directory'));
+});
+
+test('有事实证据但缺少新手解释的候选也隔离，教学检查与事实核验共用一次修订', async () => {
+  const teaching = { explainsConcept: true, connectsExample: true, givesNextStep: true };
+  const withEntity = { ...input, entity: { articleId: 'skills-fixture' } };
+  let writes = 0;
+  const good = await createVerifiedArticle(withEntity, { request: async (_, { role }) => {
+    if (role === 'write') { writes++; return draft; }
+    return { supported: true, issues: [], evidence, teaching: writes === 1 ? { ...teaching, connectsExample: false } : teaching };
+  } });
+  assert.equal(writes, 2);assert.deepEqual(good.teaching, teaching);
+  await assert.rejects(createVerifiedArticle(withEntity, { request: async (_, { role }) => role === 'write' ? draft : { supported: true, issues: [], evidence } }), /教学核验/);
+});
 
 test('来源证据必须真实存在且覆盖摘要与每个章节', () => {
   assert.doesNotThrow(() => validateEvidence(evidence, snapshots, draft.body, draft.answer));

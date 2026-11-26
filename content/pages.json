@@ -744,8 +744,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.209Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.209Z",
-      "digest": "30ea4ad2b9bd2bea7dd6f4736d020d2cda5626f59a8e2d086ea85985fc1546f4"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "9c079670eef804828549acfbe76f7bee885d59736bcf3da88748f19ea7078f36"
     }
   },
   {
@@ -774,8 +774,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.215Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.215Z",
-      "digest": "4f01b442676e94b521bf7e3758d7aa2631c8c3b153ed1ca88867f0de88cd89a9"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "6e577ca1e9d8e05bd865ce7fb0b2cd62f073a7ff3f32206f79a1e817a35ee375"
     }
   },
   {
@@ -804,8 +804,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.221Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.221Z",
-      "digest": "b05ea03cc0e3e4af2cfcd96d1738afe21d844d822e1af01a2923e5e4382f7ec1"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "1a38a095838d8c5066a755eef14751a7b618812b703758feceda358a05a493d4"
     }
   },
   {
@@ -827,8 +827,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.227Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.227Z",
-      "digest": "c468cd53fa8d60a2c6a9e5ad061d8f145fd9b3e2939a545800b7749a5eb52e34"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "de92570cab70a03ef37d5fe269d1b2c887f4870877a527ac80886e8acd2c0b50"
     }
   },
   {
@@ -850,8 +850,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.233Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.233Z",
-      "digest": "95fdc61f17e44655d8ec585384a267cffdba631bee3dbb6fb75eb661d47073c8"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "83f2a0c2c3123b9c546c720a6df86aff526b88106591fe013820c28db3f8e751"
     }
   },
   {
@@ -887,8 +887,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.240Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.240Z",
-      "digest": "1ac9004a30533b5351a4e4c576c6191209976e0dd797cb88c272115f4be15a97"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "535c88b2dbfe7bf19540e2254984da7c2c024a6cf9dd71a71170212ed1cd3f46"
     }
   },
   {
@@ -917,8 +917,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.246Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.246Z",
-      "digest": "5a4b7c38c13f5559b3e77eb7e80691c0c6034698efc1609ddf0536c6e9f0cc04"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "c1b70380bd3cb4baefdf07116a196e75a6b54491ed0aa7ea022a652be06d93cf"
     }
   },
   {
@@ -947,8 +947,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.261Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.261Z",
-      "digest": "7a4592e96bcfcda298597912d763206e6b7ada0f67a4481ca31da25c9426ffe6"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "a188e14f9105392fca6b20303cbba83f2cf383687c47d98b54fc2c9d9977607b"
     }
   },
   {
@@ -977,8 +977,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.268Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.268Z",
-      "digest": "197bb4e4a21e8f24f44956153775c073398483e4e863724f81bde2d209d1d66f"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "e086d384f907fb97091ec57f432a1bb24a9d5c27d6c42471f7d367e2a5c73d20"
     }
   },
   {
@@ -1007,8 +1007,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.273Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.273Z",
-      "digest": "93650ced7fb6b77f3c92a5edb77cc0a3a100b466e52f5aa458edae5af751868f"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "e1ec429b1536b91d5958b7997a3b0e65b5367967fa4e27535d65ae516d54c131"
     }
   },
   {
@@ -1175,8 +1175,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.285Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.285Z",
-      "digest": "04b022fc2774be0ebb6b69a160e5d9c8eb74552ce931baaa57ca80917056b239"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "7d78287b21af36f4ce047e1f545429ea7e32e44d464dbf887ac9af6c767497e1"
     }
   },
   {
@@ -1198,8 +1198,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.291Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.291Z",
-      "digest": "c5db638e6caf3c6fcf3978a12307dabb267d0298763873e9ceb23f25c428841d"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "da99ba1f369478d313572a13760a2f0da7f0801c2bf6dc45b2f246baca93295f"
     }
   },
   {
@@ -1221,8 +1221,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.297Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.297Z",
-      "digest": "777588faeff67c8d2fce781eab7132d3fdea47c6de4e3509ad1a25678366b0d5"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "6c53e7eea0ef2ab2b9c747090940728d676e00bd928724b82666fcc4bef1057b"
     }
   },
   {
@@ -1244,8 +1244,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.304Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.304Z",
-      "digest": "616f596dd9cc1076fbc6b0d906ca8dcce3aa6e9d98216900abfae96cfbc81f11"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "7bab09f5edf9cdc6c66521211afb18220ea3bcf95656c75b7d74a2705a799d39"
     }
   },
   {
@@ -1267,8 +1267,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.309Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.309Z",
-      "digest": "1766f41ebee7503ea2144b30cd46acabd1dd321cd78f88293bb589ec41cf7be8"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "79d05bc48239cc11c455ef29905e899f6748d529c39e745bcfdbcb224079b77f"
     }
   },
   {
@@ -1290,8 +1290,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.317Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.317Z",
-      "digest": "3294a92686bab01a210afba858b148065a32b7cc155e1b1746aabba63f05a1e7"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "a7d83e3c19e09d99b3448cf9f3bba77b6ec156787efee381bc14bc19fdeb5c30"
     }
   },
   {
@@ -1313,8 +1313,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.322Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.322Z",
-      "digest": "a488b0cdf50b6b51d827a2ae4e58b07218a21cbe765574bd22bff92c7ee1521e"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "07dd4adea06752bc06bda88c19ab689c5e2c9b17fe9aa26503df0082cd7eac9b"
     }
   },
   {
@@ -1336,8 +1336,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.328Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.328Z",
-      "digest": "3552d736fa794a304ca6b1659e69452f75be02e6dea816f4ce5b2f1155e75349"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "e1cb1ead307f318a38278064149d2f8212cfda7f61be3536f700a94a9643a645"
     }
   },
   {
@@ -1359,8 +1359,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.334Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.334Z",
-      "digest": "254ac29ee49221fec5e08cb7586e13e704e53075ca6aa4555bf40ec935dac5a0"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "6065fc5cbe24f94f7a497ef14d5366defe3950b38c366029b269700da72ca60d"
     }
   },
   {
@@ -1382,8 +1382,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.339Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.339Z",
-      "digest": "12df8171b5ae389d30e017c54077d473ab1c056eaf5915a0655b7ad1b749d898"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "a7e79a29dc4d4d818841786b350f964f0982fa62757a75ee248d2437e14d04cb"
     }
   },
   {
@@ -1405,8 +1405,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.346Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.346Z",
-      "digest": "32ac00b68f5d5f0f8f424787e320f20de3a4c3379490b9e81a3b599b50cdf24a"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "2f1978b84ea9990e038480769505590fc69ede21add48072f231e9a6e4598dcd"
     }
   },
   {
@@ -1428,8 +1428,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.353Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.353Z",
-      "digest": "91438dceb507386224913e2fbf460a4da301163b9191c706a40c8106b1ba41c7"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "bed9e41f56340b23845f8e0b22938e9178ec5ebd59f66e7ceaee0e03dddb2848"
     }
   },
   {
@@ -1451,8 +1451,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.359Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.359Z",
-      "digest": "b169ee994413c31a15c2fb41c173ba8d44a58997b2a6034bacbf8e999ee6d1e7"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "b04d61015aa0e9f5d911851d25f5920e520bbeaff23c230b22c03ad286fbc276"
     }
   },
   {
@@ -1474,8 +1474,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.364Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.364Z",
-      "digest": "33433bd4f0d8d66256d5a854d5afc9da86973e140ef3d694866c6656b8cafaa1"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "da4d6b454e1c15651c75f23d6e238cfde12c746a4fc3f29e485abb63f480d500"
     }
   },
   {
@@ -1497,8 +1497,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.370Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.370Z",
-      "digest": "4ed837c2287dc5b14e3032a8f6af9f9d78f395c7f2d9e945fcde40cd84450950"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "7d5d0d7cef09e27b9a40960de58329a5639e441ee5471945129cc6ac2557556b"
     }
   },
   {
@@ -1520,8 +1520,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.376Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.376Z",
-      "digest": "d43028ad59fa1ba404c745ba0168450699824398095d7df1215cc2885f51da2f"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "cafc4e9a588a8e1af20ef822661640d0a630d3f5bc32ae900a9ad8847d8c2442"
     }
   },
   {
@@ -1543,8 +1543,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.381Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.381Z",
-      "digest": "8ad02117858d43f6211ef1f43a65a09d64c98481f6caeb08c7ad4bf86d90153a"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "b1a2dd45e821e8cdc4781091f9cb4f2c85d655cc6de1a4d949885dadd749a34e"
     }
   },
   {
@@ -1566,8 +1566,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.387Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.387Z",
-      "digest": "d2e59c76e7a9c54f53409f10a536f234f9ada083dcf040415421360021173e30"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "fd6525169af1d44082a4a63f4bf8ad877de3e1285f407ed4fe137c5f21f6a348"
     }
   },
   {
@@ -1580,8 +1580,8 @@
     "sourceVerifiedAt": "2026-11-25T09:06:53.394Z",
     "validation": {
       "mode": "agent-source-analysis",
-      "checkedAt": "2026-11-25T09:06:53.394Z",
-      "digest": "d65210465818cc48edf583f9e05c83704280ee9b036e936b73bfa07df7a3d391"
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "802d812686addff8a392b09b502de39b7089848565e8e2e06f3f4c344a6242df"
     }
   },
   {
@@ -1685,5 +1685,437 @@
     },
     "sourceVerifiedAt": "2026-11-26T01:25:08.869Z",
     "sourceVersion": "v0.9.96"
+  },
+  {
+    "id": "learn-orientation",
+    "route": "/learn/orientation/",
+    "file": "src/content/docs/learn/orientation.md",
+    "sources": [
+      "introduction",
+      "concepts-determinism",
+      "quickstart",
+      "guides-mcp",
+      "readme",
+      "faq",
+      "guides-media"
+    ],
+    "reviewedSources": {
+      "introduction": {
+        "hash": "8da216d35ce54dc6d9d4e7c675bc9596dbd671264112e352064f20ce34e77a1f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/introduction.mdx"
+      },
+      "concepts-determinism": {
+        "hash": "1f75de67a9617b3414c611edc6d098ec9878ccb207590fe2e793ed05d7bd4f6b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/determinism.mdx"
+      },
+      "quickstart": {
+        "hash": "791801ee8d8a02f56104c474afa38d8088d4a4d551963e3f4e872e8dd596391f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/quickstart.mdx"
+      },
+      "guides-mcp": {
+        "hash": "7715cb6870a73f1b5e985eafa5947fcdab5cff8bc757ad60af2074edb4a02c8a",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/mcp.mdx"
+      },
+      "readme": {
+        "hash": "a7e8da609d7a9d0e30825442f2ec80690937306497bff3b4c53a8b99dd4999bb",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "README.md"
+      },
+      "faq": {
+        "hash": "0a6c6f4301251ef9aea48eb87565857c3fbc2a2cb4f15c60529e4c3402248bab",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/faq.mdx"
+      },
+      "guides-media": {
+        "hash": "ba881b3fc9151631705271562c0cbf7016a06ff167efd14f5808e5ada12049b1",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/media.mdx"
+      }
+    },
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "071c6d3a28bca068e3f816f41626027950c4ddc143af3574af3afae72533ad3c"
+    }
+  },
+  {
+    "id": "learn-studio",
+    "route": "/learn/studio/",
+    "file": "src/content/docs/learn/studio.md",
+    "sources": [
+      "studio-app-index",
+      "studio-app-first-video",
+      "studio-app-export",
+      "official-docs-studio-app-workspace"
+    ],
+    "reviewedSources": {
+      "studio-app-index": {
+        "hash": "8245f0dcd4e837138b03dda620555e0188211984297730f6870c58f78893bc5f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/studio-app/index.mdx"
+      },
+      "studio-app-first-video": {
+        "hash": "74a6893707c364c402c25287abbbbec146dbf033c57677c0e1e78ca476afad47",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/studio-app/first-video.mdx"
+      },
+      "studio-app-export": {
+        "hash": "b52eacbceb54b40931676f728dc7c9fa0158b270c095bc7031c13f677c71c4fa",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/export.mdx",
+        "version": "v0.9.94"
+      },
+      "official-docs-studio-app-workspace": {
+        "hash": "6bfe1b05e43152aaf89e6682fa58c15ca884be089a7641a633d71fc0e512020a",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/workspace.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "b57391c319d98145bfa93934c263f09cd43265edab0bbf504ad1175b14bcccff"
+    }
+  },
+  {
+    "id": "learn-capabilities",
+    "route": "/learn/capabilities/",
+    "file": "src/content/docs/learn/capabilities.md",
+    "sources": [
+      "prompting-editing-existing-videos",
+      "studio-app-edit-with-the-agent",
+      "guides-captions-and-recuts",
+      "prompting-captions-catalog",
+      "prompting-media-and-audio",
+      "guides-gsap-animation",
+      "prompting-motion",
+      "concepts-frame-adapters"
+    ],
+    "reviewedSources": {
+      "prompting-editing-existing-videos": {
+        "hash": "ae7bc92cc09b5b229515e11fda8ffda697baebb48321bfdc3f2ebecbba8d7b1b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/editing-existing-videos.mdx"
+      },
+      "studio-app-edit-with-the-agent": {
+        "hash": "49183e0abdf2c4ed77daf006f0ae9c3f93231294c27c12d3488427c90ffb6f53",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/studio-app/edit-with-the-agent.mdx"
+      },
+      "guides-captions-and-recuts": {
+        "hash": "4a7b285ac51f608fd7adba928dabb46532afe13546369d333aec8baba6c17864",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/captions-and-recuts.mdx"
+      },
+      "prompting-captions-catalog": {
+        "hash": "d2f00066d425ba2739e21c7521d02d1a50523ae2e220bba86807f85aa77bd42f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/captions-catalog.mdx"
+      },
+      "prompting-media-and-audio": {
+        "hash": "731f55b8d06031e07c461347c65935d33549bf704cb383b72c1b3f7c9e11a23b",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/media-and-audio.mdx"
+      },
+      "guides-gsap-animation": {
+        "hash": "d63b6cd41ec85e314aced0c5ebb2d45338bc9840c60caa46b48461e7944758d9",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/gsap-animation.mdx"
+      },
+      "prompting-motion": {
+        "hash": "644cb7c7d11c3195010bf30a1c41f4013fec5dea150e4df87eca753478600f27",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/motion.mdx"
+      },
+      "concepts-frame-adapters": {
+        "hash": "7ad3b7e4073bea30d010f3987411f4d1568d11e0558dc01da04643db0bc046d0",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/frame-adapters.mdx"
+      }
+    },
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "e04a82406236c99d595e5263a28c2778f557bca0859cbacbfc3581fcca3f1c92"
+    }
+  },
+  {
+    "id": "learn-mechanisms",
+    "route": "/learn/mechanisms/",
+    "file": "src/content/docs/learn/mechanisms.md",
+    "sources": [
+      "studio-app-first-video",
+      "official-skills-hyperframes",
+      "concepts-compositions",
+      "official-docs-concepts-variables",
+      "concepts-determinism",
+      "studio-app-export"
+    ],
+    "reviewedSources": {
+      "studio-app-first-video": {
+        "hash": "74a6893707c364c402c25287abbbbec146dbf033c57677c0e1e78ca476afad47",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/first-video.mdx",
+        "version": "v0.9.94"
+      },
+      "official-skills-hyperframes": {
+        "hash": "645d215add1c3eb990166aa6788932af432d7402ea0505920a4c4a0fffd7236e",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/hyperframes/SKILL.md",
+        "version": "v0.9.94"
+      },
+      "concepts-compositions": {
+        "hash": "e832ef3df9460857626d8762f16d76d4e4afb0539e1293929718d7d58b0aaeef",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/concepts/compositions.mdx",
+        "version": "v0.9.94"
+      },
+      "official-docs-concepts-variables": {
+        "hash": "01caf6a4694bdc470ecad5bfc21eff11340330c2e7fad5bb90c5306d54d5dc39",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/concepts/variables.mdx",
+        "version": "v0.9.94"
+      },
+      "concepts-determinism": {
+        "hash": "1f75de67a9617b3414c611edc6d098ec9878ccb207590fe2e793ed05d7bd4f6b",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/concepts/determinism.mdx",
+        "version": "v0.9.94"
+      },
+      "studio-app-export": {
+        "hash": "b52eacbceb54b40931676f728dc7c9fa0158b270c095bc7031c13f677c71c4fa",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/studio-app/export.mdx",
+        "version": "v0.9.94"
+      }
+    },
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "154817a184b5c1449a85a012c5cb9539bfb6ebde1d39b85054a3362d4ed5f29e"
+    }
+  },
+  {
+    "id": "learn-skills",
+    "route": "/learn/skills/",
+    "file": "src/content/docs/learn/skills.md",
+    "sources": [
+      "guides-skills",
+      "guides-plugins",
+      "catalog-index",
+      "official-skills-manifest",
+      "official-skills-hyperframes",
+      "official-skills-figma"
+    ],
+    "reviewedSources": {
+      "guides-skills": {
+        "hash": "76b27b2e8ff30ac891f5db62abe1530d857ee274ecc4dee5e5f9b6f9c740d076",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/guides/skills.mdx",
+        "blobSha": "0a6ef50ddec3569475e17d80b656fdc4dfc2a5ea",
+        "version": "v0.9.94"
+      },
+      "guides-plugins": {
+        "hash": "ccdc0b87f690f08cffb6364d7b166067ec8b1a03c72e18a7c05a2de43c809a5b",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/guides/plugins.mdx",
+        "blobSha": "9c1c726c9c4781e8ff7e4bb1661270896cc7bddf",
+        "version": "v0.9.94"
+      },
+      "catalog-index": {
+        "hash": "04be5387bcf3cd11186315c6f58d7221772994eaa116e86c12499cab08be2797",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "docs/catalog/index.mdx",
+        "blobSha": "7c49fbdaf76b50e702f672a37090424556c24136",
+        "version": "v0.9.94"
+      },
+      "official-skills-manifest": {
+        "hash": "70ab094ca5a2e6461b35472efbe2c63c43e498dfa3ed2cc2942c464c7dae5cb2",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills-manifest.json",
+        "blobSha": "13ee3ec94aaed786a7f1bd9023a1b17c06b52ba6",
+        "version": "v0.9.94"
+      },
+      "official-skills-hyperframes": {
+        "hash": "645d215add1c3eb990166aa6788932af432d7402ea0505920a4c4a0fffd7236e",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/hyperframes/SKILL.md",
+        "version": "v0.9.94"
+      },
+      "official-skills-figma": {
+        "hash": "0696b95e7c947f18d6860f6a2983d4f252fe8c8068bbc005b3a42f28e3ab31b6",
+        "commit": "28d16a3e4de42d3235efeeebf4681d9710773b7e",
+        "path": "skills/figma/SKILL.md",
+        "version": "v0.9.94"
+      }
+    },
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "c0ff0290718a7cb60d91d5befead9a933360ff3cdae0e92819e58d3c9ef42e75"
+    }
+  },
+  {
+    "id": "learn-workflows",
+    "route": "/learn/workflows/",
+    "file": "src/content/docs/learn/workflows.md",
+    "sources": [
+      "prompting-overview",
+      "prompting-examples",
+      "guides-product-launch-video",
+      "concepts-compositions",
+      "guides-faceless-explainer"
+    ],
+    "reviewedSources": {
+      "prompting-overview": {
+        "hash": "b05be8d1838ae82a0273c0637d44ffed95a8ecb6776eac700a0c17141a1bab8e",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/overview.mdx"
+      },
+      "prompting-examples": {
+        "hash": "7ecf1a3ee6baabd87bf507c37c17981dac3863995d61a6afeac0fc1ccfdf6994",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/examples.mdx"
+      },
+      "guides-product-launch-video": {
+        "hash": "4aa089bf8b06be532ba339631a1a08c673cdfd1856cf0105893d181fbd324713",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/product-launch-video.mdx"
+      },
+      "concepts-compositions": {
+        "hash": "e832ef3df9460857626d8762f16d76d4e4afb0539e1293929718d7d58b0aaeef",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/concepts/compositions.mdx"
+      },
+      "guides-faceless-explainer": {
+        "hash": "0281773ebcfe57b78f9077b540707eb7ed4c54ed19a37fba9d02b8716b6d1f4a",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/faceless-explainer.mdx"
+      }
+    },
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "c654e19ed82b262664128d3796ea16a8fe39e58fae3814ffdb14c91705d213cd"
+    }
+  },
+  {
+    "id": "learn-problems",
+    "route": "/learn/problems/",
+    "file": "src/content/docs/learn/problems.md",
+    "sources": [
+      "help",
+      "developers-cli",
+      "guides-performance",
+      "guides-captions-and-recuts",
+      "prompting-captions-catalog",
+      "quickstart"
+    ],
+    "reviewedSources": {
+      "help": {
+        "hash": "0d90c3e34af3a0e483fdd0a4a8847c80e8ea62ddfb3278d13c35d4cd92b5beb7",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/help.mdx"
+      },
+      "developers-cli": {
+        "hash": "8c1ee3be6a8e8daf486f82be08ff5e969309173ea51baef96a07724a05d21e10",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/developers/cli.mdx"
+      },
+      "guides-performance": {
+        "hash": "3bb0551054850fee38688597f1a7ecca3116e3dac5db98f4bb0a804704d002a3",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/performance.mdx"
+      },
+      "guides-captions-and-recuts": {
+        "hash": "4a7b285ac51f608fd7adba928dabb46532afe13546369d333aec8baba6c17864",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/captions-and-recuts.mdx"
+      },
+      "prompting-captions-catalog": {
+        "hash": "d2f00066d425ba2739e21c7521d02d1a50523ae2e220bba86807f85aa77bd42f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/prompting/captions-catalog.mdx"
+      },
+      "quickstart": {
+        "hash": "791801ee8d8a02f56104c474afa38d8088d4a4d551963e3f4e872e8dd596391f",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/quickstart.mdx"
+      }
+    },
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "ba0ca0c34c69b2348752492474d439e95353bc62009a0c6ee6b81e6d312870dc"
+    }
+  },
+  {
+    "id": "learn-updates",
+    "route": "/learn/updates/",
+    "file": "src/content/docs/learn/updates.md",
+    "sources": [
+      "changelog",
+      "product-updates"
+    ],
+    "reviewedSources": {
+      "changelog": {
+        "hash": "110c119c969da5b1693902bce54c3bdf28496d544e7ac2901b939db8b0350872",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/changelog.mdx"
+      },
+      "product-updates": {
+        "hash": "0a2bc6265a9b481ed65dc698dfd83d4d3d3815a5de4dcac56eea350b0b048bdc",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/product-updates.mdx"
+      }
+    },
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "8ba32d3b17c613e5f06ffbf7e97eb085b2fa812de0cb4ac6d12d6c85ba2d71fd"
+    }
+  },
+  {
+    "id": "learn-community",
+    "route": "/learn/community/",
+    "file": "src/content/docs/learn/community.md",
+    "sources": [
+      "docs",
+      "changelog",
+      "guides-skills",
+      "license"
+    ],
+    "reviewedSources": {
+      "docs": {
+        "hash": "3397f737a1556fb7c61958cb68e4e91e2d5790d158746cf1822df6505d576fc7",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/docs.json"
+      },
+      "changelog": {
+        "hash": "110c119c969da5b1693902bce54c3bdf28496d544e7ac2901b939db8b0350872",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/changelog.mdx"
+      },
+      "guides-skills": {
+        "hash": "76b27b2e8ff30ac891f5db62abe1530d857ee274ecc4dee5e5f9b6f9c740d076",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "docs/guides/skills.mdx"
+      },
+      "license": {
+        "hash": "be77f24c776c8bfea96d3f21adb6f397448d971836744eb2bf6cf9f29bfb9ad3",
+        "commit": "dcdb181896f133cb36b0ba899999361fe4da325e",
+        "path": "LICENSE"
+      }
+    },
+    "validation": {
+      "mode": "agent-source-analysis",
+      "checkedAt": "2026-11-26T02:10:44.957Z",
+      "digest": "0428ed26c805e0f3ea6114d484b6acd2806c1467f1d9603547b880462136936d"
+    }
   }
 ]
