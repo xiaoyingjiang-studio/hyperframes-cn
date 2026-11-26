@@ -1595,5 +1595,95 @@
       "checkedAt": "2026-11-25T09:14:12.048Z",
       "digest": "c40f1f70d52ef17541e8943dbbc31211e8914f3d512622c793c4ac1878647a8b"
     }
+  },
+  {
+    "id": "capabilities-4k-rendering",
+    "route": "/capabilities/4k-rendering/",
+    "file": "src/content/docs/capabilities/4k-rendering.md",
+    "sources": [
+      "official-docs-guides-4k-rendering"
+    ],
+    "reviewedSources": {
+      "official-docs-guides-4k-rendering": {
+        "hash": "51f476f4e2eb7b6fcee813fee15f8732ca7c1a2bd2e3f42fbd3b7909b0892174",
+        "commit": "230e5cd5a64ef9ec250105edf1c3df27ac98b0c8",
+        "path": "docs/guides/4k-rendering.mdx",
+        "version": "v0.9.96"
+      }
+    },
+    "validation": {
+      "mode": "independent-model-and-evidence",
+      "checkedAt": "2026-11-26T01:25:08.869Z",
+      "digest": "82118f26ebd465b578ce97f2c732c4386aeb37799a8a32cd09beea23e62f4b7e",
+      "evidence": [
+        {
+          "sourceId": "official-docs-guides-4k-rendering",
+          "path": "docs/guides/4k-rendering.mdx",
+          "quote": "Render a HyperFrames video in 4K (3840×2160): author at 4K, or supersample an existing composition at render time.",
+          "sections": [
+            "answer",
+            "先选路径：直接以 4K 创作，还是渲染时放大"
+          ]
+        },
+        {
+          "sourceId": "official-docs-guides-4k-rendering",
+          "path": "docs/guides/4k-rendering.mdx",
+          "quote": "npx hyperframes render --resolution 4k --output final-4k.mp4",
+          "sections": [
+            "渲染已有项目为 4K"
+          ]
+        },
+        {
+          "sourceId": "official-docs-guides-4k-rendering",
+          "path": "docs/guides/4k-rendering.mdx",
+          "quote": "npx hyperframes init my-video --resolution 4k",
+          "sections": [
+            "从 4K 画布开始创作"
+          ]
+        },
+        {
+          "sourceId": "official-docs-guides-4k-rendering",
+          "path": "docs/guides/4k-rendering.mdx",
+          "quote": "HTML text, SVG, CSS shapes, gradients | Re-rasterized at 4K",
+          "sections": [
+            "哪些内容会真正变清晰"
+          ]
+        },
+        {
+          "sourceId": "official-docs-guides-4k-rendering",
+          "path": "docs/guides/4k-rendering.mdx",
+          "quote": "the preset has the same aspect ratio as the composition;",
+          "sections": [
+            "使用条件与限制"
+          ]
+        },
+        {
+          "sourceId": "official-docs-guides-4k-rendering",
+          "path": "docs/guides/4k-rendering.mdx",
+          "quote": "-show_entries stream=width,height final-4k.mp4",
+          "sections": [
+            "检查输出文件"
+          ]
+        },
+        {
+          "sourceId": "official-docs-guides-4k-rendering",
+          "path": "docs/guides/4k-rendering.mdx",
+          "quote": "4K captures four times as many pixels as 1080p, so expect more render time, memory use, and output data.",
+          "sections": [
+            "时间与资源预期"
+          ]
+        },
+        {
+          "sourceId": "official-docs-guides-4k-rendering",
+          "path": "docs/guides/4k-rendering.mdx",
+          "quote": "[Render from the command line](/guides/rendering)",
+          "sections": [
+            "学习路径"
+          ]
+        }
+      ]
+    },
+    "sourceVerifiedAt": "2026-11-26T01:25:08.869Z",
+    "sourceVersion": "v0.9.96"
   }
 ]
