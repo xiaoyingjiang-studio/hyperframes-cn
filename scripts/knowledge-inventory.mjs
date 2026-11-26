@@ -1,6 +1,6 @@
 import { collect, publishedRelease, diffIndex, preserveIndexBaseline } from './lib/upstream.mjs';
 import { json, save, request, hash } from './lib/io.mjs';
-import { sections, mechanisms, studioTopics, skillEntity, sourceId, legacySection, connectKnowledge } from './lib/knowledge-policy.mjs';
+import { sections, mechanisms, studioTopics, skillEntity, sourceId, legacySection, connectKnowledge, capabilityTopics } from './lib/knowledge-policy.mjs';
 import { archiveSnapshot } from './lib/snapshots.mjs';
 import { readFile } from 'node:fs/promises';
 import matter from 'gray-matter';
@@ -19,12 +19,7 @@ export async function inventory({ fetcher = request } = {}) {
   const names = Object.keys(manifest.skills).sort();
   const entities = [...mechanisms, ...studioTopics, ...names.map(skillEntity)];
   // Discover official task guides and capabilities, instead of waiting for a hand-maintained mapping.
-  const knownPaths = new Set([...entities.flatMap(e => e.paths), ...pages.flatMap(p => p.sources.map(id => registry.sources.find(s => s.id === id)?.path))]);
-  for (const entry of seed.index.filter(x => /^docs\/guides\/[^/]+\.mdx$/.test(x.path))) {
-    if (knownPaths.has(entry.path)) continue;
-    const slug = entry.path.split('/').at(-1).replace('.mdx', '');
-    entities.push({ id: `capability-${slug}`, articleId: `capabilities-${slug}`, file: `src/content/docs/capabilities/${slug}.md`, route: `/capabilities/${slug}/`, title: slug, question: `怎样使用 ${slug} 完成视频创作？`, type: 'capability', section: 'capabilities', paths: [entry.path], entries: ['cli-agent'], related: [] });
-  }
+  entities.push(...capabilityTopics(seed.index, pages, previous.entities, registry, entities));
   const treePaths = new Set(seed.index.map(x => x.path));
   for (const entity of entities) {
     entity.sources = entity.paths.map(path => {
@@ -37,7 +32,7 @@ export async function inventory({ fetcher = request } = {}) {
     entity.related = old?.related || entity.related;
     entity.title = old?.title || entity.title;
     entity.question = old?.question || entity.question;
-    if (old?.automation === false) entity.automation = false;
+    if (old?.automation !== undefined) entity.automation = old.automation;
   }
   for (const page of pages) if (!entities.some(e => e.articleId === page.id)) {
     const old = previous.entities.find(e => e.articleId === page.id);

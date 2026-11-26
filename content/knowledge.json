@@ -1185,6 +1185,34 @@
       ]
     },
     {
+      "id": "capability-4k-rendering",
+      "articleId": "capabilities-4k-rendering",
+      "file": "src/content/docs/capabilities/4k-rendering.md",
+      "route": "/capabilities/4k-rendering/",
+      "title": "用 HyperFrames 输出 4K 视频：两种路径与检查要点",
+      "question": "怎样用 HyperFrames 的 4K 渲染能力完成视频创作，并确认输出确实是 4K？",
+      "type": "capability",
+      "section": "capabilities",
+      "paths": [
+        "docs/guides/4k-rendering.mdx"
+      ],
+      "entries": [
+        "cli-agent"
+      ],
+      "related": [],
+      "sources": [
+        "official-docs-guides-4k-rendering"
+      ],
+      "available": true,
+      "automation": true,
+      "relations": [
+        {
+          "type": "applies-to",
+          "target": "product-hyperframes"
+        }
+      ]
+    },
+    {
       "id": "capability-authentication",
       "articleId": "capabilities-authentication",
       "file": "src/content/docs/capabilities/authentication.md",
@@ -2524,34 +2552,6 @@
           "target": "knowledge"
         }
       ]
-    },
-    {
-      "id": "capability-4k-rendering",
-      "articleId": "capabilities-4k-rendering",
-      "file": "src/content/docs/capabilities/4k-rendering.md",
-      "route": "/capabilities/4k-rendering/",
-      "title": "用 HyperFrames 输出 4K 视频：两种路径与检查要点",
-      "question": "怎样用 HyperFrames 的 4K 渲染能力完成视频创作，并确认输出确实是 4K？",
-      "type": "capability",
-      "section": "capabilities",
-      "paths": [
-        "docs/guides/4k-rendering.mdx"
-      ],
-      "entries": [
-        "cli-agent"
-      ],
-      "related": [],
-      "sources": [
-        "official-docs-guides-4k-rendering"
-      ],
-      "available": true,
-      "relations": [
-        {
-          "type": "applies-to",
-          "target": "product-hyperframes"
-        }
-      ],
-      "automation": true
     }
   ],
   "preview": {

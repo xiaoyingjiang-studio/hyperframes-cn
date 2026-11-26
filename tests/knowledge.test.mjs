@@ -4,6 +4,7 @@ import { eligibleQueue, failedTask, createVerifiedArticle, validateEvidence, cla
 import { assertContentPath, assertStableRoutes, assertHead, deployWithRecovery, assertPublishedUnit } from '../scripts/lib/publishing.mjs';
 import { Budget } from '../scripts/lib/ai.mjs';
 import { publishedRelease, extractDependencies, collect, preserveIndexBaseline } from '../scripts/lib/upstream.mjs';
+import { capabilityTopics } from '../scripts/lib/knowledge-policy.mjs';
 const quote = 'The preview and export use the same project and assets.';
 const snapshots = [{ id: 'source', files: [{ path: 'docs/test.md', text: quote }] }];
 const draft = { body: '依据项目与素材检查画面和导出。'.repeat(15) + '\n\n## 检查结果\n\n逐项比较实际文件。', answer: '依据同一份项目与素材比较预览和导出，检查内容、时序与声音。这里只说明检查方法，不能把未执行的导出写成已经验证成功。', summary: '说明创作检查方法' };
@@ -24,6 +25,16 @@ test('主分支仅有无关提交时不刷新内容基线，来源修改或移�
     const changed = { commit: 'new', entries: [entry] };
     assert.deepEqual(preserveIndexBaseline(previous, changed), changed);
   }
+});
+
+test('新增能力发布后再次盘点保留同一实体与顺序，不为已有旧文制造重复主题', () => {
+  const index = ['4k-rendering', 'authentication', 'media'].map(name => ({ path: `docs/guides/${name}.mdx` }));
+  const registry = { sources: [{ id: 'four-k', path: index[0].path }, { id: 'media', path: index[2].path }] };
+  const pages = [{ id: 'features-media', sources: ['media'] }];
+  const initial = capabilityTopics(index, pages, [], registry);
+  assert.deepEqual(initial.map(e => e.id), ['capability-4k-rendering', 'capability-authentication']);
+  const published = [...pages, { id: initial[0].articleId, sources: ['four-k'] }];
+  assert.deepEqual(capabilityTopics(index, published, initial, registry), initial);
 });
 test('写作和核验是独立请求，拒绝只凭生成者自评发布', async () => {
   const roles = [];

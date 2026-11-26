@@ -5,7 +5,7 @@ import health from '../../content/sync-status.json';
 import pages from '../../content/pages.json';
 import discovery from '../../content/discovery.json';
 import knowledge from '../../content/knowledge.json';
-import { applicability } from '../lib/content-metadata.mjs';
+import { applicability, entryNames } from '../lib/content-metadata.mjs';
 const entry = Astro.locals.starlightRoute.entry;
 const data = entry.data;
 const records = registry.sources.filter(s => data.sources?.includes(s.id));
@@ -17,7 +17,6 @@ const sourceUrl = (record: (typeof registry.sources)[number]) => {
 const pending = (health.pendingPageIds as string[]).includes(data.contentId);
 const intent = discovery.pages.find(p => p.id === data.contentId);
 const entity = knowledge.entities.find(e => e.articleId === data.contentId);
-const entryNames: Record<string, string> = { studio: 'Studio 桌面应用', 'cli-agent': 'CLI / Agent', 'browser-editor': '浏览器编辑器' };
 const validation = manifest && 'validation' in manifest ? manifest.validation as { mode: string; checkedAt: string } : undefined;
 const sourceVersion = manifest && 'sourceVersion' in manifest ? manifest.sourceVersion : undefined;
 const appliesTo = applicability(data.appliesTo, sourceVersion);
