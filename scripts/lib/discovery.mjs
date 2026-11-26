@@ -236,7 +236,7 @@ export function toMarkdown(html, url) {
         Array.from(row.childNodes)
           .filter((cell) => ["TH", "TD"].includes(cell.nodeName))
           .map((cell) =>
-            cell.textContent.trim().replace(/\|/g, "\\|").replace(/\n/g, " "),
+            td.turndown(cell.innerHTML).trim().replace(/\|/g, "\\|").replace(/\n/g, " "),
           ),
       );
       if (!rows.length) return "";
