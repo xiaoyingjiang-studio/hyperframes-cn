@@ -42,6 +42,9 @@ importers:
       hyperframes:
         specifier: 0.9.92
         version: 0.9.92(@types/node@26.6.7)
+      mdast-util-from-markdown:
+        specifier: 2.1.0
+        version: 2.1.0
       turndown:
         specifier: 7.2.2
         version: 7.2.2

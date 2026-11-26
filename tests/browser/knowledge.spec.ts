@@ -12,7 +12,7 @@ test('知识入口连接目标、问题与机制，正式 skills 目录完整', 
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
   await page.screenshot({ path: `artifacts/qa/knowledge-${info.project.name}.png`, fullPage: true });
 });
-test('机制与技能分别标注入口、来源与实测边界', async ({ page }, info) => {
+test('机制与技能分别标注入口、来源与实测边界', async ({ page, request }, info) => {
   await page.goto('/mechanisms/targeted-edits/');
   await expect(page.locator('.knowledge-context')).toContainText('创作机制');
   await expect(page.locator('.source-meta')).toContainText('固定来源整理');
@@ -21,6 +21,15 @@ test('机制与技能分别标注入口、来源与实测边界', async ({ page 
   await page.goto('/skills/slideshow/');
   await expect(page.locator('.sl-markdown-content')).toContainText('不是 MP4');
   await expect(page.locator('.source-meta a').first()).toHaveAttribute('href', /\/blob\/[a-f0-9]{40}\//);
+  const manifest = await (await request.get('/content-manifest.json')).json();
+  const verified = manifest.pages.find((p: { id: string }) => p.id === 'mechanisms-checks');
+  await page.goto('/mechanisms/checks/');
+  await expect(page.locator('.source-meta')).toContainText(`来源版本：${verified.sourceVersion}`);
+  await expect(page.locator('.source-meta')).not.toContainText('官方公开资料');
+  expect(verified.appliesTo).not.toContain('官方公开资料');
+  const markdown = await (await request.get('/content/mechanisms-checks.md')).text();
+  expect(markdown).toContain(`来源版本：${verified.sourceVersion}`);
+  await page.screenshot({ path: `artifacts/qa/mechanism-verified-${info.project.name}.png`, fullPage: true });
 });
 test('受控案例的 Markdown 正文与播放器同时可用', async ({ page, request }) => {
   await page.goto('/showcase/product-intro/');

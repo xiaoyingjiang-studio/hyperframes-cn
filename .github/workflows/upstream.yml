@@ -29,6 +29,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # Resolve the protected branch after the concurrency wait, then pin its
+          # actual SHA in batch.base for every later check and merge.
+          ref: main
           fetch-depth: 0
       - uses: pnpm/action-setup@v4
         with:

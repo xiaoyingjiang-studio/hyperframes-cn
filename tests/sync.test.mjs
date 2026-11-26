@@ -41,6 +41,12 @@ test('候选稿拒绝 HTML、模块代码和不安全链接',()=>{
  const prefix='这是一篇正文。'.repeat(30);for(const value of [`${prefix}\n<script>alert(1)</script>`,`${prefix}\nimport fs from "fs";`,`${prefix}[x](javascript:alert)`])assert.throws(()=>validateDraft(value));
  assert.equal(validateDraft(prefix),prefix);
 });
+
+test('Markdown 行内与围栏中的标签仅作代码示例，不掩盖正文 HTML',()=>{
+ const prefix='这是不会执行的代码说明。'.repeat(20);
+ for(const example of ['`<div data-width="3840">`','~~~html\n<video src="local.mp4"></video>\n~~~','``包含 ` 的 <div> 标签``'])assert.equal(validateDraft(prefix+'\n\n'+example),prefix+'\n\n'+example);
+ for(const example of ['`普通代码`\n<script>alert(1)</script>','`未闭合\n\n<script>alert(1)</script>\n\n`','~~~html\n<div>示例</div>\n~~~\n<script>alert(1)</script>'])assert.throws(()=>validateDraft(prefix+'\n\n'+example));
+});
 test('命令校验允许官方新命令，拒绝模型杜撰参数',()=>{
  assert.deepEqual(checkCommands('npx hyperframes check\nnpx hyperframes render --invented','npx hyperframes lint','npx hyperframes check'),['npx hyperframes render --invented']);
 });

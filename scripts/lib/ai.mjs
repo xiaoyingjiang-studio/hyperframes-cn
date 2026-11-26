@@ -1,3 +1,5 @@
+import { fromMarkdown } from 'mdast-util-from-markdown';
+
 export class DraftError extends Error { constructor(message, fatal = false) { super(message); this.fatal = fatal; } }
 export function configured(env = process.env) { return !!(env.AI_ENDPOINT && env.AI_MODEL && env.AI_API_KEY); }
 export function validateAnswer(answer) {
@@ -6,8 +8,17 @@ export function validateAnswer(answer) {
 }
 export function validateDraft(body) {
   if (typeof body !== 'string' || body.length < 120) throw new DraftError('候选内容过短或缺少正文');
-  const prose = body.replace(/```[\s\S]*?```/g, '');
-  if (/^---\s*\n/.test(body) || /<\/?[a-zA-Z][^>]*>|^\s*(import|export)\s|\{\s*(?:process|global|await)\b/m.test(prose)) throw new DraftError('仅接受 Markdown 正文，拒绝 MDX、HTML 与模块代码');
+  const characters = body.split('');
+  const visit = node => {
+    if (node.type === 'code' || node.type === 'inlineCode') {
+      const start = node.position?.start.offset, end = node.position?.end.offset;
+      if (Number.isInteger(start) && Number.isInteger(end)) for (let i = start; i < end; i++) if (characters[i] !== '\n') characters[i] = ' ';
+    } else for (const child of node.children || []) visit(child);
+  };
+  visit(fromMarkdown(body));
+  const prose = characters.join('');
+  const unsafe = prose.match(/<\/?[a-zA-Z][^>]*>|^\s*(import|export)\s|\{\s*(?:process|global|await)\b/m);
+  if (/^---\s*\n/.test(body) || unsafe) throw new DraftError('仅接受 Markdown 正文，拒绝 MDX、HTML 与模块代码：' + (unsafe?.[0].trim().slice(0, 100) || 'frontmatter'));
   if (/\]\(\s*(?:javascript:|data:)/i.test(body)) throw new DraftError('候选内容包含不安全链接');
   return body;
 }
