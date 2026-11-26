@@ -24,15 +24,27 @@ test('真实脚本闭环：新增、更新、失败隔离与第二次幂等运�
     await write('run.mjs', `
       import {syncKnowledge} from './scripts/knowledge-sync.mjs';
       import {json} from './scripts/lib/io.mjs';
+      import assert from 'node:assert/strict';
       const quote='The same project and assets are checked before publishing.';
       const snapshot={id:'source',hash:'fresh',commit:'b'.repeat(40),path:'docs/a.md',files:[{path:'docs/a.md',text:quote}]};
       let calls=0;
       const loadInventory=async()=>{const previous=await json('content/knowledge.json',{entities:[]});return{pages:await json('content/pages.json'),knowledge:{release:{tag:'v1.0.0'},entities:['good','failed','new'].map(id=>({id,articleId:id,title:id,question:id,type:'tutorial',file:'src/content/docs/'+id+'.md',route:'/'+id+'/',sources:['source'],entries:['cli-agent'],related:[],...previous.entities.find(e=>e.id===id)}))},observed:{commit:snapshot.commit,sources:{source:snapshot}}};};
       const request=async(input,{role})=>{calls++;if(role==='verify')return{supported:input.entity.id!=='failed',issues:input.entity.id==='failed'?['来源冲突']:[],evidence:[{sourceId:'source',path:'docs/a.md',quote,sections:['answer','检查结果']}]};return{title:'怎样检查项目与素材',question:'怎样在发布前检查同一项目与素材？',body:'依据同一项目与素材执行检查，明确适用条件与限制。'.repeat(20)+'\\n\\n## 检查结果\\n\\n检查画面和声音。',answer:'依据同一份项目与素材比较结果，检查内容、时序与声音。这里说明检查方法，不能把未执行的操作写成已经验证成功。',summary:'测试夹具更新'};};
       process.argv.push('--apply');
+      process.env.GITHUB_EVENT_NAME='workflow_dispatch';process.env.KNOWLEDGE_TARGET='new';
+      await syncKnowledge({loadInventory,request});
+      const targeted=await json('content/pages.json');
+      assert.equal(targeted.find(p=>p.id==='new').validation.mode,'independent-model-and-evidence');
+      assert.equal(targeted.find(p=>p.id==='good').validation,undefined);
+      delete process.env.KNOWLEDGE_TARGET;
       await syncKnowledge({loadInventory,request});
       const first=calls;await syncKnowledge({loadInventory,request});
       if(calls!==first)throw Error('重复运行不应改写已完成或退避任务');
+      process.env.KNOWLEDGE_TARGET='new';process.env.GITHUB_EVENT_NAME='schedule';
+      await assert.rejects(syncKnowledge({loadInventory,request}),/定向知识验收只能手动/);
+      process.env.GITHUB_EVENT_NAME='workflow_dispatch';process.env.KNOWLEDGE_TARGET='../../not-a-route';
+      await assert.rejects(syncKnowledge({loadInventory,request}),/登记的知识实体/);
+      assert.equal(calls,first);
     `);
     await promisify(execFile)(process.execPath, ['run.mjs'], { cwd: directory, env: { ...process.env, GITHUB_REPOSITORY: '', GITHUB_TOKEN: '' }, windowsHide: true, timeout: 20000 });
     const result = await read('content/pages.json');

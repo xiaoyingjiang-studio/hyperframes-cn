@@ -59,7 +59,7 @@
       "firstSeen": "2026-11-25T09:28:21.624Z",
       "attempts": 2,
       "error": "独立核验未通过：正文章节或摘要没有证据映射",
-      "nextAttemptAt": "2026-11-27T10:13:17.982Z"
+      "retryReason": "evidence-contract-fixed"
     },
     {
       "id": "mechanism-references",

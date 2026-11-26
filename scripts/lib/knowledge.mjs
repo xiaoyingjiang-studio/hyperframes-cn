@@ -25,16 +25,17 @@ export function failedTask(task, reason, now = new Date()) {
 }
 export function validateEvidence(evidence, snapshots, body, answer) {
   if (!Array.isArray(evidence) || !evidence.length) throw new Error('缺少具体来源证据');
-  const headings = [...body.matchAll(/^## (.+)$/gm)].map(m => m[1]);
+  const headings = [...body.matchAll(/^## (.+)$/gm)].map(m => m[1].trim());
   const covered = new Set();
   for (const item of evidence) {
     const snapshot = snapshots.find(s => s.id === item.sourceId);
     const source = snapshot?.files.find(f => f.path === item.path);
     if (typeof item.quote !== 'string' || item.quote.length < 16 || !source?.text.includes(item.quote)) throw new Error('证据引文不在固定来源中');
     if (!Array.isArray(item.sections)) throw new Error('证据缺少对应章节');
-    for (const section of item.sections) covered.add(section);
+    for (const section of item.sections) if (typeof section === 'string') covered.add(section.trim().replace(/^##\s+/, ''));
   }
-  if (!headings.length || headings.some(h => !covered.has(h)) || !covered.has('answer')) throw new Error('正文章节或摘要没有证据映射');
+  const missing = ['answer', ...headings].filter(h => !covered.has(h));
+  if (!headings.length || missing.length) throw new Error('正文章节或摘要没有证据映射：' + missing.join('、') + '；实际映射：' + [...covered].join('、'));
   validateDraft(body); validateAnswer(answer);
 }
 export async function requestKnowledge(input, { env = process.env, fetcher = fetch, budget = new Budget(env), role = 'write' } = {}) {
@@ -84,7 +85,8 @@ export async function createVerifiedArticle(input, options = {}) {
       if (unknown.length) throw new Error('候选包含未经来源确认的命令');
     } catch (error) { issues.push(error.message); }
     if (!issues.length) {
-      const verdict = await call({ ...context, candidate: draft }, { ...options, role: 'verify' });
+      const requiredSections = ['answer', ...[...draft.body.matchAll(/^## (.+)$/gm)].map(match => match[1].trim())];
+      const verdict = await call({ ...context, candidate: draft, requiredSections, evidenceContract: 'evidence[].sections 必须逐字使用 requiredSections 中的字符串；摘要用固定键 answer。逐项覆盖全部 requiredSections，每项填写支持该部分结论的实际来源引文，不能用自行概括的章节名、段落序号或中文“摘要”替代。' }, { ...options, role: 'verify' });
       options.onVerdict?.(verdict);
       if (verdict.supported === true && Array.isArray(verdict.issues) && verdict.issues.length === 0) {
         try {

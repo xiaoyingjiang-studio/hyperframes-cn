@@ -12,6 +12,7 @@ const input = { current: '旧稿', currentAnswer: '旧摘要', snapshots };
 
 test('来源证据必须真实存在且覆盖摘要与每个章节', () => {
   assert.doesNotThrow(() => validateEvidence(evidence, snapshots, draft.body, draft.answer));
+  assert.doesNotThrow(() => validateEvidence([{ ...evidence[0], sections: ['answer', '## 检查结果'] }], snapshots, draft.body, draft.answer));
   for (const records of [[], [{ ...evidence[0], quote: '模型编造的英文引用并不在任何实际的来源文件中' }], [{ ...evidence[0], sections: ['answer'] }]]) assert.throws(() => validateEvidence(records, snapshots, draft.body, draft.answer));
 });
 
@@ -26,7 +27,7 @@ test('主分支仅有无关提交时不刷新内容基线，来源修改或移�
 });
 test('写作和核验是独立请求，拒绝只凭生成者自评发布', async () => {
   const roles = [];
-  const result = await createVerifiedArticle(input, { request: async (_, { role }) => { roles.push(role); return role === 'write' ? draft : { supported: true, issues: [], evidence }; } });
+  const result = await createVerifiedArticle(input, { request: async (payload, { role }) => { roles.push(role); if (role === 'verify') assert.deepEqual(payload.requiredSections, ['answer', '检查结果']); return role === 'write' ? draft : { supported: true, issues: [], evidence }; } });
   assert.deepEqual(roles, ['write', 'verify']); assert.equal(result.mode, 'independent-model-and-evidence');
   await assert.rejects(createVerifiedArticle(input, { request: async (_, { role }) => role === 'write' ? draft : { supported: true, issues: [], evidence: [] } }), /证据/);
 });

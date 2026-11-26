@@ -91,6 +91,12 @@
 
 第四批 [45591603954](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/45591603954) 实际在预算内完成了四次请求，但正文仍为 0 篇合格：独立核验器把“支持、可接受”的一般说明也放入 issues，按保守规则继续拦截。后续明确 issues 只列阻断项、notes 存一般备注；supported=true、空 issues、真实引文的放行条件保持不变。仅解除受此约定歧义影响的 mechanism-checks 任务退避，以便对修正进行真实复检，不推进该页来源基线。
 
+## 2026-11-26：补齐章节映射与定向新增验收入口
+
+第五批 [45592653837](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/45592653837) 中独立核验返回支持且无阻断问题，但章节证据映射不完整，确定性检查继续保留旧正文；自动 PR #19、合并与生产发布均成功。正文仍不能记作验收完成。
+
+后续将实际二级标题与固定摘要键 answer 作为 requiredSections 直接传给核验器，要求逐字覆盖；只规范可选的 Markdown 标题前缀，不补造任何证据关联。仅解除 mechanism-checks 的这项映射退避进行复检，来源基线不变。手动 entity 输入用于指定已登记主题，验证新增页面；不能指定任意路径，定时任务不接受此选择，剩余队列、预算及所有发布检查保持。
+
 ## 后续记录模板
 
 ```text
