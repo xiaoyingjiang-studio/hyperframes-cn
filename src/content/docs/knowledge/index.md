@@ -108,3 +108,17 @@ verification: 基于固定官方资料整理并执行结构与来源检查；未
 ## 来源与持续建设
 
 页面保留具体来源、适用入口与验证范围。自动化会跟踪正式版本、发现知识缺口，并在核验通过后更新；失败项保留旧版并自动重试。未发布能力单列到前瞻，不混入正式可用性承诺。历史实测仍只适用于对应项目和环境。更多信息见[来源与维护方式](/community/sources/)。
+
+## 各栏目从这里开始
+
+第一次进入一个栏目，先看总览，了解它解决什么问题、建议阅读顺序与完成标志。
+
+- [认识与选择总览](/learn/orientation/)
+- [Studio 创作总览](/learn/studio/)
+- [能力地图总览](/learn/capabilities/)
+- [创作机制总览](/learn/mechanisms/)
+- [Skills 与创作工具总览](/learn/skills/)
+- [创作方法总览](/learn/workflows/)
+- [问题与限制总览](/learn/problems/)
+- [更新与前瞻总览](/learn/updates/)
+- [关于与贡献总览](/learn/community/)

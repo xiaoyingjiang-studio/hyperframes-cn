@@ -50,7 +50,11 @@ export async function syncKnowledge({ fetcher, request, loadInventory = inventor
       if (snapshots.some(s => !s || s.deleted || s.error)) throw new Error('来源缺失或已移动修改，无法据此判断功能取消；自动延期');
       const parsed = existing ? existing.proseFile ? { content: raw } : splitDocument(raw) : { content: '' };
       const previousSnapshots = existing ? await Promise.all(existing.sources.map(id => json(`.upstream/snapshots/${id}/${existing.reviewedSources[id]?.hash}.json`, null))) : [];
-      const draft = await createVerifiedArticle({ entity, current: parsed.content, currentAnswer: intent?.answer || '', snapshots, previousSnapshots, purpose: optimize ? '仅优化表达，不改变产品事实、历史核对日期和来源版本；观测只用于编辑优先级，不证明因果。' : '依据正式来源补齐或更新创作知识', signals: task.signals, version: { cli: knowledge.release.tag, desktop: '桌面应用版本需官方另行确认，不沿用 CLI 版本' }, related: entity.related, glossary: await readFile(file('content/glossary.md'), 'utf8') }, { budget, onVerdict: verdict => console.log(`独立核验 ${entity.articleId}：${verdict.supported === true ? '支持' : '需修订'}；${JSON.stringify(verdict.issues || []).slice(0, 1500)}`), ...(request ? { request } : {}) });
+      const related = [...new Set([`learn-${entity.section}`, ...entity.related])].flatMap(id => {
+        const page = pages.find(p => p.id === id);
+        return page ? [{ id, route: page.route, question: discovery.pages.find(p => p.id === id)?.question }] : [];
+      });
+      const draft = await createVerifiedArticle({ entity, current: parsed.content, currentAnswer: intent?.answer || '', snapshots, previousSnapshots, purpose: optimize ? '仅优化表达，不改变产品事实、历史核对日期和来源版本；观测只用于编辑优先级，不证明因果。' : '依据正式来源补齐或更新创作知识', signals: task.signals, version: { cli: knowledge.release.tag, desktop: '桌面应用版本需官方另行确认，不沿用 CLI 版本' }, related, glossary: await readFile(file('content/glossary.md'), 'utf8') }, { budget, onVerdict: verdict => console.log(`独立核验 ${entity.articleId}：${verdict.supported === true ? '支持' : '需修订'}；${JSON.stringify(verdict.issues || []).slice(0, 1500)}`), ...(request ? { request } : {}) });
       if (draft.body.trim().length < 300) throw new Error('正文没有达到完整说明长度');
       if (!existing && [ ['title', 4, 60], ['question', 8, 120] ].some(([key, min, max]) => typeof draft[key] !== 'string' || draft[key].length < min || draft[key].length > max || /[<>\n\r]/.test(draft[key]) || !/\p{Script=Han}/u.test(draft[key]))) throw new Error('新增页面缺少面向创作者的中文标题或主问题');
       for (const match of draft.body.matchAll(/\]\((\/[^)\s#]+)(?:#[^)]*)?\)/g)) {
@@ -65,7 +69,7 @@ export async function syncKnowledge({ fetcher, request, loadInventory = inventor
       if (apply) {
         if (existing) assertDocumentFresh(await readFile(file(existing.proseFile || existing.file), 'utf8'), beforeHash);
         if (hash(JSON.stringify(discovery.pages.find(p => p.id === page.id) || null)) !== candidate.intentBeforeHash) throw new Error('摘要发生修改，拒绝覆盖');
-        const validation = { mode: draft.mode, checkedAt: draft.checkedAt, digest: contentDigest(draft.body, draft.answer, baseline), evidence: draft.evidence };
+        const validation = { mode: draft.mode, checkedAt: draft.checkedAt, digest: contentDigest(draft.body, draft.answer, baseline), evidence: draft.evidence, teaching: draft.teaching };
         if (existing?.proseFile) await writeFile(file(page.proseFile), draft.body + '\n');
         else if (existing) {
           const front = splitDocument(raw).frontmatter.replace(/^status: .+$/m, 'status: "auto-checked"');

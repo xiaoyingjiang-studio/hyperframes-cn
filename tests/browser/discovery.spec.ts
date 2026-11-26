@@ -43,6 +43,8 @@ test("禁用 JavaScript 仍能阅读正文、摘要与固定来源", async ({ br
     "href",
     /\/blob\/[a-f0-9]{40}\//,
   );
+  await page.locator('.article-evidence summary').click();
+  await expect(page.locator('.source-meta a').first()).toBeVisible();
   await context.close();
 });
 test("机器阅读入口返回对应正文、条件和来源", async ({ request }) => {
@@ -76,6 +78,7 @@ test("正文与结构化数据、摘要及规范地址一致", async ({ page }) 
     graph.find((n: Record<string, string>) => n["@type"] === "WebPage").url,
   ).toBe(canonical);
   await expect(page.getByRole("navigation", { name: "面包屑" })).toBeVisible();
+  await page.locator('.article-evidence summary').click();
   await expect(
     page.getByRole("link", { name: "阅读 Markdown" }),
   ).toHaveAttribute("href", "/content/start-cli.md");

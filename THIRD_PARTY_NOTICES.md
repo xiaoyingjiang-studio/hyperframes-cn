@@ -35,6 +35,8 @@
 
 ## 原创媒体
 
+网站 favicon 来自用户提供的产品图标，原图保存在 `assets/brand/product-icon-original.png`，转换范围与再生成方式见 [图标资产说明](assets/brand/README.md)。原图含生成标记并原样保留；派生 ICO 仅裁切留白与缩放。这是本站社区标识，不是 HeyGen 官方素材；本次网站使用不构成其他用途的新增授权。
+
 product-intro、chinese-explainer、data-story 与 footage-edit 的文字、图形、概念界面、示例数字和自产视频由本项目制作。无外部人物素材或音乐。原始项目与实际执行记录在 examples 与 public/examples/verification.json。
 
 Astro、Starlight、Pagefind、TypeScript、Wrangler、Playwright 等依赖通过包管理器安装，各自遵循包内许可，不随本站许可重新授权。

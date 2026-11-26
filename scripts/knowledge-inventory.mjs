@@ -1,6 +1,6 @@
 import { collect, publishedRelease, diffIndex, preserveIndexBaseline } from './lib/upstream.mjs';
 import { json, save, request, hash } from './lib/io.mjs';
-import { sections, mechanisms, studioTopics, skillEntity, sourceId, legacySection, connectKnowledge, capabilityTopics } from './lib/knowledge-policy.mjs';
+import { sections, mechanisms, studioTopics, skillEntity, sourceId, legacySection, connectKnowledge, capabilityTopics, automaticContent } from './lib/knowledge-policy.mjs';
 import { archiveSnapshot } from './lib/snapshots.mjs';
 import { readFile } from 'node:fs/promises';
 import matter from 'gray-matter';
@@ -36,7 +36,7 @@ export async function inventory({ fetcher = request } = {}) {
   }
   for (const page of pages) if (!entities.some(e => e.articleId === page.id)) {
     const old = previous.entities.find(e => e.articleId === page.id);
-    entities.push({ ...old, id: old?.id || page.id, articleId: page.id, file: page.file, route: page.route, title: old?.title || page.id, type: old?.type || 'tutorial', section: old?.section || legacySection(page), sources: page.sources, entries: old?.entries || ['cli-agent'], related: old?.related || [], automation: !page.id.startsWith('community-') && !page.id.startsWith('updates-') && page.id !== 'knowledge' });
+    entities.push({ ...old, id: old?.id || page.id, articleId: page.id, file: page.file, route: page.route, title: old?.title || page.id, type: old?.type || 'tutorial', section: old?.section || legacySection(page), sources: page.sources, entries: old?.entries || ['cli-agent'], related: old?.related || [], automation: automaticContent(page, old) });
   }
   const observed = await collect(registry, { ref: release.tag, fetcher });
   for (const source of registry.sources) {

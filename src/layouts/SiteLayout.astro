@@ -13,7 +13,7 @@ const { title = site.name, description = site.description, studioHome = false } 
   <meta name="robots" content={site.indexable ? 'index,follow' : 'noindex,nofollow'} />
   <link rel="canonical" href={new URL(Astro.url.pathname, site.url)} />
   <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" /><meta property="og:locale" content="zh_CN" /><meta property="og:image" content={new URL(studioHome ? '/media/studio-first-video.jpg' : '/media/product-intro.jpg', site.url)} />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="alternate" type="application/rss+xml" title="HyperFrames 中文指南更新" href="/rss.xml" />
+  <link rel="icon" href="/favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64 128x128 256x256" type="image/x-icon" /><link rel="alternate" type="application/rss+xml" title="HyperFrames 中文指南更新" href="/rss.xml" />
   <slot name="head" />
   <script is:inline>try{const home=document.documentElement.dataset.themeScope==='studio';const theme=localStorage.getItem(home?'hyperframes-studio-theme':'starlight-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme}catch{}</script>
 </head><body class:list={['presentation', { 'studio-home': studioHome }]}><a class="skip-link" href="#main">跳到主要内容</a><header class="header-shell"><Header /></header><main id="main" data-pagefind-body><slot /></main><Footer /></body></html>

@@ -1,5 +1,5 @@
 import { validateDraft } from './ai.mjs';
-import { mechanisms, studioTopics, skillEntity } from './knowledge-policy.mjs';
+import { mechanisms, studioTopics, skillEntity, sectionOverview } from './knowledge-policy.mjs';
 import { contentDigest } from './knowledge.mjs';
 import matter from 'gray-matter';
 
@@ -19,7 +19,7 @@ export function assertStableRoutes(before, after, entities) {
   for (const page of after.filter(page => !before.some(old => old.id === page.id))) {
     const entity = entities.find(entity => entity.articleId === page.id);
     if (!entity || entity.route !== page.route || entity.file !== page.file) throw new Error('新增页面没有知识实体');
-    const fixed = [...mechanisms, ...studioTopics].find(e => e.id === entity.id);
+    const fixed = [...mechanisms, ...studioTopics].find(e => e.id === entity.id) || (entity.id.startsWith('learn-') && entity.type === 'directory' ? sectionOverview(entity.section) : null);
     const expected = fixed || (entity.id.startsWith('skill-') ? skillEntity(entity.id.slice(6)) : entity.id.startsWith('capability-') ? { articleId: `capabilities-${entity.id.slice(11)}`, route: `/capabilities/${entity.id.slice(11)}/`, file: `src/content/docs/capabilities/${entity.id.slice(11)}.md` } : null);
     if (!expected || !/^[a-z0-9-]+$/.test(entity.id) || ['articleId', 'route', 'file'].some(key => expected[key] !== entity[key])) throw new Error('新增地址不符合固定规则');
   }
