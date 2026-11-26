@@ -45,6 +45,19 @@ export function legacySection(page) {
   if (page.id.startsWith('community')) return 'community';
   return 'workflows';
 }
+
+export function capabilityTopics(index, pages, previous, registry, reserved = []) {
+  const knownPaths = new Set([...reserved.flatMap(e => e.paths || []), ...pages.flatMap(p => p.sources.map(id => registry.sources.find(s => s.id === id)?.path))]);
+  return index.filter(e => /^docs\/guides\/[^/]+\.mdx$/.test(e.path)).flatMap(entry => {
+    const slug = entry.path.split('/').at(-1).replace('.mdx', '');
+    const id = `capability-${slug}`;
+    // A published generated page remains a generated topic, rather than moving
+    // into the legacy fallback on the next inventory pass.
+    if (knownPaths.has(entry.path) && !previous.some(e => e.id === id)) return [];
+    return [{ id, articleId: `capabilities-${slug}`, file: `src/content/docs/capabilities/${slug}.md`, route: `/capabilities/${slug}/`, title: slug, question: `怎样使用 ${slug} 完成视频创作？`, type: 'capability', section: 'capabilities', paths: [entry.path], entries: ['cli-agent'], related: [] }];
+  });
+}
+
 export function connectKnowledge(entities) {
   for (const entity of entities) {
     if (entity.articleId === 'overview-what-is-hyperframes') { entity.id = 'product-hyperframes'; entity.type = 'product'; }

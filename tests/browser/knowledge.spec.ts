@@ -30,6 +30,17 @@ test('机制与技能分别标注入口、来源与实测边界', async ({ page,
   const markdown = await (await request.get('/content/mechanisms-checks.md')).text();
   expect(markdown).toContain(`来源版本：${verified.sourceVersion}`);
   await page.screenshot({ path: `artifacts/qa/mechanism-verified-${info.project.name}.png`, fullPage: true });
+  const capability = manifest.pages.find((p: { id: string }) => p.id === 'capabilities-4k-rendering');
+  expect(capability).toBeDefined();
+  await page.goto(capability.route);
+  await expect(page.locator('h1')).toContainText('4K');
+  await expect(page.locator('.source-meta')).toContainText('CLI / Agent');
+  await expect(page.locator('.source-meta')).not.toContainText('cli-agent');
+  await page.screenshot({ path: `artifacts/qa/capability-${info.project.name}.png`, fullPage: true });
+  await page.goto('/');
+  await page.getByRole('button', { name: '搜索网站' }).click();
+  await page.getByRole('searchbox').fill('4K');
+  await expect(page.locator('#search-results a[href*="/capabilities/4k-rendering/"]').first()).toBeVisible();
 });
 test('受控案例的 Markdown 正文与播放器同时可用', async ({ page, request }) => {
   await page.goto('/showcase/product-intro/');
