@@ -97,6 +97,14 @@
 
 后续将实际二级标题与固定摘要键 answer 作为 requiredSections 直接传给核验器，要求逐字覆盖；只规范可选的 Markdown 标题前缀，不补造任何证据关联。仅解除 mechanism-checks 的这项映射退避进行复检，来源基线不变。手动 entity 输入用于指定已登记主题，验证新增页面；不能指定任意路径，定时任务不接受此选择，剩余队列、预算及所有发布检查保持。
 
+## 2026-11-26：已有正文自动发布验证通过
+
+[定向复检 45732280359](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/45732280359) 以两次真实请求生成并独立核验 mechanisms-checks，具体章节引文全部通过；[PR #21](https://github.com/xiaoyingjiang-studio/hyperframes-cn/pull/21) 自动合并并生产发布成功，提交 bebb5f5f5d94e22759dd42cd3127f92d0abb8077。来源为官方正式 v0.9.96 固定提交 230e5cd5a64ef9ec250105edf1c3df27ac98b0c8，没有刷新历史人工记录或宣称桌面操作已实测。
+
+首次新增 4K 页面验收 [45732604403](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/45732604403) 在 Markdown 格式检查处被拒绝，未发布正文；当时日志未保留完整候选，不能确认具体触发片段。队列记录随 PR #22 合并。检查发现旧正则不能正确区分行内与部分围栏代码示例，随后改用已有依赖中的标准 Markdown 解析器区分示例与原始 HTML，并补充未闭合标记不能隐藏脚本的回归测试和具体拒绝片段；只解除该条格式退避进行复检。来源版本展示与机器接口改为同源，历史操作验证范围保留。排队任务的检出改为等待结束后的 main，再固定实际 SHA；早先绑定旧 SHA 的待运行验收已取消，未覆盖新提交。
+
+本组本地验证按 check、test、build、test:indexing、test:e2e 完成：48 项单元测试通过，63 页审计无错误，浏览器 50 项通过、2 项设备适用性跳过。已查看桌面与手机来源版本截图，显示 v0.9.96；收录测试已恢复配置。该记录不代替修正后新增页面的真实发布结果。
+
 ## 后续记录模板
 
 ```text

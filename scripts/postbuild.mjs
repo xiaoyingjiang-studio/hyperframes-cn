@@ -11,6 +11,7 @@ import matter from "gray-matter";
 import { execFileSync } from 'node:child_process';
 import { load } from "cheerio";
 import { file, json, save, hash } from "./lib/io.mjs";
+import { applicability } from '../src/lib/content-metadata.mjs';
 import {
   resolveSite,
   xml,
@@ -58,7 +59,7 @@ for (const page of records) {
     kind: page.kind || data.kind,
     modified: dates.at(-1),
     reviewedAt: data.reviewedAt,
-    appliesTo: data.appliesTo,
+    appliesTo: applicability(data.appliesTo, page.sourceVersion),
     verification: data.verification,
     status: data.status,
     sourceVersion: page.sourceVersion,

@@ -46,6 +46,7 @@
     "google-auth-library": "11.3.4",
     "gray-matter": "4.0.3",
     "hyperframes": "0.9.92",
+    "mdast-util-from-markdown": "2.1.0",
     "turndown": "7.2.2",
     "typescript": "5.9.3",
     "wrangler": "4.168.0"
