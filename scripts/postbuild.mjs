@@ -31,6 +31,7 @@ for (const page of landingPages) {
     terms: intent.terms,
     modified: date,
     reviewedAt: page.reviewedAt,
+    validation: page.validation,
     sources: page.sources ?? [],
     breadcrumbs,
     markdown: `/content/${page.id}.md`,

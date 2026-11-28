@@ -8,6 +8,7 @@ const studioImage = {
 
 export const creatorGuidePages = guides.map(guide => ({
   ...guide,
+  validation: /** @type {{ mode: string, checkedAt: string, revision: string, digest: string } | undefined} */ ('validation' in guide ? guide.validation : undefined),
   ...studioImage,
   id: `creator-${guide.slug}`,
   route: `/creators/${guide.slug}/`,

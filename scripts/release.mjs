@@ -22,6 +22,8 @@ const history = await cf('GET');
 const previous = (history.deployments || history)[0];
 if (!previous?.versions?.length) throw new Error('没有可恢复的已发布版本，自动发布停止');
 const currentManifest = await json('dist/content-manifest.json');
+const failed = new Set(execFileSync('git', ['ls-remote', '--tags', 'origin', 'knowledge-failure-*'], { encoding: 'utf8' }).split('\n').map(line => line.split('knowledge-failure-')[1]?.trim()).filter(Boolean));
+if (currentManifest.pages.some(page => failed.has(page.validation?.digest))) throw new Error('发现已回滚的手册内容，等待恢复正文后再发布');
 let previousManifest;
 try { const response = await fetch(new URL('/content-manifest.json', url)); if (!response.ok) throw Error(); previousManifest = await response.json(); }
 catch { throw new Error('无法读取上次发布清单，保留当前站点'); }
@@ -45,7 +47,19 @@ await deployWithRecovery({
     const handbook = !recovery || previousManifest.pages.some(page => page.route === '/creators/');
     execFileSync(process.execPath, ['scripts/smoke.mjs', url], { stdio: 'inherit', env: { ...process.env, SMOKE_LEGACY: String(legacy), SMOKE_HANDBOOK: String(handbook) } });
     const manifest = await (await fetch(new URL('/content-manifest.json', url), { cache: 'no-store' })).json();
-    if (!recovery) assertHead(sha, manifest.buildSha);
+    if (recovery) {
+      assertHead(previousManifest.buildSha, manifest.buildSha);
+      return;
+    }
+    assertHead(sha, manifest.buildSha);
+    for (const page of changed) {
+      const actual = manifest.pages.find(entry => entry.id === page.id);
+      if (actual?.validation?.digest !== page.validation.digest || actual?.contentHash !== page.contentHash) throw new Error('线上内容与核验结果不符：' + page.id);
+      for (const path of [page.route, page.markdown]) {
+        const reply = await fetch(new URL(path, url), { redirect: 'manual', signal: AbortSignal.timeout(20000) });
+        if (!reply.ok) throw new Error('手册文章线上响应异常：' + path);
+      }
+    }
   },
   recordFailure: async () => {
     await save('artifacts/release-failure.json', { sha, previous, failedDigests: changed.map(page => page.validation.digest), reason: '生产发布或线上冒烟失败' });

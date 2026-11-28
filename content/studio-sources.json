@@ -1,0 +1,55 @@
+{
+  "sources": [
+    { "id": "youtube-blog", "kind": "rss", "url": "https://blog.youtube/rss/", "label": "YouTube 官方博客" },
+    { "id": "youtube-audio", "kind": "html", "url": "https://blog.youtube/news-and-events/multi-language-audio/", "label": "YouTube 多语言音轨公告" },
+    { "id": "youtube-impact", "kind": "html", "url": "https://blog.youtube/news-and-events/2025-us-youtube-impact-report/", "label": "YouTube 美国影响报告" },
+    { "id": "youtube-policy", "kind": "html", "url": "https://support.google.com/youtube/answer/1311392?hl=en", "label": "YouTube 频道变现政策" },
+    { "id": "youtube-regions", "kind": "html", "url": "https://support.google.com/youtube/answer/7101720?hl=en", "label": "YouTube 合作伙伴计划开放地区" },
+    { "id": "kurzgesagt-about", "kind": "html", "url": "https://kurzgesagt.org/who-we-are", "label": "Kurzgesagt 团队与发展时间线" },
+    { "id": "3blue1brown-about", "kind": "html", "url": "https://www.3blue1brown.com/about/", "label": "3Blue1Brown 创作者与团队" },
+    { "id": "3blue1brown-lessons", "kind": "html", "url": "https://www.3blue1brown.com/lessons/", "label": "3Blue1Brown 官方作品目录" },
+    { "id": "kurzgesagt-uploads", "kind": "atom", "channel": "UCsXVk37bltHxD1rDPwtNM8Q", "label": "Kurzgesagt 频道" },
+    { "id": "3blue1brown-uploads", "kind": "atom", "channel": "UCYO_jab_esuFRV4b17AJtAw", "label": "3Blue1Brown 频道" },
+    { "id": "casual-finance-uploads", "kind": "atom", "channel": "UCrNfRFWnLC3tCy1TnyhVQ7g", "label": "Casual Finance 频道" }
+  ],
+  "topics": [
+    {
+      "slug": "youtube-multilingual-knowledge-reach",
+      "section": "市场",
+      "question": "知识解说做成多语版，能触达怎样的新观众？",
+      "required": ["youtube-audio"],
+      "keywords": ["multi-language", "multilingual", "dubbing", "non-primary language"],
+      "evidenceTerms": ["watch time", "25%", "pilot", "language", "creator"],
+      "next": ["subtitles-or-dubbing", "mandarin-video-localization"]
+    },
+    {
+      "slug": "kurzgesagt-animation-business",
+      "section": "案例",
+      "question": "Kurzgesagt 怎样把动画科普做成跨语种的创作生意？",
+      "required": ["kurzgesagt-about"],
+      "keywords": ["kurzgesagt"],
+      "evidenceTerms": ["first video", "patreon", "shop", "german channel", "nine languages", "million subscribers", "employees"],
+      "follow": ["kurzgesagt-uploads"],
+      "next": ["mandarin-video-localization", "readiness"]
+    },
+    {
+      "slug": "youtube-us-creator-economy",
+      "section": "市场",
+      "question": "YouTube 的美国创作者经济报告能说明哪些海外商业机会？",
+      "required": ["youtube-impact"],
+      "keywords": ["impact report", "creator economy"],
+      "evidenceTerms": ["2025", "GDP", "creators", "revenue", "Oxford Economics", "jobs"],
+      "next": ["readiness"]
+    },
+    {
+      "slug": "3blue1brown-math-animation",
+      "section": "案例",
+      "question": "3Blue1Brown 怎样把数学动画副项目发展为持续创作？",
+      "required": ["3blue1brown-about", "3blue1brown-lessons"],
+      "keywords": ["3blue1brown"],
+      "evidenceTerms": ["side projects", "2016", "support", "patreon", "store", "animation", "lessons"],
+      "follow": ["3blue1brown-uploads"],
+      "next": ["mandarin-video-localization", "readiness"]
+    }
+  ]
+}
