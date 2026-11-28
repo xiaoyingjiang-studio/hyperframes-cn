@@ -18,6 +18,7 @@
       "section": "市场",
       "question": "知识解说做成多语版，能触达怎样的新观众？",
       "required": ["youtube-audio"],
+      "sourceScope": "YouTube 公告的四分之一以采用多语言音轨的创作者为样本。英文主语是 creators uploading Multi-language Audio tracks；不得改写成按视频平均、各地区占比或新增观看比例。音轨和缩略图是内容分发工具。",
       "keywords": ["multi-language", "multilingual", "dubbing", "non-primary language"],
       "evidenceTerms": ["watch time", "25%", "pilot", "language", "creator"],
       "next": ["subtitles-or-dubbing", "mandarin-video-localization"]
@@ -27,6 +28,7 @@
       "section": "案例",
       "question": "Kurzgesagt 怎样把动画科普做成跨语种的创作生意？",
       "required": ["kurzgesagt-about"],
+      "sourceScope": "德语频道、Patreon、商店和 Funk 是个案里程碑。应用建议从一条现成作品的小样开始，另开频道和上线会员是后续可选动作。时间线上的顺序不足以推出营收或因果。",
       "keywords": ["kurzgesagt"],
       "evidenceTerms": ["first video", "patreon", "shop", "german channel", "nine languages", "million subscribers", "employees"],
       "follow": ["kurzgesagt-uploads"],

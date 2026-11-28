@@ -83,4 +83,7 @@ test('independent rejection blocks fabricated gains and digest binds article, su
   guide.validation.digest = studioDigest(guide, draft.body, intent);
   assert.doesNotThrow(() => assertStudioGuide(guide, draft.body, intent));
   assert.throws(() => assertStudioGuide(guide, draft.body, { ...intent, answer: answer + '保证增长。' }), /独立|有效核验/);
+  const edited = { ...guide, validation: { ...guide.validation, mode: 'source-editor-reviewed' } };
+  assert.throws(() => assertStudioGuide(edited, draft.body, intent), /有效核验/);
+  assert.doesNotThrow(() => assertStudioGuide({ ...edited, reviewedAt: '2026-11-28' }, draft.body, intent));
 });
