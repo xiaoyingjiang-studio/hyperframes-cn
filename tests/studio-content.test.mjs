@@ -42,6 +42,26 @@ test('a new first-party regional report becomes a stable article candidate', asy
   assert.equal(second.topics.find(row => row.slug === regional.slug).revision, regional.revision);
 });
 
+test('response order does not change chosen sources and previously published evidence stays available', async () => {
+  const blog = { id: 'youtube-blog', kind: 'rss', url: 'https://blog.youtube/rss/', label: 'YouTube 博客' };
+  const withBlog = { ...registry, sources: [...registry.sources, blog] };
+  const href = id => 'https://blog.youtube/inside-youtube/audio-' + id + '/';
+  const published = [{ slug: 'audio', validation: {}, sources: [{ label: 'YouTube 官方博客：Audio earlier report', url: href('earlier') }] }];
+  const mock = reverse => async url => {
+    if (url === blog.url) {
+      const items = ['one', 'two', 'three'].map(id => `<item><title>Audio report ${id}</title><link>${href(id)}</link></item>`);
+      return new Response('<rss><channel>' + items.join('') + '</channel></rss>');
+    }
+    if (!url.includes('/audio-')) return fetcher(url);
+    if (url.includes(reverse ? '-one/' : '-two/')) await new Promise(resolve => setTimeout(resolve, 15));
+    return new Response(`<main><p>${quote}</p><p>These observations describe only the subset who uploaded audio during the recorded period.</p></main>`);
+  };
+  const first = await collectStudio(withBlog, {}, { fetcher: mock(false), now, published });
+  const second = await collectStudio(withBlog, first.state, { fetcher: mock(true), now, published });
+  assert.equal(first.topics[0].revision, second.topics[0].revision);
+  assert.ok(second.topics[0].evidence.some(source => source.url === href('earlier')));
+});
+
 const answer = '平台披露的数字描述上传多语言音轨者的观看组成，可以用来理解跨语种观众的观看机会，具体到自己的作品仍需小范围验证。';
 const body = '## 数据范围\n\n' + answer.repeat(4) + '\n\n## 如何先试\n\n' + answer.repeat(4);
 

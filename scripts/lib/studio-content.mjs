@@ -164,37 +164,40 @@ export async function collectStudio(registry, previous = {}, { fetcher = fetch, 
   await Promise.all(registry.sources.map(collect));
   const seen = new Map((previous.blog || []).map(entry => [entry.id, entry]));
   for (const entry of answers.get('youtube-blog')?.value || []) seen.set(entry.id, entry);
-  const blog = [...seen.values()].sort((a, b) => (Date.parse(b.published) || 0) - (Date.parse(a.published) || 0)).slice(0, 50);
+  const blog = [...seen.values()].sort((a, b) => (Date.parse(b.published) || 0) - (Date.parse(a.published) || 0) || a.url.localeCompare(b.url)).slice(0, 50);
   const seedUrls = new Set(registry.sources.map(source => source.url));
+  const discoveredId = url => 'blog-' + hash(url).slice(0, 12);
   const pinned = published.filter(guide => guide.validation).flatMap(guide => guide.sources).flatMap((source) => {
     const url = new URL(source.url);
     if (url.origin !== 'https://blog.youtube' || !blogArticle.test(url.pathname) || seedUrls.has(source.url)) return [];
     return [{ id: url.pathname, url: url.origin + url.pathname, title: source.label.replace(/^YouTube 官方博客：/, '') }];
   });
   const relevant = [...new Map([...pinned, ...blog.filter(entry => !seedUrls.has(entry.url) && (regionalEntry(entry) || registry.topics.some(topic => topic.keywords.some(word => entry.title.toLowerCase().includes(word))))).slice(0, 8)].map(entry => [entry.id, entry])).values()];
-  await Promise.all(relevant.map(entry => collect({ id: 'blog-' + hash(entry.url).slice(0, 12), kind: 'html', url: entry.url, label: 'YouTube 官方博客：' + entry.title, published: entry.published })));
+  await Promise.all(relevant.map(entry => collect({ id: discoveredId(entry.url), kind: 'html', url: entry.url, label: 'YouTube 官方博客：' + entry.title, published: entry.published })));
   const regional = new Map();
   for (const entry of relevant) {
     const topic = regionalEntry(entry);
     if (!topic) continue;
-    const sourceId = 'blog-' + hash(entry.url).slice(0, 12);
+    const sourceId = discoveredId(entry.url);
     const tracked = regional.get(topic.slug) || { ...topic, required: [], keywords: [] };
     tracked.required.push(sourceId);
     regional.set(topic.slug, tracked);
   }
   const found = [...registry.topics, ...regional.values()].flatMap(topic => {
     if (!topic.required.every(id => answers.has(id))) return [];
-    const required = topic.required.map(id => answers.get(id));
-    const optional = [...answers.values()].filter(entry => entry.id.startsWith('blog-') && !regionalEntry({ title: entry.label }) && topic.keywords.some(word => entry.label.toLowerCase().includes(word))).slice(0, 2);
-    const evidence = [...required, ...optional].map(source => ({
+    const retained = (published.find(guide => guide.slug === topic.slug && guide.validation)?.sources || [])
+      .map(source => discoveredId(source.url)).filter(id => answers.has(id));
+    const optional = relevant.filter(entry => !regionalEntry(entry) && topic.keywords.some(word => entry.title.toLowerCase().includes(word)))
+      .map(entry => discoveredId(entry.url)).filter(id => answers.has(id)).slice(0, 2);
+    const evidence = [...new Set([...topic.required, ...retained, ...optional])].map(id => answers.get(id)).map(source => ({
       id: source.id, url: source.url, label: source.label, published: source.published,
       files: [{ path: 'article', text: choosePassages(source.value, topic.evidenceTerms) }],
     })).filter(source => source.files[0].text);
     if (!topic.required.every(id => evidence.some(source => source.id === id))) return [];
-    const revision = hash(JSON.stringify(evidence.map(source => [source.url, source.files[0].text])));
+    const revision = hash(JSON.stringify(evidence.map(source => [source.url, source.files[0].text]).sort(([a], [b]) => a.localeCompare(b))));
     return [{ ...topic, evidence, revision }];
   });
-  const active = new Set([...registry.sources.map(source => source.id), ...relevant.map(entry => 'blog-' + hash(entry.url).slice(0, 12))]);
+  const active = new Set([...registry.sources.map(source => source.id), ...relevant.map(entry => discoveredId(entry.url))]);
   for (const key of Object.keys(records)) if (!active.has(key)) delete records[key];
   return {
     topics: found,
