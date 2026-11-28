@@ -38,7 +38,7 @@ test('independent rejection blocks fabricated gains and digest binds article, su
   assert.equal(called, 4);
   called = 0;
   const draft = await draftStudio(topic, {
-    call: async () => ++called % 2 ? create : { supported: true, issues: [], evidence: [{ sourceId: 'audio', path: 'article', quote, sections: ['answer', '数据范围', '如何先试'] }] },
+    call: async () => ++called % 2 ? create : { supported: true, issues: [], evidence: [{ sourceId: 'audio', paragraph: 0, sections: ['answer', '数据范围', '如何先试'] }] },
   });
   const guide = { slug: topic.slug, section: topic.section, sources: draft.sources, validation: { mode: 'independent-model-and-evidence', revision: topic.revision } };
   const intent = { title: draft.title, question: topic.question, answer };

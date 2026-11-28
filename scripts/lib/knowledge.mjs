@@ -45,7 +45,7 @@ export async function requestKnowledge(input, { env = process.env, fetcher = fet
   return requestEditorialJson(instructions, input, { env, fetcher, budget });
 }
 
-export async function requestEditorialJson(instructions, input, { env = process.env, fetcher = fetch, budget = new Budget(env) } = {}) {
+export async function requestEditorialJson(instructions, input, { env = process.env, fetcher = fetch, budget = new Budget(env), maxRetries = 2 } = {}) {
   if (!env.AI_ENDPOINT || !env.AI_MODEL || !env.AI_API_KEY) throw new DraftError('AI 未配置，任务自动延期，保留现有页面');
   const endpoint = new URL(env.AI_ENDPOINT);
   if (endpoint.protocol !== 'https:' && !['127.0.0.1', 'localhost'].includes(endpoint.hostname)) throw new DraftError('AI 接口必须使用 HTTPS', true);
@@ -55,7 +55,7 @@ export async function requestEditorialJson(instructions, input, { env = process.
   // bounded output allowance before producing content. Never expand the batch cap.
   const dashscopeHybrid = /(^|\.)dashscope\.aliyuncs\.com$/.test(endpoint.hostname) && /^deepseek-v4(?:\.1)?-(?:flash|pro)(?:-|$)/.test(env.AI_MODEL);
   const format = dashscopeHybrid ? { enable_thinking: false, response_format: { type: 'json_object' } } : {};
-  for (let attempt = 0; attempt < 3; attempt++) {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
     budget.reserve(JSON.stringify(messages), max_tokens);
     try {
       const r = await fetcher(endpoint, { method: 'POST', headers: { Authorization: `Bearer ${env.AI_API_KEY}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: env.AI_MODEL, messages, max_tokens, temperature: 0.2, ...format }), signal: AbortSignal.timeout(60000) });
@@ -64,7 +64,7 @@ export async function requestEditorialJson(instructions, input, { env = process.
       const text = payload.choices?.[0]?.message?.content;
       if (typeof text !== 'string' || !text.trim()) throw new DraftError(payload.choices?.[0]?.finish_reason === 'length' ? 'AI 输出额度耗尽但未返回正文，保留旧版并检查模型模式' : 'AI 未返回有效正文');
       return JSON.parse(text.replace(/^```(?:json)?\s*|\s*```$/g, ''));
-    } catch (e) { if (e.fatal || attempt === 2) throw e; }
+    } catch (e) { if (e.fatal || attempt === maxRetries) throw e; }
   }
 }
 export async function createVerifiedArticle(input, options = {}) {

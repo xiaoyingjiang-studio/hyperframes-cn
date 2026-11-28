@@ -25,7 +25,7 @@ if (mode !== 'collect' && configured()) {
     if (target && topic.slug !== target) continue;
     const guide = guides.find(row => row.slug === topic.slug);
     const previousTask = state.tasks[topic.slug];
-    if (guide?.validation?.revision === topic.revision) {
+    if (guide?.validation?.revision === topic.revision || guide && state.processed[topic.slug] === topic.revision) {
       delete state.tasks[topic.slug];
       report.articles.push({ slug: topic.slug, status: 'unchanged' });
       continue;
@@ -56,6 +56,12 @@ if (mode !== 'collect' && configured()) {
       if (guide?.reviewedAt) updated.reviewedAt = guide.reviewedAt;
       updated.validation.digest = studioDigest(updated, draft.body, intent);
       delete state.tasks[topic.slug];
+      if (guide?.validation?.digest === updated.validation.digest) {
+        state.processed[topic.slug] = topic.revision;
+        report.articles.push({ slug: topic.slug, status: 'unchanged' });
+        continue;
+      }
+      delete state.processed[topic.slug];
       report.articles.push({ slug: topic.slug, status: mode === 'publish' ? 'ready-to-publish' : 'previewed', revision: topic.revision, digest: updated.validation.digest });
       if (mode === 'preview') {
         await writeFile(file(`artifacts/studio-${topic.slug}.md`), draft.body);

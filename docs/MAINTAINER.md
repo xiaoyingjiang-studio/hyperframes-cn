@@ -1,6 +1,6 @@
 # 部署与维护手册
 
-新版官网保留准确提交部署、预览和故障恢复机制。下文涉及 HyperFrames 上游、Pagefind、知识建设、旧测试入口及历史发布的内容属于旧站记录。现行公开内容与发现验收分别见 [项目记忆](PROJECT-MEMORY.md) 和 [SEO/GEO 手册](SEO-GEO.md)。旧工作流已从新版 `.github/workflows/` 移出。配置真实微信号用公开变量 `PUBLIC_STUDIO_WECHAT_ID`，待用户提供。
+新版官网保留准确提交部署、预览和故障恢复机制。现行定时内容任务、公开内容与发现验收分别见 [内容增长设计](STUDIO-CONTENT-AUTOMATION.md)、[项目记忆](PROJECT-MEMORY.md) 和 [SEO/GEO 手册](SEO-GEO.md)。下文涉及 HyperFrames 上游、Pagefind、知识建设、旧测试入口及旧发布命令的部分是历史记录。配置真实微信号用公开变量 `PUBLIC_STUDIO_WECHAT_ID`，待用户提供。
 
 SEO/GEO 是项目第一优先级的长期基础。每次内容、界面、架构和部署改动都应说明对发现、抓取、索引及引用的影响；Google、百度、Bing 和 AI 工具分别接入与验收。平台台账、最近实测与明确待办统一见 [SEO/GEO 手册](SEO-GEO.md)，历史操作证据见 WORKLOG；单次 Google 验证或站内检查通过不能作为整体完成标准。
 
