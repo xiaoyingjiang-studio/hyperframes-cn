@@ -112,23 +112,24 @@ export function sourceLinks(page, registry) {
   });
 }
 export function structuredData(page, site) {
-  const org = `${site.url}/#maintainers`;
-  const website = `${site.url}/#website`;
+  const home = page.route === "/";
+  const siteRoot = site.url + "/";
+  const org = `${siteRoot}#maintainers`;
+  const website = `${siteRoot}#website`;
   const url = site.url + page.route;
   const graph = [
     {
       "@type": "Organization",
       "@id": org,
-      name: "HyperFrames 中文指南维护者",
-      url: site.url + "/community/about/",
-      description: "独立维护的中文开源学习项目，不代表 HeyGen 官方。",
-      sameAs: [site.repository],
+      name: site.name,
+      url: siteRoot,
+      description: site.description,
     },
     {
       "@type": "WebSite",
       "@id": website,
       name: site.name,
-      url: site.url + "/",
+      url: siteRoot,
       inLanguage: "zh-CN",
       publisher: { "@id": org },
     },
@@ -141,20 +142,20 @@ export function structuredData(page, site) {
       inLanguage: "zh-CN",
       isPartOf: { "@id": website },
       breadcrumb:
-        page.id === "home" ? undefined : { "@id": url + "#breadcrumb" },
+        home ? undefined : { "@id": url + "#breadcrumb" },
       dateModified: page.modified,
       citation: page.sources.map((s) => s.url),
     },
   ];
-  if (page.id !== "home")
+  if (!home)
     graph.push({
       "@type": "BreadcrumbList",
       "@id": url + "#breadcrumb",
       itemListElement: (page.breadcrumbs || [{ name: "首页", route: "/" }, { name: page.title, route: page.route }]).map((part, index) => ({ "@type": "ListItem", position: index + 1, name: part.name, item: site.url + part.route })),
     });
-  if (["tutorial", "adaptation", "case", "update"].includes(page.kind))
+  if (["article", "tutorial", "adaptation", "case", "update"].includes(page.kind))
     graph.push({
-      "@type": page.kind === "update" ? "Article" : "TechArticle",
+      "@type": page.kind === "tutorial" ? "TechArticle" : "Article",
       "@id": url + "#article",
       headline: page.title,
       description: page.description,
@@ -164,11 +165,6 @@ export function structuredData(page, site) {
       publisher: { "@id": org },
       dateModified: page.modified,
       citation: page.sources.map((s) => s.url),
-      about: {
-        "@type": "SoftwareApplication",
-        name: "HyperFrames",
-        url: "https://github.com/heygen-com/hyperframes",
-      },
     });
   return { "@context": "https://schema.org", "@graph": graph };
 }
@@ -254,6 +250,8 @@ export function renderHead(html, page, site) {
   const $ = load(html);
   const head = $("head");
   const url = site.url + page.route;
+  const home = page.route === "/";
+  const name = site.name;
   head
     .find(
       'title,meta[name="description"],meta[name="robots"],meta[name="author"],meta[property^="og:"],meta[name^="twitter:"],link[rel="canonical"],link[type="text/markdown"],script[type="application/ld+json"]',
@@ -262,7 +260,7 @@ export function renderHead(html, page, site) {
   $(".editorial-date").remove();
   head.append(
     $("<title>").text(
-      page.id === "home"
+      home || page.kind === "landing"
         ? page.title
         : `${page.title} | ${site.name}`,
     ),
@@ -280,14 +278,14 @@ export function renderHead(html, page, site) {
       ? "index,follow,max-image-preview:large,max-video-preview:-1"
       : "noindex,nofollow",
   );
-  meta("author", "HyperFrames 中文指南维护者");
+  meta("author", name);
   head.append($('<link rel="canonical">').attr("href", url));
   for (const [key, value] of Object.entries({
     title: page.title,
     description: page.description,
-    type: page.kind === "home" || page.kind === "index" ? "website" : "article",
+    type: ["home", "landing", "index"].includes(page.kind) ? "website" : "article",
     url,
-    site_name: site.name,
+    site_name: name,
     locale: "zh_CN",
     image: site.url + page.image,
     "image:alt": page.title,

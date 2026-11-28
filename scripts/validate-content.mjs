@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { json, file } from './lib/io.mjs';
 import { contentDigest, validateEvidence } from './lib/knowledge.mjs';
 import { validateDraft } from './lib/ai.mjs';
+import { landingPages } from './lib/landing-pages.mjs';
 const pages = await json('content/pages.json'); const registry = await json('content/sources.json');
 const sources = new Map(registry.sources.map(s => [s.id, s]));
 const errors = []; const ids = new Set(); const routes = new Set();
@@ -21,8 +22,9 @@ for (const intent of discovery.pages) {
   intents.set(intent.id, intent);
   if (intent.answer?.length < 45 || intent.answer?.length > 180 || !intent.question || !Array.isArray(intent.terms) || intent.terms.length < 2) errors.push(`阅读意图不完整：${intent.id}`);
 }
-for (const id of ['home', ...pages.map(p => p.id)]) if (!intents.has(id)) errors.push(`缺少页面问题与摘要：${id}`);
-for (const id of intents.keys()) if (id !== 'home' && !pages.some(p => p.id === id)) errors.push(`意图对应页面不存在：${id}`);
+const pageIds = new Set([...landingPages, ...pages].map(page => page.id));
+for (const id of pageIds) if (!intents.has(id)) errors.push(`缺少页面问题与摘要：${id}`);
+for (const id of intents.keys()) if (!pageIds.has(id)) errors.push(`意图对应页面不存在：${id}`);
 for (const page of pages) {
   if (ids.has(page.id) || routes.has(page.route)) errors.push(`重复 ID 或路由：${page.id}`);
   ids.add(page.id); routes.add(page.route);
@@ -47,7 +49,7 @@ for (const page of pages) {
   for (const match of content.matchAll(/\]\((\/[^)\s#]+)(?:#[^)]*)?\)/g)) {
     const target = match[1];
     if (target.includes('.')) { try { await stat(file(`public${target}`)); } catch { if (!['/rss.xml'].includes(target)) errors.push(`静态文件缺失：${page.id} -> ${target}`); } }
-    else if (!routes.has(target) && !pages.some(p => p.route === target) && target !== '/') errors.push(`内部链接失效：${page.id} -> ${target}`);
+    else if (!routes.has(target) && !pages.some(p => p.route === target) && !landingPages.some(p => p.route === target)) errors.push(`内部链接失效：${page.id} -> ${target}`);
   }
 }
 const knowledge = await json('content/knowledge.json');
@@ -62,4 +64,4 @@ for (const entity of knowledge.entities) {
 }
 for (const name of knowledge.publishedSkills) if (!knowledge.entities.some(entity => entity.id === `skill-${name}`)) errors.push(`正式 skill 没有建设任务：${name}`);
 for (const entity of knowledge.entities) for (const relation of entity.relations || []) if (!entityIds.has(relation.target)) errors.push(`知识关联不存在：${entity.id} -> ${relation.target}`);
-if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; } else console.log(`内容校验通过：${pages.length + 1} 页面，${sources.size} 个官方来源，${entityIds.size} 个知识主题。`);
+if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; } else console.log(`内容校验通过：${pageIds.size} 页面，${sources.size} 个官方来源，${entityIds.size} 个知识主题。`);

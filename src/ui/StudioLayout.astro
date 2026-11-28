@@ -1,0 +1,79 @@
+---
+import { site } from '../lib/site';
+import '../styles/xiaoyingjiang.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const path = Astro.url.pathname;
+const homepage = path === '/';
+const handbook = path.startsWith('/creators/');
+const homePrefix = homepage ? '' : '/';
+const contact = `${homePrefix}#contact`;
+const links = [
+  { href: `${homePrefix}#adaptation`, label: '改编示例', current: undefined },
+  { href: `${homePrefix}#cooperate`, label: '合作方式', current: undefined },
+  { href: '/creators/', label: '出海手册', current: handbook ? path === '/creators/' ? 'page' : 'location' : undefined },
+] as const;
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={site.indexable ? 'index,follow' : 'noindex,nofollow'} />
+    <link rel="canonical" href={new URL(path, site.url)} />
+    <link rel="icon" href="/xiaoyingjiang-icon.png" sizes="128x128" type="image/png" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/studio-sans.woff2" crossorigin />
+  </head>
+  <body class="creator-site">
+    <a class="creator-skip" href="#main">跳到主要内容</a>
+    <header class="creator-header">
+      <div class="creator-wrap creator-masthead">
+        <a class="creator-brand" href="/" aria-label="小影匠工作室首页">
+          <img src="/xiaoyingjiang-icon.png" width="36" height="36" alt="" />
+          <span>小影匠<span class="creator-brand-suffix">工作室</span></span>
+        </a>
+        <nav class="creator-desktop-nav" aria-label="主导航">
+          {links.map(link => <a href={link.href} aria-current={link.current}>{link.label}</a>)}
+        </nav>
+        <a class="creator-button creator-header-contact" href={contact}>聊聊合作</a>
+        <details class="creator-menu">
+          <summary>菜单</summary>
+          <nav aria-label="移动主导航">
+            {links.map(link => <a href={link.href} aria-current={link.current}>{link.label}</a>)}
+            <a href={contact}>聊聊合作</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="main" data-pagefind-body><slot /></main>
+    <footer class="creator-footer">
+      <div class="creator-wrap creator-footer-inner">
+        <a class="creator-brand" href="/" aria-label="小影匠工作室首页"><img src="/xiaoyingjiang-icon.png" width="32" height="32" alt="" /><span>小影匠<span class="creator-brand-suffix">工作室</span></span></a>
+        <div><a href="/creators/">出海手册</a><a href="https://creativecommons.org/licenses/by/4.0/">原创文字 CC BY 4.0</a></div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.creator-menu');
+  menu?.addEventListener('click', event => {
+    if (event.target instanceof Element && event.target.closest('nav a')) menu.open = false;
+  });
+  menu?.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu.open) {
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (menu?.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+  });
+</script>

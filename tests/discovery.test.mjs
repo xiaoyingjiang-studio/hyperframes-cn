@@ -58,6 +58,7 @@ test("新的同口径观测改善后，不再用过期低 CTR 持续改写", () 
 });
 const site = {
   name: "中文指南",
+  description: "帮助原创创作者做海外内容运营。",
   url: "https://guide.example.com",
   repository: "https://github.com/example/guide",
   indexable: true,
@@ -103,7 +104,7 @@ test("结构化数据说明独立身份并引用固定来源，不编造评分�
   );
   assert.match(
     graph.find((n) => n["@type"] === "Organization").description,
-    /不代表/,
+    /原创创作者/,
   );
   assert.equal(graph.filter((n) => n["@type"] === "BreadcrumbList").length, 1);
   assert.ok(!jsonLd({ x: "</script><script>" }).includes("</script>"));

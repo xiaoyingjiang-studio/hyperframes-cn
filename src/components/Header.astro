@@ -3,16 +3,16 @@ import { studioDownload } from '../lib/site';
 import '../styles/navigation.css';
 const path = Astro.url.pathname;
 const links = [
-  { label: 'Studio', href: '/', active: path === '/' },
+  { label: 'Studio', href: '/hyperframes/', active: path === '/hyperframes/' },
   { label: '作品', href: '/showcase/', active: path.startsWith('/showcase') },
   { label: '中文指南', href: '/knowledge/', active: /^\/(knowledge|studio|skills|mechanisms|capabilities|start|overview|features|guides)\//.test(path) },
   { label: '更新', href: '/updates/', active: path.startsWith('/updates') },
 ];
 ---
 <div class="site-header">
-  <a href="/" class="brand" aria-label="HyperFrames 中文指南首页"><span class="brand-icon" aria-hidden="true">H<span>F</span></span><span>HyperFrames<small>中文指南</small></span></a>
+  <a href="/hyperframes/" class="brand" aria-label="HyperFrames 中文指南首页"><span class="brand-icon" aria-hidden="true">H<span>F</span></span><span>HyperFrames<small>中文指南</small></span></a>
   <nav aria-label="主导航">
-    {path === '/' && <span class="studio-nav-indicator" aria-hidden="true"></span>}
+    {path === '/hyperframes/' && <span class="studio-nav-indicator" aria-hidden="true"></span>}
     {links.map(link => <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
   </nav>
   <div class="header-actions">

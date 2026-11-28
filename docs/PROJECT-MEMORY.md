@@ -2,9 +2,26 @@
 
 本文件保存跨会话需要延续的产品决策、工作方式和规划。开始工作先读 [AGENTS.md](../AGENTS.md) 与本文，再按任务阅读具体规范；阶段交接见 [WORKLOG.md](WORKLOG.md)。代码、配置和实际检查结果用于核实当前状态，历史记录不能代替核实。用户后续明确调整方向时，更新相关决策及原因，不反复执行已经完成或被替代的计划。
 
+## 当前官网的工作边界
+
+- 2026-11-28 用户明确停用 HyperFrames 中文指南旧站。新版对外仅承载小影匠，指南和旧素材留作历史资料。构建使用 `public-studio/`，旧路径返回 404。新版删除旧知识更新、发现优化和外链巡检入口，旧工作流可从 Git 历史查询。新版合并前生产及 GitHub 实际状态以线上为准。
+- 小影匠首批服务不露脸的原创内容创作者。[创作者出海手册](STUDIO-EDITORIAL.md) 已在本地实现 `/creators/` 及三篇首发。首页导航、页脚和改编示例链接到手册，正文可以回到代表作合作入口。SEO/GEO 继续按 [项目规范](SEO-GEO.md) 分别验收。新手册暂未部署，也未启用定时更新任务。
+- 用户明确增量内容要吸引已有作品的创作者出海，让他们看到海外市场的机会和空间，以及相近创作者已经取得的成功与收益。手册先以 YouTube 为观察对象，轮换市场机会与成功案例，旧文随新报告和新披露更新。公开收益按来源和实际口径写，创作手法服务于解释案例路径。两类模板、选题和复查办法见 [编辑规格](STUDIO-EDITORIAL.md#手册与更新来源)，文章和栏目待首篇就绪时实施。
+- 新版 [定时内容任务](../.github/workflows/studio-content.yml) 沿用北京时间周一、周四 08:30，分别优先市场文章与成功案例。受信来源和主题登记见 `content/studio-sources.json`。GitHub 继续使用既有 AI 和 Cloudflare 配置，正式内容发布需要 `STUDIO_CONTENT_PUBLISH_ENABLED=true`。上线条件及首轮验收见 [内容增长设计](STUDIO-CONTENT-AUTOMATION.md) 和工作记录。
+- 对外文案强调合作分工，用旁白、图解、动画和录屏说明作品形式。首页与手册的氛围主图保留替代文字，生成来源记在 [品牌资产说明](../assets/brand/README.md)。实际案例与自制分镜示例继续区分。
+- 首页以一条已有作品作为合作起点。首屏后先展示面向新观众的改编理由，再展示试运营分工、复盘内容与合作边界，最后用作品自查和代表作联系入口承接。对外说明具体交付，平台、时长、账号与退出条款按实际合作确认。试运营效果待通过真实合作验证。
+- 微信号由用户后续提供，官网可读取显式配置的 `PUBLIC_STUDIO_WECHAT_ID`。微信号未配置时显示作品清单与本地复制模板。页面、视觉和文案分别由 [首页](../src/pages/index.astro)、[样式](../src/styles/xiaoyingjiang.css) 和 [官网规格](STUDIO-SITE-COPY.md) 维护。
+- Astro 静态构建、Cloudflare Workers、域名及收录配置沿用。公开页面注册位置是 [landing-pages.mjs](../scripts/lib/landing-pages.mjs)，手册正文在 `src/content/creators/`，文章栏目、延伸阅读与来源登记在 [creator-guides.json](../content/creator-guides.json)，主问题与可见摘要仍见 [discovery.json](../content/discovery.json)。本地依次执行 `pnpm check`、`pnpm test`、`pnpm build`，涉及发现和界面分别追加 `pnpm test:indexing`、`pnpm test:e2e`。
+
 ## 产品定位与已确认决策
 
-网站是 HyperFrames 的独立中文社区项目，HyperFrames 由 HeyGen 开发。首页定位为 **HyperFrames Studio 的中文产品展示与创作入口**，文档升级为面向创作者的系统知识库，承接能力、Studio 创作、机制、skills、方法与问题排查。
+2026-11-28 用户将网站下一阶段定位调整为 **小影匠工作室官网**。工作室服务中国主播，帮助他们建立并运营面向海外线上媒体的个人 IP。主播专注创作，工作室承担双方约定的海外运营，合作理念是共赢。用户随后明确首批服务不露脸的创作者，以 [Casual Finance](https://www.youtube.com/@CasuallyFinance) 为内容形态参照。首页据此聚焦原创旁白、动画、图解和录屏内容。获客是官网首要业务目标，与既有 SEO/GEO 长期约束一起纳入设计。研究与实施建议见 [官网改版策划](STUDIO-STRATEGY.md) 和 [官网文案与交互规格](STUDIO-SITE-COPY.md)。服务平台、试点容量、条款和真实收件方式需工作室核实后对外承诺。
+
+### HyperFrames 中文指南历史约定
+
+用户曾评估将工作室和社区入口并列，随后明确停用旧站。以下旧定位、文件入口和自动运行记录仅用于回顾，不作为现行公开站点或定时配置。HyperFrames 由 HeyGen 开发，旧社区入口曾为产品展示与创作入口，文档承接能力、Studio 创作、机制、skills、方法与问题排查。
+
+2026-11-26 用户明确：**SEO、GEO 是项目第一优先级和长期根基**，覆盖 Google、百度、Bing、其他相关搜索引擎及 AI 联网搜索与引用。该要求贯穿选题、正文、界面、架构和发布验收；不能把 Google 接入、构建审计或提交成功当作整体完成。平台接入台账、证据标准与下一步统一维护于 [SEO-GEO.md](SEO-GEO.md)，历史实测保存在 WORKLOG。真实性与读者理解仍是前提，不为排名堆词或制造页面；不改变既定每周一、周四 08:30 节奏与预算。
 
 维护方为**小影匠工作室**，GitHub 组织为 [`xiaoyingjiang-studio`](https://github.com/xiaoyingjiang-studio)。本站工程位于 [`hyperframes-cn`](https://github.com/xiaoyingjiang-studio/hyperframes-cn)，案例与资源精选独立维护在 [`awesome-hyperframes`](https://github.com/xiaoyingjiang-studio/awesome-hyperframes)；后者是资源目录，不重复承载中文指南或网站部署。`awesome` 是正确拼写，仓库名采用常见的 `awesome-主题` 顺序。
 
@@ -26,9 +43,9 @@
 - 顶部不能只有呆板的固态文字；保留有节制的标题、导航和画面动效，遵守减少动态效果偏好。
 - 参考 [Screen Studio](https://screen.studio/) 的产品叙事；用户允许从 [HyperFrames 官网](https://hyperframes.heygen.com/) 获取 Studio 资源。参考用于方向判断，页面布局与素材仍需实际核对。
 
-当前首页由左右分栏首屏、错落作品画廊、三个创作界面切换、下载收尾和来源说明组成。具体视觉参数与交互规则统一维护在 [DESIGN.md](../DESIGN.md)，不要在多份记忆里重复保存色值。
+HyperFrames 社区入口由左右分栏首屏、错落作品画廊、三个创作界面切换、下载收尾和来源说明组成。两套入口的视觉参数与交互规则统一维护在 [DESIGN.md](../DESIGN.md)，不要在多份记忆里重复保存色值。
 
-网站 favicon 采用用户于 2026-11-26 提供的产品图标：首页与知识库共用 `public/favicon.ico`；原图归档于 `assets/brand/`，转换范围与再生成方式见该目录说明及 DESIGN。该图标作为本站社区标识，不代表官方标识。
+HyperFrames 社区入口与知识库共用用户于 2026-11-26 提供的图标 `public/favicon.ico`。原图归档于 `assets/brand/`，转换范围与再生成方式见该目录说明及 DESIGN。小影匠首页使用独立工作室图标。
 
 ## 不应丢失的边界
 
@@ -49,7 +66,8 @@
 | [SEO-GEO.md](SEO-GEO.md) | 可见摘要、机器接口、收录与真实观测；相关工作先读此文 |
 | [MAINTAINER.md](MAINTAINER.md) | 来源同步、账号边界、PR 预览、发布与回滚 |
 | [DELIVERY.md](DELIVERY.md) | 首版历史验证；后续记录追加到 WORKLOG |
-| [src/pages/index.astro](../src/pages/index.astro) / [studio.css](../src/styles/studio.css) | 首页内容、播放层、创作步骤切换与首页专属样式 |
+| [src/pages/index.astro](../src/pages/index.astro) / [xiaoyingjiang.css](../src/styles/xiaoyingjiang.css) | 工作室首页、改编示意和移动端合作入口 |
+| [src/legacy/hyperframes.astro](../src/legacy/hyperframes.astro) / [studio.css](../src/styles/studio.css) | 归档的中文社区展示、播放层、创作步骤和独立样式 |
 | [Header.astro](../src/components/Header.astro) / [SiteLayout.astro](../src/layouts/SiteLayout.astro) | 公共导航、搜索入口、主题与首页布局接入 |
 | [src/content/docs](../src/content/docs) / [pages.json](../content/pages.json) | 文档正文、稳定 ID、路由与已审核来源映射 |
 | [discovery.json](../content/discovery.json) | 每页主问题和可见回答；同时用于页面描述 |
@@ -95,6 +113,8 @@ pnpm test:e2e
 | 搜索与访问观测 | 搜索平台、GSC、IndexNow 和国内多地区验证按真实接入情况推进，详细步骤见 SEO-GEO | 有实际授权、报告或观测证据；不把配置、构建通过或 `llms.txt` 当成增长与收录证明 |
 
 ## 已验证的本地经验
+
+- 2026-11-26 经用户确认，完成正式域名的 Google Search Console DNS 所有权验证并成功提交 sitemap，Google 已发现 73 个网页。首页当时为“已发现 - 尚未编入索引”；Google 实时抓取与索引许可测试通过，首页编入索引请求已接收。保留 Cloudflare 的 Google TXT 验证记录；这些结果不等同于已收录，后续状态回到 Search Console 核实。API 自动观测未接入，详情见 WORKLOG。
 
 - Windows 使用 PowerShell。读取中文文件明确使用 UTF-8；把含中文脚本管道传给 Node/Python 时，先设置 `$OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::new()`，避免写入或匹配成问号。
 - Windows PowerShell 5.1 执行含中文的 `.ps1` 时使用 UTF-8 BOM，避免脚本被按本地编码误读。读取长文案作为 JSON API 字段时，用 `[IO.File]::ReadAllText(...)` 取得纯字符串，避免把 `Get-Content` 附带的 PowerShell 文件系统属性一起递归序列化；提交前核对载荷类型和大小，错误只输出必要摘要。

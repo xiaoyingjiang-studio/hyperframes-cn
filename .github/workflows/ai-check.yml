@@ -1,36 +1,45 @@
 name: AI integration check
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Studio preflight operation
+        type: choice
+        options: [collect, preview]
+        default: preview
+      topic:
+        description: Optional registered studio topic ID
+        type: string
+        default: ''
 permissions:
   contents: read
-concurrency:
-  group: ai-integration-check
-  cancel-in-progress: false
 jobs:
   ai-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10.32.1
       - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - name: Validate actual provider authentication and draft contract
-        run: node scripts/check-ai.mjs
+      - name: Validate collection and editorial contract
+        run: node scripts/studio-content.mjs
         env:
+          STUDIO_MODE: ${{ inputs.mode || 'preview' }}
+          STUDIO_TOPIC: ${{ inputs.topic }}
           AI_ENDPOINT: ${{ vars.AI_ENDPOINT }}
           AI_MODEL: ${{ vars.AI_MODEL }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_MAX_OUTPUT_TOKENS: ${{ vars.AI_MAX_OUTPUT_TOKENS }}
+          AI_MAX_CALLS: '15'
+          AI_MAX_TOTAL_TOKENS: '100000'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: ai-integration-check
-          path: artifacts/ai-check.json
-          if-no-files-found: ignore
+          name: studio-preflight
+          path: artifacts/studio-*

@@ -1,0 +1,132 @@
+name: Grow studio creator handbook
+on:
+  schedule:
+    # Monday and Thursday 08:30 Asia/Shanghai.
+    - cron: '30 0 * * 1'
+    - cron: '30 0 * * 4'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Studio content operation
+        type: choice
+        options: [collect, preview, publish]
+        default: preview
+      topic:
+        description: Optional registered studio topic ID
+        type: string
+        default: ''
+permissions:
+  contents: write
+  pull-requests: write
+  statuses: write
+concurrency:
+  group: content-maintenance
+  cancel-in-progress: false
+jobs:
+  content:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      release_sha: ${{ steps.merge.outputs.merged_sha || steps.production.outputs.pending_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Pin production baseline
+        id: batch
+        run: node scripts/github-publish.mjs begin
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Select the authorized operation
+        id: mode
+        env:
+          REQUESTED: ${{ inputs.mode || 'publish' }}
+          ENABLED: ${{ vars.STUDIO_CONTENT_PUBLISH_ENABLED }}
+          BUSY: ${{ steps.batch.outputs.busy }}
+        run: |
+          mode="$REQUESTED"
+          if [[ "$BUSY" == true || ("$mode" == publish && "$ENABLED" != true) ]]; then
+            mode=collect
+          fi
+          echo "value=$mode" >> "$GITHUB_OUTPUT"
+          git config user.name 'xiaoyingjiang-content-bot'
+          git config user.email 'xiaoyingjiang-content-bot@users.noreply.github.com'
+      - name: Recover or resume a previous production batch
+        id: production
+        if: steps.mode.outputs.value == 'publish'
+        run: node scripts/studio-release-state.mjs
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+      - run: node scripts/studio-state.mjs load
+      - name: Collect and process the due topic
+        id: collect
+        if: steps.production.outputs.recovery_sha == '' && steps.production.outputs.pending_sha == ''
+        run: node scripts/studio-content.mjs
+        env:
+          STUDIO_MODE: ${{ steps.mode.outputs.value }}
+          STUDIO_TOPIC: ${{ inputs.topic }}
+          STUDIO_PREFERENCE: ${{ github.event.schedule == '30 0 * * 4' && '案例' || '市场' }}
+          AI_ENDPOINT: ${{ vars.AI_ENDPOINT }}
+          AI_MODEL: ${{ vars.AI_MODEL }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_MAX_OUTPUT_TOKENS: ${{ vars.AI_MAX_OUTPUT_TOKENS }}
+          AI_MAX_CALLS: '15'
+          AI_MAX_TOTAL_TOKENS: '100000'
+      - name: Persist source observations and retries
+        if: always() && steps.collect.outcome != 'skipped' && hashFiles('artifacts/studio-content-report.json') != ''
+        run: node scripts/studio-state.mjs save
+      - name: Commit the content unit for exact-tree checks
+        id: changes
+        if: steps.mode.outputs.value == 'publish' && steps.production.outputs.pending_sha == ''
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m 'docs: update verified studio content'
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+      - name: Check the exact content commit
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          node scripts/content-guard.mjs
+          pnpm check
+          pnpm test
+          pnpm build
+          pnpm test:indexing
+          pnpm exec playwright install --with-deps chromium
+          pnpm test:e2e
+          test -z "$(git status --porcelain)"
+        env:
+          CONTENT_BASE_SHA: ${{ steps.batch.outputs.base }}
+          STUDIO_RECOVERY_SHA: ${{ steps.production.outputs.recovery_sha }}
+      - name: Publish the checked commit through a content PR
+        id: merge
+        if: steps.changes.outputs.changed == 'true'
+        run: node scripts/github-publish.mjs merge
+        env:
+          CONTENT_BASE_SHA: ${{ steps.batch.outputs.base }}
+          STUDIO_RECOVERY_SHA: ${{ steps.production.outputs.recovery_sha }}
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studio-content-report
+          path: |
+            artifacts/studio-*
+            artifacts/published-content.json
+            playwright-report/
+  deploy:
+    needs: content
+    if: needs.content.outputs.release_sha != ''
+    uses: ./.github/workflows/deploy.yml
+    with:
+      sha: ${{ needs.content.outputs.release_sha }}
+    secrets: inherit

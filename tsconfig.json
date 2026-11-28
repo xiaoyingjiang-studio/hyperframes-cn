@@ -1,5 +1,5 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist", "node_modules", "examples", ".cache", ".wrangler", "artifacts", "test-results", "playwright-report", "public/examples"]
+  "exclude": ["dist", "node_modules", "examples", ".cache", ".wrangler", "artifacts", "test-results", "playwright-report", "public/examples", "src/legacy", "src/components", "src/layouts", "src/content/docs", "tests/legacy-browser"]
 }
