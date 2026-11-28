@@ -25,6 +25,23 @@ test('source failure leaves independent topic available and repeat evidence keep
   assert.equal(second.topics[0].revision, first.topics[0].revision);
 });
 
+test('a new first-party regional report becomes a stable article candidate', async () => {
+  const regionReport = 'https://blog.youtube/inside-youtube/india-creator-economy/';
+  const blog = { id: 'youtube-blog', kind: 'rss', url: 'https://blog.youtube/rss/', label: 'YouTube 博客' };
+  const withBlog = { ...registry, sources: [...registry.sources, blog] };
+  const mock = async url => {
+    if (url === blog.url) return new Response(`<rss><channel><item><title>Impact report for India</title><link>${regionReport}</link><pubDate>Sat, 28 Nov 2026 00:00:00 GMT</pubDate></item></channel></rss>`);
+    if (url === regionReport) return new Response('<main><p>Oxford Economics measured GDP contribution and jobs supported by the creative ecosystem in India for the stated reporting period.</p><p>The methodology describes the research scope and defines which economic activities are included.</p></main>');
+    return fetcher(url);
+  };
+  const first = await collectStudio(withBlog, {}, { fetcher: mock, now });
+  const regional = first.topics.find(row => row.slug === 'youtube-india-creator-economy');
+  assert.ok(regional);
+  assert.equal(regional.evidence[0].url, regionReport);
+  const second = await collectStudio(withBlog, first.state, { fetcher: mock, now });
+  assert.equal(second.topics.find(row => row.slug === regional.slug).revision, regional.revision);
+});
+
 const answer = '平台披露的数字描述上传多语言音轨者的观看组成，可以用来理解跨语种观众的观看机会，具体到自己的作品仍需小范围验证。';
 const body = '## 数据范围\n\n' + answer.repeat(4) + '\n\n## 如何先试\n\n' + answer.repeat(4);
 

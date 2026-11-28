@@ -1,20 +1,20 @@
 import { appendFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { file, json, save } from './lib/io.mjs';
 import { failedTask } from './lib/knowledge.mjs';
-import { Budget, collectStudio, configured, draftStudio, studioDigest, studioSlug } from './lib/studio-content.mjs';
+import { Budget, collectStudio, configured, draftStudio, regionalTopic, studioDigest, studioSlug } from './lib/studio-content.mjs';
 
 const mode = process.env.STUDIO_MODE || 'collect';
 const preferred = process.env.STUDIO_PREFERENCE || '市场';
 const target = process.env.STUDIO_TOPIC || '';
 if (!['collect', 'preview', 'publish'].includes(mode) || !['市场', '案例'].includes(preferred) || target && !studioSlug.test(target)) throw new Error('无效的手册任务参数');
 const registry = await json('content/studio-sources.json');
-if (target && !registry.topics.some(topic => topic.slug === target)) throw new Error('手册主题未登记');
+if (target && !registry.topics.some(topic => topic.slug === target) && !regionalTopic(target)) throw new Error('手册主题未登记');
 const now = new Date();
 const guides = await json('content/creator-guides.json');
 const discovery = await json('content/discovery.json');
 const previous = await json('artifacts/studio-state.json', {});
 await mkdir(file('artifacts'), { recursive: true });
-const batch = await collectStudio(registry, previous, { now });
+const batch = await collectStudio(registry, previous, { now, published: guides });
 const { topics, state } = batch;
 const budget = new Budget();
 const report = { mode, preferred, target, observedAt: now.toISOString(), sources: batch.report, signals: batch.signals, articles: [], calls: 0 };

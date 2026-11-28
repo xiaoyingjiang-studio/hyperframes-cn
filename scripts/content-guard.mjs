@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import { isDeepStrictEqual } from 'node:util';
 import { file, json } from './lib/io.mjs';
-import { assertStudioGuide, studioSlug } from './lib/studio-content.mjs';
+import { assertStudioGuide, regionalTopic, studioSlug } from './lib/studio-content.mjs';
 
 const base = process.env.CONTENT_BASE_SHA;
 if (!/^[a-f0-9]{40}$/.test(base || '')) throw new Error('需要固定基线 CONTENT_BASE_SHA');
@@ -39,7 +39,7 @@ if (recoverySha) {
   if (guide && (await readFile(file(path), 'utf8')).trim() !== git('show', `${recoverySha}:${path}`).trim()) throw new Error('恢复正文与线上基线不一致');
 } else {
   const policy = await json('content/studio-sources.json');
-  const expected = policy.topics.find(row => row.slug === slug);
+  const expected = policy.topics.find(row => row.slug === slug) || regionalTopic(slug);
   if (!guide || !intent || !expected || expected.section !== guide.section || expected.question !== intent.question ||
       (oldGuide && !oldGuide.validation) || oldGuide?.reviewedAt !== guide.reviewedAt) throw new Error('自动任务不能修改人工文章、实核日期或已登记问题');
   assertStudioGuide(guide, await readFile(file(path), 'utf8'), intent);
