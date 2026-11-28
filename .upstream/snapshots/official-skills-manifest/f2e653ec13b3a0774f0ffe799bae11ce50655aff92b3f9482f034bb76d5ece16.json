@@ -1,0 +1,16 @@
+{
+  "id": "official-skills-manifest",
+  "commit": "5b14acd53b5a43390f13e6882c31fa2edc969299",
+  "path": "skills-manifest.json",
+  "blobSha": "3eae869d61bcb40b4bc4b3b2b6a6bc2c3e71d8be",
+  "hash": "f2e653ec13b3a0774f0ffe799bae11ce50655aff92b3f9482f034bb76d5ece16",
+  "files": [
+    {
+      "path": "skills-manifest.json",
+      "text": "{\n  \"source\": \"heygen-com/hyperframes\",\n  \"skills\": {\n    \"figma\": {\n      \"hash\": \"09d532370df2e133\",\n      \"files\": 4\n    },\n    \"hyperframes\": {\n      \"hash\": \"5840a96b8ffa9773\",\n      \"files\": 87\n    },\n    \"hyperframes-cli\": {\n      \"hash\": \"36ed7b39fe73ede2\",\n      \"files\": 14\n    },\n    \"hyperframes-registry\": {\n      \"hash\": \"09559f0d178c08f5\",\n      \"files\": 13\n    },\n    \"media-use\": {\n      \"hash\": \"691512b346d6c774\",\n      \"files\": 139\n    },\n    \"remotion-to-hyperframes\": {\n      \"hash\": \"3a1dd4a513701ef6\",\n      \"files\": 77\n    },\n    \"reverse-any-video\": {\n      \"hash\": \"d2f7f1c2f3967e5e\",\n      \"files\": 5\n    },\n    \"slideshow\": {\n      \"hash\": \"85dd76ed51ef78ab\",\n      \"files\": 2\n    },\n    \"style-sampling\": {\n      \"hash\": \"995ce900ea5b358f\",\n      \"files\": 2\n    }\n  }\n}\n"
+    }
+  ],
+  "version": "v0.9.98",
+  "channel": "stable",
+  "collectedAt": "2026-11-26T08:45:48.068Z"
+}

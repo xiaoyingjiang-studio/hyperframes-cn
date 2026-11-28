@@ -2,16 +2,6 @@
   "schemaVersion": 1,
   "tasks": [
     {
-      "id": "start-cli",
-      "articleId": "start-cli",
-      "reason": "source-changed",
-      "revision": "e9f85f6c67928f5c9bdb4a4d230de66fa9b47968702ba0a937ad905bef4200cd",
-      "firstSeen": "2026-11-25T09:22:21.274Z",
-      "attempts": 1,
-      "error": "达到本批调用或保守 Token 预算上限",
-      "nextAttemptAt": "2026-11-26T09:44:44.759Z"
-    },
-    {
       "id": "mechanism-brief",
       "articleId": "mechanisms-brief",
       "reason": "source-changed",
@@ -47,13 +37,25 @@
       "reason": "source-changed",
       "revision": "e575f9f5f264d6f610f4316f51cd98eeb56ec72106209dbb2c439ac3387b2625",
       "firstSeen": "2026-11-25T09:22:21.274Z",
-      "attempts": 0
+      "attempts": 1,
+      "error": "独立核验未通过：正文称“桌面应用在本机渲染的导出在所有方案不限次数”，来源 FAQ 原文为“Exports from HyperFrames Desktop render on your computer and are unlimited on every plan.”，可支持；但正文同时称“云端导出则按方案计算”，来源仅说明 Free 含每月 5 次云导出、Pro 含无限云导出，未明确其他方案，属超出可见原文的概括，需收窄或补证。；正文称“没有 HeyGen 账号时，旁白使用本机的 Kokoro 语音，音乐用你自己有权使用的曲目，音效来自捆绑集”，来源 FAQ 原文为“Without one, voice uses Kokoro on your computer, music is tracks you add (or local generation if you install it), and sound effects come from a bundled set.”，基本可支持，但“音乐用你自己有权使用的曲目”弱化了“或本地生成（若安装）”的条件，属轻微不完整，建议补全条件。；正文称“Studio 桌面应用是另一件事。官方提供免费方案”，来源 README 与 FAQ 均称 Studio app 有免费方案，可支持；但正文将 Studio 描述为“桌面应用”，来源未明确 Studio 即桌面应用，术语表虽如此规定，仍需注意来源未直接支持该等同表述，属证据缺口。；正文称“HyperFrames 的开源框架和 CLI……采用 Apache-2.0 许可，你可以使用、修改和分发，包括用于商业作品”，来源 FAQ 原文支持 Apache 2.0 允许使用、修改、分发及商业作品，可支持；但正文未注明“under its terms”，属轻微省略，建议保留条件。；正文称“在自己的电脑上渲染不需要账号，也不产生平台费用”，来源 FAQ 原文为“rendering on your own computer is free and needs no account”，可支持“不需要账号”和“免费”，但“不产生平台费用”为推断性表述，来源未直接使用该措辞，属轻微超出，建议改为“不产生平台渲染费用”。；正文称“AI Agent……这部分与 HyperFrames 无关”，来源 FAQ 仅称“Your AI agent's plan and optional HeyGen-hosted features……bill through their own accounts”，可支持独立计费，但“与 HyperFrames 无关”为绝对化推断，来源未直接支持，建议改为“由各自账户计费”。；正文称“HeyGen 语音、头像、云渲染，以及第三方配音、音乐、图片、视频生成，都走各自账号计费”，来源 FAQ 支持 HeyGen 语音、头像、云渲染走各自账户；但“第三方配音、音乐、图片、视频生成都走各自账号计费”在可见来源中无直接证据，属未支持断言，需补证或删除。；正文称“用本地渲染导出 MP4”，来源 README 称框架可将 HTML、CSS、JavaScript、媒体和可寻址动画转为确定性 MP4，FAQ 称本机渲染免费，可支持本地渲染导出 MP4 的总体说法；但未给出具体命令，属可接受范围，不构成阻断。；教学检查：explainsConcept 基本满足，用普通语言解释了开源许可、CLI、本地渲染、Agent 与生成服务计费的区别；connectsExample 基本满足，围绕 30 秒产品介绍短片说明输入、过程和结果；givesNextStep 基本满足，给出本地优先步骤和成片判断标准。但示例中“本机 Kokoro 语音”与“音乐用你自己有权使用的曲目”需补全来源条件，否则示例的部分输入依据不足。",
+      "nextAttemptAt": "2026-11-27T08:46:22.768Z"
+    },
+    {
+      "id": "start-cli",
+      "articleId": "start-cli",
+      "reason": "source-changed",
+      "revision": "6a728ca3a6708427c78b475e1e9cf6b92a0d3aee3a6b062210f90f34df4c0013",
+      "firstSeen": "2026-11-25T09:22:21.274Z",
+      "attempts": 1,
+      "error": "达到本批调用或保守 Token 预算上限",
+      "nextAttemptAt": "2026-11-27T08:46:22.814Z"
     },
     {
       "id": "updates",
       "articleId": "updates",
       "reason": "source-changed",
-      "revision": "e4480c2abd1f3448dd7ee66e714c14bccbdcc1fa86ae2b1cc5482f8a44313e1e",
+      "revision": "ee0e8fffa35b540f69559617acc9f8a5425b9aaacacf344de1d82d3b0b5c9d91",
       "firstSeen": "2026-11-25T09:22:21.274Z",
       "attempts": 0
     },
@@ -125,8 +127,48 @@
       "id": "resource-catalog",
       "articleId": "features-skills-catalog",
       "reason": "source-changed",
-      "revision": "d44c39381af79bc8c0d44f4404fdfc4abed26d45d01f3bb9457a6ba00a113664",
+      "revision": "0686a2fc390b216c928306cee9500d5ebe5dc76b1ea1b2052a8d6cadb094007a",
       "firstSeen": "2026-11-26T00:56:58.820Z",
+      "attempts": 0
+    },
+    {
+      "id": "learn-community",
+      "articleId": "learn-community",
+      "reason": "source-changed",
+      "revision": "65582a35f24bec9d5fb442be698e66bb810a4dfa20b438246c1557920fd7ef03",
+      "firstSeen": "2026-11-26T08:45:49.388Z",
+      "attempts": 0
+    },
+    {
+      "id": "learn-mechanisms",
+      "articleId": "learn-mechanisms",
+      "reason": "source-changed",
+      "revision": "3734d669822d8ebbe7776ea7231ea2c40f2254f09caf81323e7fb064054df394",
+      "firstSeen": "2026-11-26T08:45:49.388Z",
+      "attempts": 0
+    },
+    {
+      "id": "learn-orientation",
+      "articleId": "learn-orientation",
+      "reason": "source-changed",
+      "revision": "a2d2f454583cba2038769e84f4f734d9c2c6369d3c1fd8545a936fb812bd2c8f",
+      "firstSeen": "2026-11-26T08:45:49.388Z",
+      "attempts": 0
+    },
+    {
+      "id": "learn-skills",
+      "articleId": "learn-skills",
+      "reason": "source-changed",
+      "revision": "ae41fba79d073e15495b8b560c1ef2017a3842ec40784e58d443d3503f5c87c1",
+      "firstSeen": "2026-11-26T08:45:49.388Z",
+      "attempts": 0
+    },
+    {
+      "id": "learn-updates",
+      "articleId": "learn-updates",
+      "reason": "source-changed",
+      "revision": "ee0e8fffa35b540f69559617acc9f8a5425b9aaacacf344de1d82d3b0b5c9d91",
+      "firstSeen": "2026-11-26T08:45:49.388Z",
       "attempts": 0
     },
     {

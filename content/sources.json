@@ -118,7 +118,7 @@
       "path": "docs/packages/cli.mdx",
       "label": "cli",
       "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/packages/cli.mdx",
-      "blobSha": "3628f51b73ca4f2d4e55e95775cf6a8c0b50c28e"
+      "blobSha": "40c323c1230c20a756be0ac301cfcba8e1e26540"
     },
     {
       "id": "prompting-editing-existing-videos",
@@ -286,7 +286,7 @@
       "path": "docs/changelog.mdx",
       "label": "changelog",
       "url": "https://github.com/heygen-com/hyperframes/blob/main/docs/changelog.mdx",
-      "blobSha": "aeb090b74239b43cc2125ccfcf192b29a8a5a404"
+      "blobSha": "dd5fbb2477ce9d5d990c45389447853162029032"
     },
     {
       "id": "product-updates",
@@ -579,7 +579,7 @@
       "id": "official-skills-manifest",
       "path": "skills-manifest.json",
       "label": "正式 skills 发布清单",
-      "blobSha": "00c379df1b66a8733b812be2b49d3db11a78b165"
+      "blobSha": "3eae869d61bcb40b4bc4b3b2b6a6bc2c3e71d8be"
     }
   ]
 }
