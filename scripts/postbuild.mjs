@@ -8,6 +8,8 @@ import { resolveSite, xml, gitDate, intentDate, renderHead, toMarkdown } from '.
 
 const site = resolveSite(await json('site.config.json'));
 const discovery = await json('content/discovery.json');
+const handbookTitle = discovery.pages.find(({ id }) => id === 'creator-guides')?.title;
+if (!handbookTitle) throw new Error('缺少案例与指南总览标题');
 const entries = [];
 await mkdir(file('dist/content'), { recursive: true });
 
@@ -16,7 +18,7 @@ for (const page of landingPages) {
   if (!intent) throw new Error(`缺少阅读意图：${page.id}`);
   const date = [gitDate(page.file), intentDate(page.id)].filter(Boolean).sort().at(-1);
   const breadcrumbs = page.kind === 'article'
-    ? [{ name: '首页', route: '/' }, { name: '出海手册', route: '/creators/' }, { name: intent.title, route: page.route }]
+    ? [{ name: '首页', route: '/' }, { name: handbookTitle, route: '/creators/' }, { name: intent.title, route: page.route }]
     : undefined;
   const entry = {
     id: page.id,

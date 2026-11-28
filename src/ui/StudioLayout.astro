@@ -1,5 +1,6 @@
 ---
 import { site } from '../lib/site';
+import { handbook } from '../lib/creator-guides';
 import '../styles/xiaoyingjiang.css';
 
 interface Props {
@@ -10,13 +11,13 @@ interface Props {
 const { title, description } = Astro.props;
 const path = Astro.url.pathname;
 const homepage = path === '/';
-const handbook = path.startsWith('/creators/');
+const inHandbook = path.startsWith('/creators/');
 const homePrefix = homepage ? '' : '/';
 const contact = `${homePrefix}#contact`;
 const links = [
-  { href: `${homePrefix}#adaptation`, label: '改编示例', current: undefined },
-  { href: `${homePrefix}#cooperate`, label: '合作方式', current: undefined },
-  { href: '/creators/', label: '出海手册', current: handbook ? path === '/creators/' ? 'page' : 'location' : undefined },
+  { href: `${homePrefix}#adaptation`, label: '改编前后', current: undefined },
+  { href: `${homePrefix}#cooperate`, label: '合作流程', current: undefined },
+  { href: '/creators/', label: handbook.title, current: inHandbook ? path === '/creators/' ? 'page' : 'location' : undefined },
 ] as const;
 ---
 <!doctype html>
@@ -56,7 +57,7 @@ const links = [
     <footer class="creator-footer">
       <div class="creator-wrap creator-footer-inner">
         <a class="creator-brand" href="/" aria-label="小影匠工作室首页"><img src="/xiaoyingjiang-icon.png" width="32" height="32" alt="" /><span>小影匠<span class="creator-brand-suffix">工作室</span></span></a>
-        <div><a href="/creators/">出海手册</a><a href="https://creativecommons.org/licenses/by/4.0/">原创文字 CC BY 4.0</a></div>
+        <div><a href="/creators/">{handbook.title}</a><a href="https://creativecommons.org/licenses/by/4.0/">原创文字 CC BY 4.0</a></div>
       </div>
     </footer>
   </body>

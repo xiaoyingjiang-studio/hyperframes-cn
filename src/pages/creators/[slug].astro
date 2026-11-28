@@ -1,7 +1,7 @@
 ---
 import type { InferGetStaticPropsType, MarkdownInstance } from 'astro';
 import StudioLayout from '../../ui/StudioLayout.astro';
-import { creatorGuides } from '../../lib/creator-guides';
+import { creatorGuides, handbook } from '../../lib/creator-guides';
 import '../../styles/creator-guides.css';
 
 export function getStaticPaths() {
@@ -16,15 +16,18 @@ if (!content) throw new Error(`缺少手册正文：${guide.slug}`);
 const { Content } = content;
 const headings = content.getHeadings().filter(heading => heading.depth === 2);
 const related = guide.next.map(slug => creatorGuides.find(item => item.slug === slug)!);
+const clauseEnd = guide.title.indexOf('，') + 1;
 ---
 <StudioLayout title={`${guide.title}｜小影匠工作室`} description={guide.answer}>
   <div class="creator-wrap guide-article-wrap">
     <nav class="guide-breadcrumb" aria-label="面包屑">
-      <a href="/">首页</a><span aria-hidden="true">/</span><a href="/creators/">出海手册</a>
+      <a href="/">首页</a><span aria-hidden="true">/</span><a href="/creators/">{handbook.title}</a>
     </nav>
     <article class="guide-article">
       <header class="guide-article-header">
-        <h1>{guide.title}</h1>
+        <h1>{clauseEnd > 1 && clauseEnd < guide.title.length
+          ? <><span>{guide.title.slice(0, clauseEnd)}</span><span>{guide.title.slice(clauseEnd)}</span></>
+          : guide.title}</h1>
         <p class="guide-deck answer-summary">{guide.answer}</p>
         <p class="guide-byline">小影匠工作室</p>
       </header>
@@ -35,7 +38,7 @@ const related = guide.next.map(slug => creatorGuides.find(item => item.slug === 
             <ul>{headings.map(heading => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul>
           </nav>
         </aside>
-        <div>
+        <div class="guide-article-body">
           <details class="guide-mobile-contents" data-pagefind-ignore>
             <summary>本文目录</summary>
             <ul>{headings.map(heading => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul>
