@@ -65,5 +65,25 @@
       "revision": "b895460b4d3ab4b5df3dd76d373bbf4a54bb00f51934bf5e12f7373205640475",
       "digest": "1f4903cb9f5707b1c259a990a5cfafa6f788e768737d2399bbf44cbaee10b09f"
     }
+  },
+  {
+    "slug": "kurzgesagt-animation-business",
+    "section": "案例",
+    "next": [
+      "mandarin-video-localization",
+      "readiness"
+    ],
+    "sources": [
+      {
+        "label": "Kurzgesagt 团队与发展时间线",
+        "url": "https://kurzgesagt.org/who-we-are"
+      }
+    ],
+    "validation": {
+      "mode": "independent-model-and-evidence",
+      "checkedAt": "2026-11-28T12:20:01.770Z",
+      "revision": "04e64cff511397d071c9967f9930d256ce6d22f92ce9e9a046c81254bd71ea9e",
+      "digest": "401b542c64db83aca57cebd2fa146b9b394e44a2a0fd195d78405fa73baf9139"
+    }
   }
 ]
