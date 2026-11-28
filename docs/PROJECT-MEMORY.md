@@ -9,6 +9,7 @@
 - 用户明确增量内容要吸引已有作品的创作者出海，让他们看到海外市场的机会和空间，以及相近创作者已经取得的成功与收益。手册先以 YouTube 为观察对象，轮换市场机会与成功案例，旧文随新报告和新披露更新。公开收益按来源和实际口径写，创作手法服务于解释案例路径。两类模板、选题和复查办法见 [编辑规格](STUDIO-EDITORIAL.md#手册与更新来源)。
 - 新版 [定时内容任务](../.github/workflows/studio-content.yml) 沿用北京时间周一、周四 08:30，分别优先市场文章与成功案例。受信来源和主题登记见 `content/studio-sources.json`。现有 AI 和 Cloudflare 配置已实际用于自动发布，`STUDIO_CONTENT_PUBLISH_ENABLED=true`。首次真实 `schedule` 事件及搜索平台结果仍待观测，手动验收见工作记录。
 - 对外文案强调合作分工，用旁白、图解、动画和录屏说明作品形式。首页与手册的氛围主图保留替代文字，生成来源记在 [品牌资产说明](../assets/brand/README.md)。实际案例与自制分镜示例继续区分。
+- 公开导航采用「改编前后」「合作流程」「出海案例与指南」。列表标题、页脚、面包屑与发现清单共用后者。首页、列表和文章各有标题字号上限，文章标题与正文左缘对齐，详见 [视觉规范](../DESIGN.md)。
 - 首页以一条已有作品作为合作起点。首屏后先展示面向新观众的改编理由，再展示试运营分工、复盘内容与合作边界，最后用作品自查和代表作联系入口承接。对外说明具体交付，平台、时长、账号与退出条款按实际合作确认。试运营效果待通过真实合作验证。
 - 微信号由用户后续提供，官网可读取显式配置的 `PUBLIC_STUDIO_WECHAT_ID`。微信号未配置时显示作品清单与本地复制模板。页面、视觉和文案分别由 [首页](../src/pages/index.astro)、[样式](../src/styles/xiaoyingjiang.css) 和 [官网规格](STUDIO-SITE-COPY.md) 维护。
 - Astro 静态构建、Cloudflare Workers、域名及收录配置沿用。公开页面注册位置是 [landing-pages.mjs](../scripts/lib/landing-pages.mjs)，手册正文在 `src/content/creators/`，文章栏目、延伸阅读与来源登记在 [creator-guides.json](../content/creator-guides.json)，主问题与可见摘要仍见 [discovery.json](../content/discovery.json)。本地依次执行 `pnpm check`、`pnpm test`、`pnpm build`，涉及发现和界面分别追加 `pnpm test:indexing`、`pnpm test:e2e`。

@@ -5,21 +5,46 @@ const routes = [
   '/creators/mandarin-video-localization/',
   '/creators/subtitles-or-dubbing/',
 ];
+const marketArticle = '/creators/youtube-multilingual-knowledge-reach/';
+const libraryTitle = '出海案例与指南';
 
-test('出海手册可从导航进入，三篇文章可读并回到合作入口', async ({ page }, info) => {
+test('案例与指南可从导航进入，文章层级清楚并回到合作入口', async ({ page }, info) => {
   await page.goto('/');
   if (info.project.name === 'mobile') {
     await page.locator('.creator-menu summary').click();
-    await page.getByRole('navigation', { name: '移动主导航' }).getByRole('link', { name: '出海手册' }).click();
+    await page.getByRole('navigation', { name: '移动主导航' }).getByRole('link', { name: libraryTitle }).click();
   } else {
-    await page.getByRole('navigation', { name: '主导航' }).getByRole('link', { name: '出海手册' }).click();
+    await page.getByRole('navigation', { name: '主导航' }).getByRole('link', { name: libraryTitle }).click();
   }
   await expect(page).toHaveURL(/\/creators\/$/);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('创作者出海手册');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(libraryTitle);
   await expect(page.locator('.guide-hub-image figcaption')).toHaveCount(0);
   for (const route of routes) await expect(page.locator(`.guide-entry a[href="${route}"]`)).toBeVisible();
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: `artifacts/qa/creator-guides-${info.project.name}.png`, fullPage: true, animations: 'disabled' });
+
+  await page.locator(`.guide-entry a[href="${marketArticle}"]`).click();
+  await expect(page.getByRole('navigation', { name: '面包屑' }).getByRole('link', { name: libraryTitle })).toHaveAttribute('href', '/creators/');
+  const reading = await page.locator('.guide-article').evaluate(article => {
+    const title = article.querySelector('h1')!;
+    const heading = article.querySelector('.guide-prose h2')!;
+    const body = article.querySelector('.guide-prose p')!;
+    const size = (element: Element) => parseFloat(getComputedStyle(element).fontSize);
+    return {
+      title: size(title),
+      heading: size(heading),
+      body: size(body),
+      leftDifference: Math.abs(title.getBoundingClientRect().left - body.getBoundingClientRect().left),
+    };
+  });
+  expect(reading.title).toBeGreaterThan(reading.heading);
+  expect(reading.title).toBeLessThanOrEqual(40);
+  expect(reading.heading).toBeGreaterThan(reading.body);
+  expect(reading.body).toBeGreaterThanOrEqual(16);
+  expect(reading.leftDifference).toBeLessThan(1);
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: `artifacts/qa/creator-market-${info.project.name}.png`, animations: 'disabled' });
+  await page.getByRole('navigation', { name: '面包屑' }).getByRole('link', { name: libraryTitle }).click();
 
   await page.getByRole('link', { name: '先做出海自查' }).click();
   await expect(page).toHaveURL(/\/creators\/readiness\/$/);

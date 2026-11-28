@@ -24,7 +24,7 @@ test('小影匠首页在手机和桌面讲清合作分工，主图保留替代�
     expect(await image.evaluate(img => (img as HTMLImageElement).currentSrc)).toMatch(/xiaoyingjiang-creator-mobile\.webp$/);
     const menu = page.locator('.creator-menu');
     await menu.locator('summary').click();
-    await menu.getByRole('link', { name: '改编示例' }).click();
+    await menu.getByRole('link', { name: '改编前后' }).click();
     await expect(menu).not.toHaveAttribute('open');
   } else {
     await page.getByRole('link', { name: '看内容怎么改编' }).click();
@@ -52,7 +52,7 @@ test('小影匠首页不依赖 JavaScript 展示正文、导航和合作边界',
   await page.goto('http://127.0.0.1:4321/');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
   await page.getByText('菜单', { exact: true }).click();
-  await expect(page.getByRole('navigation', { name: '移动主导航' }).getByRole('link', { name: '合作方式' })).toBeVisible();
+  await expect(page.getByRole('navigation', { name: '移动主导航' }).getByRole('link', { name: '合作流程' })).toBeVisible();
   await page.getByText('菜单', { exact: true }).click();
   await page.getByText('账号、素材和收益怎么约定？').click();
   await expect(page.getByText('开始前一起写清账号持有与管理权限', { exact: false })).toBeVisible();
