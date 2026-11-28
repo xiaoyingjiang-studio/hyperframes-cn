@@ -222,7 +222,7 @@ export async function draftStudio(topic, { existing, questions, budget = new Bud
     id: source.id, label: source.label, published: source.published,
     paragraphs: source.files[0].text.split('\n').filter(text => text.length >= 16).map((text, paragraph) => ({ paragraph, text })),
   }));
-  const context = { section: topic.section, question: topic.question, oldBody: existing || '', evidence: passages, existingQuestions: questions };
+  const context = { section: topic.section, question: topic.question, sourceScope: topic.sourceScope, oldBody: existing || '', evidence: passages, existingQuestions: questions };
   if (Buffer.byteLength(JSON.stringify(context)) > 20000) throw new Error('证据包超过本轮文章输入上限');
   let corrections;
   for (let attempt = 0; attempt < 2; attempt++) {
@@ -238,7 +238,7 @@ export async function draftStudio(topic, { existing, questions, budget = new Bud
       const headings = [...candidate.body.matchAll(/^## (.+)$/gm)].map(match => match[1].trim());
       if (headings.length !== 2) throw new Error('正文需要恰好两个带证据的二级标题，行动建议放在第二节结尾');
       const required = { answer: 'answer', first: headings[0], second: headings[1] };
-      const verdict = await call(reviewer, { evidence: passages, candidate, required, question: topic.question, existingQuestions: questions }, { budget });
+      const verdict = await call(reviewer, { evidence: passages, candidate, required, question: topic.question, sourceScope: topic.sourceScope, existingQuestions: questions }, { budget });
       if (verdict.supported !== true || !Array.isArray(verdict.issues) || verdict.issues.length) {
         const issues = Array.isArray(verdict.issues) ? verdict.issues.filter(issue => typeof issue === 'string').slice(0, 3).map(issue => clean(issue).slice(0, 160)) : [];
         throw new Error('独立核验未通过' + (issues.length ? '：' + issues.join('；') : ''));
@@ -268,7 +268,9 @@ export function studioDigest(guide, raw, intent) {
 }
 
 export function assertStudioGuide(guide, raw, intent) {
-  if (!studioSections.includes(guide.section) || guide.validation?.mode !== 'independent-model-and-evidence' || !/^[a-f0-9]{64}$/.test(guide.validation.revision) || studioDigest(guide, raw, intent) !== guide.validation.digest) throw new Error('手册正文、来源或摘要缺少有效核验：' + guide.slug);
+  const mode = guide.validation?.mode;
+  const reviewed = mode === 'source-editor-reviewed' && /^\d{4}-\d{2}-\d{2}$/.test(guide.reviewedAt ?? '');
+  if (!studioSections.includes(guide.section) || !(mode === 'independent-model-and-evidence' || reviewed) || !/^[a-f0-9]{64}$/.test(guide.validation.revision) || studioDigest(guide, raw, intent) !== guide.validation.digest) throw new Error('手册正文、来源或摘要缺少有效核验：' + guide.slug);
   validateDraft(raw);
   validateAnswer(intent.answer);
 }

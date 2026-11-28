@@ -235,6 +235,15 @@
 - 盘点已归档的旧知识任务及现行发布入口。新增 [定时内容增长设计](STUDIO-CONTENT-AUTOMATION.md)，沿用周一、周四北京时间 08:30 的方案，定义首批来源与采集字段、入队和产出规则、持久状态、内容 PR 与部署验收。
 - 本地读取 YouTube 官方博客 RSS 曾返回 HTTP 200 和 20 个条目，复试超时。Kurzgesagt 时间线与 3Blue1Brown 简介及目录返回 HTTP 200，官方报告和政策正文可读。三个频道 Atom 本地请求超时，尚未在 Actions runner 验证；收益披露原链接已定位，数字未核验。新版定时工作流和文章尚未实施。
 
+## 2026-11-28 新版官网与自动内容发布
+
+- PR #31 完成新版切换。生产部署 [46143777377](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/46143777377) 验证 `4e85d883ac68dd2789b571117f21aa199e2b1fc7`、出海手册、旧路由 404 和发现接口。默认分支移除旧同步、旧发现优化和旧外链巡检入口，复用原 AI、GitHub Checks 与 Cloudflare 设置。
+- 真实 AI 预演通过市场、案例两类文章，分别见 [46143374108](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/46143374108) 和 [46143370807](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/46143370807)。用预演产物在隔离工作区验证两篇新增及一次旧文更新。隔离 Worker 回滚演练 [46142710771](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/46142710771) 通过。
+- 新任务仅采集运行 [46143794363](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/46143794363) 持久化来源状态。RSS、平台固定页面和作者站能提供文本，三个频道 Atom 在 Actions 返回空条目。市场首稿由 PR #32 和 [46143875793](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/46143875793) 自动合并、部署并验证，生产构建为 `f21641fa0ac4f9d9fd0173c9989ddde2f950af5b`。
+- Kurzgesagt 案例由 PR #33 和 [46144027406](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/46144027406) 自动合并、部署和冒烟验证，生产构建为 `a757bbf3f4b4d07192323c22726055265bf136a3`。市场同源重跑 [46144128801](https://github.com/xiaoyingjiang-studio/hyperframes-cn/actions/runs/46144128801) 为 0 次模型调用、无内容 PR、无重复部署。
+- 复核首篇市场文后，将多语言音轨的统计单位改为采用功能的创作者样本；按团队官方时间线补案例的商店里程碑。跟踪规则同步明确指标范围，编辑校正仍保留稿件证据指纹和后续自动维护资格。
+- 本地 54 项单元测试通过，桌面及手机浏览器测试 8 项通过、2 项按设备跳过，构建和发现检查通过。第一次正式 `schedule` 触发、搜索收录与 AI 引用待观察。
+
 ## 后续记录模板
 
 ```text

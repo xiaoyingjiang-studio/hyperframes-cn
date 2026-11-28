@@ -60,11 +60,12 @@
       }
     ],
     "validation": {
-      "mode": "independent-model-and-evidence",
+      "mode": "source-editor-reviewed",
       "checkedAt": "2026-11-28T12:17:32.414Z",
       "revision": "b895460b4d3ab4b5df3dd76d373bbf4a54bb00f51934bf5e12f7373205640475",
-      "digest": "1f4903cb9f5707b1c259a990a5cfafa6f788e768737d2399bbf44cbaee10b09f"
-    }
+      "digest": "5d0671ac7f8808a5d1d1213d57130edda4289644e5bda17fcb1636b3fc483621"
+    },
+    "reviewedAt": "2026-11-28"
   },
   {
     "slug": "kurzgesagt-animation-business",
@@ -80,10 +81,11 @@
       }
     ],
     "validation": {
-      "mode": "independent-model-and-evidence",
+      "mode": "source-editor-reviewed",
       "checkedAt": "2026-11-28T12:20:01.770Z",
       "revision": "04e64cff511397d071c9967f9930d256ce6d22f92ce9e9a046c81254bd71ea9e",
-      "digest": "401b542c64db83aca57cebd2fa146b9b394e44a2a0fd195d78405fa73baf9139"
-    }
+      "digest": "339833fce762b3d1dbec44bc621c6ad583958d5ba292b709d3bfb6032945b0c4"
+    },
+    "reviewedAt": "2026-11-28"
   }
 ]

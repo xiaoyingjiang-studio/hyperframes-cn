@@ -41,6 +41,7 @@ if (recoverySha) {
   const policy = await json('content/studio-sources.json');
   const expected = policy.topics.find(row => row.slug === slug) || regionalTopic(slug);
   if (!guide || !intent || !expected || expected.section !== guide.section || expected.question !== intent.question ||
+      guide.validation?.mode !== 'independent-model-and-evidence' ||
       (oldGuide && !oldGuide.validation) || oldGuide?.reviewedAt !== guide.reviewedAt) throw new Error('自动任务不能修改人工文章、实核日期或已登记问题');
   assertStudioGuide(guide, await readFile(file(path), 'utf8'), intent);
 }
