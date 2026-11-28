@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "records": {
+    "3blue1brown-about": {
+      "fingerprint": "c1ca172e3788f4c77af9b26753ae90236d124038fdcd64d8c6ab81fb67dfc1ea",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    },
+    "3blue1brown-lessons": {
+      "fingerprint": "43b950e01ac1d0a8e844f719ba628a2e15aa1dd5d67fb8930cd28742430979b4",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    },
+    "3blue1brown-uploads": {
+      "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    },
+    "casual-finance-uploads": {
+      "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    },
+    "kurzgesagt-about": {
+      "fingerprint": "f90c52e9cdca4ad7976deb87f02ce281d060030c0542b2bea1cad08d05c44be3",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    },
+    "kurzgesagt-uploads": {
+      "fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    },
+    "youtube-audio": {
+      "fingerprint": "60ff0410dc6dbf0474d8ff1b52da52f4115b0798eb21a1251c1ef1a5a9c7af6a",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    },
+    "youtube-blog": {
+      "fingerprint": "d5a6f18521ce0e8f245cf3566167fdb968237d1c1206abd438b85443d0a6ae22",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    },
+    "youtube-impact": {
+      "fingerprint": "b53f1976189a04bddcaec388c4388588a5a81d07b66f51df8a71732def3b5d03",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    },
+    "youtube-policy": {
+      "fingerprint": "ab6c9c3b74971a58ac2994df62f2e2df94d7ef8a281f9d0f5ab0d31753518923",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    },
+    "youtube-regions": {
+      "fingerprint": "ee85a07e9e72746ce035eb0232af69a7878fd09bef2099f2009cac1e0f4a8c8e",
+      "seenAt": "2026-11-28T12:16:19.731Z"
+    }
+  },
+  "blog": [
+    {
+      "id": "/news-and-events/youtube-rockstar-games-gta-vi-launch/",
+      "url": "https://blog.youtube/news-and-events/youtube-rockstar-games-gta-vi-launch/",
+      "title": "YouTube celebrates the launch and cultural impact of Grand Theft Auto VI",
+      "published": "Tue, 24 Nov 2026 14:00:00 +0000"
+    },
+    {
+      "id": "/news-and-events/youtube-creators-clio-creator-awards-2026/",
+      "url": "https://blog.youtube/news-and-events/youtube-creators-clio-creator-awards-2026/",
+      "title": "YouTube Creators Win Big at the Inaugural Clio Creator Awards",
+      "published": "Thu, 19 Nov 2026 18:00:00 +0000"
+    },
+    {
+      "id": "/news-and-events/youtube-creator-premieres-slate-2026/",
+      "url": "https://blog.youtube/news-and-events/youtube-creator-premieres-slate-2026/",
+      "title": "Coming soon to YouTube: A first look at the next wave of must-see creator-led entertainment",
+      "published": "Wed, 18 Nov 2026 04:00:00 +0000"
+    },
+    {
+      "id": "/news-and-events/youtube-latin-music-las-vegas-2026/",
+      "url": "https://blog.youtube/news-and-events/youtube-latin-music-las-vegas-2026/",
+      "title": "There from the start: YouTube Music celebrates Latin artists at Latin GRAMMY® 2026",
+      "published": "Mon, 16 Nov 2026 18:00:00 +0000"
+    },
+    {
+      "id": "/creator-and-artist-stories/creator-insider-paddy-galloway-youtube-ab-testing-ask-studio/",
+      "url": "https://blog.youtube/creator-and-artist-stories/creator-insider-paddy-galloway-youtube-ab-testing-ask-studio/",
+      "title": "Paddy Galloway dives deep with us on Video A/B, Ask Studio, and evolving over time",
+      "published": "Mon, 16 Nov 2026 17:30:00 +0000"
+    },
+    {
+      "id": "/creator-and-artist-stories/paris-hilton-adhd-awareness-interview/",
+      "url": "https://blog.youtube/creator-and-artist-stories/paris-hilton-adhd-awareness-interview/",
+      "title": "Paris Hilton talks vulnerability, privilege and creativity for ADHD Awareness Month",
+      "published": "Tue, 10 Nov 2026 19:00:00 +0000"
+    },
+    {
+      "id": "/news-and-events/youtube-billboard-chart-update/",
+      "url": "https://blog.youtube/news-and-events/youtube-billboard-chart-update/",
+      "title": "A change to YouTube’s inclusion on the U.S. Billboard charts",
+      "published": "Mon, 09 Nov 2026 16:00:00 +0000"
+    },
+    {
+      "id": "/news-and-events/new-accessibility-tags-youtube-playables/",
+      "url": "https://blog.youtube/news-and-events/new-accessibility-tags-youtube-playables/",
+      "title": "New accessibility tags come to YouTube Playables",
+      "published": "Mon, 02 Nov 2026 20:00:00 +0000"
+    },
+    {
+      "id": "/creator-and-artist-stories/sonny-side-youtube-emmy-nomination-interview/",
+      "url": "https://blog.youtube/creator-and-artist-stories/sonny-side-youtube-emmy-nomination-interview/",
+      "title": "“Kind of Big News”: How Sonny Side earned Best Ever Food Review Show an Emmy nom",
+      "published": "Wed, 28 Oct 2026 19:00:00 +0000"
+    },
+    {
+      "id": "/creator-and-artist-stories/media-companies-youtube-growth-strategies/",
+      "url": "https://blog.youtube/creator-and-artist-stories/media-companies-youtube-growth-strategies/",
+      "title": "5 ways media companies are growing audiences and revenue on YouTube",
+      "published": "Wed, 28 Oct 2026 11:00:00 +0000"
+    },
+    {
+      "id": "/creator-and-artist-stories/lilly-singh-superwoman-youtube-return/",
+      "url": "https://blog.youtube/creator-and-artist-stories/lilly-singh-superwoman-youtube-return/",
+      "title": "Why Lilly Singh is returning to sketch comedy on YouTube",
+      "published": "Thu, 15 Oct 2026 18:00:00 +0000"
+    },
+    {
+      "id": "/news-and-events/europe-creator-consultation-creative-capital-report/",
+      "url": "https://blog.youtube/news-and-events/europe-creator-consultation-creative-capital-report/",
+      "title": "What 20,000 creators told us about unleashing Europe’s potential",
+      "published": "Mon, 12 Oct 2026 07:00:00 +0000"
+    },
+    {
+      "id": "/inside-youtube/youtube-news-working-group-tools-future/",
+      "url": "https://blog.youtube/inside-youtube/youtube-news-working-group-tools-future/",
+      "title": "3 ways YouTube is helping news organizations build for the future",
+      "published": "Thu, 01 Oct 2026 14:00:00 +0000"
+    },
+    {
+      "id": "/inside-youtube/behind-scenes-make-it-made-on-youtube-2026/",
+      "url": "https://blog.youtube/inside-youtube/behind-scenes-make-it-made-on-youtube-2026/",
+      "title": "We go behind the scenes at Made On YouTube 2026",
+      "published": "Tue, 29 Sep 2026 19:00:00 +0000"
+    },
+    {
+      "id": "/creator-and-artist-stories/mark-rober-class-crunchlabs-schools/",
+      "url": "https://blog.youtube/creator-and-artist-stories/mark-rober-class-crunchlabs-schools/",
+      "title": "Mark Rober’s mission to support science classrooms",
+      "published": "Tue, 29 Sep 2026 13:00:00 +0000"
+    }
+  ],
+  "tasks": {},
+  "processed": {}
+}
