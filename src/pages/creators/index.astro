@@ -1,0 +1,39 @@
+---
+import StudioLayout from '../../ui/StudioLayout.astro';
+import { creatorGuides, handbook } from '../../lib/creator-guides';
+import '../../styles/creator-guides.css';
+
+const sections = [
+  { key: '准备', title: '开始前判断', id: 'before' },
+  { key: '改编', title: '本地化拆解', id: 'adapt' },
+  { key: '复盘', title: '试运营复盘', id: 'experiments' },
+].map(section => ({ ...section, guides: creatorGuides.filter(guide => guide.section === section.key) }))
+  .filter(section => section.guides.length);
+---
+<StudioLayout title={handbook.title} description={handbook.answer}>
+  <section class="creator-wrap guide-hub-hero" aria-labelledby="handbook-title">
+    <div>
+      <h1 id="handbook-title">创作者<span>出海手册</span></h1>
+      <p class="guide-deck answer-summary">{handbook.answer}</p>
+      <div class="creator-actions">
+        <a class="creator-button creator-primary" href="/creators/readiness/">先做出海自查</a>
+        <a class="creator-text-link" href="#adapt">看一次完整改编</a>
+      </div>
+    </div>
+    <figure class="guide-hub-image">
+      <img src="/media/xiaoyingjiang-creator.webp" srcset="/media/xiaoyingjiang-creator-mobile.webp 768w, /media/xiaoyingjiang-creator.webp 1440w" sizes="(max-width: 760px) 90vw, 46vw" width="1440" height="960" alt="麦克风和绘制知识视频分镜的数位屏" />
+    </figure>
+  </section>
+
+  <div class="creator-wrap guide-hub-library">
+    {sections.map(section => <section class="guide-shelf" id={section.id} aria-labelledby={`${section.id}-title`}>
+      <h2 id={`${section.id}-title`}>{section.title}</h2>
+      <div class="guide-entries">
+        {section.guides.map(guide => <article class="guide-entry">
+          <h3><a href={guide.route}>{guide.title}</a></h3>
+          <p>{guide.answer}</p>
+        </article>)}
+      </div>
+    </section>)}
+  </div>
+</StudioLayout>

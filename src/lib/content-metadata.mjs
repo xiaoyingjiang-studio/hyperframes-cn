@@ -17,7 +17,7 @@ export function applicability(value, sourceVersion) {
 
 export function readingTrail(page, knowledge) {
   if (page.id === 'home') return [];
-  if (page.id === 'knowledge') return [{ name: '首页', route: '/' }, { name: page.title, route: page.route }];
+  if (page.id === 'knowledge') return [{ name: 'HyperFrames 中文指南', route: '/hyperframes/' }, { name: page.title, route: page.route }];
   const entity = knowledge.entities.find(entity => entity.articleId === page.id);
   const section = knowledge.sections.find(section => section.id === entity?.section);
   const overview = knowledge.entities.find(entity => entity.type === 'directory' && entity.section === section?.id);

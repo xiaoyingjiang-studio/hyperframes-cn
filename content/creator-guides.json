@@ -1,0 +1,28 @@
+[
+  {
+    "slug": "readiness",
+    "section": "准备",
+    "next": ["mandarin-video-localization", "subtitles-or-dubbing"],
+    "reviewedAt": "2026-11-28",
+    "sources": [
+      { "label": "YouTube 频道创收政策", "url": "https://support.google.com/youtube/answer/1311392?hl=en" }
+    ]
+  },
+  {
+    "slug": "mandarin-video-localization",
+    "section": "改编",
+    "next": ["subtitles-or-dubbing", "readiness"],
+    "sources": []
+  },
+  {
+    "slug": "subtitles-or-dubbing",
+    "section": "改编",
+    "next": ["mandarin-video-localization", "readiness"],
+    "reviewedAt": "2026-11-28",
+    "sources": [
+      { "label": "YouTube 字幕设置", "url": "https://support.google.com/youtube/answer/2734796?hl=en" },
+      { "label": "YouTube 自动配音", "url": "https://support.google.com/youtube/answer/15569972?hl=en" },
+      { "label": "YouTube 多语种音轨", "url": "https://support.google.com/youtube/answer/13338784?hl=en" }
+    ]
+  }
+]

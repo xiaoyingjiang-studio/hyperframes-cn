@@ -103,7 +103,7 @@ for (const page of manifest.pages) {
     )
       throw new Error("未审核的增强展示类型");
     if (
-      page.id !== "home" &&
+      page.route !== "/" &&
       !graph.some((n) => n["@type"] === "BreadcrumbList")
     )
       throw new Error("缺少面包屑");
@@ -195,7 +195,7 @@ for (const page of manifest.pages) {
   }
 }
 for (const page of manifest.pages)
-  if (page.id !== "home" && !incoming.get(page.route).size)
+  if (page.route !== "/" && !incoming.get(page.route).size)
     add("error", page.id, "orphan", "没有任何内部入口");
 const sitemap = load(await readFile(file("dist/sitemap.xml"), "utf8"), {
   xmlMode: true,

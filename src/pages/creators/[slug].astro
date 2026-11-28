@@ -1,0 +1,65 @@
+---
+import type { InferGetStaticPropsType, MarkdownInstance } from 'astro';
+import StudioLayout from '../../ui/StudioLayout.astro';
+import { creatorGuides } from '../../lib/creator-guides';
+import '../../styles/creator-guides.css';
+
+export function getStaticPaths() {
+  return creatorGuides.map(guide => ({ params: { slug: guide.slug }, props: { guide } }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { guide } = Astro.props;
+const files = import.meta.glob<MarkdownInstance<Record<string, never>>>('../../content/creators/*.md', { eager: true });
+const content = files[`../../content/creators/${guide.slug}.md`];
+if (!content) throw new Error(`缺少手册正文：${guide.slug}`);
+const { Content } = content;
+const headings = content.getHeadings().filter(heading => heading.depth === 2);
+const related = guide.next.map(slug => creatorGuides.find(item => item.slug === slug)!);
+---
+<StudioLayout title={`${guide.title}｜小影匠工作室`} description={guide.answer}>
+  <div class="creator-wrap guide-article-wrap">
+    <nav class="guide-breadcrumb" aria-label="面包屑">
+      <a href="/">首页</a><span aria-hidden="true">/</span><a href="/creators/">出海手册</a>
+    </nav>
+    <article class="guide-article">
+      <header class="guide-article-header">
+        <h1>{guide.title}</h1>
+        <p class="guide-deck answer-summary">{guide.answer}</p>
+        <p class="guide-byline">小影匠工作室</p>
+      </header>
+      <div class="guide-article-layout">
+        <aside class="guide-desktop-contents" data-pagefind-ignore>
+          <nav aria-label="本文目录">
+            <p>本文目录</p>
+            <ul>{headings.map(heading => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul>
+          </nav>
+        </aside>
+        <div>
+          <details class="guide-mobile-contents" data-pagefind-ignore>
+            <summary>本文目录</summary>
+            <ul>{headings.map(heading => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul>
+          </details>
+          <div class="guide-prose"><Content /></div>
+
+          {guide.sources.length > 0 && <section class="guide-sources source-meta" aria-labelledby="sources">
+            <h2 id="sources">资料来源</h2>
+            {guide.reviewedAt && <p>核对日期 <time datetime={guide.reviewedAt}>{guide.reviewedAt}</time></p>}
+            <ul>{guide.sources.map(source => <li><a href={source.url}>{source.label}</a></li>)}</ul>
+          </section>}
+
+          <section class="guide-article-contact" aria-labelledby="guide-contact-title">
+            <h2 id="guide-contact-title">拿自己的作品试一遍。</h2>
+            <p>选一条代表作，记下想给谁看，以及最难决定的一处改动。</p>
+            <a class="creator-button creator-primary" href="/#contact">带一条作品聊出海</a>
+          </section>
+
+          {related.length > 0 && <section class="guide-related" aria-labelledby="related-title">
+            <h2 id="related-title">延伸阅读</h2>
+            <ul>{related.map(item => <li><a href={item.route}>{item.title}</a></li>)}</ul>
+          </section>}
+        </div>
+      </div>
+    </article>
+  </div>
+</StudioLayout>

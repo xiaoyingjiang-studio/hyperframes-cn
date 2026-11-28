@@ -34,14 +34,16 @@ async function github(path, method, body) {
 let recovery = false;
 await deployWithRecovery({
   deploy: async () => {
-    execFileSync('pnpm', ['exec', 'wrangler', 'deploy', '--message', `knowledge:${sha}`], { stdio: 'inherit', env: process.env });
+    execFileSync('pnpm', ['exec', 'wrangler', 'deploy', '--message', `site:${sha}`], { stdio: 'inherit', env: process.env });
     const deployed = await cf('GET');
     const latest = (deployed.deployments || deployed)[0];
     await save('artifacts/release.json', { sha, previous, deployment: latest, changed: changed.map(p => p.id) });
     return latest;
   },
   smoke: async () => {
-    execFileSync(process.execPath, ['scripts/smoke.mjs', url], { stdio: 'inherit', env: { ...process.env, SMOKE_KNOWLEDGE: String(!recovery || previousManifest.schemaVersion >= 2) } });
+    const legacy = recovery && previousManifest.pages.some(page => page.route === '/start/cli/');
+    const handbook = !recovery || previousManifest.pages.some(page => page.route === '/creators/');
+    execFileSync(process.execPath, ['scripts/smoke.mjs', url], { stdio: 'inherit', env: { ...process.env, SMOKE_LEGACY: String(legacy), SMOKE_HANDBOOK: String(handbook) } });
     const manifest = await (await fetch(new URL('/content-manifest.json', url), { cache: 'no-store' })).json();
     if (!recovery) assertHead(sha, manifest.buildSha);
   },

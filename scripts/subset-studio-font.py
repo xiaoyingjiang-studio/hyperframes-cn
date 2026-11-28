@@ -15,13 +15,15 @@ args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 files = [
     "src/pages/index.astro",
-    "src/components/Header.astro",
-    "src/components/Footer.astro",
-    "src/lib/site.ts",
+    "src/pages/404.astro",
+    "src/ui/StudioLayout.astro",
+    "src/pages/creators/index.astro",
+    "src/pages/creators/[slug].astro",
 ]
 text = "".join((root / path).read_text(encoding="utf-8") for path in files)
-home = next(page for page in json.loads((root / "content/discovery.json").read_text(encoding="utf-8"))["pages"] if page["id"] == "home")
-text += json.dumps(home, ensure_ascii=False)
+intents = json.loads((root / "content/discovery.json").read_text(encoding="utf-8"))["pages"]
+text += json.dumps([page for page in intents if page["id"] == "studio-home" or page["id"].startswith("creator-")], ensure_ascii=False)
+text += (root / "content/creator-guides.json").read_text(encoding="utf-8")
 options = subset.Options()
 options.flavor = "woff2"
 options.recalc_timestamp = False
@@ -29,7 +31,7 @@ font = subset.load_font(str(args.source), options)
 subsetter = subset.Subsetter(options=options)
 subsetter.populate(unicodes=set(map(ord, text)) | set(range(32, 127)))
 subsetter.subset(font)
-output = root / "public/fonts/studio-sans.woff2"
+output = root / "public-studio/fonts/studio-sans.woff2"
 output.parent.mkdir(parents=True, exist_ok=True)
 subset.save_font(font, str(output), options)
 print(f"Studio font: {output.stat().st_size:,} bytes; variable weight axis preserved")

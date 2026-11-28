@@ -1,251 +1,170 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
-import { studioDownload } from '../lib/site';
 import discovery from '../../content/discovery.json';
-import pages from '../../content/pages.json';
-import registry from '../../content/sources.json';
-import '../styles/studio.css';
+import StudioLayout from '../ui/StudioLayout.astro';
 
-const introduction = discovery.pages.find(page => page.id === 'home')!;
-const studioGuide = pages.find(page => page.id === 'start-studio')!;
-const sourceLabels: Record<string, string> = {
-  'studio-app-index': 'Studio 介绍与安装',
-  'studio-app-first-video': '第一次创作',
-  'studio-app-export': '导出作品',
-};
-const sources = Object.entries(studioGuide.reviewedSources!).map(([id, source]) => ({
-  label: sourceLabels[id],
-  url: `https://github.com/${registry.repository}/blob/${source.commit}/${source.path}`,
-}));
-const filmCdn = 'https://static.heygen.ai/hyperframes-oss/homepage/showcase/hq';
-const films = [
-  { id: 'launch', file: 'cow-v1', title: 'Cow 1.0', category: '产品创意', duration: '30 秒', alt: 'Cow 1.0 官方作品中的奶牛与绿色光环', description: '把奶牛当作新产品发布的创意短片。官方 HyperFrames 作品，含英文内容。' },
-  { id: 'manga', file: 'manga-last-onigiri-v1', title: 'The last onigiri', category: '漫画叙事', duration: '26 秒', alt: '黑白漫画中的猫、鸟与最后一个饭团', description: '围绕最后一个饭团展开的黑白漫画短片。官方 HyperFrames 作品，含英文内容。' },
-  { id: '3d', file: 'remotion-to-hyperframes-v1', title: 'Remotion to HyperFrames', category: '三维动画', duration: '20 秒', alt: '玻璃展厅中的绿色体素角色', description: '以体素角色和三维空间讲述工具转换的短片。官方 HyperFrames 作品，含英文内容。' },
-  { id: 'trailer', file: 'frameys-opening-night-v1', title: 'Opening night', category: '预告短片', duration: '50 秒', alt: '绿色聚光灯中的 HyperFrames 标志', description: '以影院和颁奖礼为视觉主题的预告短片。官方 HyperFrames 作品，含英文内容。' },
-];
+const introduction = discovery.pages.find(page => page.id === 'studio-home');
+if (!introduction?.title) throw new Error('未登记工作室首页标题和摘要');
+const hero = '/media/xiaoyingjiang-creator.webp';
+const mobileHero = '/media/xiaoyingjiang-creator-mobile.webp';
+const heroSources = `${mobileHero} 768w, ${hero} 1440w`;
+const heroSizes = '(max-width: 760px) 100vw, (max-width: 1440px) 52vw, 710px';
+const heroAlt = '录音麦克风旁，一只手在数位屏上绘制解说分镜';
+const wechat = import.meta.env.PUBLIC_STUDIO_WECHAT_ID?.trim();
+const contactInput = import.meta.env.PUBLIC_STUDIO_CONTACT_URL?.trim();
+const contactUrl = contactInput ? new URL(contactInput) : undefined;
+if (contactUrl && (!['https:', 'mailto:'].includes(contactUrl.protocol) || contactUrl.username || contactUrl.password || (contactUrl.protocol === 'mailto:' && (!contactUrl.pathname.includes('@') || contactUrl.search || contactUrl.hash)))) {
+  throw new Error('PUBLIC_STUDIO_CONTACT_URL 必须是公开的 HTTPS 链接或 mailto 邮箱地址');
+}
+const brief = '你好，我想和小影匠聊聊出海合作。\n\n代表作链接：\n我平时做的内容：\n我想先尝试的方向：';
+const emailLink = contactUrl?.protocol === 'mailto:'
+  ? `${contactUrl.href}?subject=${encodeURIComponent('原创内容出海合作')}&body=${encodeURIComponent(brief)}`
+  : undefined;
 const steps = [
-  { id: 'describe', number: '01', title: '描述想法', text: '带上文案与素材，告诉 AI 你想做什么。', image: 'studio-first-video', width: 1280, height: 800, alt: 'Studio 首页真实界面：创作需求输入区与灵感作品', source: 'first-video' },
-  { id: 'refine', number: '02', title: '预览修改', text: '圈出画面，说出修改，让细节更接近你的想法。', image: 'studio-draw', width: 1600, height: 1000, alt: 'Studio 官方绘制修改演示：在咖啡产品画面上圈出需要修改的对象', source: 'edit-with-the-agent' },
-  { id: 'export', number: '03', title: '导出作品', text: '确认画面与节奏，把作品带给观众。', image: 'studio-export', width: 1600, height: 1000, alt: 'Studio 官方导出界面：视频预览与导出设置', source: 'export' },
+  { title: '你提供作品', description: '发一条代表作。方向和首版由你确认，之后按自己的节奏继续创作。' },
+  { title: '我们负责试运营', description: '先约定给谁看、在哪发、试多久。小影匠按约定完成脚本改编、剪辑、字幕或配音和发布。' },
+  { title: '一起决定下一步', description: '试完一起看成片、发布记录和观众反馈，再决定继续做、换个方向，还是先暂停。' },
+];
+const review = [
+  { title: '改了什么', description: '选了哪条作品、改了哪些地方、发布了哪个版本。' },
+  { title: '观众怎么看', description: '从曝光、点击和开头留存找线索，标出反馈还不够的地方。' },
+  { title: '下一条怎么做', description: '给出继续、调整或暂停的建议，以及这个判断的依据。' },
+];
+const questions = [
+  { title: '可以保留原来的创作方式吗？', answer: '可以从已有的旁白、图解、动画或录屏开始。哪些部分保留，哪些需要调整字幕、脚本或配音，我们会根据目标观众和你一起确认。' },
+  { title: '账号、素材和收益怎么约定？', answer: '开始前一起写清账号持有与管理权限、素材和成片的使用范围、数据如何查看。若涉及费用或收益分账，同时明确口径与结算时间。' },
+  { title: '试过之后发现方向不合适怎么办？', answer: '试运营的时长和范围提前约定。复盘后可以决定暂停，合作前会把内容与数据如何交接、权限如何撤回写清楚。' },
 ];
 ---
-<SiteLayout studioHome title={introduction.title} description={introduction.answer}>
-  <link slot="head" rel="preload" as="image" href="/media/studio-storyboard.jpg" />
-  <link slot="head" rel="preload" as="font" type="font/woff2" href="/fonts/studio-sans.woff2" crossorigin />
-
-  <section class="studio-hero wrap" aria-labelledby="studio-title">
-    <div class="studio-hero-copy">
-    <p class="studio-product">HyperFrames <span>Studio</span></p>
-    <h1 id="studio-title"><span class="studio-title-line"><span class="studio-title-fragment">把想法做成视频，</span></span><span class="studio-title-line"><span class="studio-title-fragment studio-title-accent">把细节改到<span class="studio-title-finish">满意</span>。</span></span></h1>
-    <p class="studio-lead">用自然语言与 AI 一起创作，<br />在预览中，把每一处细节慢慢做好。</p>
-    <div class="studio-actions">
-      <a class="button primary" href={studioDownload}>下载 Studio <span aria-hidden="true">↗</span></a>
-      <a class="button secondary" href="#works">查看作品 <span aria-hidden="true">↓</span></a>
-    </div>
-    <p class="studio-download-note"><a href="/start/studio/">中文安装与上手指南</a> <span aria-hidden="true">↗</span></p>
+<StudioLayout title={introduction.title} description={introduction.answer}>
+  <section class="creator-wrap creator-hero" aria-labelledby="hero-title">
+    <div class="creator-hero-copy">
+      <p class="creator-kicker"><span aria-hidden="true"></span>中国创作者的出海伙伴</p>
+      <h1 id="hero-title"><span>你专心创作，</span><span>我们负责</span><span>海外运营。</span></h1>
+      <p class="answer-summary creator-intro">{introduction.answer}</p>
+      <div class="creator-actions">
+        <a class="creator-button creator-primary" href="#contact">带一条作品聊出海</a>
+        <a class="creator-text-link" href="#adaptation">看内容怎么改编</a>
+      </div>
     </div>
 
-    <figure class="studio-showreel">
-      <div class="studio-film-heading"><span><span class="studio-live-dot" aria-hidden="true"></span> 从想法，到看得见的作品</span><span>STUDIO IN ACTION</span></div>
-      <button class="studio-play" type="button" data-studio-play hidden aria-label="播放 Studio 官方创作演示" aria-controls="studio-preview">
-        <img src="/media/studio-storyboard.jpg" alt="HeyGen 官方录屏画面：Studio 中的创作对话与面包广告分镜预览" width="1280" height="800" fetchpriority="high" />
-        <span class="studio-play-label"><span aria-hidden="true">▶</span> 看 Studio 如何创作 <span>55 秒</span></span>
-      </button>
-      <video id="studio-preview" controls preload="none" playsinline tabindex="0" poster="/media/studio-first-video.jpg" aria-label="Studio 官方创作演示播放器" aria-describedby="studio-preview-caption studio-demo-description">
-        <source src="/media/studio-first-video.mp4" type="video/mp4" />
-        你的浏览器无法播放此视频。<a href="/media/studio-first-video.mp4">打开视频文件</a>。
-      </video>
-      <p class="studio-player-status" role="status"></p>
-      <figcaption id="studio-preview-caption"><span>HeyGen 官方录屏 · 无旁白 · 等待过程已加速</span><a href="https://hyperframes.heygen.com/studio-app/first-video">来源 <span aria-hidden="true">↗</span></a></figcaption>
-      <details class="studio-demo-description"><summary>阅读演示内容</summary><p id="studio-demo-description">演示依次展示：在 Studio 首页输入需求、回答 AI 的澄清问题、确认分镜，并在预览中查看成片。该录屏使用 Claude Code；等待过程经过加速，不代表实际生成耗时。界面与视频来自 HeyGen 官方文档，并非本站操作实测。</p><a href="/start/studio/">阅读中文上手指南</a> · <a href="/media/studio-official-notice.txt">素材来源与归属</a></details>
+    <figure class="creator-hero-art">
+      <div class="creator-viewfinder">
+        <picture>
+          <source media="(max-width: 540px)" srcset={mobileHero} />
+          <img src={hero} srcset={heroSources} sizes={heroSizes} alt={heroAlt} width="1440" height="960" fetchpriority="high" />
+        </picture>
+        <div class="creator-viewfinder-marks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
     </figure>
   </section>
 
-  <section id="works" class="wrap studio-section studio-works" aria-labelledby="works-title">
-    <div class="studio-section-heading">
-      <div><p class="studio-kicker">MADE WITH HYPERFRAMES / 灵感选集</p><h2 id="works-title">想法不止一种模样。</h2></div>
-      <a class="studio-text-link" href="/showcase/">中文原创案例 <span aria-hidden="true">↗</span></a>
-    </div>
-    <div class="studio-work-grid">
-      {films.map(film => <a class={`studio-work studio-work-${film.id}`} href={`${filmCdn}/${film.file}.mp4`} data-film-title={film.title} data-film-description={film.description} aria-label={`播放 ${film.title} · ${film.category}`}>
-        <div class="studio-poster"><img src={`/media/studio-film-${film.id}.jpg`} alt={film.alt} width="1280" height="720" loading="lazy" /><span class="studio-work-play" aria-hidden="true">↗</span><span class="studio-duration">{film.duration}</span></div>
-        <div class="studio-work-label"><h3>{film.title}</h3><span>{film.category}</span></div>
-      </a>)}
-    </div>
-    <p class="studio-example-note">官方 HyperFrames 作品，非本站 Studio 实操记录。<a href={`https://github.com/${registry.repository}/blob/dcdb181896f133cb36b0ba899999361fe4da325e/docs/snippets/docs-video.jsx`}>选集来源</a> · <a href="/media/studio-official-notice.txt">素材归属</a></p>
-  </section>
-
-  <section id="workflow" class="studio-workflow" aria-labelledby="workflow-title">
-    <div class="wrap studio-section">
-      <div class="studio-section-heading"><div><p class="studio-kicker">YOUR CREATIVE SPACE / 你的创作空间</p><h2 id="workflow-title">从第一句话，到最后一帧。</h2></div><a class="studio-text-link" href="/start/studio/">开始第一支视频 <span aria-hidden="true">↗</span></a></div>
-      <div class="studio-walkthrough">
-        <div class="studio-step-tabs" aria-label="Studio 创作步骤" hidden>
-          {steps.map(step => <button type="button" id={`tab-${step.id}`} data-step={step.id}><span>{step.number}</span>{step.title}</button>)}
-        </div>
-        <div class="studio-step-panels">
-          {steps.map(step => <figure id={`panel-${step.id}`} class="studio-step-panel" data-panel={step.id}>
-            <div class={`studio-step-image studio-step-image-${step.id}`}><img src={`/media/${step.image}.jpg`} alt={step.alt} width={step.width} height={step.height} loading="lazy" /></div>
-            <figcaption><div><h3>{step.number} / {step.title}</h3><p>{step.text}</p></div><a href={`https://hyperframes.heygen.com/studio-app/${step.source}`}>官方界面 <span aria-hidden="true">↗</span></a></figcaption>
-          </figure>)}
-        </div>
+  <section class="creator-example" id="adaptation" aria-labelledby="example-title">
+    <div class="creator-wrap creator-example-inner">
+      <div class="creator-section-heading">
+        <div><p class="creator-kicker">改编示例</p><h2 id="example-title">同一条作品，<br />给新观众一个好开头。</h2></div>
+        <p>如果英语观众第一次刷到你的复利解说，什么会让他们想看下去？我们会保留原来的解释，用一个问题和一组数字带他们入题。</p>
+      </div>
+      <div class="creator-comparison">
+        <figure>
+          <div class="creator-demo creator-original"><p>一张图看懂<br />什么是<span>复利</span></p><div class="creator-coin" aria-hidden="true"></div></div>
+          <figcaption><strong>中文原版开场</strong><span>直接点题，适合已经想了解「复利」的观众。</span></figcaption>
+        </figure>
+        <figure>
+          <div class="creator-demo creator-adapted" lang="en">
+            <p>What if your<br />interest earned<br /><em>interest?</em></p>
+            <div class="creator-stacks" aria-hidden="true">
+              <span><i></i>100</span><span><i></i>110</span><span><i></i>121</span>
+            </div>
+          </div>
+          <figcaption><strong>英语版开场</strong><span>先问「如果利息也能生利息呢？」用 100、110、121 解释为什么同样按 10% 计算，第二次多了 1。</span></figcaption>
+        </figure>
+      </div>
+      <div class="creator-example-foot">
+        <p class="creator-example-note">工作室自制分镜示例</p>
+        <a class="creator-text-link" href="/creators/mandarin-video-localization/">读完整改编拆解</a>
       </div>
     </div>
   </section>
 
-  <section class="wrap studio-download-section" aria-labelledby="download-title">
-    <div class="studio-download-copy"><p class="studio-kicker">MAKE SOMETHING YOURS</p><h2 id="download-title">下一支作品，<br />从 Studio 开始。</h2><div class="studio-actions"><a class="button primary" href={studioDownload}>下载 Studio <span aria-hidden="true">↗</span></a><a class="studio-text-link" href="/start/studio/">中文安装与上手 <span aria-hidden="true">↗</span></a></div></div>
-    <div class="studio-download-art" aria-hidden="true"><img src="/media/studio-film-manga.jpg" alt="" width="1280" height="720" loading="lazy" /><img src="/media/studio-film-3d.jpg" alt="" width="1280" height="720" loading="lazy" /></div>
+  <section class="creator-wrap creator-cooperate" id="cooperate" aria-labelledby="cooperate-title">
+    <div class="creator-section-heading">
+      <div><p class="creator-kicker">合作方式</p><h2 id="cooperate-title">先试一轮，<br />再决定要不要继续。</h2></div>
+      <p>一次先选一类观众、一个平台。你把时间留给创作，我们把约定的海外运营做完，再和你一起看结果。</p>
+    </div>
+    <ol class="creator-steps">
+      {steps.map(step => <li><h3>{step.title}</h3><p>{step.description}</p></li>)}
+    </ol>
+    <div class="creator-review">
+      <h3>试完能看到什么？</h3>
+      <dl>
+        {review.map(item => <div><dt>{item.title}</dt><dd>{item.description}</dd></div>)}
+      </dl>
+    </div>
+    <div class="creator-questions">
+      <h3>合作前，先说清楚。</h3>
+      <div class="creator-accordion">
+        {questions.map(question => <details><summary>{question.title}</summary><p>{question.answer}</p></details>)}
+      </div>
+    </div>
   </section>
 
-  <dialog id="studio-film" aria-labelledby="studio-film-title" aria-describedby="studio-film-description">
-    <div class="studio-film-dialog-heading"><h2 id="studio-film-title"></h2><button type="button" data-film-close aria-label="关闭作品">关闭 <span aria-hidden="true">×</span></button></div>
-    <video controls preload="none" playsinline aria-label="官方作品播放器"></video>
-    <p id="studio-film-description"></p><a class="studio-film-fallback" href="https://hyperframes.heygen.com/examples">打开官方作品</a>
-    <p class="studio-film-status" role="status"></p>
-  </dialog>
-
-  <section class="wrap studio-context answer-summary" aria-label="产品与来源说明">
-    <h2>{introduction.question}</h2><p>{introduction.answer}</p>
-    <div class="source-meta">{sources.map(source => <a href={source.url}>{source.label}</a>)}</div>
-    <div class="studio-context-links"><a href="/overview/what-is-hyperframes/">了解产品与框架</a><a href="/overview/choose-your-path/">Agent 与 CLI 等进阶使用方式</a></div>
+  <section class="creator-wrap creator-readiness" id="readiness" aria-labelledby="readiness-title">
+    <div>
+      <h2 id="readiness-title">已经在做自己的栏目？</h2>
+      <p>如果你在持续做旁白解说、手绘图解、动画或录屏，有一条可以授权的代表作，就可以拿它来聊。已经发过海外版的话，也可以带那条来，一起看看哪里值得接着试。</p>
+    </div>
+    <a class="creator-text-link" href="/creators/readiness/">看看你的作品适不适合</a>
   </section>
-</SiteLayout>
+
+  <section class="creator-wrap creator-contact-wrap" id="contact" aria-labelledby="contact-title">
+    <div class="creator-contact">
+      <div>
+        <p class="creator-kicker">聊聊合作</p>
+        <h2 id="contact-title">发一条<br />你的代表作。</h2>
+        <p>我们先看这条作品哪里值得保留、适合给谁看，以及第一版可以怎么改。</p>
+      </div>
+      <div class="creator-brief">
+        <h3>发什么给我们</h3>
+        <p class="creator-brief-instructions">一条可访问的代表作链接就可以开始。如果你已经有想尝试的方向，也可以一起告诉我们。</p>
+        {wechat ? (
+          <div class="creator-wechat" data-pagefind-ignore>
+            <p>微信号 <strong>{wechat}</strong></p>
+            <button type="button" class="creator-button creator-primary" data-copy-text={wechat} data-copy-success="已复制微信号。添加时可以备注「出海合作」。" hidden>复制微信号</button>
+          </div>
+        ) : contactUrl ? (
+          <a class="creator-button creator-primary" href={emailLink || contactUrl.href}>{emailLink ? '邮件联系小影匠' : '联系小影匠'}</a>
+        ) : <>
+          <p class="creator-contact-note">联系方式稍后更新。现在可以先保存合作模板。</p>
+          <noscript><textarea readonly class="creator-copy-fallback" aria-label="合作模板">{brief}</textarea></noscript>
+        </>}
+        {(!emailLink || wechat) && <button type="button" class="creator-button creator-copy" data-copy-text={brief} data-copy-success="已复制合作模板。" hidden data-pagefind-ignore>复制合作模板</button>}
+        <p class="creator-copy-status" role="status" data-copy-status data-pagefind-ignore></p>
+        <textarea readonly hidden class="creator-copy-fallback" data-copy-fallback aria-label="待复制内容" data-pagefind-ignore></textarea>
+      </div>
+    </div>
+  </section>
+</StudioLayout>
 
 <script>
-  const trigger = document.querySelector<HTMLButtonElement>('[data-studio-play]');
-  const player = document.querySelector<HTMLVideoElement>('#studio-preview');
-  const status = document.querySelector<HTMLParagraphElement>('.studio-player-status');
-  if (trigger && player) {
-    // Without JavaScript, the native player remains available.
-    player.hidden = true;
-    trigger.hidden = false;
-    trigger.addEventListener('click', async () => {
-      trigger.hidden = true;
-      player.hidden = false;
-      player.focus();
-      try { await player.play(); }
-      catch { if (status) status.textContent = '未能开始播放，请使用播放器重试，或前往官方演示页面观看。'; }
-    });
-  }
-
-  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-  const tabList = document.querySelector<HTMLElement>('.studio-step-tabs');
-  const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-step]')];
-  const panels = [...document.querySelectorAll<HTMLElement>('[data-panel]')];
-  if (tabList && tabs.length === panels.length && tabs.length > 0) {
-    tabList.hidden = false;
-    tabList.setAttribute('role', 'tablist');
-    document.querySelector('.studio-step-panels')?.classList.add('is-enhanced');
-    const selectStep = (index: number, focus = false, animate = true) => {
-      tabs.forEach((tab, position) => {
-        const selected = index === position;
-        tab.setAttribute('aria-selected', String(selected));
-        tab.tabIndex = selected ? 0 : -1;
-        panels[position].hidden = !selected;
+  const copyStatus = document.querySelector<HTMLParagraphElement>('[data-copy-status]');
+  const fallback = document.querySelector<HTMLTextAreaElement>('[data-copy-fallback]');
+  if (copyStatus && fallback) {
+    for (const button of document.querySelectorAll<HTMLButtonElement>('[data-copy-text]')) {
+      button.hidden = false;
+      button.addEventListener('click', async () => {
+        const text = button.dataset.copyText ?? '';
+        try {
+          await navigator.clipboard.writeText(text);
+          copyStatus.textContent = button.dataset.copySuccess ?? '已复制。';
+          fallback.hidden = true;
+        } catch {
+          fallback.value = text;
+          fallback.hidden = false;
+          fallback.focus();
+          fallback.select();
+          copyStatus.textContent = '可以手动复制下方内容。';
+        }
       });
-      if (focus) tabs[index].focus();
-      if (animate && !motionPreference.matches) panels[index].animate([
-        { opacity: 0.5, transform: 'translateY(8px)' },
-        { opacity: 1, transform: 'translateY(0)' },
-      ], { duration: 400, easing: 'cubic-bezier(.22,1,.36,1)' });
-    };
-    tabs.forEach((tab, index) => {
-      tab.setAttribute('role', 'tab');
-      tab.setAttribute('aria-controls', panels[index].id);
-      panels[index].setAttribute('role', 'tabpanel');
-      panels[index].setAttribute('aria-labelledby', tab.id);
-      panels[index].tabIndex = 0;
-      tab.addEventListener('click', () => selectStep(index));
-      tab.addEventListener('keydown', event => {
-        const next = event.key === 'ArrowRight' ? (index + 1) % tabs.length
-          : event.key === 'ArrowLeft' ? (index + tabs.length - 1) % tabs.length
-          : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : null;
-        if (next === null) return;
-        event.preventDefault();
-        selectStep(next, true);
-      });
-    });
-    selectStep(1, false, false);
-  }
-
-  const filmDialog = document.querySelector<HTMLDialogElement>('#studio-film');
-  const filmPlayer = filmDialog?.querySelector<HTMLVideoElement>('video');
-  const filmTitle = document.querySelector<HTMLElement>('#studio-film-title');
-  const filmDescription = document.querySelector<HTMLElement>('#studio-film-description');
-  const filmFallback = filmDialog?.querySelector<HTMLAnchorElement>('.studio-film-fallback');
-  const filmStatus = filmDialog?.querySelector<HTMLElement>('.studio-film-status');
-  let filmOpener: HTMLAnchorElement | null = null;
-  if (filmDialog && filmPlayer && filmTitle && filmDescription && filmFallback) {
-    document.querySelectorAll<HTMLAnchorElement>('.studio-work').forEach(link => {
-      link.addEventListener('click', async event => {
-        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !filmDialog.showModal) return;
-        event.preventDefault();
-        filmOpener = link;
-        player?.pause();
-        filmTitle.textContent = link.dataset.filmTitle ?? '';
-        filmDescription.textContent = link.dataset.filmDescription ?? '';
-        filmFallback.href = link.href;
-        if (filmStatus) filmStatus.textContent = '';
-        filmPlayer.poster = link.querySelector('img')?.src ?? '';
-        filmPlayer.src = link.href;
-        filmDialog.showModal();
-        try { await filmPlayer.play(); }
-        catch { if (filmDialog.open && filmStatus) filmStatus.textContent = '请使用播放器重试，或打开官方作品。'; }
-      });
-    });
-    filmDialog.querySelector('[data-film-close]')?.addEventListener('click', () => filmDialog.close());
-    filmDialog.addEventListener('click', event => {
-      const rect = filmDialog.getBoundingClientRect();
-      if (event.target === filmDialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) filmDialog.close();
-    });
-    filmDialog.addEventListener('close', () => {
-      filmPlayer.pause();
-      filmPlayer.removeAttribute('src');
-      filmPlayer.load();
-      filmOpener?.focus({ preventScroll: true });
-    });
-  }
-
-  const revealTargets = document.querySelectorAll<HTMLElement>('.studio-section-heading, .studio-work, .studio-walkthrough, .studio-download-copy');
-  const revealObserver = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      revealObserver.unobserve(entry.target);
-      if (motionPreference.matches) continue;
-      entry.target.animate([
-        { opacity: 0.35, transform: 'translateY(20px)' },
-        { opacity: 1, transform: 'translateY(0)' },
-      ], { duration: 700, easing: 'cubic-bezier(.22,1,.36,1)' });
     }
-  }, { threshold: 0.12 });
-  revealTargets.forEach(target => revealObserver.observe(target));
-
-  let tiltFrame = 0;
-  trigger?.addEventListener('pointermove', event => {
-    if (motionPreference.matches || !finePointer.matches) return;
-    cancelAnimationFrame(tiltFrame);
-    tiltFrame = requestAnimationFrame(() => {
-      const bounds = trigger.getBoundingClientRect();
-      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-      trigger.style.setProperty('--preview-x', `${-y * 2.4}deg`);
-      trigger.style.setProperty('--preview-y', `${x * 2.4}deg`);
-    });
-  });
-  const resetTilt = () => {
-    cancelAnimationFrame(tiltFrame);
-    trigger?.style.removeProperty('--preview-x');
-    trigger?.style.removeProperty('--preview-y');
-  };
-  trigger?.addEventListener('pointerleave', resetTilt);
-  trigger?.addEventListener('blur', resetTilt);
-  motionPreference.addEventListener('change', () => {
-    if (!motionPreference.matches) return;
-    resetTilt();
-    document.querySelectorAll('.studio-home main, .studio-home .site-header').forEach(element => {
-      element.getAnimations({ subtree: true }).forEach(animation => animation.cancel());
-    });
-  });
+  }
 </script>

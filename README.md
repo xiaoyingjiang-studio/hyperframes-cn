@@ -1,8 +1,18 @@
-# HyperFrames 中文指南
+# 小影匠工作室官网
+
+小影匠与中国创作者合作，把已有的原创内容带给海外观众。新版官网使用 Astro 静态构建，开发用 `pnpm dev`，验收用 `pnpm check`、`pnpm test`、`pnpm build`、`pnpm test:indexing`、`pnpm test:e2e`。公开素材位于 `public-studio/`。联系人可通过公开变量 `PUBLIC_STUDIO_WECHAT_ID` 显示在合作区，具体设置见 [官网规格](docs/STUDIO-SITE-COPY.md)。
+
+当前方向与维护入口见 [项目记忆](docs/PROJECT-MEMORY.md)、[创作者出海手册策划](docs/STUDIO-EDITORIAL.md) 和 [SEO/GEO 手册](docs/SEO-GEO.md)。
+
+## HyperFrames 中文指南历史说明
+
+以下保留原指南项目的介绍与维护记录。旧指南及工作流已退出新版官网，仓库保留历史文件。以下原指南专用命令与路径适用于旧代码版本。
 
 后续维护先读 [项目记忆与工作入口](docs/PROJECT-MEMORY.md)，了解产品定位、已确认约束、实现位置与后续规划；阶段进度和验证边界记录在 [工作记录](docs/WORKLOG.md)。SEO、内容审核与部署的详细规则仍由各自手册维护。
 
 面向中国创作者的独立社区网站：首页展示 HyperFrames Studio、真实作品与官方下载入口，中文指南承接安装、上手和进阶实践，并提供四个原创框架视频案例与随官方更新的内容维护工具。
+
+SEO、GEO 是项目第一优先级的长期基础，覆盖 Google、百度、Bing、其他相关搜索引擎及 AI 联网搜索与引用，贯穿选题、内容、界面与发布。各平台接入、提交、抓取、索引及引用分别依据真实证据验收；执行规则与待办见 [SEO/GEO 手册](docs/SEO-GEO.md)。
 
 HyperFrames 由 HeyGen 开发。本站为独立社区项目，官方来源为 https://github.com/heygen-com/hyperframes 。
 

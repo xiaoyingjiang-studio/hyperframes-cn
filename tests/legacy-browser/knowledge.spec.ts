@@ -37,7 +37,7 @@ test('机制与技能分别标注入口、来源与实测边界', async ({ page,
   await expect(page.locator('.source-meta')).toContainText('CLI / Agent');
   await expect(page.locator('.source-meta')).not.toContainText('cli-agent');
   await page.screenshot({ path: `artifacts/qa/capability-${info.project.name}.png`, fullPage: true });
-  await page.goto('/');
+  await page.goto('/hyperframes/');
   await page.getByRole('button', { name: '搜索网站' }).click();
   await page.getByRole('searchbox').fill('4K');
   await expect(page.locator('#search-results a[href*="/capabilities/4k-rendering/"]').first()).toBeVisible();
